@@ -1,0 +1,54 @@
+#Display errors in PHP
+#php_flag display_errors on
+#php_value error_reporting 2047
+php_value date.timezone 'Europe/Kiev'
+
+#Set the encoding
+AddDefaultCharset utf-8
+
+#Register globals off
+<IfModule mod_php4.c> 
+    php_flag register_globals Off
+</IfModule>
+<IfModule mod_php5.c> 
+    php_flag allow_url_include Off
+    php_flag register_globals Off
+</IfModule>
+
+#Display error in directories when file index.php is not found
+DirectoryIndex index.php
+Options -Indexes
+
+#Establish a ban on access to the file require.php
+<Files require.php>
+	Order allow,deny
+	Deny from all
+</Files>
+
+#Redirect when errors codes
+ErrorDocument 401 /adminpanel/index.php?error=401&
+ErrorDocument 403 /adminpanel/index.php?error=403&
+ErrorDocument 404 /adminpanel/index.php?error=404&
+ErrorDocument 500 /adminpanel/index.php?error=500&
+
+#Redirect for all internet scaners and viruses
+redirect /_vti_bin http://www.microsoft.com
+redirect /scripts http://www.microsoft.com
+redirect /MSADC http://www.microsoft.com
+redirect /c http://www.microsoft.com
+redirect /d http://www.microsoft.com
+redirect /_mem_bin http://www.microsoft.com
+redirect /msadc http://www.microsoft.com
+RedirectMatch (.*)\cmd.exe$ http://www.microsoft.com$1
+
+#Forbid execution of files
+#<Files ~ ".(sql|txt|ini|log|ico)$">
+#	Order allow,deny
+#	Deny from all
+#</Files>
+
+#Особенностью при использовании MVC в PHP, является то, что существует одна точка входа в php приложение, которая, например, достигается следующим образом. Создается index.php через который будут обрабатываться все запросы, для этого создаем в папке с индексом файл .htaccess и помещаем в него такой код:
+#RewriteEngine on
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^(.*)$ index.php?route=$1 [L,QSA]

@@ -1,0 +1,1 @@
+<span class="bold_text"> @pageRight@ </span>

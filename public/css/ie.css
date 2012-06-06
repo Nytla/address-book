@@ -1,0 +1,13 @@
+html {
+	font-size		: 101%;
+}
+
+/* delete title, where alt="..."  Если подключена програмика - удалить */
+img {
+	behavior		: expression( runtimeStyle.scrollbarFaceColor = '#fff', (alt&&!title) ? title = '' : '' );
+}
+
+.opacity {
+	filter			: expression( runtimeStyle.filter = 'progid:DXImageTransform.Microsoft.Alpha(opacity='+currentStyle.opacity*100+')' );
+	zoom			: 1;
+}

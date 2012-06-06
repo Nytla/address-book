@@ -1,0 +1,14 @@
+{# Include CSS or/and JavaScript files START #}
+{% set one = 'css' %}
+{% for i in 0..num %}
+		{% if flag[i] == one %_}
+<link rel="stylesheet" type="text/css" href="{{ path[i] }}">
+		{% else %}
+<script type="text/javascript" src="{{ path[i] }}"></script>
+		{% endif %}
+{% endfor %}
+{# Include CSS or/and JavaScript files FINISH #}
+</head>
+<body>
+	<noscript><p>{{ noscript }}</p></noscript>
+	<div class="container showgrid">
