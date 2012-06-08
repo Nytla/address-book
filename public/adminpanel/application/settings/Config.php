@@ -6,7 +6,7 @@
  *
  * This is config for admin panel
  * 
- * @category	Main
+ * @category	settings
  * @copyright	2012
  * @author	Igor Zhabskiy <Zhabskiy.Igor@googlemail.com>
  */
@@ -60,7 +60,6 @@ class Config {
 				"ajax"		=> $root_path . 'ajax',				
 				"controllers"	=> $root_path . 'controllers/',
 				"data"		=> $root_path . 'data/',
-				"js"		=> $root_path . 'js/',
 				"models"	=> $root_path . 'models/',
 				"settings"	=> $root_path . 'settings/',
 				"views"		=> $root_path . 'views/'
@@ -95,7 +94,7 @@ class Config {
 			),
 
 			"authorization" => array(
-				"path"		=> './application/js/',
+				"path"		=> './public/javascripts/',
 				"js"		=> 'authorization.js'
 
 			),

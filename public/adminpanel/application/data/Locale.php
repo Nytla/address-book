@@ -6,7 +6,7 @@
  *
  * This is locale for admin panel
  * 
- * @category	Main
+ * @category	data
  * @copyright	2012
  * @author	Igor Zhabskiy <Zhabskiy.Igor@googlemail.com>
  */

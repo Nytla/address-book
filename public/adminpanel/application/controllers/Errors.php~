@@ -42,7 +42,7 @@ class Errors extends Templating {
 		/**
 		 * Create error content
 		 */
-		$template_name = Config::dataArray('templates', 'include_scripts');
+		$template_name = Config::dataArray('templates', 'errors');
 
 		$params = array(
 			"error_description"	=> 'THIS IS TEST ERROR MESSAGE!'

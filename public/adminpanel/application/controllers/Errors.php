@@ -2,7 +2,7 @@
 /**
  * Adress Book
  * 
- * Exception.php
+ * Errors.php
  *
  * This is errors file
  * 
