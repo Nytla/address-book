@@ -1,4 +1,6 @@
 <?php
+//http://framework.zend.com/manual/ru/zend.exception.previous.html
+
 /**
  * Adress Book
  * 
@@ -50,7 +52,6 @@ class Exceptions extends Exception {
 			 * Display message_error
 			 */
 			throw new Exception($message_error);
-
 		} else {
 
 			/**

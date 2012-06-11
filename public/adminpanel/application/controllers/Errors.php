@@ -27,17 +27,21 @@ class Errors extends Templating {
 	 *
 	 * @return string $template	This is error template 
 	 */
-	public function getErrors() {
+	public function getErrors($message) {
 
 		/**
 		 * Create header content
 		 */
-		$template = Indexes::header();
+		//$template = Indexes::header();
 
 		/**
 		 * Create css or/and javascript content
 		 */
-		$template .= Indexes::scripts();
+		//$flag = array('');
+
+		//$path = array('');
+
+		$template .= Indexes::scripts($flag, $path);
 
 		/**
 		 * Create error content
@@ -45,7 +49,8 @@ class Errors extends Templating {
 		$template_name = Config::dataArray('templates', 'errors');
 
 		$params = array(
-			"error_description"	=> 'THIS IS TEST ERROR MESSAGE!'
+			"title"			=> 'Page Error',
+			"error_description"	=> 'THIS IS TEST ERROR MESSAGE!',
 		);
 
 		$template .= Templating::renderingTemplate($template_name, $params);
@@ -53,7 +58,7 @@ class Errors extends Templating {
 		/**
 		 * Create footer content
 		 */
-		$template .= Indexes::footer();
+		//$template .= Indexes::footer();
 
 		return $template;
 	}

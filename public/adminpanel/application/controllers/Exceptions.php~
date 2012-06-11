@@ -50,7 +50,6 @@ class Exceptions extends Exception {
 			 * Display message_error
 			 */
 			throw new Exception($message_error);
-
 		} else {
 
 			/**
