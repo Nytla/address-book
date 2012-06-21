@@ -30,4 +30,13 @@ $obj = new Authorization();
  * Print authorization form
  */
 print $obj -> makeAuth();
+
+
+
+//////////////////////////////
+
+
+//$object = new Redirect();
+
+//$object -> uriRedirect();
 ?>

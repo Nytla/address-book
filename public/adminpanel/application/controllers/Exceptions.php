@@ -1,6 +1,8 @@
 <?php
 //http://framework.zend.com/manual/ru/zend.exception.previous.html
 
+//http://habrahabr.ru/post/30399/
+
 /**
  * Adress Book
  * 

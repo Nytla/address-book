@@ -39,20 +39,20 @@ class Authorization extends Templating {
 		/**
 		 * Create header content
 		 */
-		$template = Indexes::header();
+		$template = Indexes::headerContent();
 
 		/**
 		 * Create css or/and javascript content
 		 */
 		$name = Config::dataArray('flag', 'js');
 
-		$flag = array("$name");
+		$flag = array("", "$name");
 
 		$file = Config::dataArray('authorization', 'path').Config::dataArray('authorization', 'js');
 
-		$path = array("$file");
+		$path = array("", "$file");
 
-		$template .= Indexes::scripts($flag, $path);
+		$template .= Indexes::scriptsContent($flag, $path);
 
 		/**
 		 * Create authorization content
@@ -73,7 +73,7 @@ class Authorization extends Templating {
 		/**
 		 * Create footer content
 		 */
-		$template .= Indexes::footer();
+		$template .= Indexes::footerContent();
 
 		return $template;
 	}

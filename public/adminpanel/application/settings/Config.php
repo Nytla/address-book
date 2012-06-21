@@ -46,67 +46,77 @@ class Config {
 
 		$config = array(
 
-			"common" => array(
+			"common"	=> array(
 
 				"charset" => 'utf-8'
 
 			),
 
-			"paths" => array(
+			"server"	=> array(
+
+				"protocol"	=> 'http',
+				"name"		=> $_SERVER['SERVER_NAME'],
+				"separator"	=> ':',
+				"slash"		=> '/',
+				"backslash"	=> "\\"
+			),
+
+			"paths"		=> array(
 
 				"root" 		=> $root_path,
-				"application"	=> $root_path . 'application/',
-				"libraries" 	=> $root_path . 'libraries/',
-				"ajax"		=> $root_path . 'ajax',				
-				"controllers"	=> $root_path . 'controllers/',
-				"data"		=> $root_path . 'data/',
-				"models"	=> $root_path . 'models/',
-				"settings"	=> $root_path . 'settings/',
-				"views"		=> $root_path . 'views/'
+				"adminpanel"	=> 'adminpanel/',	
+				"application"	=> 'application/',
+				"libraries" 	=> 'libraries/',
+				"ajax"		=> 'ajax/',
+				"controllers"	=> 'controllers/',
+				"data"		=> 'data/',
+				"models"	=> 'models/',
+				"settings"	=> 'settings/',
+				"views"		=> 'views/'
 
 			),
 
-			"errors" => array(
+			"errors"	=> array(
 
-				"path" => './application/data/errors.log'
-
-			),
-
-			"css" => array(
-				"path"		=> './libraries/css/blueprint-v1.0.1/blueprint/',
-				"screen"	=> 'screen.css',
-				"print"		=> 'print.css',
-				"ie"		=> 'ie.css'
+				"path"		=> './application/data/errors.log',
+				"image"		=> '/adminpanel/public/images/',
+				"page_error"	=> 'error.php'
 
 			),
 
-			"jquery" => array(
-
-				"path"		=> './libraries/jquery/jQuery_v1.7.2.js'
+			"css"		=> array(
+				"path"		=> '/adminpanel/libraries/css/blueprint-v1.0.1/blueprint/'
 
 			),
 
-			"flags" => array(
+			"jquery"	=> array(
+
+				"path"		=> '/adminpanel/libraries/jquery/',
+
+			),
+
+			"flags"		=> array(
 
 				"css"		=> 'css',
 				"js"		=> 'js'
 
 			),
 
-			"authorization" => array(
-				"path"		=> './public/javascripts/',
+			"authorization"	=> array(
+
+				"path"		=> '/adminpanel/public/javascripts/',
 				"js"		=> 'authorization.js'
 
 			),
 
-			"db" => array(
+			"db"		=> array(
 
 				"adapter" => 'PDO :)',
 				"name" => 'address_book'
 
 			),
 
-			"templates" => array(
+			"templates"	=> array(
 
 				"path"			=> './application/views',
 				"name"			=> '/address_book',
@@ -120,11 +130,6 @@ class Config {
 			)
 
 		);
-		
-		/**
-		 * Setting local time
-		 */
-		//date_default_timezone_set("Europe/Kiev");
 
 		return $config[$option][$flag];
 	}

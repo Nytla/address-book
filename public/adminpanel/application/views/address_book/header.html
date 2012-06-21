@@ -1,13 +1,15 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html;charset={{ charset }}">
-		<title>{{ site_name }}</title>
+		<title>{{ title }}</title>
 		<!-- Framework CSS BLUEPRINT START -->
-		<link rel="stylesheet" type="text/css" href="{{ screen }}" media="screen, projection">
-		<link rel="stylesheet" type="text/css" href="{{ print }}" media="print">
+		<link rel="stylesheet" type="text/css" href="{{ screen }}screen.css" media="screen, projection">
+		<link rel="stylesheet" type="text/css" href="{{ print }}print.css" media="print">
 		<!--[if lt IE 8]>	
-		<link rel="stylesheet" href="{{ ie }}" type="text/css" media="screen, projection">
+		<link rel="stylesheet" href="{{ ie }}ie.css" type="text/css" media="screen, projection">
 		<![endif]-->
 		<!-- Framework CSS BLUEPRINT FINISH -->
-		<script type="text/javascript" src="{{ jquery }}"></script>
+		<!-- JavaScript library START -->
+		<script type="text/javascript" src="{{ jquery }}jQuery_v1.7.2.js"></script>
+		<!-- JavaScript library FINISH -->

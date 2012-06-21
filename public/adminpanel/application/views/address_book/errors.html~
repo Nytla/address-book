@@ -13,7 +13,10 @@
 			<div class="span-15 prepend-8">
 				<p>
 					<img class="top pull-1 left" src="{{ image }}error.png" width="100px" height="100px" alt="{{ error_description }}">
-					<br><br><h4>{{ error_description }}</h4>
+					<br>
 				</p>
+<p>
+<h4>{{ error_description }}</h4>
+</p>
 			</div>
 			<hr>

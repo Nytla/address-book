@@ -18,7 +18,6 @@
 	
 	error_reporting(E_ALL | E_STRICT);
 */
-$test / 0;
 /**
  * Require main file
  */

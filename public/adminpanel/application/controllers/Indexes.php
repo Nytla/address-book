@@ -27,13 +27,14 @@ class Indexes extends Templating {
 	 * 
 	 * @return string $tempalate	This is source header tempalate
 	 */
-	public function header() {
+	public function headerContent() {
 	
 		$template_name = Config::dataArray('templates', 'header');
 
 		$params = array(
 			"charset"	=> Config::dataArray('common', 'charset'),
-			"site_name"	=> Locale::languageEng('site', 'name'),
+			"site_name"	=> Locale::languageEng('site', 'title'),
+			"title"		=> Locale::languageEng('site', 'name'),
 			"screen"	=> Config::dataArray('css', 'path').Config::dataArray('css', 'screen'),
 			"print"		=> Config::dataArray('css', 'path').Config::dataArray('css', 'print'),
 			"ie"		=> Config::dataArray('css', 'path').Config::dataArray('css', 'ie'),
@@ -48,15 +49,13 @@ class Indexes extends Templating {
 	 *
 	 * This function include javascript or css our header
 	 */
-	public function scripts($flag=array(), $path=array()) {
+	public function scriptsContent($flag = array(""), $path = array("")) {
 
 		try {
 
 			$message_error = Locale::languageEng('script', 'error');
 
 			$message_good = '';
-
-			//$flag = 0;
 
 			Exceptions::catchExept($flag, $message_error, $message_good);
 
@@ -82,7 +81,7 @@ class Indexes extends Templating {
 
 			$message = $e->getMessage();
 
-			Exceptions::getErrors($message);
+			//Exceptions::getErrors($message);
 			
 		}
 	}
@@ -94,7 +93,7 @@ class Indexes extends Templating {
 	 * 
 	 * @return string $tempalate	This is source footer tempalate
 	 */
-	public function footer() {
+	public function footerContent() {
 
 		$template_name = Config::dataArray('templates', 'footer');
 
