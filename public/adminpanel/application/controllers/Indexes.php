@@ -51,39 +51,19 @@ class Indexes extends Templating {
 	 */
 	public function scriptsContent($flag = array(""), $path = array("")) {
 
-		try {
+		/**
+		 * Include css or/and javascript content
+		 */
+		$template_name = Config::dataArray('templates', 'scripts');
 
-			$message_error = Locale::languageEng('script', 'error');
+		$params = array(
+			"num"		=> count($flag) - 1,
+			"flag"		=> $flag,
+			"path"		=> $path,
+			"noscript"	=> Locale::languageEng('noscript', 'message'),
+		);
 
-			$message_good = '';
-
-			Exceptions::catchExept($flag, $message_error, $message_good);
-
-			/**
-			 * Include css or/and javascript content
-			 */
-			$template_name = Config::dataArray('templates', 'include_scripts');
-
-			$params = array(
-				"num"		=> count($flag) - 1,
-				"flag"		=> $flag,
-				"path"		=> $path,
-				"noscript"	=> Locale::languageEng('noscript', 'message'),
-			);
-
-			return Templating::renderingTemplate($template_name, $params);
-
-		} catch (Exception $e) {
-
-			//header('Location: http://address_book.loc/adminpanel/errors.php');
-
-			//echo 'Caught exception: ' . $e->getMessage();
-
-			$message = $e->getMessage();
-
-			//Exceptions::getErrors($message);
-			
-		}
+		return Templating::renderingTemplate($template_name, $params);
 	}
 
 	/**
@@ -104,4 +84,36 @@ class Indexes extends Templating {
 		return Templating::renderingTemplate($template_name, $params);
 	}
 }
+
+
+
+/*
+try {
+
+	$message_error = Locale::languageEng('script', 'error');
+
+	$message_good = '';
+
+	//$flag = 0;
+
+	Exceptions::catchExept($flag, $message_error, $message_good);
+
+	//Include css or/and javascript content
+	$template_name = Config::dataArray('templates', 'scripts');
+
+	$params = array(
+		"num"		=> count($flag) - 1,
+		"flag"		=> $flag,
+		"path"		=> $path,
+		"noscript"	=> Locale::languageEng('noscript', 'message'),
+	);
+
+	return Templating::renderingTemplate($template_name, $params);
+
+} catch (Exception $e) {
+
+	Redirect::uriRedirect();		
+
+}
+*/
 ?>

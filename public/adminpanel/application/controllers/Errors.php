@@ -51,6 +51,7 @@ class Errors extends Templating {
 			case '99':
 
 				$params = array(
+					"site_url"		=> Config::dataArray('server', 'slash').Config::dataArray('paths', 'adminpanel'),
 					"site_name"		=> Locale::languageEng('site', 'name'),			
 					"page_error"		=> Locale::languageEng('errors', 'page_error'),
 					"error_description"	=> Locale::languageEng('errors', '99'),
@@ -62,6 +63,7 @@ class Errors extends Templating {
 			case '400':
 
 				$params = array(
+					"site_url"		=> Config::dataArray('server', 'slash').Config::dataArray('paths', 'adminpanel'),
 					"site_name"		=> Locale::languageEng('site', 'name'),			
 					"page_error"		=> Locale::languageEng('errors', 'page_error'),
 					"error_description"	=> Locale::languageEng('errors', '400'),
@@ -73,6 +75,7 @@ class Errors extends Templating {
 			case '401':
 
 				$params = array(
+					"site_url"		=> Config::dataArray('server', 'slash').Config::dataArray('paths', 'adminpanel'),
 					"site_name"		=> Locale::languageEng('site', 'name'),			
 					"page_error"		=> Locale::languageEng('errors', 'page_error'),
 					"error_description"	=> Locale::languageEng('errors', '401'),
@@ -84,6 +87,7 @@ class Errors extends Templating {
 			case '402':
 
 				$params = array(
+					"site_url"		=> Config::dataArray('server', 'slash').Config::dataArray('paths', 'adminpanel'),
 					"site_name"		=> Locale::languageEng('site', 'name'),			
 					"page_error"		=> Locale::languageEng('errors', 'page_error'),
 					"error_description"	=> Locale::languageEng('errors', '402'),
@@ -95,6 +99,7 @@ class Errors extends Templating {
 			case '403':
 				
 				$params = array(
+					"site_url"		=> Config::dataArray('server', 'slash').Config::dataArray('paths', 'adminpanel'),
 					"site_name"		=> Locale::languageEng('site', 'name'),			
 					"page_error"		=> Locale::languageEng('errors', 'page_error'),
 					"error_description"	=> Locale::languageEng('errors', '403'),
@@ -106,6 +111,7 @@ class Errors extends Templating {
 			case '404':
 				
 				$params = array(
+					"site_url"		=> Config::dataArray('server', 'slash').Config::dataArray('paths', 'adminpanel'),
 					"site_name"		=> Locale::languageEng('site', 'name'),			
 					"page_error"		=> Locale::languageEng('errors', 'page_error'),
 					"error_description"	=> Locale::languageEng('errors', '404'),
@@ -117,6 +123,7 @@ class Errors extends Templating {
 			case '500':
 				
 				$params = array(
+					"site_url"		=> Config::dataArray('server', 'slash').Config::dataArray('paths', 'adminpanel'),
 					"site_name"		=> Locale::languageEng('site', 'name'),			
 					"page_error"		=> Locale::languageEng('errors', 'page_error'),
 					"error_description"	=> Locale::languageEng('errors', '500'),
@@ -128,6 +135,7 @@ class Errors extends Templating {
 			case '502':
 
 				$params = array(
+					"site_url"		=> Config::dataArray('server', 'slash').Config::dataArray('paths', 'adminpanel'),
 					"site_name"		=> Locale::languageEng('site', 'name'),			
 					"page_error"		=> Locale::languageEng('errors', 'page_error'),
 					"error_description"	=> Locale::languageEng('errors', '502'),
@@ -135,6 +143,16 @@ class Errors extends Templating {
 				);
 				
 				break;
+
+			default:
+
+				$params = array(
+					"site_url"		=> Config::dataArray('server', 'slash').Config::dataArray('paths', 'adminpanel'),
+					"site_name"		=> Locale::languageEng('site', 'name'),			
+					"page_error"		=> Locale::languageEng('errors', 'page_error'),
+					"error_description"	=> Locale::languageEng('errors', '99'),
+					"image"			=> Config::dataArray('errors', 'image')
+				);
 
 		}
 

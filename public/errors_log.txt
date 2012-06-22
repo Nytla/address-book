@@ -257,3 +257,38 @@
  <filename>/var/www/address_book.loc/public/index.php</filename>
  <linenum>76</linenum>
  </error>
+<error>
+ <date>2012-06-21 10:13:35 (EEST10800)</date>
+ <errno>8</errno>
+ <errmsg>Undefined variable: config_value</errmsg>
+ <filename>/var/www/address_book.loc/public/index.php</filename>
+ <linenum>76</linenum>
+ </error>
+<error>
+ <date>2012-06-21 12:13:34 (EEST10800)</date>
+ <errno>8</errno>
+ <errmsg>Undefined variable: config_value</errmsg>
+ <filename>/var/www/address_book.loc/public/index.php</filename>
+ <linenum>76</linenum>
+ </error>
+<error>
+ <date>2012-06-22 12:19:15 (EEST10800)</date>
+ <errno>8</errno>
+ <errmsg>Undefined variable: config_value</errmsg>
+ <filename>/var/www/address_book.loc/public/index.php</filename>
+ <linenum>76</linenum>
+ </error>
+<error>
+ <date>2012-06-22 15:29:20 (EEST10800)</date>
+ <errno>8</errno>
+ <errmsg>Undefined variable: config_value</errmsg>
+ <filename>/var/www/address_book.loc/public/index.php</filename>
+ <linenum>76</linenum>
+ </error>
+<error>
+ <date>2012-06-22 17:32:54 (EEST10800)</date>
+ <errno>8</errno>
+ <errmsg>Undefined variable: config_value</errmsg>
+ <filename>/var/www/address_book.loc/public/index.php</filename>
+ <linenum>76</linenum>
+ </error>

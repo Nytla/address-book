@@ -60,6 +60,7 @@ class Authorization extends Templating {
 		$template_name = Config::dataArray('templates', 'authorization');
 
 		$params = array(
+			"site_url"		=> Config::dataArray('server', 'slash').Config::dataArray('paths', 'adminpanel'),
 			"site_name"		=> Locale::languageEng('site', 'name'),
 			"auth"			=> Locale::languageEng('authorization', 'auth'),
 			'login'			=> Locale::languageEng('authorization', 'login'),			

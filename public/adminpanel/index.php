@@ -19,7 +19,7 @@
 /**
  * Include autoload file
  */
-include_once(dirname(__FILE__).'/application/autoload.php');
+require_once(dirname(__FILE__).'/application/autoload.php');
 
 /**
  * Create authorization object
@@ -30,13 +30,4 @@ $obj = new Authorization();
  * Print authorization form
  */
 print $obj -> makeAuth();
-
-
-
-//////////////////////////////
-
-
-//$object = new Redirect();
-
-//$object -> uriRedirect();
 ?>

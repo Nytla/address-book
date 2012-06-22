@@ -4,6 +4,12 @@
 //http://edoceo.com/creo/php-redirect
 
 //http://www.seomoz.org/learn-seo/redirection
+
+//http://www.codenet.ru/webmast/php/HTTP-POST.php
+
+//http://developers.sun.com/mobility/midp/ttips/HTTPPost/
+
+//http://habrahabr.ru/post/17256/
 /**
  * Adress Book
  * 
@@ -38,31 +44,30 @@ class Redirect extends Templating {
 		/**
 		 * Formed http header
 		 */
-		$code = Locale::languageEng('http_status', $code);
+		$code_text = Locale::languageEng('http_status', $code);
 
 		/**
 		 * Formed url where make our redirect
 		 */
-		$uri = Config::dataArray('server', 'protocol').Config::dataArray('server', 'separator').Config::dataArray('server', 'slash').Config::dataArray('server', 'slash').Config::dataArray('server', 'name').Config::dataArray('server', 'slash').Config::dataArray('paths', 'adminpanel').$url;
+		$uri = Config::dataArray('server', 'protocol').Config::dataArray('server', 'separator').Config::dataArray('server', 'slash').Config::dataArray('server', 'slash').Config::dataArray('server', 'name').Config::dataArray('server', 'slash').Config::dataArray('paths', 'adminpanel').$url.'?error='.$code;
 
-		//echo $uri;
-
-		//echo Config::dataArray('errors', 'page_error');
 
 		/**
 		 * Send http header
 		 */
-		//header($code);
+		header(true, $code);
+
+		//header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
 
 		/**
 		 * To do Redirect
 		 */
-		//header("Location: $uri");
+		header("Location: $uri");
 
 		/**
 		 * Exit in our script (The status 0 is used to terminate the program successfully.)
 		 */
-		//exit(0);
+		exit(0);
 	}
 }
 ?>

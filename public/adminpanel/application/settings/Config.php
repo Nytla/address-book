@@ -122,7 +122,7 @@ class Config {
 				"name"			=> '/address_book',
 				"cache"			=> '/cache',
 				"header"		=> 'header.html',
-				"include_scripts"	=> 'include_scripts.html',
+				"scripts"	=> 'scripts.html',
 				"footer"		=> 'footer.html',
 				"errors"		=> 'errors.html',
 				"authorization"		=> 'authorization.html'

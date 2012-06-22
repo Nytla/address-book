@@ -10,10 +10,10 @@ php_value date.timezone 'Europe/Kiev'
 php_flag register_globals off
 
 ##Start page
-DirectoryIndex index.php
+#DirectoryIndex index.php
 
 ##Lock file if in foler not index file
-Options -Indexes
+#Options -Indexes
 
 ##RewriteEngine include
 #RewriteEngine  on
