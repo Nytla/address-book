@@ -39,20 +39,20 @@ class Authorization extends Templating {
 		/**
 		 * Create header content
 		 */
-		$template = Indexes::header();
+		$template = Indexes::headerContent();
 
 		/**
 		 * Create css or/and javascript content
 		 */
 		$name = Config::dataArray('flag', 'js');
 
-		$flag = array("$name");
+		$flag = array("", "$name");
 
 		$file = Config::dataArray('authorization', 'path').Config::dataArray('authorization', 'js');
 
-		$path = array("$file");
+		$path = array("", "$file");
 
-		$template .= Indexes::scripts($flag, $path);
+		$template .= Indexes::scriptsContent($flag, $path);
 
 		/**
 		 * Create authorization content
@@ -60,6 +60,7 @@ class Authorization extends Templating {
 		$template_name = Config::dataArray('templates', 'authorization');
 
 		$params = array(
+			"site_url"		=> Config::dataArray('server', 'slash').Config::dataArray('paths', 'adminpanel'),
 			"site_name"		=> Locale::languageEng('site', 'name'),
 			"auth"			=> Locale::languageEng('authorization', 'auth'),
 			'login'			=> Locale::languageEng('authorization', 'login'),			
@@ -73,37 +74,75 @@ class Authorization extends Templating {
 		/**
 		 * Create footer content
 		 */
-		$template .= Indexes::footer();
+		$template .= Indexes::footerContent();
 
 		return $template;
 	}
 
+	/**
+	 * validateAuth
+	 *
+	 * This function check authorization
+	 *
+	 * @return string $tempalate	This is source authorization tempalate
+	 */
+	public function validateAuth() {
 
+		//$hash = $this -> hashGenerator();
 
-/*////////////////////////////////
-	function testing() {
+		Cookie::set('my_test_igor_1', '321', Cookie::Session);
+
 		
-		try {
-			$param = 0;
 
-			$error = 'Errors this is.';
+		return $this -> hashGenerator();
 
-			$good = 'No error.';	
+		
 
-			$error = Exceptions::catchExept($param, $error, $good);
 
-		} catch (Exception $e) {
+		//http://www.sql.ru/forum/actualthread.aspx?tid=674596
 
-			$error = 'Caught exception: ' . $e->getMessage();
-	
-		}
+		//http://php.net/manual/ru/language.oop5.constants.php
 
-		return $error;
 
 	}
-////////////////////////////////*/
 
+	/**
+	 * checkAuth
+	 *
+	 * This function check authorization
+	 *
+	 * @return string $tempalate	This is source authorization tempalate
+	 */
+	public function checkAuth() {
 
+			
+
+	}
+
+	/**
+	 * hashGenerator
+	 *
+	 * This function generate hash
+	 *
+	 * @return string $tempalate	This is source authorization tempalate
+	 */
+	private function hashGenerator($length = 6) {
+
+		$chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRQSTUVWXYZ0123456789';
+		
+		$chars_length = strlen($chars);
+
+		$clean = $chars_length - 1;
+
+		$code = '';
+
+		while(strlen($code) < $length) {
+			$code .= $chars[mt_rand(0, $clean)];
+		}
+
+		return $code;
+
+	}
 
 }
 ?>

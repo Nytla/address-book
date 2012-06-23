@@ -57,7 +57,7 @@ $(document).ready(function() {
 		$.ajax({  
 			type: "POST",
 			dataType: "json",
-			url: "./application/ajax/authorization.php", 
+			url: "./public/ajax/authorization.php", 
 			data: "login="+$("#login").val()+"&password="+$("#pass").val(),
 			success: function(json_obj, event) {
 				

@@ -25,7 +25,5 @@ $AccessController = new Access();
  * Run method
  */
 $AccessController -> httpRequested();
-
-echo 'dfdfss';
 ?>
 

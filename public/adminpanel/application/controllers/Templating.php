@@ -19,7 +19,7 @@
 /**
  * The simplest way to configure Twig to load templates for our application
 **/
-require_once("./libraries/templating/twig-v1.2.3/lib/Twig/Autoloader.php");
+require_once(dirname(__FILE__)."/../../libraries/templating/twig-v1.2.3/lib/Twig/Autoloader.php");
 
 /**
  * Templating

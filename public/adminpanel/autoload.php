@@ -37,13 +37,13 @@ class ClassAutoloader {
 	 */
 	private function loadClass($class_name) {
 		
-		$path_controllers = './application/controllers/' . $class_name . '.php';
-		
-		$path_models = './application/models/' . $class_name . '.php';
-		
-		$path_settings = './application/settings/' . $class_name . '.php';
+		$path_controllers = dirname(__FILE__).'/application/controllers/' . $class_name . '.php';
+
+		$path_models = dirname(__FILE__).'/application/models/' . $class_name . '.php';
 				
-		$path_data = './application/data/' . $class_name . '.php';
+		$path_settings = dirname(__FILE__).'/application/settings/' . $class_name . '.php';
+
+		$path_data = dirname(__FILE__).'/application/data/' . $class_name . '.php';
 
 		if (file_exists($path_controllers)) {
 			include_once($path_controllers);

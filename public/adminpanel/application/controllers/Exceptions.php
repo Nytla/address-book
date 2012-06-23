@@ -3,6 +3,31 @@
 
 //http://habrahabr.ru/post/30399/
 
+/*
+	function testing() {
+		
+		try {
+			$param = 0;
+
+			$error = 'Errors this is.';
+
+			$good = 'No error.';	
+
+			$error = Exceptions::catchExept($param, $error, $good);
+
+		} catch (Exception $e) {
+
+			$error = 'Caught exception: ' . $e->getMessage();
+	
+		}
+
+		return $error;
+
+	}
+*/
+
+
+
 /**
  * Adress Book
  * 
@@ -42,7 +67,7 @@ class Exceptions extends Exception {
 	 *
 	 * @return string $message	This is message error or good
 	 */
-	public function catchExept($parameter, $message_error, $message_good) {
+	public function catchExept($parameter, $message_error = '', $message_good = '') {
 
 		if (!$parameter) {
 			/**

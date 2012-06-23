@@ -1,37 +1,39 @@
 #mod_rewrite documentation - http://httpd.apache.org/docs/2.0/mod/mod_rewrite.html#rewritecond
+#http://htmlweb.ru/php/htaccess.php
 
-
-#Encoding for our site
+##Encoding for our site
 AddDefaultCharset utf-8
 
-#Set timezone
+##Set timezone
 php_value date.timezone 'Europe/Kiev'
 
-#Register globals flas
+##Register globals flas
 php_flag register_globals off
 
-#Start page
+##Start page
 DirectoryIndex index.php
 
-#Redirect when errors code
-ErrorDocument 400 /errors/errors.php
-ErrorDocument 402 /errors/errors.php
-ErrorDocument 403 /errors/errors.php
-ErrorDocument 404 index.php
-ErrorDocument 500 /errors/errors.php
-
-
-
-#Lock file if in foler not index file
+##Lock file if in foler not index file
 Options -Indexes
 
-#RewriteEngine include
+##RewriteEngine include
 RewriteEngine  on
 
-#Redirect all request to index.php
-#RewriteRule ^.* index.php [L,QSA]
+##Redirect all request to index.php
+#RewriteCond %{SCRIPT_FILENAME} !-f
+#RewriteCond %{SCRIPT_FILENAME} !-d
+#RewriteRule ^(.*)$ index.php [L]
 
-RewriteCond %{SCRIPT_FILENAME} !-f
-RewriteCond %{SCRIPT_FILENAME} !-d
+#RewriteCond %{SCRIPT_FILENAME} !-f
+#RewriteCond %{SCRIPT_FILENAME} !-d
+#RewriteRule .* index.php [L]
+#DirectoryIndex index.php error.php
 
-RewriteRule ^(.*)$ index.php [L]
+##Redirect when errors code
+ErrorDocument 400 /adminpanel/error.php?error=400
+ErrorDocument 401 /adminpanel/error.php?error=401
+ErrorDocument 402 /adminpanel/error.php?error=402
+ErrorDocument 403 /adminpanel/error.php?error=403
+ErrorDocument 404 /adminpanel/error.php?error=404
+ErrorDocument 500 /adminpanel/error.php?error=500
+ErrorDocument 502 /adminpanel/error.php?error=502

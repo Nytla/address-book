@@ -91,7 +91,7 @@ class Config {
 
 			"jquery"	=> array(
 
-				"path"		=> '/adminpanel/libraries/jquery/',
+				"path"		=> '/adminpanel/libraries/jquery/'
 
 			),
 
@@ -111,8 +111,9 @@ class Config {
 
 			"db"		=> array(
 
-				"adapter" => 'PDO :)',
-				"name" => 'address_book'
+				"adapter"	=> 'PDO :)',
+				"name"		=> 'address_book',
+				"password"	=> ''
 
 			),
 
@@ -122,7 +123,7 @@ class Config {
 				"name"			=> '/address_book',
 				"cache"			=> '/cache',
 				"header"		=> 'header.html',
-				"scripts"	=> 'scripts.html',
+				"scripts"		=> 'scripts.html',
 				"footer"		=> 'footer.html',
 				"errors"		=> 'errors.html',
 				"authorization"		=> 'authorization.html'

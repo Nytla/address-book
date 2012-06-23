@@ -79,29 +79,70 @@ class Authorization extends Templating {
 		return $template;
 	}
 
+	/**
+	 * validateAuth
+	 *
+	 * This function check authorization
+	 *
+	 * @return string $tempalate	This is source authorization tempalate
+	 */
+	public function validateAuth() {
 
+		//$hash = $this -> hashGenerator();
 
-/*////////////////////////////////
-	function testing() {
+		Cookie::set('my_test_igor_2', '321', Cookie::Session);
+
 		
-		try {
-			$param = 0;
 
-			$error = 'Errors this is.';
+		return $this -> hashGenerator();
 
-			$good = 'No error.';	
+		
 
-			$error = Exceptions::catchExept($param, $error, $good);
 
-		} catch (Exception $e) {
+		//http://www.sql.ru/forum/actualthread.aspx?tid=674596
 
-			$error = 'Caught exception: ' . $e->getMessage();
-	
-		}
+		//http://php.net/manual/ru/language.oop5.constants.php
 
-		return $error;
 
 	}
-////////////////////////////////*/
+
+	/**
+	 * checkAuth
+	 *
+	 * This function check authorization
+	 *
+	 * @return string $tempalate	This is source authorization tempalate
+	 */
+	public function checkAuth() {
+
+			
+
+	}
+
+	/**
+	 * hashGenerator
+	 *
+	 * This function generate hash
+	 *
+	 * @return string $tempalate	This is source authorization tempalate
+	 */
+	private function hashGenerator($length = 6) {
+
+		$chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRQSTUVWXYZ0123456789';
+		
+		$chars_length = strlen($chars);
+
+		$clean = $chars_length - 1;
+
+		$code = '';
+
+		while(strlen($code) < $length) {
+			$code .= $chars[mt_rand(0, $clean)];
+		}
+
+		return $code;
+
+	}
+
 }
 ?>

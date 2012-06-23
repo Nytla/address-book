@@ -19,15 +19,58 @@
 /**
  * Include autoload file
  */
-require_once(dirname(__FILE__).'/application/autoload.php');
+require_once(dirname(__FILE__).'/autoload.php');
 
 /**
  * Create authorization object
  */
-$obj = new Authorization();
+$AuthorizationController = new Authorization();
 
 /**
  * Print authorization form
  */
-print $obj -> makeAuth();
+print $AuthorizationController -> makeAuth();
+
+
+
+//////////////////////////////
+print $AuthorizationController -> validateAuth();
+
+print_r($_COOKIE);
+
+//$test = new Access();
+
+//print $test -> testFunc();
+
+
+//Catch error
+/*
+try {
+
+	$message_error = Locale::languageEng('script', 'error');
+
+	$message_good = '';
+
+	//$flag = 0;
+
+	Exceptions::catchExept($flag, $message_error, $message_good);
+
+	//Include css or/and javascript content
+	$template_name = Config::dataArray('templates', 'scripts');
+
+	$params = array(
+		"num"		=> count($flag) - 1,
+		"flag"		=> $flag,
+		"path"		=> $path,
+		"noscript"	=> Locale::languageEng('noscript', 'message'),
+	);
+
+	return Templating::renderingTemplate($template_name, $params);
+
+} catch (Exception $e) {
+
+	Redirect::uriRedirect();		
+
+}
+*/
 ?>

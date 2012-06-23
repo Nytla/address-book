@@ -22,15 +22,15 @@
 /**
  * Include autoload file
  */
-require_once(dirname(__FILE__).'/application/autoload.php');
+require_once(dirname(__FILE__).'/autoload.php');
 
 /**
  * Create authorization object
  */
-$object = new Errors();
+$ErrorsController = new Errors();
 
 /**
  * Print error page
  */
-print $object -> getErrors();
+print $ErrorsController -> getErrors();
 ?>
