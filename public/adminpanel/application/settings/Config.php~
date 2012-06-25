@@ -91,8 +91,7 @@ class Config {
 
 			"jquery"	=> array(
 
-				"path"		=> '/adminpanel/libraries/jquery/',
-				"request"	=> 'XMLHttpRequest'
+				"path"		=> '/adminpanel/libraries/jquery/'
 
 			),
 
@@ -112,9 +111,23 @@ class Config {
 
 			"db"		=> array(
 
-				"adapter"	=> 'PDO :)',
+				"adapter"	=> 'PDO',
+				"driver"	=> 'mysql',
+				"host"		=> 'localhost',
+				'name'		=> 'address_book', 
 				"name"		=> 'address_book',
 				"password"	=> ''
+
+
+define('DB_DRIVER', 'mysql');
+define('DB_HOST', 'localhost');
+//define('DB_NAME', 'address_book');
+define('DB_NAME', 'wordpress');
+define('DB_USER', 'root');
+define('DB_PASSWORD', '551514');
+
+
+
 
 			),
 

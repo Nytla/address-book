@@ -111,9 +111,12 @@ class Config {
 
 			"db"		=> array(
 
-				"adapter"	=> 'PDO :)',
-				"name"		=> 'address_book',
-				"password"	=> ''
+				"adapter"	=> 'PDO',
+				"driver"	=> 'mysql',
+				"host"		=> 'localhost',
+				'name'		=> 'address_book', 
+				"login"		=> 'root',
+				"password"	=> '551514'
 
 			),
 

@@ -7,7 +7,7 @@
 
 
 /**
- * Adress Book
+ * Adress Book Controller
  * 
  * Authorization.php
  *
@@ -88,11 +88,23 @@ class Authorization extends Templating {
 	 */
 	public function validateAuth() {
 
-		//$hash = $this -> hashGenerator();
+//		$hash = $this -> hashGenerator();
 
-		Cookie::set('my_test_igor_2', '321', Cookie::Session);
+		/* */
+		if (Cookie::isEmpty('error')) {
+			$error = Cookie::get('error');
 
-		
+			Cookie::delete('error');	
+		}
+
+		//sql
+
+		//Cookie::set('my_test_igor_3', '7111', Cookie::SESSION_EXPIRE);
+
+		//Cookie::set('my_test_igor_3', '8777', Cookie -> _session_expire);
+
+		Cookie::delete('my_test_igor_2');
+
 
 		return $this -> hashGenerator();
 

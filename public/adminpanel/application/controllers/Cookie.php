@@ -6,7 +6,7 @@
 
 
 /**
- * Adress Book
+ * Adress Book Controller
  * 
  * Cookie.php
  *
@@ -27,59 +27,53 @@
 class Cookie extends Templating {
 
 	/**
-	 * _session_expire
+	 * SESSION_EXPIRE
 	 * 
-	 * @var null This is session expire  
+	 * @constant null  This is session expire 
 	 */
-//	public static $_session_expire = null;
+	const SESSION_EXPIRE = null;
+	
+	/**
+	 * ONE_DAY
+	 * 
+	 * @constant number  This is one day expire
+	 */
+	const ONE_DAY = 86400;
+	
+	/**
+	 * SEVEN_DAYS
+	 * 
+	 * @constant number  This is seven days expire
+	 */
+	const SEVEN_DAYS = 604800;
 
 	/**
-	 * _session_expire
+	 * THIRTY_DAYS
 	 * 
-	 * @var null This is session expire  
+	 * @constant number  This is thirty days expire
 	 */
-//	public $_one_day_expire = 86400;
+	const THIRTY_DAYS = 2592000;
+	
+	/**
+	 * SIX_MONTHS
+	 * 
+	 * @constant number  This is six months expire
+	 */
+	const SIX_MONTHS = 15811200;
 
 	/**
-	 * _seven_days_expire
+	 * ONE_YEAR
 	 * 
-	 * @var number This is seven days expire  
+	 * @constant number  This is one year expire
 	 */
-//	public $_seven_days_expire = 604800;
-
+	const ONE_YEAR = 31536000;
+	
 	/**
-	 * _thirty_days_expire
+	 * SIX_MONTHS
 	 * 
-	 * @var number This is thirty days expire  
+	 * @constant number  This is six 2030-01-01 00:00:00 expire
 	 */
-//	public $_thirty_days_expire = 2592000;
-
-	/**
-	 * _one_year_expire
-	 * 
-	 * @var number This is one year expire  
-	 */
-//	public $_one_year_expire = 31536000;
-
-
-	/**
-	 * _life_time_expire
-	 * 
-	 * @var null This is session expire  
-	 */
-//	public $_life_time_expire = -1;
-
-
-	const Session = null;
-	const OneDay = 86400;
-	const SevenDays = 604800;
-	const ThirtyDays = 2592000;
-	const SixMonths = 15811200;
-	const OneYear = 31536000;
-	const Lifetime = -1; // 2030-01-01 00:00:00
-
-
-
+	const LIFETIME = -1;
 
 	/**
 	 * Returns true if there is a cookie with this name.
@@ -124,7 +118,7 @@ class Cookie extends Templating {
 	 * @param string $domain
 	 * @return bool
 	 */
-	static public function set($name, $value, $expiry = ''/*self::OneYear*/, $path = '/', $domain = false) {
+	static public function set($name, $value, $expiry = self::ONE_YEAR, $path = '/', $domain = false) {
 		$retval = false;
 	
 		if (!headers_sent()) {

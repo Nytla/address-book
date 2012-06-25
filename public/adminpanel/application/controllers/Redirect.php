@@ -10,8 +10,11 @@
 //http://developers.sun.com/mobility/midp/ttips/HTTPPost/
 
 //http://habrahabr.ru/post/17256/
+
+
+
 /**
- * Adress Book
+ * Adress Book Controller
  * 
  * Redirect.php
  *

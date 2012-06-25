@@ -19,31 +19,34 @@
  * @version 0.1
  */
 class ClassAutoloader {
+
 	/**
-	 * __construct
+	 * Constructor
 	 * 
-	 * This is constructor 
+	 * Initialize class loader
 	 */
 	public function __construct() {
-		spl_autoload_register(array($this, 'loadClass'));
+		spl_autoload_register(array($this, 'classLoader'));
 	}
 
 	/**
-	 * loaderClass
+	 * classLoader
 	 * 
 	 * This function load class
 	 *
-	 * @param sring $className	This is class name
+	 * @param sring $class_name	This is class name
 	 */
-	private function loadClass($class_name) {
-		
-		$path_controllers = dirname(__FILE__).'/application/controllers/' . $class_name . '.php';
+	private function classLoader($class_name) {
 
-		$path_models = dirname(__FILE__).'/application/models/' . $class_name . '.php';
-				
-		$path_settings = dirname(__FILE__).'/application/settings/' . $class_name . '.php';
+		$root = dirname(__FILE__);
 
-		$path_data = dirname(__FILE__).'/application/data/' . $class_name . '.php';
+		$path_controllers = $root.'/application/controllers/' . $class_name . '.php';
+
+		$path_models = $root.'/application/models/' . $class_name . '.php';
+
+		$path_settings = $root.'/application/settings/' . $class_name . '.php';
+
+		$path_data = $root.'/application/data/' . $class_name . '.php';
 
 		if (file_exists($path_controllers)) {
 			include_once($path_controllers);

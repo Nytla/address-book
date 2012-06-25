@@ -1,6 +1,6 @@
 <?php
 /**
- * Adress Book
+ * Adress Book Controller
  * 
  * Adress.php
  *
@@ -41,3 +41,4 @@ class Access extends Templating {
 		}
 	}
 }
+?>

@@ -1,6 +1,6 @@
 <?php
 /**
- * Adress Book
+ * Adress Book Controller
  * 
  * Errors.php
  *
