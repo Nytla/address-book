@@ -54,7 +54,6 @@ class Redirect extends Templating {
 		 */
 		$uri = Config::dataArray('server', 'protocol').Config::dataArray('server', 'separator').Config::dataArray('server', 'slash').Config::dataArray('server', 'slash').Config::dataArray('server', 'name').Config::dataArray('server', 'slash').Config::dataArray('paths', 'adminpanel').$url.'?error='.$code;
 
-
 		/**
 		 * Send http header
 		 */

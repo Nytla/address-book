@@ -1,4 +1,8 @@
 <?php
+//ini_set('display_errors', 'on');
+
+//error_reporting(E_ALL | E_STRICT);
+
 //http://ru.wikipedia.org/wiki/%D0%A7%D0%9F%D0%A3_%28%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B5%D1%82%29
 //http://php.name/php/krasivye-ssylki-chpu/
 //http://framework.zend.com/manual/ru/
@@ -34,13 +38,14 @@ print $AuthorizationController -> makeAuth();
 
 
 //////////////////////////////
-print $AuthorizationController -> validateAuth();
+$test = ($AuthorizationController -> validateAuth('', ''));
 
-print_r($_COOKIE);
+print $test;
 
-//$test = new Access();
+//print_r($_COOKIE);
 
-//print $test -> testFunc();
+
+
 
 
 //Catch error

@@ -1,0 +1,14 @@
+<error>
+	<date>2012-06-26 14:55:11 (EEST10800)</date>
+	<errcode>0</errcode>
+	<errmsg></errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/index.php</filename>
+	<linenum>27</linenum>
+</error>
+<error>
+	<date>2012-06-26 15:34:33 (EEST10800)</date>
+	<errcode>0</errcode>
+	<errmsg></errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/index.php</filename>
+	<linenum>27</linenum>
+</error>

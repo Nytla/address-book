@@ -48,7 +48,7 @@ class Config {
 
 			"common"	=> array(
 
-				"charset" => 'utf-8'
+				"charset"	=> 'utf-8'
 
 			),
 
@@ -59,6 +59,25 @@ class Config {
 				"separator"	=> ':',
 				"slash"		=> '/',
 				"backslash"	=> "\\"
+			),
+
+			"db"		=> array(
+
+				"adapter"	=> 'PDO',
+				"driver"	=> 'mysql',
+				"host"		=> 'localhost',
+				'name'		=> 'address_book', 
+				"login"		=> 'root',
+				"password"	=> '551514',
+				"charset"	=> 'UTF8'
+
+			),
+
+			"table_name"	=> array(
+
+				"clients"	=> 'clients',
+				"administrators"=> 'administrators'
+
 			),
 
 			"paths"		=> array(
@@ -109,27 +128,16 @@ class Config {
 
 			),
 
-			"db"		=> array(
-
-				"adapter"	=> 'PDO',
-				"driver"	=> 'mysql',
-				"host"		=> 'localhost',
-				'name'		=> 'address_book', 
-				"login"		=> 'root',
-				"password"	=> '551514'
-
-			),
-
 			"templates"	=> array(
 
-				"path"			=> './application/views',
-				"name"			=> '/address_book',
-				"cache"			=> '/cache',
-				"header"		=> 'header.html',
-				"scripts"		=> 'scripts.html',
-				"footer"		=> 'footer.html',
-				"errors"		=> 'errors.html',
-				"authorization"		=> 'authorization.html'
+				"path"		=> './application/views',
+				"name"		=> '/address_book',
+				"cache"		=> '/cache',
+				"header"	=> 'header.html',
+				"scripts"	=> 'scripts.html',
+				"footer"	=> 'footer.html',
+				"errors"	=> 'errors.html',
+				"authorization"	=> 'authorization.html'
 
 			)
 

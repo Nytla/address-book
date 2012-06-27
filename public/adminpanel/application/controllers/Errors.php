@@ -44,7 +44,7 @@ class Errors extends Templating {
 		 */
 		$template_name = Config::dataArray('templates', 'errors');
 
-		$error = ($_GET['error']) ? $_GET['error'] : '99';
+		$error = ($_GET['error'] and is_numeric($_GET['error'])) ? $_GET['error'] : 99;
 
 		switch ($error) {
 
@@ -54,10 +54,10 @@ class Errors extends Templating {
 					"site_url"		=> Config::dataArray('server', 'slash').Config::dataArray('paths', 'adminpanel'),
 					"site_name"		=> Locale::languageEng('site', 'name'),			
 					"page_error"		=> Locale::languageEng('errors', 'page_error'),
-					"error_description"	=> Locale::languageEng('errors', '99'),
+					"error_description"	=> Locale::languageEng('errors', ($_GET['error']) ? $_GET['error'] : 'unknown_error'),
 					"image"			=> Config::dataArray('errors', 'image')
 				);
-				
+
 				break;
 
 			case '400':
@@ -150,7 +150,7 @@ class Errors extends Templating {
 					"site_url"		=> Config::dataArray('server', 'slash').Config::dataArray('paths', 'adminpanel'),
 					"site_name"		=> Locale::languageEng('site', 'name'),			
 					"page_error"		=> Locale::languageEng('errors', 'page_error'),
-					"error_description"	=> Locale::languageEng('errors', '99'),
+					"error_description"	=> Locale::languageEng('errors', 'unknown_error'),
 					"image"			=> Config::dataArray('errors', 'image')
 				);
 

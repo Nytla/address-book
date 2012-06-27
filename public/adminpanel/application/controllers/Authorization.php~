@@ -7,7 +7,7 @@
 
 
 /**
- * Adress Book
+ * Adress Book Controller
  * 
  * Authorization.php
  *
@@ -86,15 +86,61 @@ class Authorization extends Templating {
 	 *
 	 * @return string $tempalate	This is source authorization tempalate
 	 */
-	public function validateAuth() {
+	public function validateAuth($login, $password) {
 
-		//$hash = $this -> hashGenerator();
+//		$hash = $this -> hashGenerator();
 
-		Cookie::set('my_test_igor_1', '321', Cookie::Session);
+		/**
+		 * If cookie error not empty then delete it
+		 */
+		if (Cookie::isEmpty('error')) {
+			$error = Cookie::get('error');
 
+			Cookie::delete('error');
+		}
+
+		/**
+		 * 
+		 */
+		//$dataArray = AuthorizationModel::getAuthData();
+
+		//AuthorizationModel::getAuthData();
+
+		$dataArray = AuthorizationModel::updateHash();
+
+		//return $dataArray[1]['first_name'];
+
+		return $dataArray.'_';
 		
 
-		return $this -> hashGenerator();
+		/**
+		 *
+		 */
+		//$login = preg_match("/^[a-zA-Z0-9]+$/", $login);
+
+		//$password = ("/^[a-zA-Z0-9]+$/", $password);
+/*		foreach ($dataArray as $key => $value) {
+
+			if ($dataArray[$key]['adm_login'] == $login and $dataArray[$key]['adm_password'] == $password) {
+
+			}
+
+		}
+*/
+
+		# Вытаскиваем из БД запись, у которой логин равняеться введенному
+		//$data = mysql_fetch_assoc(mysql_query("SELECT users_id, users_password FROM `users` WHERE `users_login`='".mysql_real_escape_string($_POST['login'])."' LIMIT 1"));
+     
+
+
+
+		//Cookie::set('my_test_igor_3', '7111', Cookie::SESSION_EXPIRE);
+
+		//Cookie::set('my_test_igor_3', '8777', Cookie -> _session_expire);
+
+		//Cookie::delete('my_test_igor_2');
+
+		//return $this -> hashGenerator();
 
 		
 

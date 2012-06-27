@@ -21,7 +21,7 @@
 class Indexes extends Templating {
 
 	/**
-	 * header
+	 * headerContent
 	 * 
 	 * This function print header template
 	 * 
@@ -45,9 +45,11 @@ class Indexes extends Templating {
 	}
 
 	/**
-	 * scripts
+	 * scriptsContent
 	 *
 	 * This function include javascript or css our header
+	 * 
+	 * @return string $tempalate	This is source scripts tempalate
 	 */
 	public function scriptsContent($flag = array(""), $path = array("")) {
 
@@ -67,7 +69,7 @@ class Indexes extends Templating {
 	}
 
 	/**
-	 * footer
+	 * footerContent
 	 * 
 	 * This function print footer template
 	 * 
