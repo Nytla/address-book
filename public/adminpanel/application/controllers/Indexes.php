@@ -27,7 +27,7 @@ class Indexes extends Templating {
 	 * 
 	 * @return string $tempalate	This is source header tempalate
 	 */
-	public function headerContent() {
+	public static function headerContent() {
 	
 		$template_name = Config::dataArray('templates', 'header');
 
@@ -35,9 +35,9 @@ class Indexes extends Templating {
 			"charset"	=> Config::dataArray('common', 'charset'),
 			"site_name"	=> Locale::languageEng('site', 'title'),
 			"title"		=> Locale::languageEng('site', 'name'),
-			"screen"	=> Config::dataArray('css', 'path').Config::dataArray('css', 'screen'),
-			"print"		=> Config::dataArray('css', 'path').Config::dataArray('css', 'print'),
-			"ie"		=> Config::dataArray('css', 'path').Config::dataArray('css', 'ie'),
+			"screen"	=> Config::dataArray('css', 'path'),
+			"print"		=> Config::dataArray('css', 'path'),
+			"ie"		=> Config::dataArray('css', 'path'),
 			"jquery"	=> Config::dataArray('jquery', 'path'),
 		);
 
@@ -51,7 +51,7 @@ class Indexes extends Templating {
 	 * 
 	 * @return string $tempalate	This is source scripts tempalate
 	 */
-	public function scriptsContent($flag = array(""), $path = array("")) {
+	public static function scriptsContent($flag = array(""), $path = array("")) {
 
 		/**
 		 * Include css or/and javascript content
@@ -75,7 +75,7 @@ class Indexes extends Templating {
 	 * 
 	 * @return string $tempalate	This is source footer tempalate
 	 */
-	public function footerContent() {
+	public static function footerContent() {
 
 		$template_name = Config::dataArray('templates', 'footer');
 

@@ -44,7 +44,7 @@ class Authorization extends Templating {
 		/**
 		 * Create css or/and javascript content
 		 */
-		$name = Config::dataArray('flag', 'js');
+		$name = Config::dataArray('flags', 'js');
 
 		$flag = array("", "$name");
 
@@ -104,13 +104,15 @@ class Authorization extends Templating {
 		 */
 		//$dataArray = AuthorizationModel::getAuthData();
 
-		AuthorizationModel::getAuthData();
+		//AuthorizationModel::getAuthData();
 
-		$dataArray = AuthorizationModel::updateHash();
+		//$dataArray = AuthorizationModel::updateHash();
 
 		//return $dataArray[1]['first_name'];
 
-		return $dataArray.'_';
+		$dataArray = AuthorizationModel::getAuthData();
+
+		return $dataArray;
 		
 
 		/**

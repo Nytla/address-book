@@ -54,7 +54,7 @@ class Templating extends Exceptions {
 	 *
 	 * @return string $tempalate	This is source our tempalate
 	 */
-	public static function renderingTemplate($template_name, $params) {
+	public function renderingTemplate($template_name, $params) {
 
 		/**
 		 * The first step to use Twig is to register its autoloader::

@@ -1,6 +1,5 @@
 <?php
 //http://framework.zend.com/manual/ru/zend.exception.previous.html
-
 //http://habrahabr.ru/post/30399/
 
 /*
@@ -29,7 +28,7 @@
 
 
 /**
- * Adress Book
+ * Adress Book Controller
  * 
  * Exceptions.php
  *
@@ -111,7 +110,7 @@ class Exceptions extends Exception {
 
 			$f = fopen($this -> _path_error_log, 'a');
 
-			if (!empty($f) and $this -> code) {
+			if (!empty($f)/* and $this -> code*/) {
 				$err = "<error>\r\n";
 				$err .= "	<date>$date</date>\r\n";
 				$err .= "	<errcode>".$this -> code."</errcode>\r\n";

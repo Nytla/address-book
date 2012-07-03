@@ -38,13 +38,9 @@ print $AuthorizationController -> makeAuth();
 
 
 //////////////////////////////
-$test = ($AuthorizationController -> validateAuth('', ''));
-
-print $test;
+print_r $AuthorizationController -> validateAuth('', '');
 
 //print_r($_COOKIE);
-
-
 
 
 

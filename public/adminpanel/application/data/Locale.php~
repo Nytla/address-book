@@ -111,11 +111,11 @@ class Locale {
 
 			"authorization" => array(
 				
-				"auth"			=> 'Authorization',
-				"login"			=> 'Login',
-				"password"		=> 'Password',
-				"error_incorect"	=> 'Login or password is incorrect!',
-				"error_empty"		=> 'Login or password is empty!'
+				"auth"		=> 'Authorization',
+				"login"		=> 'Login',
+				"password"	=> 'Password',
+				"error_incorect"=> 'Login or password is incorrect!',
+				"error_empty"	=> 'Login or password is empty!'
 
 			)
 

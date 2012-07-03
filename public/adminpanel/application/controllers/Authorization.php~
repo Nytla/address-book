@@ -106,11 +106,13 @@ class Authorization extends Templating {
 
 		//AuthorizationModel::getAuthData();
 
-		$dataArray = AuthorizationModel::updateHash();
+		//$dataArray = AuthorizationModel::updateHash();
 
 		//return $dataArray[1]['first_name'];
 
-		return $dataArray.'_';
+		$dataArray = AuthorizationModel::getAuthData();
+
+		return $dataArray;
 		
 
 		/**

@@ -76,7 +76,7 @@ class Config {
 			"table_name"	=> array(
 
 				"clients"	=> 'clients',
-				"administrators"=> 'administrator'
+				"administrators"=> 'administrators'
 
 			),
 
@@ -142,8 +142,9 @@ class Config {
 			)
 
 		);
-
-		return $config[$option][$flag];
+//		if ($config[$option][$flag]) {
+			return $config[$option][$flag];
+//		}
 	}
 }
 ?>
