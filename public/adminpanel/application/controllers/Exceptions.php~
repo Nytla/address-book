@@ -98,7 +98,9 @@ class Exceptions extends Exception {
 	 *
 	 * @return string $message	This is message error or good
 	 */
-	private function writeMessageError() {
+//	private function writeMessageError() {
+
+	public function writeMessageError() {
 
 		if (isset($this -> code)) {
 
@@ -127,5 +129,5 @@ class Exceptions extends Exception {
 			}
 		}
 	}
-}
+}	
 ?>

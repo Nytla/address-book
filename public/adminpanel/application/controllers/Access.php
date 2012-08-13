@@ -2,7 +2,7 @@
 /**
  * Adress Book Controller
  * 
- * Adress.php
+ * Access.php
  *
  * This is administrator acces file
  * 
@@ -32,7 +32,7 @@ class Access extends Templating {
 		try {
 			$flag = $_SERVER['HTTP_X_REQUESTED_WITH'];
 
-			Exceptions::catchExept($flag, $message_error, $message_good);
+			echo Exceptions::catchExept($flag);
 
 		} catch (Exception $e) {
 

@@ -2,7 +2,7 @@
 /**
  * Adress Book
  * 
- * error.php
+ * testing.php
  *
  * This is administrator error file
  * 
@@ -12,4 +12,8 @@
  */
 
 print 'This is testing file';
+
+//echo '<br> | ' . $_SERVER['HTTP_X_REQUESTED_WITH'] . ' | ';
+
+echo '<br> | ' . $_SERVER['HTTP_REFERER'] . ' | ';
 ?>

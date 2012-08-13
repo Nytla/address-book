@@ -85,13 +85,14 @@ class Config {
 				"root" 		=> $root_path,
 				"adminpanel"	=> 'adminpanel/',	
 				"application"	=> 'application/',
-				"libraries" 	=> 'libraries/',
 				"ajax"		=> 'ajax/',
 				"controllers"	=> 'controllers/',
 				"data"		=> 'data/',
 				"models"	=> 'models/',
 				"settings"	=> 'settings/',
-				"views"		=> 'views/'
+				"views"		=> 'views/',
+				"libraries" 	=> 'libraries/',
+				"public"	=> 'public/'
 
 			),
 
@@ -142,9 +143,8 @@ class Config {
 			)
 
 		);
-//		if ($config[$option][$flag]) {
-			return $config[$option][$flag];
-//		}
+
+		return $config[$option][$flag];
 	}
 }
 ?>

@@ -66,7 +66,7 @@ class Exceptions extends Exception {
 	 *
 	 * @return string $message	This is message error or good
 	 */
-	public static function catchExept($parameter, $message_error = '', $message_good = '') {
+	public function catchExept($parameter, $message_error = '', $message_good = '') {
 
 		if (!$parameter) {
 			/**
@@ -127,5 +127,5 @@ class Exceptions extends Exception {
 			}
 		}
 	}
-}
+}	
 ?>

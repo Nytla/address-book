@@ -31,38 +31,37 @@ class AuthorizationModel extends PDOMysql {
 	 * 
 	 * @var object	This is connect to our Database
 	 */
-	private static $_DB_connect;
+	static private $_DB_connect;
 
 	/**
-	 * _DB_encoding
+	 * _DB_table_name
 	 * 
 	 * @var string	This is encoding of our Database
 	 */
-	private static $_DB_table_name;
+	static private $_DB_table_name;
 
 	/**
-	 * Constructor
-	 *
-	 * This constructor initialize connect to our Database
-	 *
+	 * _admin_id
+	 * 
+	 * @var string	This is id of administrator
 	 */
-//	public function __construct() {
+	static private $_admin_id;
 
-		/**
-		 * Initialize connect to Database
-		 */
-		//$this -> _DB_connect = PDOMysql::connect();
 
-		/**
-		 * Set our table name
-		 */
-		//$this -> _DB_table_name = Config::dataArray('table_name', 'clients');
+	/**
+	 * _admin_login
+	 * 
+	 * @var string	This is login of administrator
+	 */
+	static private $_admin_login;
 
-		//$this -> _DB_table_name = '444)';
+	/**
+	 * _admin_password
+	 * 
+	 * @var string	This is password of administrator
+	 */
+	static private $_admin_password;
 
-		//parent::__construct;
-
-//	}
 
 	/**
 	 * getAuthData
@@ -71,19 +70,40 @@ class AuthorizationModel extends PDOMysql {
 	 *
 	 * @return array $data	This is authorization data from Database
 	 */
-	public static function getAuthData($login) {
+	public function getAuthData($id = '', $login = '') {
 
+		/**
+		 * Connect to DB and get table name from config files
+		 */
 		self::$_DB_connect = PDOMysql::connect();
 
-		self::$_DB_table_name = Config::dataArray('table_name', 'clients');
+		self::$_DB_table_name = Config::dataArray('table_name', 'administrators');
 
-		//$select = self::$_DB_connect -> query("SELECT * FROM " . self::$_DB_table_name . "");
+		//Select administrator information
+		if ($id) {
+
+			//$userdata = mysql_fetch_assoc(mysql_query("SELECT * FROM users WHERE users_id = '".intval($_COOKIE['id'])."' LIMIT 1"));
+
+		} elseif ($login) {
+
+			
+
+		}
+
+//		self::$_DB_table_name = Config::dataArray('table_name', 'clients');
+
 		
-		//mysql_query("SELECT users_id, users_password FROM `users` WHERE `users_login`='".mysql_real_escape_string($_POST['login'])."' LIMIT 1"));
 
-		$select = self::$_DB_connect -> query("SELECT `admin_id`, `admin_password` FROM " . self::$_DB_table_name . " WHERE `admin_login` = '" . mysql_real_escape_string($login) . "' LIMIT 1");
+		self::$_admin_login = 'admin_';//$_REQUEST['valueLogin'] = $login
 
-		try {			
+		# Вытаскиваем из БД запись, у которой логин равняеться введенному
+		//$data = mysql_fetch_assoc(mysql_query("SELECT users_id, users_password FROM `users` WHERE `users_login`='".mysql_real_escape_string($_POST['login'])."' LIMIT 1"));
+
+//		$select = self::$_DB_connect -> query("SELECT * FROM " . self::$_DB_table_name . "");
+		
+		$select = self::$_DB_connect -> query("SELECT `admin_id`, `admin_password` FROM " . self::$_DB_table_name . " WHERE `admin_login` = '" . mysql_escape_string(self::$_admin_login) . "' LIMIT 1");
+
+		try {
 			Exceptions::catchExept($select);
 
 			while ($row = $select -> fetch(PDO::FETCH_ASSOC)) {
@@ -101,24 +121,36 @@ class AuthorizationModel extends PDOMysql {
 		}
 	}
 
-	/**
-	 *
-	 */
-	public function updateHash() {
+	
 
-		$select = $this -> _DB_connect -> query("SELECT * FROM " . $this -> _DB_table_name . "");
+	/**
+	 * updateHash
+	 *
+	 * This function update administrator hash from Database
+	 *
+	 * @return array $data	This is authorization data from Database
+	 */
+	public function updateHash($admin_id = '', $hash = '') {
+
+		# Записываем в БД новый хеш авторизации и IP 
+		//mysql_query("UPDATE users SET users_hash='".$hash."' WHERE users_id='".$data['users_id']."'") or die("MySQL Error: " . mysql_error()); 
+
+		$update = self::$_DB_connect -> query("UPDATE " . self::$_DB_table_name . "  SET `admin_hash` = '" . $hash . "' WHERE `admin_id` = '" . $admin_id . "' ");
+
+//		$select = $this -> _DB_connect -> query("SELECT * FROM " . $this -> _DB_table_name . "");
 
 		try {
 
-			Exceptions::catchExept($select);
-
+			Exceptions::catchExept($update);
+/*
 			while ($row = $select -> fetch(PDO::FETCH_ASSOC)) {
 
 				$data[$row['id']] = $row;
 			}
+*/		
 
-			return $data;
-		
+			return 'upDAte';
+
 		} catch (Exception $e) {
 
 			//return $error = 'Caught exception: ' . $e->getMessage();

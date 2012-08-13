@@ -22,7 +22,7 @@
 /**
  * Include autoload file
  */
-require_once(dirname(__FILE__).'/autoload.php');
+require_once(dirname(__FILE__).'/application/autoload/autoload.php');
 
 /**
  * Create authorization object

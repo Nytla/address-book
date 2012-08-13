@@ -8,6 +8,8 @@ error_reporting(E_ALL | E_STRICT);
 //http://framework.zend.com/manual/ru/
 //Перехват выходного потока
 
+//Static - http://www.sql.ru/forum/actualthread.aspx?tid=674596
+
 /**
  * Adress Book
  * 
@@ -23,7 +25,9 @@ error_reporting(E_ALL | E_STRICT);
 /**
  * Include autoload file
  */
-require_once(dirname(__FILE__).'/autoload.php');
+//require_once(dirname(__FILE__).'/autoload.php');
+
+require_once(dirname(__FILE__).'/application/autoload/autoload.php');
 
 /**
  * Create authorization object

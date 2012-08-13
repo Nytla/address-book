@@ -1,8 +1,8 @@
 <?php
 /**
- * Adress Book
+ * Adress Book Controller
  * 
- * Adress.php
+ * Access.php
  *
  * This is administrator acces file
  * 
@@ -30,10 +30,9 @@ class Access extends Templating {
 	public function httpRequested($flag = '') {
 
 		try {
-
 			$flag = $_SERVER['HTTP_X_REQUESTED_WITH'];
 
-			Exceptions::catchExept($flag, $message_error, $message_good);
+			Exceptions::catchExept($flag);
 
 		} catch (Exception $e) {
 
@@ -42,3 +41,4 @@ class Access extends Templating {
 		}
 	}
 }
+?>

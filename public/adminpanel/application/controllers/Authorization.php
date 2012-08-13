@@ -88,31 +88,74 @@ class Authorization extends Templating {
 	 */
 	public function validateAuth($login, $password) {
 
+		/**
+		 * Get adminisrator information from DB
+		 */
+		$dataArray = AuthorizationModel::getAuthData();
+
+		/**
+		 * Set adminisrator variables
+		 */
+		$admin_id = $dataArray['admin_id'];
+
+		$admin_login = $login;
+
+		$admin_password = md5(md5('551514'));
+
+//		self::$_admin_login = 'admin';//$_REQUEST['valueLogin'] = $login
+
+//		self::$_admin_password = md5(md5('551514'));//$_REQUEST['valuePassword'] = $password
+
 //		$hash = $this -> hashGenerator();
 
 		/**
 		 * If cookie error not empty then delete it
 		 */
+/*
 		if (Cookie::isEmpty('error')) {
 			$error = Cookie::get('error');
 
 			Cookie::delete('error');
 		}
-
+*/
 		/**
-		 * 
+		 * If isset admin_login than ...
 		 */
-		//$dataArray = AuthorizationModel::getAuthData();
+		if ($dataArray and $dataArray['admin_password'] == $_admin_password) {
 
-		//AuthorizationModel::getAuthData();
+			/**
+			 * Generate hash
+			 */
+			$hash = md5($this -> hashGenerator(10));
 
-		//$dataArray = AuthorizationModel::updateHash();
+			/**
+			 * Update hash in DB
+			 */
+			AuthorizationModel::updateHash($dataArray['admin_id'], $hash);
 
-		//return $dataArray[1]['first_name'];
+			/**
+			 * Set cookie with admin id and admin hash
+			 */
+			Cookie::set('admin_id', $dataArray['admin_id'], Cookie::THIRTY_DAYS);
 
-		$dataArray = AuthorizationModel::getAuthData();
+			Cookie::set('admin_hash', $hash, Cookie::THIRTY_DAYS);
 
-		return $dataArray;
+			/**
+			 * Check administator information
+			 */
+			$this -> checkAuth();
+	
+			//Redirect on page layout
+
+			return 'yees';//Redirect on page layout
+
+		} else {
+
+			return 'noo';//Redirect on authorization page
+
+		}
+
+		//return $dataArray;
 		
 
 		/**
@@ -163,8 +206,33 @@ class Authorization extends Templating {
 	 */
 	public function checkAuth() {
 
-			
 
+		if (Cookie::isEmpty('admin_id') and Cookie::isEmpty('admin_hash')) {
+
+			$userdata = mysql_fetch_assoc(mysql_query("SELECT * FROM users WHERE users_id = '".intval($_COOKIE['id'])."' LIMIT 1"));
+
+			//...
+
+		}
+
+/*
+		try {
+			Exceptions::catchExept($select);
+
+			while ($row = $select -> fetch(PDO::FETCH_ASSOC)) {
+
+				$data[$row['id']] = $row;
+			}
+
+			return $data;
+		
+		} catch (Exception $e) {
+
+			//return $error = 'Caught exception: ' . $e->getMessage();
+
+			Redirect::uriRedirect('bad_connect');
+		}
+*/
 	}
 
 	/**

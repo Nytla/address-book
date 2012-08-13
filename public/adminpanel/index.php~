@@ -23,7 +23,9 @@ error_reporting(E_ALL | E_STRICT);
 /**
  * Include autoload file
  */
-require_once(dirname(__FILE__).'/autoload.php');
+//require_once(dirname(__FILE__).'/autoload.php');
+
+require_once(dirname(__FILE__).'/application/autoload/autoload.php');
 
 /**
  * Create authorization object
@@ -38,7 +40,7 @@ print $AuthorizationController -> makeAuth();
 
 
 //////////////////////////////
-print_r $AuthorizationController -> validateAuth('', '');
+print_r($AuthorizationController -> validateAuth('', ''));
 
 //print_r($_COOKIE);
 

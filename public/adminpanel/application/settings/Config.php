@@ -30,7 +30,7 @@ class Config {
 	 *
 	 * @return string $config	This is config parameter
 	 */
-	public static function dataArray($option, $flag) {
+	static public function dataArray($option, $flag) {
 
 		/**
 		 * Physical path to document_root
@@ -85,13 +85,14 @@ class Config {
 				"root" 		=> $root_path,
 				"adminpanel"	=> 'adminpanel/',	
 				"application"	=> 'application/',
-				"libraries" 	=> 'libraries/',
 				"ajax"		=> 'ajax/',
 				"controllers"	=> 'controllers/',
 				"data"		=> 'data/',
 				"models"	=> 'models/',
 				"settings"	=> 'settings/',
-				"views"		=> 'views/'
+				"views"		=> 'views/',
+				"libraries" 	=> 'libraries/',
+				"public"	=> 'public/'
 
 			),
 

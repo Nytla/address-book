@@ -30,7 +30,7 @@ class Locale {
 	 *
 	 * @return string $data		This is word of a given parameter
 	 */
-	public function languageEng($option, $flag) {
+	public static function languageEng($option, $flag) {
 
 		$data = array(
 			"site"		=> array(
