@@ -5,10 +5,10 @@ error_reporting(E_ALL | E_STRICT);
 
 //http://ru.wikipedia.org/wiki/%D0%A7%D0%9F%D0%A3_%28%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B5%D1%82%29
 //http://php.name/php/krasivye-ssylki-chpu/
-//http://framework.zend.com/manual/ru/
+//http://framework.zend.com/manual/ru/ and http://www.dizballanze.com/?cat=72
 //Перехват выходного потока
-
 //Static - http://www.sql.ru/forum/actualthread.aspx?tid=674596
+//Pattetn - http://dron.by/post/patterny-shablony-proektirovanie-v-php-vvedenie/
 
 /**
  * Adress Book
@@ -25,8 +25,6 @@ error_reporting(E_ALL | E_STRICT);
 /**
  * Include autoload file
  */
-//require_once(dirname(__FILE__).'/autoload.php');
-
 require_once(dirname(__FILE__).'/application/autoload/autoload.php');
 
 /**
@@ -45,37 +43,6 @@ print $AuthorizationController -> makeAuth();
 print_r($AuthorizationController -> validateAuth('', ''));
 
 //print_r($_COOKIE);
-
-
-
-//Catch error
-/*
-try {
-
-	$message_error = Locale::languageEng('script', 'error');
-
-	$message_good = '';
-
-	//$flag = 0;
-
-	Exceptions::catchExept($flag, $message_error, $message_good);
-
-	//Include css or/and javascript content
-	$template_name = Config::dataArray('templates', 'scripts');
-
-	$params = array(
-		"num"		=> count($flag) - 1,
-		"flag"		=> $flag,
-		"path"		=> $path,
-		"noscript"	=> Locale::languageEng('noscript', 'message'),
-	);
-
-	return Templating::renderingTemplate($template_name, $params);
-
-} catch (Exception $e) {
-
-	Redirect::uriRedirect();		
-
-}
-*/
+$test = 0;
+$test/4;
 ?>

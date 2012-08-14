@@ -80,7 +80,10 @@ class Locale {
 				"501"		=> "HTTP/1.1 501 Not Implemented",
 				"502"		=> "HTTP/1.1 502 Bad Gateway",
 				"503"		=> "HTTP/1.1 503 Service Unavailable",
-				"504"		=> "HTTP/1.1 504 Gateway Time-out"
+				"504"		=> "HTTP/1.1 504 Gateway Time-out",
+				"bad_connect"	=> 'Could connect to the Data Base.',
+				"unknown_error"	=> 'Error occurred reasons unknown to us.',
+				"bad_connect"	=> 'Could connect to the Data Base.'
 
 			),
 

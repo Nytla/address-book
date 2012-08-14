@@ -42,7 +42,7 @@ class Redirect extends Templating {
 	 * @param	string $code	This is http status code
 	 * @param	string $url	This is url where script redirect our user
 	 */
-	public function uriRedirect($code = 301, $url = 'error.php') {
+	static public function uriRedirect($code = 301, $url = 'error.php') {
 
 		/**
 		 * Formed http header

@@ -22,7 +22,7 @@
  * 
  * @version 0.1
  */
-class PDOMysql            Connect extends Exceptionizer {
+class PDOMysqlConnect extends Exceptionizer {
 
 	/**
 	 * _DB_driver
@@ -123,9 +123,9 @@ class PDOMysql            Connect extends Exceptionizer {
 
 
 
-	protected static $_DB_connect;
+//	protected static $_DB_connect;
 
-
+	protected $_DB_connect;
 
 	public function __construct() {
 
@@ -161,9 +161,12 @@ class PDOMysql            Connect extends Exceptionizer {
 				PDO::ERRMODE_EXCEPTION
 			);
 
-			self::$_DB_connect = $db;
+//			self::$_DB_connect = $db;
 
-			return $db;
+			$this -> _DB_connect = $db;
+
+
+//			return self::$_DB_connect;
 
 		} catch (PDOException $object) {
 
@@ -172,7 +175,15 @@ class PDOMysql            Connect extends Exceptionizer {
 		}
 	}
 
+	/**
+	 * Destructor
+	 *
+	 * This is destructor close connect with Data Base
+	 */
+	public function __destruct() {
 
+		$this -> _DB_connect = null;
 
+	}
 }
 ?>

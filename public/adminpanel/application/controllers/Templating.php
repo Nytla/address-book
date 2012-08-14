@@ -28,8 +28,9 @@ require_once(dirname(__FILE__)."/../../libraries/templating/twig-v1.2.3/lib/Twig
  * 
  * @version 0.1
  */
-class Templating extends Exceptions {
+//class Templating extends Exceptions {
 
+class Templating extends Exceptionizer {
 	/**
 	 * _path_to_template
 	 * 

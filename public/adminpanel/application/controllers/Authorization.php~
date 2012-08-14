@@ -91,14 +91,23 @@ class Authorization extends Templating {
 		/**
 		 * Get adminisrator information from DB
 		 */
-		$dataArray = AuthorizationModel::getAuthData();
+//		$dataArray = AuthorizationModel::getAuthData();
+
+		$AuthorizationModel = new AuthorizationModel();
+
+		$dataArray = $AuthorizationModel -> getAuthData();
+
+
+		$dataArray = $dataArray[1];
+
+		print_r($dataArray);
 
 		/**
 		 * Set adminisrator variables
 		 */
-		$admin_id = $dataArray['admin_id']
+		$admin_id = $dataArray['admin_id'];
 
-		$admin_login = $login;
+		$admin_login = 'admin';//$login;
 
 		$admin_password = md5(md5('551514'));
 
@@ -121,7 +130,7 @@ class Authorization extends Templating {
 		/**
 		 * If isset admin_login than ...
 		 */
-		if ($dataArray and $dataArray['admin_password'] == $_admin_password) {
+		if ($dataArray and $dataArray['admin_password'] == $admin_password) {
 
 			/**
 			 * Generate hash
@@ -131,7 +140,7 @@ class Authorization extends Templating {
 			/**
 			 * Update hash in DB
 			 */
-			AuthorizationModel::updateHash($dataArray['admin_id'], $hash);
+			$AuthorizationModel::updateHash($dataArray['admin_id'], $hash);
 
 			/**
 			 * Set cookie with admin id and admin hash
@@ -206,10 +215,10 @@ class Authorization extends Templating {
 	 */
 	public function checkAuth() {
 
+		//Exceptionizer
+		if (!Cookie::isEmpty('admin_id') and !Cookie::isEmpty('admin_hash')) {
 
-		if (Cookie::isEmpty('admin_id') and Cookie::isEmpty('admin_hash')) {
-
-			$userdata = mysql_fetch_assoc(mysql_query("SELECT * FROM users WHERE users_id = '".intval($_COOKIE['id'])."' LIMIT 1"));
+			$userdata = mysql_fetch_assoc(mysql_query("SELECT * FROM users WHERE users_id = '".intval($_COOKIE['admin_id'])."' LIMIT 1"));
 
 			//...
 
