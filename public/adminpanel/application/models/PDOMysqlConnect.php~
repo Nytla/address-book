@@ -29,42 +29,49 @@ class PDOMysqlConnect extends Exceptionizer {
 	 * 
 	 * @var string	This is name of Database driver
 	 */
-	private static $_DB_driver;
+	private $_DB_driver;
 
 	/**
 	 * _DB_host
 	 * 
 	 * @var string	This is address of host our Database
 	 */
-	private static $_DB_host;
+	private $_DB_host;
 
 	/**
 	 * _DB_name
 	 * 
 	 * @var string	This is name of Database
 	 */
-	private static $_DB_name;
+	private $_DB_name;
 
 	/**
 	 * _DB_login
 	 * 
 	 * @var string	This is login of user our Database
 	 */
-	private static $_DB_login;
+	private $_DB_login;
 
 	/**
 	 * _DB_password
 	 * 
 	 * @var string	This is password of user our Database
 	 */
-	private static $_DB_password;
+	private $_DB_password;
 
 	/**
 	 * _DB_encoding
 	 * 
 	 * @var string	This is encoding of our Database
 	 */
-	private static $_DB_encoding;
+	private $_DB_encoding;
+
+	/**
+	 * _DB_connect
+	 * 
+	 * @var string	This is connect Database
+	 */
+	protected $_DB_connect;
 
 	/**
 	 * connect
@@ -120,39 +127,32 @@ class PDOMysqlConnect extends Exceptionizer {
 
 
 
-
-
-
-//	protected static $_DB_connect;
-
-	protected $_DB_connect;
-
 	public function __construct() {
 
-		$_DB_driver	= Config::dataArray('db', 'driver');
+		$this -> _DB_driver	= Config::dataArray('db', 'driver');
 
-		$_DB_host	= Config::dataArray('db', 'host');
+		$this -> _DB_host	= Config::dataArray('db', 'host');
 
-		$_DB_name	= Config::dataArray('db', 'name');
+		$this -> _DB_name	= Config::dataArray('db', 'name');
 
-		$_DB_login	= Config::dataArray('db', 'login');
+		$this -> _DB_login	= Config::dataArray('db', 'login');
 
-		$_DB_password	= Config::dataArray('db', 'password');
+		$this -> _DB_password	= Config::dataArray('db', 'password');
 
-		$_DB_encoding	= Config::dataArray('db', 'charset');
+		$this -> _DB_encoding	= Config::dataArray('db', 'charset');
 
 		try {
 			$connect = 
-				$_DB_driver . ':host=' . 
-				$_DB_host   . ';dbname=' . 
-				$_DB_name;
+				$this -> _DB_driver . ':host=' . 
+				$this -> _DB_host   . ';dbname=' . 
+				$this -> _DB_name;
 
 			$db = new PDO(
 				$connect,
-				$_DB_login,
-				$_DB_password,
+				$this -> _DB_login,
+				$this -> _DB_password,
 				array(
-					PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'' . $_DB_encoding . '\''
+					PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'' . $this -> _DB_encoding . '\''
 				)
 			);
 
@@ -161,12 +161,7 @@ class PDOMysqlConnect extends Exceptionizer {
 				PDO::ERRMODE_EXCEPTION
 			);
 
-//			self::$_DB_connect = $db;
-
 			$this -> _DB_connect = $db;
-
-
-//			return self::$_DB_connect;
 
 		} catch (PDOException $object) {
 

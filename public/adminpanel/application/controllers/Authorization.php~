@@ -98,7 +98,7 @@ class Authorization extends Templating {
 		$dataArray = $AuthorizationModel -> getAuthData();
 
 
-		$dataArray = $dataArray[1];
+		$dataArray = $dataArray;
 
 		print_r($dataArray);
 
@@ -140,7 +140,7 @@ class Authorization extends Templating {
 			/**
 			 * Update hash in DB
 			 */
-			$AuthorizationModel::updateHash($dataArray['admin_id'], $hash);
+			$AuthorizationModel -> updateHash($dataArray['admin_id'], $hash);
 
 			/**
 			 * Set cookie with admin id and admin hash
