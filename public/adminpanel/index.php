@@ -40,9 +40,19 @@ print $AuthorizationController -> makeAuth();
 
 
 //////////////////////////////
-print_r($AuthorizationController -> validateAuth('', ''));
+//$AuthorizationController -> validateAuth('', '');
+
+//Cookie::set('my_test_igor_3', '7111', Cookie::SESSION_EXPIRE);
+
+//Cookie::delete('my_test_igor_3');
+
+//Redirect::uriRedirect('', 'index.php');
+
+//Cookie::set('my_test_igor_3', '7111', Cookie::SESSION_EXPIRE);
+
+//Cookie::set('my_test_igor_3', '8777', Cookie -> _session_expire);
+
+//Cookie::delete('my_test_igor_2');
 
 //print_r($_COOKIE);
-$test = 0;
-$test/4;
 ?>

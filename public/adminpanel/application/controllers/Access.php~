@@ -1,40 +1,42 @@
 <?php
 /**
- * Adress Book Controller
- * 
- * Access.php
- *
- * This is administrator acces file
- * 
- * @category	Main
- * @copyright	2012
- * @author	Igor Zhabskiy <Zhabskiy.Igor@googlemail.com>
- */
+* Adress Book Controller
+*
+* Access.php
+*
+* This is administrator acces file
+*
+* @category Main
+* @copyright 2012
+* @author Igor Zhabskiy <Zhabskiy.Igor@googlemail.com>
+*/
 
 /**
- * Adress
- * 
- * This is administrator acces class
- * 
- * @version 0.1
- */
+* Adress
+*
+* This is administrator acces class
+*
+* @version 0.1
+*/
 class Access extends Templating {
 
 	/**
-	 * makeAuth
-	 *
-	 * This function make authorization
-	 *
-	 * @return string $tempalate	This is source authorization tempalate
-	 */
+	* makeAuth
+	*
+	* This function make authorization
+	*
+	* @return string $tempalate This is source authorization tempalate
+	*/
 	public function httpRequested($flag = '') {
 
 		try {
 			$flag = $_SERVER['HTTP_X_REQUESTED_WITH'];
 
-			Exceptions::catchExept($flag);
+			if($flag) {
+				return true;
+			}
 
-		} catch (Exception $e) {
+		} catch (E_NOTICE $object) {
 
 			Redirect::uriRedirect(404);
 

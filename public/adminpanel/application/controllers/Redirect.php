@@ -1,14 +1,9 @@
 <?php
 //http://www.cyberciti.biz/faq/php-redirect/
-
 //http://edoceo.com/creo/php-redirect
-
 //http://www.seomoz.org/learn-seo/redirection
-
 //http://www.codenet.ru/webmast/php/HTTP-POST.php
-
 //http://developers.sun.com/mobility/midp/ttips/HTTPPost/
-
 //http://habrahabr.ru/post/17256/
 
 

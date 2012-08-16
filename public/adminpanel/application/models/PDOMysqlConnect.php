@@ -69,66 +69,28 @@ class PDOMysqlConnect extends Exceptionizer {
 	/**
 	 * _DB_connect
 	 * 
-	 * @var string	This is connect Database
+	 * @var string	This is connect to our Database
 	 */
 	protected $_DB_connect;
 
 	/**
-	 * connect
+	 * Constructor
 	 *
-	 * This function make connect to our Database
+	 * This function initialize connect to our Database
 	 *
 	 * @return object $db	This is PDO connect mysql
 	 */
-/*
-	public static function connect() {
-
-		self::$_DB_driver	= Config::dataArray('db', 'driver');
-
-		self::$_DB_host		= Config::dataArray('db', 'host');
-
-		self::$_DB_name		= Config::dataArray('db', 'name');
-
-		self::$_DB_login	= Config::dataArray('db', 'login');
-
-		self::$_DB_password	= Config::dataArray('db', 'password');
-
-		self::$_DB_encoding	= Config::dataArray('db', 'charset');
-
-		try {
-			$connect = 
-				self::$_DB_driver . ':host=' . 
-				self::$_DB_host   . ';dbname=' . 
-				self::$_DB_name;
-
-			$db = new PDO(
-				$connect,
-				self::$_DB_login,
-				self::$_DB_password,
-				array(
-					PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'' . self::$_DB_encoding . '\''
-				)
-			);
-
-			$db -> setAttribute(
-				PDO::ATTR_ERRMODE,
-				PDO::ERRMODE_EXCEPTION
-			);
-
-			return $db;
-
-		} catch (PDOException $object) {
-
-			Redirect::uriRedirect('bad_connect');
-
-		}
-	}
-*/
-
-
 
 	public function __construct() {
+		
+		/**
+		 * Run parent constructor
+		 */
+		parent::__construct();
 
+		/**
+		 * Set DB variables
+		 */
 		$this -> _DB_driver	= Config::dataArray('db', 'driver');
 
 		$this -> _DB_host	= Config::dataArray('db', 'host');
@@ -163,10 +125,9 @@ class PDOMysqlConnect extends Exceptionizer {
 
 			$this -> _DB_connect = $db;
 
-		} catch (PDOException $object) {
+		} catch (E_NOTICE $object) {
 
 			Redirect::uriRedirect('bad_connect');
-
 		}
 	}
 
@@ -178,7 +139,6 @@ class PDOMysqlConnect extends Exceptionizer {
 	public function __destruct() {
 
 		$this -> _DB_connect = null;
-
 	}
 }
 ?>

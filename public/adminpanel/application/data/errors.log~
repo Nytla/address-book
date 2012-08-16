@@ -1,259 +1,119 @@
 <error>
-	<date>2012-08-14 15:10:21 (EEST10800)</date>
+	<date>2012-08-16 10:43:17 (EEST10800)</date>
 	<errcode>8</errcode>
-	<errmsg>Undefined index: id</errmsg>
+	<errmsg>Undefined variable: update_</errmsg>
 	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
-	<linenum>115</linenum>
+	<linenum>188</linenum>
 </error>
 <error>
-	<date>2012-08-14 15:11:39 (EEST10800)</date>
+	<date>2012-08-16 13:47:05 (EEST10800)</date>
 	<errcode>8</errcode>
-	<errmsg>Undefined index: id</errmsg>
+	<errmsg>Undefined variable: data</errmsg>
 	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
-	<linenum>115</linenum>
+	<linenum>129</linenum>
 </error>
 <error>
-	<date>2012-08-14 16:00:36 (EEST10800)</date>
+	<date>2012-08-16 13:53:10 (EEST10800)</date>
 	<errcode>8</errcode>
-	<errmsg>Undefined index: id</errmsg>
+	<errmsg>Undefined variable: data</errmsg>
 	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
-	<linenum>115</linenum>
+	<linenum>129</linenum>
 </error>
 <error>
-	<date>2012-08-14 16:00:37 (EEST10800)</date>
+	<date>2012-08-16 13:59:47 (EEST10800)</date>
 	<errcode>8</errcode>
-	<errmsg>Undefined index: id</errmsg>
+	<errmsg>Undefined variable: data</errmsg>
 	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
-	<linenum>115</linenum>
+	<linenum>129</linenum>
 </error>
 <error>
-	<date>2012-08-14 16:00:37 (EEST10800)</date>
+	<date>2012-08-16 14:01:01 (EEST10800)</date>
 	<errcode>8</errcode>
-	<errmsg>Undefined index: id</errmsg>
+	<errmsg>Undefined variable: data</errmsg>
 	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
-	<linenum>115</linenum>
+	<linenum>129</linenum>
 </error>
 <error>
-	<date>2012-08-14 16:01:23 (EEST10800)</date>
+	<date>2012-08-16 14:01:27 (EEST10800)</date>
 	<errcode>8</errcode>
-	<errmsg>Undefined index: admin_id</errmsg>
-	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
-	<linenum>99</linenum>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
 </error>
 <error>
-	<date>2012-08-14 16:01:40 (EEST10800)</date>
+	<date>2012-08-16 14:01:45 (EEST10800)</date>
 	<errcode>8</errcode>
-	<errmsg>Undefined index: admin_id</errmsg>
-	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
-	<linenum>99</linenum>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
 </error>
 <error>
-	<date>2012-08-14 16:03:01 (EEST10800)</date>
+	<date>2012-08-16 14:01:52 (EEST10800)</date>
 	<errcode>8</errcode>
-	<errmsg>Undefined variable: _admin_password</errmsg>
-	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
-	<linenum>124</linenum>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
 </error>
 <error>
-	<date>2012-08-14 16:03:19 (EEST10800)</date>
+	<date>2012-08-16 14:06:41 (EEST10800)</date>
 	<errcode>8</errcode>
-	<errmsg>Undefined index: admin_id</errmsg>
-	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
-	<linenum>99</linenum>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
 </error>
 <error>
-	<date>2012-08-14 16:04:26 (EEST10800)</date>
+	<date>2012-08-16 14:11:02 (EEST10800)</date>
 	<errcode>8</errcode>
-	<errmsg>Undefined index: admin_id</errmsg>
-	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
-	<linenum>101</linenum>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
 </error>
 <error>
-	<date>2012-08-14 16:05:02 (EEST10800)</date>
+	<date>2012-08-16 15:10:57 (EEST10800)</date>
 	<errcode>8</errcode>
-	<errmsg>Undefined index: admin_id</errmsg>
-	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
-	<linenum>101</linenum>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
 </error>
 <error>
-	<date>2012-08-14 16:05:30 (EEST10800)</date>
+	<date>2012-08-16 15:11:29 (EEST10800)</date>
 	<errcode>8</errcode>
-	<errmsg>Undefined offset: 1</errmsg>
-	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
-	<linenum>98</linenum>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
 </error>
 <error>
-	<date>2012-08-14 16:05:55 (EEST10800)</date>
+	<date>2012-08-16 15:12:38 (EEST10800)</date>
 	<errcode>8</errcode>
-	<errmsg>Undefined variable: _admin_password</errmsg>
-	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
-	<linenum>128</linenum>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
 </error>
 <error>
-	<date>2012-08-14 16:08:05 (EEST10800)</date>
+	<date>2012-08-16 15:13:31 (EEST10800)</date>
 	<errcode>8</errcode>
-	<errmsg>Undefined index: id</errmsg>
-	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
-	<linenum>216</linenum>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
 </error>
 <error>
-	<date>2012-08-14 16:15:41 (EEST10800)</date>
+	<date>2012-08-16 15:14:40 (EEST10800)</date>
 	<errcode>8</errcode>
-	<errmsg>Undefined index: id</errmsg>
-	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
-	<linenum>216</linenum>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
 </error>
 <error>
-	<date>2012-08-14 16:15:43 (EEST10800)</date>
+	<date>2012-08-16 15:15:09 (EEST10800)</date>
 	<errcode>8</errcode>
-	<errmsg>Undefined index: id</errmsg>
-	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
-	<linenum>216</linenum>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
 </error>
 <error>
-	<date>2012-08-14 16:15:44 (EEST10800)</date>
+	<date>2012-08-16 15:25:53 (EEST10800)</date>
 	<errcode>8</errcode>
-	<errmsg>Undefined index: id</errmsg>
-	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
-	<linenum>216</linenum>
-</error>
-<error>
-	<date>2012-08-14 16:15:44 (EEST10800)</date>
-	<errcode>8</errcode>
-	<errmsg>Undefined index: id</errmsg>
-	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
-	<linenum>216</linenum>
-</error>
-<error>
-	<date>2012-08-14 16:15:45 (EEST10800)</date>
-	<errcode>8</errcode>
-	<errmsg>Undefined index: id</errmsg>
-	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
-	<linenum>216</linenum>
-</error>
-<error>
-	<date>2012-08-14 16:15:45 (EEST10800)</date>
-	<errcode>8</errcode>
-	<errmsg>Undefined index: id</errmsg>
-	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
-	<linenum>216</linenum>
-</error>
-<error>
-	<date>2012-08-14 16:15:46 (EEST10800)</date>
-	<errcode>8</errcode>
-	<errmsg>Undefined index: id</errmsg>
-	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
-	<linenum>216</linenum>
-</error>
-<error>
-	<date>2012-08-14 16:15:46 (EEST10800)</date>
-	<errcode>8</errcode>
-	<errmsg>Undefined index: id</errmsg>
-	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
-	<linenum>216</linenum>
-</error>
-<error>
-	<date>2012-08-14 16:15:47 (EEST10800)</date>
-	<errcode>8</errcode>
-	<errmsg>Undefined index: id</errmsg>
-	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
-	<linenum>216</linenum>
-</error>
-<error>
-	<date>2012-08-14 16:15:47 (EEST10800)</date>
-	<errcode>8</errcode>
-	<errmsg>Undefined index: id</errmsg>
-	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
-	<linenum>216</linenum>
-</error>
-<error>
-	<date>2012-08-14 16:15:48 (EEST10800)</date>
-	<errcode>8</errcode>
-	<errmsg>Undefined index: id</errmsg>
-	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
-	<linenum>216</linenum>
-</error>
-<error>
-	<date>2012-08-14 16:15:56 (EEST10800)</date>
-	<errcode>8</errcode>
-	<errmsg>Undefined index: id</errmsg>
-	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
-	<linenum>216</linenum>
-</error>
-<error>
-	<date>2012-08-14 16:15:56 (EEST10800)</date>
-	<errcode>8</errcode>
-	<errmsg>Undefined index: id</errmsg>
-	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
-	<linenum>216</linenum>
-</error>
-<error>
-	<date>2012-08-14 16:15:57 (EEST10800)</date>
-	<errcode>8</errcode>
-	<errmsg>Undefined index: id</errmsg>
-	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
-	<linenum>216</linenum>
-</error>
-<error>
-	<date>2012-08-14 16:15:57 (EEST10800)</date>
-	<errcode>8</errcode>
-	<errmsg>Undefined index: id</errmsg>
-	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
-	<linenum>216</linenum>
-</error>
-<error>
-	<date>2012-08-14 16:15:58 (EEST10800)</date>
-	<errcode>8</errcode>
-	<errmsg>Undefined index: id</errmsg>
-	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
-	<linenum>216</linenum>
-</error>
-<error>
-	<date>2012-08-14 16:15:58 (EEST10800)</date>
-	<errcode>8</errcode>
-	<errmsg>Undefined index: id</errmsg>
-	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
-	<linenum>216</linenum>
-</error>
-<error>
-	<date>2012-08-14 16:15:58 (EEST10800)</date>
-	<errcode>8</errcode>
-	<errmsg>Undefined index: id</errmsg>
-	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
-	<linenum>216</linenum>
-</error>
-<error>
-	<date>2012-08-14 16:16:28 (EEST10800)</date>
-	<errcode>8</errcode>
-	<errmsg>Undefined index: id</errmsg>
-	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
-	<linenum>216</linenum>
-</error>
-<error>
-	<date>2012-08-14 16:16:30 (EEST10800)</date>
-	<errcode>8</errcode>
-	<errmsg>Undefined index: id</errmsg>
-	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
-	<linenum>216</linenum>
-</error>
-<error>
-	<date>2012-08-14 16:16:31 (EEST10800)</date>
-	<errcode>8</errcode>
-	<errmsg>Undefined index: id</errmsg>
-	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
-	<linenum>216</linenum>
-</error>
-<error>
-	<date>2012-08-14 16:16:31 (EEST10800)</date>
-	<errcode>8</errcode>
-	<errmsg>Undefined index: id</errmsg>
-	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
-	<linenum>216</linenum>
-</error>
-<error>
-	<date>2012-08-14 16:17:28 (EEST10800)</date>
-	<errcode>8</errcode>
-	<errmsg>Undefined index: admin_id</errmsg>
-	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
-	<linenum>216</linenum>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
 </error>

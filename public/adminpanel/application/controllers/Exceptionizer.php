@@ -17,6 +17,8 @@
 */
 ////////////////////////////////////////////////////
 
+
+
 /**
  * Adress Book Controller
  * 
@@ -47,12 +49,11 @@ class Exceptionizer {
 	 * @param boolean $ignoreOther	This is variable ignore or not error
 	 */
 	public function __construct($mask=E_ALL, $ignoreOther=false) {
-	
-		$catcher = new PHP_Exceptionizer_Catcher();
-		$catcher->mask = $mask;
-		$catcher->ignoreOther = $ignoreOther;
-		$catcher->divvHdl = set_error_handler(array($catcher, "handler"));
 
+		$catcher = new PHP_Exceptionizer_Catcher();
+		$catcher -> _mask = $mask;
+		$catcher -> _ignoreOther = $ignoreOther;
+		$catcher -> _divvHdl = set_error_handler(array($catcher, "handler"));
 	}
 
 	/**
@@ -165,8 +166,6 @@ class PHP_Exceptionizer_Catcher {
 	}
 }
 
-
-
 /**
  * PHP_Exceptionizer_Exception
  * 
@@ -192,9 +191,9 @@ abstract class PHP_Exceptionizer_Exception extends Exception {
 
 		parent::__construct($str, $no);
 		
-		$this->file = $file;
+		$this -> file = $file;
 
-		$this->line = $line;
+		$this -> line = $line;
 
 		$this -> writeMessageError();
 	}
@@ -206,7 +205,7 @@ abstract class PHP_Exceptionizer_Exception extends Exception {
 	 *
 	 * @return string $message	This is message error or good
 	 */
-	public function writeMessageError() {
+	private function writeMessageError() {
 
 		if (isset($this -> code)) {
 
@@ -262,7 +261,4 @@ class AboveE_USER_WARNING extends AboveE_USER_NOTICE {}
 class E_USER_WARNING extends AboveE_USER_WARNING {}
 class AboveE_USER_ERROR extends AboveE_USER_WARNING {}
 class E_USER_ERROR extends AboveE_USER_ERROR {}
-// Иерархии пользовательских и встроенных ошибок не сравнимы,
-// т.к. они используются для разных целей, и оценить
-// "серьезность" нельзя.
 ?>

@@ -98,9 +98,15 @@ class Config {
 
 			"errors"	=> array(
 
-				"path"		=> './application/data/errors.log',
+				"path"		=> $root_path.'/application/data/errors.log',
 				"image"		=> '/adminpanel/public/images/',
 				"page_error"	=> 'error.php'
+
+			),
+
+			"redirect_page"	=> array(
+
+				"page_layout"	=> './page_layout.php'
 
 			),
 

@@ -30,7 +30,7 @@ class Config {
 	 *
 	 * @return string $config	This is config parameter
 	 */
-	public static function dataArray($option, $flag) {
+	static public function dataArray($option, $flag) {
 
 		/**
 		 * Physical path to document_root
@@ -98,7 +98,7 @@ class Config {
 
 			"errors"	=> array(
 
-				"path"		=> './application/data/errors.log',
+				"path"		=> $root_path.'/application/data/errors.log',
 				"image"		=> '/adminpanel/public/images/',
 				"page_error"	=> 'error.php'
 

@@ -3,7 +3,7 @@
 //http://programmer-weekdays.ru/archives/125
 //http://docstore.mik.ua/orelly/webprog/pcook/ch08_11.htm
 //http://raza.narfum.org/post/1/user-authentication-with-a-secure-cookie-protocol-in-php/
-
+		
 
 
 /**
@@ -26,6 +26,44 @@
  * @version 0.1
  */
 class Authorization extends Templating {
+
+	/**
+	 * _authorization_model
+	 * 
+	 * @var object	This is administrator information from DB 
+	 */
+	private $_authorization_model;
+
+	/**
+	 * _admin_id
+	 * 
+	 * @var string	This is id of administrator
+	 */
+	private $_admin_id;
+
+	/**
+	 * _admin_login
+	 * 
+	 * @var string	This is login of administrator
+	 */
+	private $_admin_login;
+
+	/**
+	 * _admin_password
+	 * 
+	 * @var string	This is password of administrator
+	 */
+	private $_admin_password;
+
+	/**
+	 * Constructor
+	 *
+	 * This function get adminisrator information from Database
+	 */
+	public function __construct() {
+
+		$this -> _authorization_model = new AuthorizationModel();
+	}
 
 	/**
 	 * makeAuth
@@ -86,124 +124,78 @@ class Authorization extends Templating {
 	 *
 	 * @return string $tempalate	This is source authorization tempalate
 	 */
-	public function validateAuth($login, $password) {
+	public function validateAuth($admin_login, $admin_password) {
 
-		/**
-		 * Get adminisrator information from DB
-		 */
-//		$dataArray = AuthorizationModel::getAuthData();
-
-		$AuthorizationModel = new AuthorizationModel();
-
-		$dataArray = $AuthorizationModel -> getAuthData();
-
-
-		$dataArray = $dataArray[1];
-
-		print_r($dataArray);
-
-		/**
-		 * Set adminisrator variables
-		 */
-		$admin_id = $dataArray['admin_id'];
-
-		$admin_login = 'admin';//$login;
-
-		$admin_password = md5(md5('551514'));
-
-//		self::$_admin_login = 'admin';//$_REQUEST['valueLogin'] = $login
-
-//		self::$_admin_password = md5(md5('551514'));//$_REQUEST['valuePassword'] = $password
-
-//		$hash = $this -> hashGenerator();
-
-		/**
-		 * If cookie error not empty then delete it
-		 */
-/*
-		if (Cookie::isEmpty('error')) {
-			$error = Cookie::get('error');
-
-			Cookie::delete('error');
-		}
-*/
-		/**
-		 * If isset admin_login than ...
-		 */
-		if ($dataArray and $dataArray['admin_password'] == $admin_password) {
+		if (is_array($this -> _authorization_model -> getAuthDataByLogin($admin_login))) {
 
 			/**
-			 * Generate hash
+			 * Get adminisrator information from DB
 			 */
-			$hash = md5($this -> hashGenerator(10));
+			$admin_data_array = array_shift($this -> _authorization_model -> getAuthDataByLogin($admin_login));
 
 			/**
-			 * Update hash in DB
+			 * Set adminisrator variables
 			 */
-			$AuthorizationModel -> updateHash($dataArray['admin_id'], $hash);
+			$this -> _admin_id = $admin_data_array['admin_id'];
+
+			$this -> _admin_login = $admin_login;
+
+			$this -> _admin_password = md5(md5($admin_password));
 
 			/**
-			 * Set cookie with admin id and admin hash
+			 * If isset admin_login than ...
 			 */
-			Cookie::set('admin_id', $dataArray['admin_id'], Cookie::THIRTY_DAYS);
+			if ($admin_data_array['admin_password'] === $this -> _admin_password) {
 
-			Cookie::set('admin_hash', $hash, Cookie::THIRTY_DAYS);
+				/**
+				 * Generate hash
+				 */
+				$hash = md5($this -> hashGenerator(10));
 
-			/**
-			 * Check administator information
-			 */
-			$this -> checkAuth();
+				/**
+				 * Update hash in DB
+				 */
+				$this -> _authorization_model -> updateHash($admin_data_array['admin_id'], $hash);
+
+				/**
+				 * Set cookie with admin id and admin hash
+				 */
+				Cookie::set('admin_id', $admin_data_array['admin_id'], Cookie::SESSION_EXPIRE);//Cookie::THIRTY_DAYS);
+
+				Cookie::set('admin_hash', $hash, Cookie::SESSION_EXPIRE);//Cookie::THIRTY_DAYS);
+
+				/**
+				 * Check administator information
+				 */
+				$this -> checkAuth();
 	
-			//Redirect on page layout
+				/**
+				 * Redirect on page layout
+				 */
+				//Redirect::uriRedirect('', 'page_layout.php')
 
-			return 'yees';//Redirect on page layout
+//				return true;
 
-		} else {
+				$arr = 'Oops';
 
-			return 'noo';//Redirect on authorization page
+				return json_encode(array('validate' => true,'redirect_file' => Config::dataArray('redirect_page', 'page_layout'), 'arr_test' => $arr));
 
-		}
+				//return 'Yes';//Redirect on page layout
 
-		//return $dataArray;
-		
+			} else {
 
-		/**
-		 *
-		 */
-		//$login = preg_match("/^[a-zA-Z0-9]+$/", $login);
+				return false;
 
-		//$password = ("/^[a-zA-Z0-9]+$/", $password);
-/*		foreach ($dataArray as $key => $value) {
-
-			if ($dataArray[$key]['adm_login'] == $login and $dataArray[$key]['adm_password'] == $password) {
+				//return 'No';//Redirect on authorization page
 
 			}
 
+		} else {
+
+			//echo 'NO00';
+
+			return false;
 		}
-*/
-
-		# Вытаскиваем из БД запись, у которой логин равняеться введенному
-		//$data = mysql_fetch_assoc(mysql_query("SELECT users_id, users_password FROM `users` WHERE `users_login`='".mysql_real_escape_string($_POST['login'])."' LIMIT 1"));
-     
-
-
-
-		//Cookie::set('my_test_igor_3', '7111', Cookie::SESSION_EXPIRE);
-
-		//Cookie::set('my_test_igor_3', '8777', Cookie -> _session_expire);
-
-		//Cookie::delete('my_test_igor_2');
-
-		//return $this -> hashGenerator();
-
-		
-
-
-		//http://www.sql.ru/forum/actualthread.aspx?tid=674596
-
-		//http://php.net/manual/ru/language.oop5.constants.php
-
-
 	}
 
 	/**
@@ -215,33 +207,59 @@ class Authorization extends Templating {
 	 */
 	public function checkAuth() {
 
-		//Exceptionizer
-		if (!Cookie::isEmpty('admin_id') and !Cookie::isEmpty('admin_hash')) {
-
-			$userdata = mysql_fetch_assoc(mysql_query("SELECT * FROM users WHERE users_id = '".intval($_COOKIE['admin_id'])."' LIMIT 1"));
-
-			//...
-
-		}
-
+		//check.php
+		# проверка авторизации
 /*
-		try {
-			Exceptions::catchExept($select);
+		if (isset($_COOKIE['id']) and isset($_COOKIE['hash']))
+		{    
+			$userdata = mysql_fetch_assoc(mysql_query("SELECT * FROM users WHERE users_id = '".intval($_COOKIE['id'])."' LIMIT 1"));
 
-			while ($row = $select -> fetch(PDO::FETCH_ASSOC)) {
-
-				$data[$row['id']] = $row;
-			}
-
-			return $data;
-		
-		} catch (Exception $e) {
-
-			//return $error = 'Caught exception: ' . $e->getMessage();
-
-			Redirect::uriRedirect('bad_connect');
+			if(($userdata['users_hash'] !== $_COOKIE['hash']) or ($userdata['users_id'] !== $_COOKIE['id']))
+			{
+				setcookie('id', '', time() - 60*24*30*12, '/');
+				setcookie('hash', '', time() - 60*24*30*12, '/');
+				setcookie('errors', '1', time() + 60*24*30*12, '/');
+				header('Location: login.php'); exit();
+			} 
+		}
+		else
+		{
+		  setcookie('errors', '2', time() + 60*24*30*12, '/');
+		  header('Location: login.php'); exit();
 		}
 */
+
+		
+
+		/**
+		 * Get adminisrator information from DB
+		 */
+		$this -> _authorization_model -> getAuthDataById();
+
+		/**
+		 * Check the cookie are set or no
+		 */
+		if (!Cookie::isEmpty('admin_id') and !Cookie::isEmpty('admin_hash')) {
+
+			$this -> _authorization_model -> getAuthDataById();
+
+			$admin_data_array = $this -> _authorization_model -> getAuthDataById();
+
+			$admin_data_array = array_shift($admin_data_array);
+
+			if ($admin_data_array['admin_hash'] !== $_COOKIE['admin_hash'] or $admin_data_array['admin_id'] !== $_COOKIE['admin_id']) {
+
+				Cookie::delete('admin_id');
+
+				Cookie::delete('hash');
+
+				return false;
+			} else {
+				return true;
+
+				//Redirect::uriRedirect('', 'page_layout.php');
+			}
+		}
 	}
 
 	/**
@@ -264,10 +282,29 @@ class Authorization extends Templating {
 		while(strlen($code) < $length) {
 			$code .= $chars[mt_rand(0, $clean)];
 		}
+/*
+		try {
+			if ($data) {
+				return $data;
+			}
 
+		} catch (E_NOTICE $object) {
+
+			Redirect::uriRedirect('bad_connect');
+		}
+*/
 		return $code;
 
 	}
 
+	/**
+	 * Destructor
+	 *
+	 * This function delete adminisrator information
+	 */
+	public function __destruct() {
+
+		$this -> _authorization_model = null;
+	}
 }
 ?>

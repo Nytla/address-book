@@ -8,6 +8,7 @@ error_reporting(E_ALL | E_STRICT);
 //http://framework.zend.com/manual/ru/ and http://www.dizballanze.com/?cat=72
 //Перехват выходного потока
 //Static - http://www.sql.ru/forum/actualthread.aspx?tid=674596
+//Pattetn - http://dron.by/post/patterny-shablony-proektirovanie-v-php-vvedenie/
 
 /**
  * Adress Book
@@ -39,9 +40,11 @@ print $AuthorizationController -> makeAuth();
 
 
 //////////////////////////////
-print_r($AuthorizationController -> validateAuth('', ''));
+//$AuthorizationController -> validateAuth('', '');
+
+//Cookie::set('my_test_igor_3', '7111', Cookie::SESSION_EXPIRE);
+
+//Cookie::delete('my_test_igor_3');
 
 //print_r($_COOKIE);
-$test = 0;
-$test/4;
 ?>

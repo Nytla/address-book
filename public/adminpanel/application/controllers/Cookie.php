@@ -1,6 +1,5 @@
 <?php
 //http://stut.net/2008/10/16/snippet-cookie-class-for-php/
-
 //http://www.phpclasses.org/browse/file/11554.html
 
 

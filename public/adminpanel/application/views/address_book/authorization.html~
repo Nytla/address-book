@@ -2,7 +2,7 @@
 			<hr>
 			<hr>
 			<div class="span-10 prepend-11 append-0">
-				<h3><a href="{{ site_url }}/adminpanel/index.php">{{ site_name }}</a></h3>
+				<h3><a href="{{ site_url }}index.php">{{ site_name }}</a></h3>
 			</div>
 			<hr>
 			<hr>
@@ -14,7 +14,7 @@
 			</div>
 			<div id="auth_content" class="span-10 prepend-10 append-0 hide">
 				<fieldset>
-					<form method="post" id="auth_form" action="">
+					<form method="post" id="authform" action="">
 						<p>
 							<label for="login">{{ login }}:</label><br>
 							<input id="login" type="text" name="valueLogin" class="text" maxlength="16" />
