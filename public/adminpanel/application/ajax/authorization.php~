@@ -26,8 +26,6 @@ $AccessController = new Access();
  */
 $AccessController -> httpRequested();
 
-
-
 /**
  * Create authorization object
  */

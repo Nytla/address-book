@@ -120,6 +120,14 @@ class Locale {
 				"error_incorect"=> 'Login or password is incorrect!',
 				"error_empty"	=> 'Login or password is empty!'
 
+			),
+
+			"layout"	=> array(
+				"title"		=> 'Admin: Page Layout',
+				"log_out"	=> 'Log Out',
+				"add_admin"	=> 'Add New Admin',
+				"content"	=> 'Page layout content.'
+
 			)
 
 		);

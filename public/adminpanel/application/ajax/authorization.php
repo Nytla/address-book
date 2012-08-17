@@ -35,10 +35,5 @@ $AuthorizationController = new Authorization();
  * Validate information from form
  */
 print $AuthorizationController -> validateAuth($_REQUEST['login'], $_REQUEST['password']);
-
-
-
-//print $_REQUEST['login'];
-//print $_REQUEST['password'];
 ?>
 

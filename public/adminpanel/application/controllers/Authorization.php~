@@ -107,6 +107,9 @@ class Authorization extends Templating {
 			"error_empty"		=> Locale::languageEng('authorization', 'error_empty'),
 		);
 
+		/**
+		 * Rendering our tempalate
+		 */
 		$template .= Templating::renderingTemplate($template_name, $params);
 
 		/**
@@ -168,33 +171,17 @@ class Authorization extends Templating {
 				 * Check administator information
 				 */
 				$this -> checkAuth();
-	
-				/**
-				 * Redirect on page layout
-				 */
-				//Redirect::uriRedirect('', 'page_layout.php')
 
-//				return true;
-
-				$arr = 'Oops';
-
-				return json_encode(array('validate' => true,'redirect_file' => strlen($one), 'arr_test' => $arr));
-
-				//return 'Yes';//Redirect on page layout
+				return json_encode(array('validate' => true, 'redirect_file' => Config::dataArray('redirect_page', 'layout')));
 
 			} else {
 
-				return false;
-
-				//return 'No';//Redirect on authorization page
-
+				return json_encode(array('validate' => false, 'redirect_file' => Config::dataArray('redirect_page', 'index')));
 			}
 
 		} else {
 
-			//echo 'NO00';
-
-			return false;
+			return json_encode(array('validate' => false, 'redirect_file' => Config::dataArray('redirect_page', 'index')));
 		}
 	}
 
@@ -205,44 +192,16 @@ class Authorization extends Templating {
 	 *
 	 * @return string $tempalate	This is source authorization tempalate
 	 */
-	public function checkAuth() {
+	private function checkAuth() {
 
 		//check.php
-		# проверка авторизации
-/*
-		if (isset($_COOKIE['id']) and isset($_COOKIE['hash']))
-		{    
-			$userdata = mysql_fetch_assoc(mysql_query("SELECT * FROM users WHERE users_id = '".intval($_COOKIE['id'])."' LIMIT 1"));
+		# проверка авторизации		
 
-			if(($userdata['users_hash'] !== $_COOKIE['hash']) or ($userdata['users_id'] !== $_COOKIE['id']))
-			{
-				setcookie('id', '', time() - 60*24*30*12, '/');
-				setcookie('hash', '', time() - 60*24*30*12, '/');
-				setcookie('errors', '1', time() + 60*24*30*12, '/');
-				header('Location: login.php'); exit();
-			} 
-		}
-		else
-		{
-		  setcookie('errors', '2', time() + 60*24*30*12, '/');
-		  header('Location: login.php'); exit();
-		}
-*/
-
-		
-
-		/**
-		 * Get adminisrator information from DB
-		 */
-		$this -> _authorization_model -> getAuthDataById();
-
-		/**
-		 * Check the cookie are set or no
-		 */
 		if (!Cookie::isEmpty('admin_id') and !Cookie::isEmpty('admin_hash')) {
 
-			$this -> _authorization_model -> getAuthDataById();
-
+			/**
+			 * Get adminisrator information from DB
+			 */
 			$admin_data_array = $this -> _authorization_model -> getAuthDataById();
 
 			$admin_data_array = array_shift($admin_data_array);
@@ -251,14 +210,80 @@ class Authorization extends Templating {
 
 				Cookie::delete('admin_id');
 
-				Cookie::delete('hash');
+				Cookie::delete('admin_hash');
 
 				return false;
 			} else {
 				return true;
-
-				//Redirect::uriRedirect('', 'page_layout.php');
 			}
+		}
+	}
+
+	public function checkAuthIndex() {
+
+		/**
+		 * Check the cookie are set or no
+		 */
+		if (!Cookie::isEmpty('admin_id') and !Cookie::isEmpty('admin_hash')) {
+
+			if (is_array($this -> _authorization_model -> getAuthDataById())) {
+
+				/**
+				 * Get adminisrator information from DB and take first array element
+				 */
+				$admin_data_array = array_shift($this -> _authorization_model -> getAuthDataById());
+
+				if ($admin_data_array['admin_hash'] !== $_COOKIE['admin_hash'] or $admin_data_array['admin_id'] !== $_COOKIE['admin_id']) {
+					return false;
+				} else {
+					Redirect::uriRedirect(301, Config::dataArray('redirect_page', 'layout'));
+				}
+			} else {
+				return false;
+			}
+
+		} else {
+			return false;
+		}
+	}
+
+	/**
+	 * checkAuthNotIndex
+	 *
+	 * This function check authorization on not index page
+	 *
+	 * @return boolean
+	 */
+	public function checkAuthNotIndex() {
+
+		/**
+		 * Check the cookie are set or no
+		 */
+		if (!Cookie::isEmpty('admin_id') and !Cookie::isEmpty('admin_hash')) {
+
+			if (is_array($this -> _authorization_model -> getAuthDataById())) {
+
+				/**
+				 * Get adminisrator information from DB and take first array element
+				 */
+				$admin_data_array = array_shift($this -> _authorization_model -> getAuthDataById());
+
+				if ($admin_data_array['admin_hash'] !== $_COOKIE['admin_hash'] or $admin_data_array['admin_id'] !== $_COOKIE['admin_id']) {
+
+					Cookie::delete('admin_id');
+
+					Cookie::delete('admin_hash');
+
+					Redirect::uriRedirect(301, Config::dataArray('redirect_page', 'index'));
+				} else {
+					return true;
+				}
+			} else {
+				Redirect::uriRedirect(301, Config::dataArray('redirect_page', 'index'));
+			}
+
+		} else {
+			Redirect::uriRedirect(301, Config::dataArray('redirect_page', 'index'));
 		}
 	}
 

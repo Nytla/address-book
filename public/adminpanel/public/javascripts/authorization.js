@@ -66,10 +66,20 @@ $(document).ready(function() {
 			}
 		});
 */
-		var login = $.trim($("#login").val());
+
+//		Regexp - http://seoromin.com.ua/topic/109_regulyarnye-vyrazheniya-v-jquery/
+
+		//Validate login
+		var reg_login = /([^А-Яа-яA-Za-z0-9])/gi;
 		
-		var password = $.trim($("#pass").val());
+		var login = $("#login").val().replace(reg_login, "");
+
+		//Validate password
+		var reg_pass = /([^А-Яа-яA-Za-z0-9_-])/gi;
 		
+		var password = $("#pass").val().replace(reg_pass, "");
+
+		//If login or password is empty than return error message
 		if(login == '' || password == '') {
 			$('#error_empty').removeClass().addClass("error");
 			
@@ -78,7 +88,7 @@ $(document).ready(function() {
 
 		$.ajax({  
 			type: "POST",
-			//dataType: "json",
+			dataType: "json",
 			url: "./application/ajax/authorization.php",
 			cache: false,
 			data: {
@@ -86,17 +96,13 @@ $(document).ready(function() {
 				password: password
 			},
 			success: function(json_object) {
-				
-				alert(json_object.redirect_file);
-
-				//console.log(data);
 
 				if(json_object.validate == false) {
-					alert('this is false');
+					//alert('this is false');
 
 					$('#error').removeClass().addClass("error");
 				} else {
-					alert('this not false');
+					//alert('this is not false');
 
 					var url = json_object.redirect_file;
 

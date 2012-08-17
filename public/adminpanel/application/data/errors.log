@@ -236,3 +236,612 @@
 	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
 	<linenum>129</linenum>
 </error>
+<error>
+	<date>2012-08-17 09:55:11 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
+</error>
+<error>
+	<date>2012-08-17 09:56:33 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
+</error>
+<error>
+	<date>2012-08-17 10:00:13 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
+</error>
+<error>
+	<date>2012-08-17 10:04:07 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
+</error>
+<error>
+	<date>2012-08-17 10:06:03 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
+</error>
+<error>
+	<date>2012-08-17 10:07:00 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
+</error>
+<error>
+	<date>2012-08-17 10:08:00 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
+</error>
+<error>
+	<date>2012-08-17 10:10:37 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
+</error>
+<error>
+	<date>2012-08-17 10:11:58 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
+</error>
+<error>
+	<date>2012-08-17 10:13:31 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
+</error>
+<error>
+	<date>2012-08-17 10:13:55 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
+</error>
+<error>
+	<date>2012-08-17 10:13:55 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: page_layout_2</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/settings/Config.php</filename>
+	<linenum>153</linenum>
+</error>
+<error>
+	<date>2012-08-17 10:14:52 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
+</error>
+<error>
+	<date>2012-08-17 10:32:53 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
+</error>
+<error>
+	<date>2012-08-17 10:33:02 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
+</error>
+<error>
+	<date>2012-08-17 10:33:06 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
+</error>
+<error>
+	<date>2012-08-17 10:33:13 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
+</error>
+<error>
+	<date>2012-08-17 10:33:54 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
+</error>
+<error>
+	<date>2012-08-17 10:34:05 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
+</error>
+<error>
+	<date>2012-08-17 10:36:08 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
+</error>
+<error>
+	<date>2012-08-17 10:36:13 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
+</error>
+<error>
+	<date>2012-08-17 10:37:14 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
+</error>
+<error>
+	<date>2012-08-17 10:42:08 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
+</error>
+<error>
+	<date>2012-08-17 10:43:40 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
+</error>
+<error>
+	<date>2012-08-17 10:45:24 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
+</error>
+<error>
+	<date>2012-08-17 10:45:27 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
+</error>
+<error>
+	<date>2012-08-17 10:45:30 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
+</error>
+<error>
+	<date>2012-08-17 11:07:20 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
+</error>
+<error>
+	<date>2012-08-17 11:07:39 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
+</error>
+<error>
+	<date>2012-08-17 11:16:35 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
+</error>
+<error>
+	<date>2012-08-17 11:16:42 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
+</error>
+<error>
+	<date>2012-08-17 11:18:20 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
+</error>
+<error>
+	<date>2012-08-17 11:47:01 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
+</error>
+<error>
+	<date>2012-08-17 11:47:10 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: </errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/data/Locale.php</filename>
+	<linenum>127</linenum>
+</error>
+<error>
+	<date>2012-08-17 11:50:48 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: page_layout.php</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/data/Locale.php</filename>
+	<linenum>127</linenum>
+</error>
+<error>
+	<date>2012-08-17 11:50:56 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: </errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/data/Locale.php</filename>
+	<linenum>127</linenum>
+</error>
+<error>
+	<date>2012-08-17 11:50:58 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: </errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/data/Locale.php</filename>
+	<linenum>127</linenum>
+</error>
+<error>
+	<date>2012-08-17 11:50:59 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: </errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/data/Locale.php</filename>
+	<linenum>127</linenum>
+</error>
+<error>
+	<date>2012-08-17 11:51:34 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: </errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/data/Locale.php</filename>
+	<linenum>127</linenum>
+</error>
+<error>
+	<date>2012-08-17 11:53:03 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: </errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/data/Locale.php</filename>
+	<linenum>127</linenum>
+</error>
+<error>
+	<date>2012-08-17 11:54:55 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: </errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/data/Locale.php</filename>
+	<linenum>127</linenum>
+</error>
+<error>
+	<date>2012-08-17 11:55:01 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: page_layout.php</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/data/Locale.php</filename>
+	<linenum>127</linenum>
+</error>
+<error>
+	<date>2012-08-17 11:55:22 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
+</error>
+<error>
+	<date>2012-08-17 12:12:59 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
+</error>
+<error>
+	<date>2012-08-17 13:00:09 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>array_shift() expects parameter 1 to be array, null given</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
+	<linenum>256</linenum>
+</error>
+<error>
+	<date>2012-08-17 13:00:50 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>array_shift() expects parameter 1 to be array, null given</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
+	<linenum>251</linenum>
+</error>
+<error>
+	<date>2012-08-17 13:00:51 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>array_shift() expects parameter 1 to be array, null given</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
+	<linenum>251</linenum>
+</error>
+<error>
+	<date>2012-08-17 13:01:13 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
+</error>
+<error>
+	<date>2012-08-17 13:02:26 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
+</error>
+<error>
+	<date>2012-08-17 13:02:43 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>129</linenum>
+</error>
+<error>
+	<date>2012-08-17 13:03:04 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>array_shift() expects parameter 1 to be array, null given</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
+	<linenum>251</linenum>
+</error>
+<error>
+	<date>2012-08-17 13:03:19 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>array_shift() expects parameter 1 to be array, null given</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
+	<linenum>249</linenum>
+</error>
+<error>
+	<date>2012-08-17 13:03:28 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>array_shift() expects parameter 1 to be array, null given</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
+	<linenum>249</linenum>
+</error>
+<error>
+	<date>2012-08-17 13:07:53 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>array_shift() expects parameter 1 to be array, string given</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
+	<linenum>245</linenum>
+</error>
+<error>
+	<date>2012-08-17 13:08:58 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>array_shift() expects parameter 1 to be array, string given</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
+	<linenum>243</linenum>
+</error>
+<error>
+	<date>2012-08-17 13:09:19 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>array_shift() expects parameter 1 to be array, string given</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
+	<linenum>245</linenum>
+</error>
+<error>
+	<date>2012-08-17 13:09:37 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>array_shift() expects parameter 1 to be array, string given</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
+	<linenum>245</linenum>
+</error>
+<error>
+	<date>2012-08-17 13:09:37 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>array_shift() expects parameter 1 to be array, string given</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
+	<linenum>245</linenum>
+</error>
+<error>
+	<date>2012-08-17 13:09:38 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>array_shift() expects parameter 1 to be array, string given</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
+	<linenum>245</linenum>
+</error>
+<error>
+	<date>2012-08-17 13:10:35 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>array_shift() expects parameter 1 to be array, string given</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
+	<linenum>245</linenum>
+</error>
+<error>
+	<date>2012-08-17 13:10:35 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>array_shift() expects parameter 1 to be array, string given</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
+	<linenum>245</linenum>
+</error>
+<error>
+	<date>2012-08-17 13:11:04 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>array_shift() expects parameter 1 to be array, string given</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
+	<linenum>245</linenum>
+</error>
+<error>
+	<date>2012-08-17 13:11:04 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>array_shift() expects parameter 1 to be array, string given</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
+	<linenum>245</linenum>
+</error>
+<error>
+	<date>2012-08-17 13:11:04 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>array_shift() expects parameter 1 to be array, string given</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
+	<linenum>245</linenum>
+</error>
+<error>
+	<date>2012-08-17 13:11:38 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>array_shift() expects parameter 1 to be array, string given</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
+	<linenum>245</linenum>
+</error>
+<error>
+	<date>2012-08-17 13:18:48 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: </errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/data/Locale.php</filename>
+	<linenum>127</linenum>
+</error>
+<error>
+	<date>2012-08-17 13:25:00 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>array_shift() expects parameter 1 to be array, string given</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
+	<linenum>247</linenum>
+</error>
+<error>
+	<date>2012-08-17 13:25:23 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>array_shift() expects parameter 1 to be array, string given</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
+	<linenum>247</linenum>
+</error>
+<error>
+	<date>2012-08-17 13:25:24 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>array_shift() expects parameter 1 to be array, string given</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
+	<linenum>247</linenum>
+</error>
+<error>
+	<date>2012-08-17 13:25:24 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>array_shift() expects parameter 1 to be array, string given</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
+	<linenum>247</linenum>
+</error>
+<error>
+	<date>2012-08-17 13:25:24 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>array_shift() expects parameter 1 to be array, string given</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
+	<linenum>247</linenum>
+</error>
+<error>
+	<date>2012-08-17 13:26:24 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>array_shift() expects parameter 1 to be array, string given</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
+	<linenum>247</linenum>
+</error>
+<error>
+	<date>2012-08-17 13:27:57 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>array_shift() expects parameter 1 to be array, string given</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
+	<linenum>247</linenum>
+</error>
+<error>
+	<date>2012-08-17 13:28:34 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>array_shift() expects parameter 1 to be array, string given</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
+	<linenum>247</linenum>
+</error>
+<error>
+	<date>2012-08-17 13:28:34 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>array_shift() expects parameter 1 to be array, string given</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
+	<linenum>247</linenum>
+</error>
+<error>
+	<date>2012-08-17 13:28:35 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>array_shift() expects parameter 1 to be array, string given</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
+	<linenum>247</linenum>
+</error>
+<error>
+	<date>2012-08-17 13:28:41 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: admin_data_array</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
+	<linenum>249</linenum>
+</error>
+<error>
+	<date>2012-08-17 13:29:34 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>array_shift() expects parameter 1 to be array, string given</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
+	<linenum>247</linenum>
+</error>
+<error>
+	<date>2012-08-17 13:32:31 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>array_shift() expects parameter 1 to be array, string given</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
+	<linenum>249</linenum>
+</error>
+<error>
+	<date>2012-08-17 13:32:41 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>array_shift() expects parameter 1 to be array, string given</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
+	<linenum>249</linenum>
+</error>
+<error>
+	<date>2012-08-17 13:33:02 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>array_shift() expects parameter 1 to be array, string given</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
+	<linenum>209</linenum>
+</error>
+<error>
+	<date>2012-08-17 13:37:45 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>array_shift() expects parameter 1 to be array, string given</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
+	<linenum>209</linenum>
+</error>
+<error>
+	<date>2012-08-17 13:45:31 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: admin_id</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>75</linenum>
+</error>
+<error>
+	<date>2012-08-17 14:00:20 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>140</linenum>
+</error>
+<error>
+	<date>2012-08-17 16:18:39 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: password</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/data/Locale.php</filename>
+	<linenum>133</linenum>
+</error>
+<error>
+	<date>2012-08-17 16:44:01 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: title</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/data/Locale.php</filename>
+	<linenum>135</linenum>
+</error>
+<error>
+	<date>2012-08-17 16:44:05 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: name</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/data/Locale.php</filename>
+	<linenum>135</linenum>
+</error>

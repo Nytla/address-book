@@ -2,9 +2,9 @@
 /**
  * Adress Book
  * 
- * page_layout.php
+ * log_out.php
  *
- * This is administrator page layout
+ * This is administrator login out
  * 
  * @category	Main
  * @copyright	2012
@@ -16,20 +16,9 @@
  */
 require_once(dirname(__FILE__).'/application/autoload/autoload.php');
 
-/**
- * Create authorization object
- */
-$AuthorizationController = new Authorization();
-
-/**
- * Validate information from form
- */
-$AuthorizationController -> checkAuthNotIndex();
-
-print_r($_COOKIE);
 
 echo '
-<h1>This is page layout<h1>
+<h1>This is address book<h1>
 <br>
 <a href="./index.php">Back</a>
 ';

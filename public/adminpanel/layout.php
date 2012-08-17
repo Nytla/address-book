@@ -26,11 +26,15 @@ $AuthorizationController = new Authorization();
  */
 $AuthorizationController -> checkAuthNotIndex();
 
-print_r($_COOKIE);
+/**
+ * Create layout object
+ */
+$LayoutController = new Layout();
 
-echo '
-<h1>This is page layout<h1>
-<br>
-<a href="./index.php">Back</a>
-';
+/**
+ * Print layout page
+ */
+print $LayoutController -> makeLayout();
+
+print_r($_COOKIE);
 ?>

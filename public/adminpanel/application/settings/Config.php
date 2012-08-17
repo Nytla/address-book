@@ -106,7 +106,8 @@ class Config {
 
 			"redirect_page"	=> array(
 
-				"page_layout"	=> './page_layout.php'
+				"layout"	=> './layout.php',
+				"index"		=> './index.php'
 
 			),
 
@@ -144,7 +145,8 @@ class Config {
 				"scripts"	=> 'scripts.html',
 				"footer"	=> 'footer.html',
 				"errors"	=> 'errors.html',
-				"authorization"	=> 'authorization.html'
+				"authorization"	=> 'authorization.html',
+				"layout"	=> 'layout.html'
 
 			)
 

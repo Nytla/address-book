@@ -1,14 +1,9 @@
 <?php
 //http://www.cyberciti.biz/faq/php-redirect/
-
 //http://edoceo.com/creo/php-redirect
-
 //http://www.seomoz.org/learn-seo/redirection
-
 //http://www.codenet.ru/webmast/php/HTTP-POST.php
-
 //http://developers.sun.com/mobility/midp/ttips/HTTPPost/
-
 //http://habrahabr.ru/post/17256/
 
 
@@ -42,7 +37,7 @@ class Redirect extends Templating {
 	 * @param	string $code	This is http status code
 	 * @param	string $url	This is url where script redirect our user
 	 */
-	public function uriRedirect($code = 301, $url = 'error.php') {
+	static public function uriRedirect($code = 301, $url = 'error.php') {
 
 		/**
 		 * Formed http header
@@ -52,7 +47,12 @@ class Redirect extends Templating {
 		/**
 		 * Formed url where make our redirect
 		 */
-		$uri = Config::dataArray('server', 'protocol').Config::dataArray('server', 'separator').Config::dataArray('server', 'slash').Config::dataArray('server', 'slash').Config::dataArray('server', 'name').Config::dataArray('server', 'slash').Config::dataArray('paths', 'adminpanel').$url.'?error='.$code;
+		if ($code == 301) {
+
+		} else {
+
+			$uri = Config::dataArray('server', 'protocol').Config::dataArray('server', 'separator').Config::dataArray('server', 'slash').Config::dataArray('server', 'slash').Config::dataArray('server', 'name').Config::dataArray('server', 'slash').Config::dataArray('paths', 'adminpanel').$url.'?error='.$code;
+		}
 
 		/**
 		 * Send http header

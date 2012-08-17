@@ -1,0 +1,25 @@
+			<br>
+			<br>
+			<br>
+			<div class="span-10 prepend-10 append-0">
+				<h3>
+					<a href="{{ site_url }}index.php">{{ ab }}</a>
+					|
+					<a href="{{ site_url }}log_out.php">{{ log_out }}</a>
+				</h3>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<h3>{{ content }}</h3>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+			</div>

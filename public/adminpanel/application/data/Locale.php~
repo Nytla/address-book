@@ -81,6 +81,8 @@ class Locale {
 				"502"		=> "HTTP/1.1 502 Bad Gateway",
 				"503"		=> "HTTP/1.1 503 Service Unavailable",
 				"504"		=> "HTTP/1.1 504 Gateway Time-out",
+				"bad_connect"	=> 'Could connect to the Data Base.',
+				"unknown_error"	=> 'Error occurred reasons unknown to us.',
 				"bad_connect"	=> 'Could connect to the Data Base.'
 
 			),
@@ -117,6 +119,14 @@ class Locale {
 				"password"	=> 'Password',
 				"error_incorect"=> 'Login or password is incorrect!',
 				"error_empty"	=> 'Login or password is empty!'
+
+			),
+
+			"layout"	=> array(
+				"title"		=> 'Admin: Page Layout'
+				"log_out"	=> 'Log Out',
+				"add_admin"	=> 'Add New Admin',
+				"content"	=> 'Page layout content.'
 
 			)
 

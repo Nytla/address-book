@@ -33,6 +33,11 @@ require_once(dirname(__FILE__).'/application/autoload/autoload.php');
 $AuthorizationController = new Authorization();
 
 /**
+ * If isset administrator authorization then redirect him on layout page
+ */
+$AuthorizationController -> checkAuthIndex();
+
+/**
  * Print authorization form
  */
 print $AuthorizationController -> makeAuth();
@@ -52,7 +57,15 @@ print $AuthorizationController -> makeAuth();
 
 //Cookie::set('my_test_igor_3', '8777', Cookie -> _session_expire);
 
-//Cookie::delete('my_test_igor_2');
+//Cookie::get('admin_id');
+
+//Cookie::delete('my_test_igor_3');
+
+//Cookie::delete('admin_id');
+
+//Cookie::delete('admin_hash');
 
 //print_r($_COOKIE);
+
+//Redirect::uriRedirect(301, 'page_layout.php');
 ?>

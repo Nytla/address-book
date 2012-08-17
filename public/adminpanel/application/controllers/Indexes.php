@@ -27,14 +27,18 @@ class Indexes extends Templating {
 	 * 
 	 * @return string $tempalate	This is source header tempalate
 	 */
-	public static function headerContent() {
+	public static function headerContent($title = '') {
 	
 		$template_name = Config::dataArray('templates', 'header');
+
+		if (!$title) {
+			$title = Locale::languageEng('site', 'name');
+		}
 
 		$params = array(
 			"charset"	=> Config::dataArray('common', 'charset'),
 			"site_name"	=> Locale::languageEng('site', 'title'),
-			"title"		=> Locale::languageEng('site', 'name'),
+			"title"		=> $title,
 			"screen"	=> Config::dataArray('css', 'path'),
 			"print"		=> Config::dataArray('css', 'path'),
 			"ie"		=> Config::dataArray('css', 'path'),

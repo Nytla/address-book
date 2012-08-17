@@ -104,6 +104,13 @@ class Config {
 
 			),
 
+			"redirect_page"	=> array(
+
+				"layout"	=> './layout.php',
+				"index"		=> './index.php'
+
+			),
+
 			"css"		=> array(
 				"path"		=> '/adminpanel/libraries/css/blueprint-v1.0.1/blueprint/'
 
@@ -138,7 +145,8 @@ class Config {
 				"scripts"	=> 'scripts.html',
 				"footer"	=> 'footer.html',
 				"errors"	=> 'errors.html',
-				"authorization"	=> 'authorization.html'
+				"authorization"	=> 'authorization.html',
+				"layout"	=> 'layout.hrml'
 
 			)
 
