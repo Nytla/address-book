@@ -80,7 +80,6 @@ class PDOMysqlConnect extends Exceptionizer {
 	 *
 	 * @return object $db	This is PDO connect mysql
 	 */
-
 	public function __construct() {
 		
 		/**

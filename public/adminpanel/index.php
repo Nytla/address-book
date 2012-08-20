@@ -42,8 +42,6 @@ $AuthorizationController -> checkAuthIndex();
  */
 print $AuthorizationController -> makeAuth();
 
-
-
 //////////////////////////////
 //$AuthorizationController -> validateAuth('', '');
 

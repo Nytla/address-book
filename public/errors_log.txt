@@ -341,3 +341,10 @@
  <filename>/var/www/address_book.loc/public/index.php</filename>
  <linenum>76</linenum>
  </error>
+<error>
+ <date>2012-08-20 10:07:51 (EEST10800)</date>
+ <errno>8</errno>
+ <errmsg>Undefined variable: config_value</errmsg>
+ <filename>/var/www/address_book.loc/public/index.php</filename>
+ <linenum>76</linenum>
+ </error>

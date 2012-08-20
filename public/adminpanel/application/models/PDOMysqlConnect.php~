@@ -125,8 +125,6 @@ class PDOMysqlConnect extends Exceptionizer {
 
 			$this -> _DB_connect = $db;
 
-			return $this -> _DB_connect;
-
 		} catch (E_NOTICE $object) {
 
 			Redirect::uriRedirect('bad_connect');

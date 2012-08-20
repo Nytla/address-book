@@ -12,7 +12,7 @@
  *
  * This is administrator authorization file
  * 
- * @category	Main
+ * @category	Controller
  * @copyright	2012
  * @author	Igor Zhabskiy <Zhabskiy.Igor@googlemail.com>
  */
@@ -67,7 +67,6 @@ class AuthorizationModel extends PDOMysqlConnect {
 		 * Set adminisrator variable
 		 */
 		$this -> _admin_id = intval(Cookie::get('admin_id'));
-
 
 		$this -> _DB_table_name = Config::dataArray('table_name', 'administrators');
 

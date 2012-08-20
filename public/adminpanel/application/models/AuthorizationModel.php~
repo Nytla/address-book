@@ -12,7 +12,7 @@
  *
  * This is administrator authorization file
  * 
- * @category	Main
+ * @category	Controller
  * @copyright	2012
  * @author	Igor Zhabskiy <Zhabskiy.Igor@googlemail.com>
  */
@@ -93,7 +93,6 @@ class AuthorizationModel extends PDOMysqlConnect {
 			
 			return false;
 		}
-
 	}
 
 	/**

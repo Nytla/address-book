@@ -5,9 +5,7 @@ $(document).ready(function() {
 
 	/**
 	 * Show or hide authorization menu
-	 */	
-	$("#testing").html('this is small test :)');
-	
+	 */
 	$("[name ^= 'value']").keypress(function() {
 	
 		$('#error').removeClass().addClass("hide");

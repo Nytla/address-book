@@ -1,25 +1,31 @@
 			<br>
 			<br>
 			<br>
-			<div class="span-10 prepend-10 append-0">
+			<div class="span-10 prepend-{{ prepend }} append-0 last">
 				<h3>
 					<a href="{{ site_url }}address_book.php">{{ ab }}</a>
 					|
-					<a href="{{ site_url }}log_out.php">{{ log_out }}</a>
+					<a href="{{ site_url }}logout.php">{{ log_out }}</a>
+					{% if admin_permission != 0 %}
+					|
+					<a href="{{ site_url }}add_admin.php">{{ add_admin }}</a>
+					{% endif %}
 				</h3>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<h3>{{ content }}</h3>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
 			</div>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<div class="span-10 prepend-10 append-0 last">
+				<h3>{{ content }}</h3>
+			</div>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>

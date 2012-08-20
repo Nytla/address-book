@@ -86,7 +86,7 @@ class Authorization extends Templating {
 
 		$flag = array("", "$name");
 
-		$file = Config::dataArray('authorization', 'path').Config::dataArray('authorization', 'js');
+		$file = Config::dataArray('javascript', 'path').Config::dataArray('javascript', 'authorization');
 
 		$path = array("", "$file");
 
@@ -180,7 +180,6 @@ class Authorization extends Templating {
 			}
 
 		} else {
-
 			return json_encode(array('validate' => false, 'redirect_file' => Config::dataArray('redirect_page', 'index')));
 		}
 	}
@@ -288,6 +287,62 @@ class Authorization extends Templating {
 	}
 
 	/**
+	 * checkAuthAdminPermission()
+	 *
+	 * This function check authorization on not index page and adminisrator permission 
+	 *
+	 * @return boolean
+	 */
+	public function checkAuthAdminPermission() {
+
+		$admin_data_array = array_shift($this -> _authorization_model -> getAuthDataById());
+
+		//print_r($admin_data_array);
+
+		//print gettype($admin_data_array['admin_permission']);
+
+		$admin_permission = settype($admin_data_array['admin_permission'], "boolean");
+
+		print gettype($admin_permission);
+
+		print $admin_permission;
+
+		return false;
+
+		/**
+		 * Check the cookie are set or no
+		 */
+		if (!Cookie::isEmpty('admin_id') and !Cookie::isEmpty('admin_hash')) {
+
+			if (is_array($this -> _authorization_model -> getAuthDataById())) {
+
+				/**
+				 * Get adminisrator information from DB and take first array element
+				 */
+				$admin_data_array = array_shift($this -> _authorization_model -> getAuthDataById());
+
+//				$admin_permission = settype($admin_data_array['admin_permission'], "boolean");
+
+				if ($admin_data_array['admin_hash'] !== $_COOKIE['admin_hash'] or $admin_data_array['admin_id'] !== $_COOKIE['admin_id'] or $admin_data_array['admin_permission'] !== '1') {
+
+					Cookie::delete('admin_id');
+
+					Cookie::delete('admin_hash');
+
+					Redirect::uriRedirect(301, Config::dataArray('redirect_page', 'index'));
+				} else {
+					return true;
+				}
+			} else {
+				Redirect::uriRedirect(301, Config::dataArray('redirect_page', 'index'));
+			}
+
+		} else {
+			Redirect::uriRedirect(301, Config::dataArray('redirect_page', 'index'));
+		}
+	}
+
+	/**
 	 * hashGenerator
 	 *
 	 * This function generate hash
@@ -307,19 +362,16 @@ class Authorization extends Templating {
 		while(strlen($code) < $length) {
 			$code .= $chars[mt_rand(0, $clean)];
 		}
-/*
+
 		try {
-			if ($data) {
-				return $data;
+			if ($code) {
+				return $code;
 			}
 
 		} catch (E_NOTICE $object) {
 
-			Redirect::uriRedirect('bad_connect');
+			return false;
 		}
-*/
-		return $code;
-
 	}
 
 	/**

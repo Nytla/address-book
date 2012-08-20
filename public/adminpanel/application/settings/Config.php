@@ -118,7 +118,16 @@ class Config {
 
 			"jquery"	=> array(
 
-				"path"		=> '/adminpanel/libraries/jquery/'
+				"path"		=> '/adminpanel/libraries/jquery/',
+				"validation"	=> 'jQuery_validation_1.9.0.js'
+
+			),
+
+			"javascript"	=> array(
+
+				"path"		=> '/adminpanel/public/javascripts/',
+				"authorization"	=> 'authorization.js',
+				"add_admin"	=> 'add_admin.js'
 
 			),
 
@@ -126,13 +135,6 @@ class Config {
 
 				"css"		=> 'css',
 				"js"		=> 'js'
-
-			),
-
-			"authorization"	=> array(
-
-				"path"		=> '/adminpanel/public/javascripts/',
-				"js"		=> 'authorization.js'
 
 			),
 
@@ -146,7 +148,8 @@ class Config {
 				"footer"	=> 'footer.html',
 				"errors"	=> 'errors.html',
 				"authorization"	=> 'authorization.html',
-				"layout"	=> 'layout.html'
+				"layout"	=> 'layout.html',
+				"add_admin"	=> 'add_admin.html'
 
 			)
 
