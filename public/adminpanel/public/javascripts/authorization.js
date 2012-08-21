@@ -32,38 +32,6 @@ $(document).ready(function() {
 	 * Submit authorization form on Ajax
 	 */
 	$("#authForm").submit(function() {
-/*
-		//Validate signup form on keyup and submit
-
-		http://jquery.bassistance.de/validate/demo/
-
-		http://www.linkexchanger.su/2008/46.html
-
-		$("#authForm").validate({
-
-			rules: {
-				valueLogin: {
-					required: true,
-					minlength: 2
-				},
-				valuePass: {
-					required: true,
-					minlength: 5
-				},
-			
-				messages: {
-					valueLogin: {
-						required: "Please enter a username",
-						minlength: "Your username must consist of at least 2 characters"
-					},
-					valuePass: {
-						required: "Please provide a password",
-						minlength: "Your password must be at least 5 characters long"
-					},
-				}
-			}
-		});
-*/
 
 //		Regexp - http://seoromin.com.ua/topic/109_regulyarnye-vyrazheniya-v-jquery/
 

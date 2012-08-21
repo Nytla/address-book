@@ -134,15 +134,27 @@ class Locale {
 			"add_admin"	=> array(
 
 				"title"			=> 'Admin: Add New Administrator',
-				"layout"		=> 'Page Layout'
+				"layout"		=> 'Page Layout',
 				"content"		=> 'Add New Administrator',
 				"confirm_password"	=> 'Confirm password',			
-				"error_empty"		=> 'Login or password is empty!',
-				"error_incorect"	=> 'Login or password is incorrect!',
-				"error_min_length"	=> 'Your password must be at least 5 characters long!',
-				"error_max_lenght"	=> 'Your password should contain no more than 16 characters!',
+				"error_empty_login"	=> 'Please enter a login!',
+				"error_empty_pass"	=> 'Please enter a password!',
+				"error_empty_pass_conf"	=> 'Please enter a confirm password!',
+				"error_incorect_login"	=> 'Login must consist of English letters!',
+				"error_incorect_pass"	=> 'Password must consist of English letters and digits!',
+				"error_min_length_login"=> 'Your login must be at least 5 characters long!',
+				"error_min_length_pass"	=> 'Your password must be at least 5 characters long!',
+				"error_max_length_login"=> 'Your login should contain no more than 16 characters!',
+				"error_max_length_pass"	=> 'Your password should contain no more than 16 characters!',
 				"error_confirm"		=> 'Please enter the same password as above!',
-				"error_exists"		=> 'Adminitsrator with this login already exists!'
+				"error_exists"		=> 'Adminitsrator with this login already exists!',
+				"add_good_message"	=> 'The new administrator has been added to the database.'
+
+			),
+
+			"book_list"	=> array(
+
+				"title"			=> 'Admin: Adress Book List'
 
 			)
 

@@ -6,12 +6,10 @@
 					<a href="{{ site_url }}address_book.php">{{ ab }}</a>
 					|
 					<a href="{{ site_url }}logout.php">{{ log_out }}</a>
-					
 					{% if admin_permission != 0 %}
 					|
 					<a href="{{ site_url }}add_admin.php">{{ add_admin }}</a>
 					{% endif %}
-
 				</h3>
 			</div>
 			<br>

@@ -48,13 +48,6 @@ class AuthorizationModel extends PDOMysqlConnect {
 	private $_admin_login;
 
 	/**
-	 * _admin_password
-	 * 
-	 * @var string	This is password of administrator
-	 */
-	private $_admin_password;
-
-	/**
 	 * getAuthData
 	 *
 	 * This function get authorization data from Database
@@ -127,8 +120,6 @@ class AuthorizationModel extends PDOMysqlConnect {
 			}
 
 		} catch (E_NOTICE $object) {
-
-			//Redirect::uriRedirect('bad_connect');
 
 			return false;
 		}

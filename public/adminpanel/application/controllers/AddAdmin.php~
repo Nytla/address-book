@@ -20,6 +20,30 @@
  */
 class AddAdmin extends Templating {
 
+	/**
+	 * _add_admin_model
+	 * 
+	 * @var object	This is object by AddAdminModel
+	 */
+	private $_add_admin_model;
+
+	/**
+	 * Constructor
+	 *
+	 * This function get adminisrator information from Database
+	 */
+	public function __construct() {
+
+		$this -> _add_admin_model = new AddAdminModel();
+	}	
+
+	/**
+	 * makeAddForm
+	 *
+	 * This function make form which added new administrator to DB
+	 *
+	 * @return string $tempalate	This is source add new administrator tempalate
+	 */
 	public function makeAddForm() {
 
 		/**
@@ -32,7 +56,7 @@ class AddAdmin extends Templating {
 		 */
 		$name = Config::dataArray('flags', 'js');
 
-		$flag = array("", "$name");
+		$flag = array("", "$name", "$name");
 
 		$validation = Config::dataArray('jquery', 'path').Config::dataArray('jquery', 'validation');
 
@@ -51,12 +75,18 @@ class AddAdmin extends Templating {
 			"login"			=> Locale::languageEng('authorization', 'login'),
 			"password"		=> Locale::languageEng('authorization', 'password'),
 			"confirm_password"	=> Locale::languageEng('add_admin', 'confirm_password'),
-			"error_empty"		=> Locale::languageEng('add_admin', 'error_empty'),
-			"error_incorect"	=> Locale::languageEng('add_admin', 'error_incorect'),
-			"error_min_length"	=> Locale::languageEng('add_admin', 'error_min_length'),
-			"error_max_lenght"	=> Locale::languageEng('add_admin', 'error_max_lenght'),
+			"error_empty_login"	=> Locale::languageEng('add_admin', 'error_empty_login'),
+			"error_empty_pass"	=> Locale::languageEng('add_admin', 'error_empty_pass'),
+			"error_empty_pass_conf"	=> Locale::languageEng('add_admin', 'error_empty_pass_conf'),
+			"error_incorect_login"	=> Locale::languageEng('add_admin', 'error_incorect_login'),
+			"error_incorect_pass"	=> Locale::languageEng('add_admin', 'error_incorect_pass'),
+			"error_min_length_login"=> Locale::languageEng('add_admin', 'error_min_length_login'),
+			"error_min_length_pass"	=> Locale::languageEng('add_admin', 'error_min_length_pass'),
+			"error_max_length_login"=> Locale::languageEng('add_admin', 'error_max_length_login'),
+			"error_max_length_pass"	=> Locale::languageEng('add_admin', 'error_max_length_pass'),
 			"error_confirm"		=> Locale::languageEng('add_admin', 'error_confirm'),
 			"error_exists"		=> Locale::languageEng('add_admin', 'error_exists'),
+			"add_good_message"	=> Locale::languageEng('add_admin', 'add_good_message')
 		);
 
 		/**
@@ -75,8 +105,27 @@ class AddAdmin extends Templating {
 		$template .= Indexes::footerContent();
 
 		return $template;
-
 	}
 
+	/**
+	 * adminRegister
+	 *
+	 * This function register new administrator our DB
+	 *
+	 * @return string $tempalate	This is source add new administrator tempalate
+	 */
+	public function adminRegister($login = '', $password = '') {
+
+		if(!preg_match("/^[a-zA-Z0-9_-]+$/", $login) or !preg_match("/^[a-zA-Z0-9_-]+$/", $password)) {
+			return false;
+		}
+
+		if ($this -> _add_admin_model -> checkAdminExist($login)) {
+			return false;
+		} else {
+			
+			return $this -> _add_admin_model -> addAdminToDB($password);
+		}	
+	}
 }
 ?>

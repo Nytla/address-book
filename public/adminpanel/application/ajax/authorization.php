@@ -6,7 +6,7 @@
  *
  * This is ajax file for authorization by administrator
  * 
- * @category	Main
+ * @category	Ajax
  * @copyright	2012
  * @author	Igor Zhabskiy  <Zhabskiy.Igor@googlemail.com>
  */
@@ -17,7 +17,7 @@
 require_once(dirname(__FILE__).'/../../application/autoload/autoload.php');
 
 /**
- * Create authorization object
+ * Create access object
  */
 $AccessController = new Access();
 

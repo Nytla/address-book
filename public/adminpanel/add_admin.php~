@@ -24,7 +24,7 @@ $AuthorizationController = new Authorization();
 /**
  * Validate information from form
  */
-$AuthorizationController -> checkAuthNotIndex();
+$AuthorizationController -> checkAuthAdminPermission();
 
 /**
  * Create authorization object
@@ -36,5 +36,5 @@ $AddAdminController = new AddAdmin();
  */
 print $AddAdminController -> makeAddForm();
 
-print_r($_COOKIE);
+//print_r($_COOKIE);
 ?>

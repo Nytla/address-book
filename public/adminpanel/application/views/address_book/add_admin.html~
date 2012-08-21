@@ -5,9 +5,7 @@
 				<h3><a href="{{ site_url }}layout.php">{{ layout }}</a></h3>
 			</div>
 			<div class="span-10 prepend-8 append-0">
-				<h1>
-					{{ content }}
-				</h1>
+				<h1>{{ content }}</h1>
 			</div>
 			<div id="auth" class="span-10 prepend-10 append-0">
 			</div>
@@ -16,24 +14,30 @@
 					<form method="post" name="addAdminForm" id="addAdminForm" action="">
 						<p>
 							<label for="login">{{ login }}:</label><br>
-							<input id="login" type="text" name="valueLogin" class="text required" minlength="5" maxlength="16">
+							<input id="login" type="text" name="login" class="text" minlength="5" maxlength="16">
 						</p>
 						<p>
 							<label for="pass">{{ password }}:</label><br>
-							<input id="pass" type="password" name="valuePass" class="text required" minlength="5" maxlength="16">
+							<input id="pass" type="password" name="pass" class="text" minlength="5" maxlength="16">
 						</p>
 						<p>
 							<label for="confirm_pass">{{ confirm_password }}:</label><br>
-							<input id="confirm_pass" type="password" name="valueConfirmPass" class="text required" maxlength="16">
+							<input id="confirm_pass" type="password" name="confirm_pass" class="text">
 						</p>
-							<div id="error_empty" class="hide">{{ error_empty }}</div>
-							<div id="error_incorect" class="hide">{{ error_incorect }}</div>
-							<div id="error_mix_lenght" class="hide">{{ error_min_length }}</div>
-							<div id="error_max_lenght" class="hide">{{ error_max_lenght }}</div>
+							<div id="error_empty_login" class="hide">{{ error_empty_login }}</div>
+							<div id="error_empty_pass" class="hide">{{ error_empty_pass }}</div>
+							<div id="error_empty_pass_conf" class="hide">{{ error_empty_pass_conf }}</div>
+							<div id="error_incorect_login" class="hide">{{ error_incorect_login }}</div>
+							<div id="error_incorect_pass" class="hide">{{ error_incorect_pass }}</div>
+							<div id="error_min_length_login" class="hide">{{ error_min_length_login }}</div>
+							<div id="error_min_length_pass" class="hide">{{ error_min_length_pass }}</div>
+							<div id="error_max_length_login" class="hide">{{ error_max_length_login }}</div>
+							<div id="error_max_length_pass" class="hide">{{ error_max_length_pass }}</div>
 							<div id="error_confirm" class="hide">{{ error_confirm }}</div>
 							<div id="error_exists" class="hide">{{ error_exists }}</div>
+							<div id="error_exists" class="hide">{{ add_good_message }}</div>						
 						<p>
-							<input id="loginButton" type="submit" value="{{ login }}">
+							<input id="loginButton" type="submit" class="submit" value="{{ login }}">
 						</p>
 					</form>
 				</fieldset>

@@ -1349,3 +1349,31 @@
 	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/AddAdmin.php</filename>
 	<linenum>41</linenum>
 </error>
+<error>
+	<date>2012-08-21 11:15:52 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: error_max_lenght_login</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/data/Locale.php</filename>
+	<linenum>155</linenum>
+</error>
+<error>
+	<date>2012-08-21 11:16:01 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: error_max_lenght_login</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/data/Locale.php</filename>
+	<linenum>155</linenum>
+</error>
+<error>
+	<date>2012-08-21 15:25:17 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: login</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AddAdminModel.php</filename>
+	<linenum>87</linenum>
+</error>
+<error>
+	<date>2012-08-21 15:26:39 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: login</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AddAdminModel.php</filename>
+	<linenum>87</linenum>
+</error>

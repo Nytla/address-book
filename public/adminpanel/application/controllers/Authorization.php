@@ -295,20 +295,6 @@ class Authorization extends Templating {
 	 */
 	public function checkAuthAdminPermission() {
 
-		$admin_data_array = array_shift($this -> _authorization_model -> getAuthDataById());
-
-		//print_r($admin_data_array);
-
-		//print gettype($admin_data_array['admin_permission']);
-
-		$admin_permission = settype($admin_data_array['admin_permission'], "boolean");
-
-		print gettype($admin_permission);
-
-		print $admin_permission;
-
-		return false;
-////////////////////
 		/**
 		 * Check the cookie are set or no
 		 */
@@ -321,9 +307,9 @@ class Authorization extends Templating {
 				 */
 				$admin_data_array = array_shift($this -> _authorization_model -> getAuthDataById());
 
-//				$admin_permission = settype($admin_data_array['admin_permission'], "boolean");
+				settype($admin_data_array['admin_permission'], "integer");
 
-				if ($admin_data_array['admin_hash'] !== $_COOKIE['admin_hash'] or $admin_data_array['admin_id'] !== $_COOKIE['admin_id'] or $admin_data_array['admin_permission'] !== '1') {
+				if ($admin_data_array['admin_hash'] !== $_COOKIE['admin_hash'] or $admin_data_array['admin_id'] !== $_COOKIE['admin_id'] or $admin_data_array['admin_permission'] !== 1) {
 
 					Cookie::delete('admin_id');
 

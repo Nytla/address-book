@@ -2,9 +2,9 @@
 /**
  * Adress Book
  * 
- * authorization.php
+ * add_admin.php
  *
- * This is ajax file for authorization by administrator
+ * This is ajax file for added administrator to DB
  * 
  * @category	Ajax
  * @copyright	2012
@@ -17,7 +17,7 @@
 require_once(dirname(__FILE__).'/../../application/autoload/autoload.php');
 
 /**
- * Create authorization object
+ * Create access object
  */
 $AccessController = new Access();
 
@@ -27,13 +27,12 @@ $AccessController = new Access();
 $AccessController -> httpRequested();
 
 /**
- * Create authorization object
+ * Create AddAdminController object
  */
-$AuthorizationController = new Authorization();
+$AddAdminController = new AddAdmin();
 
 /**
- * Validate information from form
+ * Add new administrator to DB
  */
-print $AuthorizationController -> validateAuth($_REQUEST['login'], $_REQUEST['password']);
+print $AddAdminController -> adminRegister($_REQUEST['login'], $_REQUEST['password']);
 ?>
-

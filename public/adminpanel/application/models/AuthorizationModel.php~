@@ -68,7 +68,6 @@ class AuthorizationModel extends PDOMysqlConnect {
 		 */
 		$this -> _admin_id = intval(Cookie::get('admin_id'));
 
-
 		$this -> _DB_table_name = Config::dataArray('table_name', 'administrators');
 
 		/**
@@ -128,8 +127,6 @@ class AuthorizationModel extends PDOMysqlConnect {
 			}
 
 		} catch (E_NOTICE $object) {
-
-			//Redirect::uriRedirect('bad_connect');
 
 			return false;
 		}

@@ -149,7 +149,8 @@ class Config {
 				"errors"	=> 'errors.html',
 				"authorization"	=> 'authorization.html',
 				"layout"	=> 'layout.html',
-				"add_admin"	=> 'add_admin.html'
+				"add_admin"	=> 'add_admin.html',
+				"book_list"	=> 'book_list.html'
 
 			)
 

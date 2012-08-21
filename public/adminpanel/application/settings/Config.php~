@@ -131,7 +131,7 @@ class Config {
 
 			),
 
-			"flags"			=> array(
+			"flags"		=> array(
 
 				"css"		=> 'css',
 				"js"		=> 'js'
@@ -150,6 +150,7 @@ class Config {
 				"authorization"	=> 'authorization.html',
 				"layout"	=> 'layout.html',
 				"add_admin"	=> 'add_admin.html'
+				"book_list"	=> 'book_list.html'
 
 			)
 
