@@ -67,8 +67,9 @@ class AddAdminModel extends PDOMysqlConnect {
 		/**
 		 * Select administrator information
 		 */
-		$select_permission = $this -> _DB_connect -> query("SELECT `admin_permission` FROM " . $this -> _DB_table_name . " WHERE `admin_id` = '" . $this -> _admin_id . "' LIMIT 1");
+//		$select_permission = $this -> _DB_connect -> query("SELECT `admin_permission` FROM " . $this -> _DB_table_name . " WHERE `admin_id` = '" . $this -> _admin_id . "' LIMIT 1");
 
+		$select_permission = self::$_DB_connect -> query("SELECT `admin_permission` FROM " . $this -> _DB_table_name . " WHERE `admin_id` = '" . $this -> _admin_id . "' LIMIT 1");
 		try {
 
 			while ($row = $select_permission -> fetch(PDO::FETCH_ASSOC)) {

@@ -113,7 +113,8 @@ class Locale {
 			),
 
 			"authorization" => array(
-				
+
+				"title"			=> 'Admin: Login',				
 				"auth"			=> 'Authorization',
 				"login"			=> 'Login',
 				"password"		=> 'Password',
@@ -155,7 +156,13 @@ class Locale {
 			"book_list"	=> array(
 
 				"title"			=> 'Admin: Adress Book List',
-				
+				"search_word"		=> 'Search',
+				"keywords_word"		=> "Keywords",
+				"country_word"		=> "Country",
+				"city_word"		=> "City",
+				"country_option"	=> '::ALL::',
+				"city_option"		=> '::ALL::',
+
 
 			)
 

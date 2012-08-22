@@ -1,13 +1,50 @@
-			<hr>
-			<hr>
-			<hr>
-			<div class="span-10 prepend-11 append-0">
-				<h3>{{ site_name }}</h3>
+			<br>
+			<br>
+			<div class="span-10 prepend-10 append-0 last">
+				<h2>{{ site_name }}</h2>
 			</div>
+			<br>
+			<!-- Search Form START -->
+			<div class="span-24 last">
+				<h4>
+					<fieldset>
+						<legend>{{ search_word }}</legend>
+						<form method="post" name="searchForm" id="searchForm" action="">
+							<div class="span-9 prepend-1">
+								<label for="keywords">{{ keywords_word }}</label>
+								<input type="text" name="keywords" id="keywords">
+							</div>
 
-			<div class="span-10 prepend-11 append-0">
-				<h3><a href="{{ site_url }}layout.php">BACK_</a></h3>
+							<div class="span-5">
+								<label for="country">{{ country_word }}</label>
+								<select name="country" id="keywords">
+									<option value="0">{{ country_option }}</option>
+								</select>
+							</div>
+
+							<div class="span-4">
+								<label for="city">{{ city_word }}</label>
+								<select name="city" id="city">
+									<option value="0">{{ city_option }}</option>
+								</select>
+							</div>
+
+							<input type="submit" name="search" value="Search">
+						</form>
+					</fieldset>
+				</h4>
 			</div>
+			<!-- Search Form FINISH -->
+
+{{ clients_data }}		
+
+{% for i in 1..clients_num %}
+
+{{ clients_data[i] }}
+
+{% endfor %}
+	
+
 			<hr>
 			<hr>
 			<hr>
@@ -20,3 +57,9 @@
 			<hr>
 			<hr>
 			<hr>
+
+
+
+			<div class="span-10 prepend-11 append-0 last">
+				<h3><a href="{{ site_url }}layout.php">BACK_</a></h3>
+			</div>

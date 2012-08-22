@@ -31,6 +31,8 @@ echo '
 <h1>This is address book<h1>
 <br>
 <a href="./index.php">Back</a>
+</h1>
 ';
 
+print_r($_COOKIE);
 ?>

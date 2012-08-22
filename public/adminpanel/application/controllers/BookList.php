@@ -20,6 +20,13 @@
  */
 class BookList extends Templating {
 
+
+	
+
+
+
+
+	
 	public function makeAB() {
 
 		/**
@@ -42,12 +49,27 @@ class BookList extends Templating {
 
 		$template .= Indexes::scriptsContent($flag, $path);
 
+
+
+//$model = new BookListModel();
+
+$data = BookListModel::getClientsData();
+
 		/**
 		 * Create authorization content
 		 */
 		$params = array(
 			"site_name"		=> Locale::languageEng('site', 'name'),
-			"content"		=> Locale::languageEng('add_admin', 'content'),
+			"search_word"		=> Locale::languageEng('book_list', 'search_word'),
+			"keywords_word"		=> Locale::languageEng('book_list', 'keywords_word'),			
+			"country_word"		=> Locale::languageEng('book_list', 'country_word'),
+			"city_word"		=> Locale::languageEng('book_list', 'city_word'),
+			"country_option"	=> Locale::languageEng('book_list', 'country_option'),
+			"city_option"		=> Locale::languageEng('book_list', 'city_option'),
+
+			"clients_num"		=> count($model -> getClientsData()),
+			"clients_data"		=> $data[1]['admin_login']
+
 		);
 
 		/**
@@ -67,6 +89,9 @@ class BookList extends Templating {
 
 		return $template;
 	}
+
+	
+
 
 }
 ?>

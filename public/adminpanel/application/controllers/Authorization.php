@@ -77,7 +77,7 @@ class Authorization extends Templating {
 		/**
 		 * Create header content
 		 */
-		$template = Indexes::headerContent();
+		$template = Indexes::headerContent(Locale::languageEng('authorization', 'title'));
 
 		/**
 		 * Create css or/and javascript content

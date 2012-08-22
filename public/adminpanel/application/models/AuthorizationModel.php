@@ -47,6 +47,12 @@ class AuthorizationModel extends PDOMysqlConnect {
 	 */
 	private $_admin_login;
 
+
+
+
+
+
+
 	/**
 	 * getAuthData
 	 *
@@ -66,7 +72,9 @@ class AuthorizationModel extends PDOMysqlConnect {
 		/**
 		 * Select administrator information
 		 */
-		$select = $this -> _DB_connect -> query("SELECT * FROM " . $this -> _DB_table_name . " WHERE `admin_id` = '" . $this -> _admin_id . "' LIMIT 1");
+//		$select = $this -> _DB_connect -> query("SELECT * FROM " . $this -> _DB_table_name . " WHERE `admin_id` = '" . $this -> _admin_id . "' LIMIT 1");
+
+		$select = self::$_DB_connect -> query("SELECT * FROM " . $this -> _DB_table_name . " WHERE `admin_id` = '" . $this -> _admin_id . "' LIMIT 1");
 
 		try {
 
@@ -106,7 +114,10 @@ class AuthorizationModel extends PDOMysqlConnect {
 		/**
 		 * Get information from DB
 		 */
-		$select = $this -> _DB_connect -> query("SELECT `admin_id`, `admin_password` FROM " . $this -> _DB_table_name . " WHERE `admin_login` = '" . mysql_escape_string($this -> _admin_login) . "' LIMIT 1");
+//		$select = $this -> _DB_connect -> query("SELECT `admin_id`, `admin_password` FROM " . $this -> _DB_table_name . " WHERE `admin_login` = '" . mysql_escape_string($this -> _admin_login) . "' LIMIT 1");
+
+		$select = self::$_DB_connect -> query("SELECT `admin_id`, `admin_password` FROM " . $this -> _DB_table_name . " WHERE `admin_login` = '" . mysql_escape_string($this -> _admin_login) . "' LIMIT 1");
+
 		
 		try {
 
@@ -134,7 +145,9 @@ class AuthorizationModel extends PDOMysqlConnect {
 	 */
 	public function updateHash($admin_id = '', $hash = '') {
 
-		$update = $this -> _DB_connect -> exec("UPDATE " . $this -> _DB_table_name . "  SET `admin_hash` = '" . mysql_escape_string($hash) . "' WHERE `admin_id` = '" . $admin_id . "' ");
+		//$update = $this -> _DB_connect -> exec("UPDATE " . $this -> _DB_table_name . "  SET `admin_hash` = '" . mysql_escape_string($hash) . "' WHERE `admin_id` = '" . $admin_id . "' ");
+
+		$update = self::$_DB_connect -> exec("UPDATE " . $this -> _DB_table_name . "  SET `admin_hash` = '" . mysql_escape_string($hash) . "' WHERE `admin_id` = '" . $admin_id . "' ");
 
 		try {
 			if ($update) {

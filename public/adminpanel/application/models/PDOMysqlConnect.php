@@ -71,7 +71,10 @@ class PDOMysqlConnect extends Exceptionizer {
 	 * 
 	 * @var string	This is connect to our Database
 	 */
-	protected $_DB_connect;
+	//protected $_DB_connect;
+
+	static protected $_DB_connect;
+
 
 	/**
 	 * Constructor
@@ -122,7 +125,9 @@ class PDOMysqlConnect extends Exceptionizer {
 				PDO::ERRMODE_EXCEPTION
 			);
 
-			$this -> _DB_connect = $db;
+//			$this -> _DB_connect = $db;
+
+			self::$_DB_connect = $db;
 
 		} catch (E_NOTICE $object) {
 
@@ -137,7 +142,9 @@ class PDOMysqlConnect extends Exceptionizer {
 	 */
 	public function __destruct() {
 
-		$this -> _DB_connect = null;
+//		$this -> _DB_connect = null;
+
+		//self::$_DB_connect = null;
 	}
 }
 ?>

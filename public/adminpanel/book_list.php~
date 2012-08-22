@@ -28,9 +28,10 @@ print $BookListController -> makeAB();
 
 
 echo '
-//<h1>This is address book<h1>
-//<br>
+<h1>This is address book<h1>
+<br>
 <a href="./index.php">Back</a>
 ';
 
+print_r($_COOKIE);
 ?>
