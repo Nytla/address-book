@@ -35,7 +35,7 @@
 							<div id="error_max_length_pass" class="hide">{{ error_max_length_pass }}</div>
 							<div id="error_confirm" class="hide">{{ error_confirm }}</div>
 							<div id="error_exists" class="hide">{{ error_exists }}</div>
-							<div id="error_exists" class="hide">{{ add_good_message }}</div>						
+							<div id="add_good_message" class="hide">{{ add_good_message }}</div>						
 						<p>
 							<input id="loginButton" type="submit" class="submit" value="{{ login }}">
 						</p>

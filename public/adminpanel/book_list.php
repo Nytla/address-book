@@ -1,10 +1,10 @@
 <?php
 /**
- * Adress Book
+ * Address Book
  * 
- * log_out.php
+ * book_list.php
  *
- * This is administrator login out
+ * This is administrator address book list page
  * 
  * @category	Main
  * @copyright	2012
@@ -17,6 +17,16 @@
 require_once(dirname(__FILE__).'/application/autoload/autoload.php');
 
 /**
+ * Create authorization object
+ */
+//$AuthorizationController = new Authorization();
+
+/**
+ * Validate information from form
+ */
+//$AuthorizationController -> checkAuthNotIndex();
+
+/**
  * Create book list object
  */
 $BookListController = new BookList();
@@ -27,12 +37,15 @@ $BookListController = new BookList();
 print $BookListController -> makeAB();
 
 
+
+/*
 echo '
 <h1>This is address book<h1>
 <br>
 <a href="./index.php">Back</a>
 </h1>
 ';
+*/
 
-print_r($_COOKIE);
+//print_r($_COOKIE);
 ?>

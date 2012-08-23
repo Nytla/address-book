@@ -1,12 +1,12 @@
 <?php
 /**
- * Adress Book
+ * Adress Book Ajax
  * 
  * authorization.php
  *
  * This is ajax file for authorization by administrator
  * 
- * @category	Ajax
+ * @category	ajax
  * @copyright	2012
  * @author	Igor Zhabskiy  <Zhabskiy.Igor@googlemail.com>
  */

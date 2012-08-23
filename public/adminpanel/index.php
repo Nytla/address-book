@@ -11,7 +11,7 @@ error_reporting(E_ALL | E_STRICT);
 //Pattetn - http://dron.by/post/patterny-shablony-proektirovanie-v-php-vvedenie/
 
 /**
- * Adress Book
+ * Address Book 
  * 
  * index.php
  *

@@ -1,12 +1,12 @@
 <?php
 /**
- * Adress Book
+ * Adress Book Settings
  * 
  * Config.php
  *
  * This is config for admin panel
  * 
- * @category	settings
+ * @category	Settings
  * @copyright	2012
  * @author	Igor Zhabskiy <Zhabskiy.Igor@googlemail.com>
  */

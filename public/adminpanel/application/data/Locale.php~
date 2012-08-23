@@ -161,7 +161,8 @@ class Locale {
 				"country_word"		=> "Country",
 				"city_word"		=> "City",
 				"country_option"	=> '::ALL::',
-				"city_option"	=> '::ALL::',
+				"city_option"		=> '::ALL::',
+				"add_new_record"	=> 'Add New Record'
 
 
 			)

@@ -13,7 +13,7 @@
  *
  * This is administrator authorization file
  * 
- * @category	Main
+ * @category	controllers
  * @copyright	2012
  * @author	Igor Zhabskiy <Zhabskiy.Igor@googlemail.com>
  */
@@ -26,13 +26,6 @@
  * @version 0.1
  */
 class Authorization extends Templating {
-
-	/**
-	 * _authorization_model
-	 * 
-	 * @var object	This is administrator information from DB 
-	 */
-	private $_authorization_model;
 
 	/**
 	 * _admin_id
@@ -54,16 +47,6 @@ class Authorization extends Templating {
 	 * @var string	This is password of administrator
 	 */
 	private $_admin_password;
-
-	/**
-	 * Constructor
-	 *
-	 * This function get adminisrator information from Database
-	 */
-	public function __construct() {
-
-		$this -> _authorization_model = new AuthorizationModel();
-	}
 
 	/**
 	 * makeAuth
@@ -129,12 +112,12 @@ class Authorization extends Templating {
 	 */
 	public function validateAuth($admin_login, $admin_password) {
 
-		if (is_array($this -> _authorization_model -> getAuthDataByLogin($admin_login))) {
+		if (is_array(AuthorizationModel::getAuthDataByLogin($admin_login))) {
 
 			/**
 			 * Get adminisrator information from DB
 			 */
-			$admin_data_array = array_shift($this -> _authorization_model -> getAuthDataByLogin($admin_login));
+			$admin_data_array = array_shift(AuthorizationModel::getAuthDataByLogin($admin_login));
 
 			/**
 			 * Set adminisrator variables
@@ -158,7 +141,7 @@ class Authorization extends Templating {
 				/**
 				 * Update hash in DB
 				 */
-				$this -> _authorization_model -> updateHash($admin_data_array['admin_id'], $hash);
+				AuthorizationModel::updateHash($admin_data_array['admin_id'], $hash);
 
 				/**
 				 * Set cookie with admin id and admin hash
@@ -201,7 +184,7 @@ class Authorization extends Templating {
 			/**
 			 * Get adminisrator information from DB
 			 */
-			$admin_data_array = $this -> _authorization_model -> getAuthDataById();
+			$admin_data_array = AuthorizationModel::getAuthDataById();
 
 			$admin_data_array = array_shift($admin_data_array);
 
@@ -225,12 +208,12 @@ class Authorization extends Templating {
 		 */
 		if (!Cookie::isEmpty('admin_id') and !Cookie::isEmpty('admin_hash')) {
 
-			if (is_array($this -> _authorization_model -> getAuthDataById())) {
+			if (is_array(AuthorizationModel::getAuthDataById())) {
 
 				/**
 				 * Get adminisrator information from DB and take first array element
 				 */
-				$admin_data_array = array_shift($this -> _authorization_model -> getAuthDataById());
+				$admin_data_array = array_shift(AuthorizationModel::getAuthDataById());
 
 				if ($admin_data_array['admin_hash'] !== $_COOKIE['admin_hash'] or $admin_data_array['admin_id'] !== $_COOKIE['admin_id']) {
 					return false;
@@ -260,12 +243,12 @@ class Authorization extends Templating {
 		 */
 		if (!Cookie::isEmpty('admin_id') and !Cookie::isEmpty('admin_hash')) {
 
-			if (is_array($this -> _authorization_model -> getAuthDataById())) {
+			if (is_array(AuthorizationModel::getAuthDataById())) {
 
 				/**
 				 * Get adminisrator information from DB and take first array element
 				 */
-				$admin_data_array = array_shift($this -> _authorization_model -> getAuthDataById());
+				$admin_data_array = array_shift(AuthorizationModel::getAuthDataById());
 
 				if ($admin_data_array['admin_hash'] !== $_COOKIE['admin_hash'] or $admin_data_array['admin_id'] !== $_COOKIE['admin_id']) {
 
@@ -300,12 +283,12 @@ class Authorization extends Templating {
 		 */
 		if (!Cookie::isEmpty('admin_id') and !Cookie::isEmpty('admin_hash')) {
 
-			if (is_array($this -> _authorization_model -> getAuthDataById())) {
+			if (is_array(AuthorizationModel::getAuthDataById())) {
 
 				/**
 				 * Get adminisrator information from DB and take first array element
 				 */
-				$admin_data_array = array_shift($this -> _authorization_model -> getAuthDataById());
+				$admin_data_array = array_shift(AuthorizationModel::getAuthDataById());
 
 				settype($admin_data_array['admin_permission'], "integer");
 
@@ -358,16 +341,6 @@ class Authorization extends Templating {
 
 			return false;
 		}
-	}
-
-	/**
-	 * Destructor
-	 *
-	 * This function delete adminisrator information
-	 */
-	public function __destruct() {
-
-		$this -> _authorization_model = null;
 	}
 }
 ?>

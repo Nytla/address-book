@@ -1,6 +1,6 @@
 <?php
 /**
- * Adress Book
+ * Address Book
  * 
  * page_layout.php
  *

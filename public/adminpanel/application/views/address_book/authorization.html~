@@ -1,10 +1,10 @@
-			<hr>
-			<hr>
-			<hr>
+			<br>
+			<br>
+			<br>
 			<div class="span-10 prepend-10 append-0">
-				<!--<h1><a href="#authorization" id="auth_url">{{ auth }}</a></h1>-->
 				<h1>{{ auth }}</h1>
 			</div>
+			<!-- Authorization form START -->
 			<div id="auth_content" class="span-10 prepend-8 append-0">
 				<fieldset>
 					<form method="post" name="authForm" id="authForm" action="">
@@ -24,7 +24,7 @@
 					</form>
 				</fieldset>
 			</div>
+			<!-- Authorization form FINISH -->
 			<hr>
 			<hr>
 			<hr>
-div#page>

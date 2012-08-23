@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 'on');
+
+error_reporting(E_ALL | E_STRICT);
 /**
  * Adress Book Controller
  * 
@@ -6,7 +9,7 @@
  *
  * This is administrator add file
  * 
- * @category	Controller
+ * @category	controllers
  * @copyright	2012
  * @author	Igor Zhabskiy <Zhabskiy.Igor@googlemail.com>
  */
@@ -34,7 +37,7 @@ class AddAdmin extends Templating {
 	 */
 	public function __construct() {
 
-		$this -> _add_admin_model = new AddAdminModel();
+		//$this -> _add_admin_model = new AddAdminModel();
 	}	
 
 	/**
@@ -120,11 +123,11 @@ class AddAdmin extends Templating {
 			return false;
 		}
 
-		if ($this -> _add_admin_model -> checkAdminExist($login)) {
+		if (AddAdminModel::checkAdminExist($login)) {
 			return false;
 		} else {
 			
-			return $this -> _add_admin_model -> addAdminToDB($password);
+			return AddAdminModel::addAdminToDB($password);
 		}	
 	}
 }

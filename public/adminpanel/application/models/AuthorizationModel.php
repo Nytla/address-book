@@ -6,13 +6,13 @@
 
 
 /**
- * Adress Book
+ * Adress Book Model
  * 
  * AuthorizationModel.php
  *
  * This is administrator authorization file
  * 
- * @category	Controller
+ * @category	models
  * @copyright	2012
  * @author	Igor Zhabskiy <Zhabskiy.Igor@googlemail.com>
  */
@@ -31,27 +31,21 @@ class AuthorizationModel extends PDOMysqlConnect {
 	 * 
 	 * @var string	This is encoding of our Database
 	 */
-	private $_DB_table_name;
+	static private $_DB_table_name;
 
 	/**
 	 * _admin_id
 	 * 
 	 * @var string	This is id of administrator
 	 */
-	private $_admin_id;
+	static private $_admin_id;
 
 	/**
 	 * _admin_login
 	 * 
 	 * @var string	This is login of administrator
 	 */
-	private $_admin_login;
-
-
-
-
-
-
+	static private $_admin_login;
 
 	/**
 	 * getAuthData
@@ -60,21 +54,19 @@ class AuthorizationModel extends PDOMysqlConnect {
 	 *
 	 * @return array $data	This is authorization data from Database
 	 */
-	public function getAuthDataById() {
+	static public function getAuthDataById() {
 
 		/**
 		 * Set adminisrator variable
 		 */
-		$this -> _admin_id = intval(Cookie::get('admin_id'));
+		self::$_admin_id = intval(Cookie::get('admin_id'));
 
-		$this -> _DB_table_name = Config::dataArray('table_name', 'administrators');
+		self::$_DB_table_name = Config::dataArray('table_name', 'administrators');
 
 		/**
 		 * Select administrator information
 		 */
-//		$select = $this -> _DB_connect -> query("SELECT * FROM " . $this -> _DB_table_name . " WHERE `admin_id` = '" . $this -> _admin_id . "' LIMIT 1");
-
-		$select = self::$_DB_connect -> query("SELECT * FROM " . $this -> _DB_table_name . " WHERE `admin_id` = '" . $this -> _admin_id . "' LIMIT 1");
+		$select = self::dbConnect() -> query("SELECT * FROM " . self::$_DB_table_name . " WHERE `admin_id` = '" . self::$_admin_id . "' LIMIT 1");
 
 		try {
 
@@ -89,8 +81,6 @@ class AuthorizationModel extends PDOMysqlConnect {
 
 		} catch (E_NOTICE $object) {
 
-			//Redirect::uriRedirect('bad_connect');
-			
 			return false;
 		}
 	}
@@ -102,23 +92,20 @@ class AuthorizationModel extends PDOMysqlConnect {
 	 *
 	 * @return array $data	This is authorization data from Database
 	 */
-	public function getAuthDataByLogin($admin_login = '') {
+	static public function getAuthDataByLogin($admin_login = '') {
 
 		/**
 		 * Set adminisrator variables
 		 */
-		$this -> _DB_table_name = Config::dataArray('table_name', 'administrators');
+		self::$_DB_table_name = Config::dataArray('table_name', 'administrators');
 
-		$this -> _admin_login = $admin_login;
+		self::$_admin_login = $admin_login;
 
 		/**
 		 * Get information from DB
 		 */
-//		$select = $this -> _DB_connect -> query("SELECT `admin_id`, `admin_password` FROM " . $this -> _DB_table_name . " WHERE `admin_login` = '" . mysql_escape_string($this -> _admin_login) . "' LIMIT 1");
+		$select = self::dbConnect() -> query("SELECT `admin_id`, `admin_password` FROM " . self::$_DB_table_name . " WHERE `admin_login` = '" . mysql_escape_string(self::$_admin_login) . "' LIMIT 1");
 
-		$select = self::$_DB_connect -> query("SELECT `admin_id`, `admin_password` FROM " . $this -> _DB_table_name . " WHERE `admin_login` = '" . mysql_escape_string($this -> _admin_login) . "' LIMIT 1");
-
-		
 		try {
 
 			while ($row = $select -> fetch(PDO::FETCH_ASSOC)) {
@@ -143,11 +130,12 @@ class AuthorizationModel extends PDOMysqlConnect {
 	 *
 	 * @return array $data	This is authorization data from Database
 	 */
-	public function updateHash($admin_id = '', $hash = '') {
+	static public function updateHash($admin_id = '', $hash = '') {
 
-		//$update = $this -> _DB_connect -> exec("UPDATE " . $this -> _DB_table_name . "  SET `admin_hash` = '" . mysql_escape_string($hash) . "' WHERE `admin_id` = '" . $admin_id . "' ");
-
-		$update = self::$_DB_connect -> exec("UPDATE " . $this -> _DB_table_name . "  SET `admin_hash` = '" . mysql_escape_string($hash) . "' WHERE `admin_id` = '" . $admin_id . "' ");
+		/**
+		 * Update our hash in DB
+		 */
+		$update = self::dbConnect() -> exec("UPDATE " . self::$_DB_table_name . "  SET `admin_hash` = '" . mysql_escape_string($hash) . "' WHERE `admin_id` = '" . $admin_id . "' ");
 
 		try {
 			if ($update) {
@@ -158,7 +146,6 @@ class AuthorizationModel extends PDOMysqlConnect {
 
 			return false;
 		}
-
 	}
 }
 ?>

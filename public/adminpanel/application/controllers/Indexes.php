@@ -6,7 +6,7 @@
  *
  * This is indexes file
  * 
- * @category	Main
+ * @category	controllers
  * @copyright	2012
  * @author	Igor Zhabskiy <Zhabskiy.Igor@googlemail.com>
  */
@@ -27,7 +27,7 @@ class Indexes extends Templating {
 	 * 
 	 * @return string $tempalate	This is source header tempalate
 	 */
-	public static function headerContent($title = '') {
+	static public function headerContent($title = '') {
 	
 		$template_name = Config::dataArray('templates', 'header');
 
@@ -55,7 +55,7 @@ class Indexes extends Templating {
 	 * 
 	 * @return string $tempalate	This is source scripts tempalate
 	 */
-	public static function scriptsContent($flag = array(""), $path = array("")) {
+	static public function scriptsContent($flag = array(""), $path = array("")) {
 
 		/**
 		 * Include css or/and javascript content
@@ -79,7 +79,7 @@ class Indexes extends Templating {
 	 * 
 	 * @return string $tempalate	This is source footer tempalate
 	 */
-	public static function footerContent() {
+	static public function footerContent() {
 
 		$template_name = Config::dataArray('templates', 'footer');
 

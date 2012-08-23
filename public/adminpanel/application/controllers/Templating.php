@@ -11,7 +11,7 @@
  *
  * This is tempalte file
  * 
- * @category	Main
+ * @category	controllers
  * @copyright	2012
  * @author	Igor Zhabskiy <Zhabskiy.Igor@googlemail.com>
  */

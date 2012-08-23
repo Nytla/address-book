@@ -6,9 +6,9 @@
 *
 * This is administrator acces file
 *
-* @category Main
-* @copyright 2012
-* @author Igor Zhabskiy <Zhabskiy.Igor@googlemail.com>
+* @category	controllers
+* @copyright	2012
+* @author	Igor Zhabskiy <Zhabskiy.Igor@googlemail.com>
 */
 
 /**

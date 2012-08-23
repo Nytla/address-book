@@ -1,12 +1,12 @@
 <?php
 /**
- * Adress Book
+ * Adress Book Model
  * 
  * BookListModel.php
  *
  * This is administrator address book file
  * 
- * @category	Model
+ * @category	models
  * @copyright	2012
  * @author	Igor Zhabskiy <Zhabskiy.Igor@googlemail.com>
  */
@@ -21,6 +21,13 @@
 class BookListModel extends PDOMysqlConnect {
 
 	/**
+	 * _DB_table_name
+	 * 
+	 * @var string	This is name of Database
+	 */
+	static private $_DB_table_name;
+
+	/**
 	 * getAuthData
 	 *
 	 * This function get authorization data from Database
@@ -32,26 +39,18 @@ class BookListModel extends PDOMysqlConnect {
 		/**
 		 * Set adminisrator variable
 		 */
-//		$this -> _admin_id = intval(Cookie::get('admin_id'));
-
-//		$this -> _DB_table_name = Config::dataArray('table_name', 'administrators');
-
-		$_DB_table_name = Config::dataArray('table_name', 'administrators');
+		self::$_DB_table_name = Config::dataArray('table_name', 'clients');
 
 		/**
 		 * Select administrator information
 		 */
-//		$select = $this -> _DB_connect -> query("SELECT * FROM " . $this -> _DB_table_name . " WHERE `admin_id` = '" . $this -> _admin_id . "' LIMIT 1");
-
-//		$select = self::$_DB_connect -> query("SELECT * FROM " . $this -> _DB_table_name . " LIMIT 10");
-
-		$select = self::$_DB_connect -> query("SELECT * FROM " . $_DB_table_name . " LIMIT 10");
+		$select = self::dbConnect() -> query("SELECT * FROM " . self::$_DB_table_name . " LIMIT 10");
 
 		try {
 
 			while ($row = $select -> fetch(PDO::FETCH_ASSOC)) {
 
-				$data[$row['admin_id']] = $row;
+				$data[] = $row;
 			}
 
 			if ($data) {
@@ -63,5 +62,5 @@ class BookListModel extends PDOMysqlConnect {
 			return false;
 		}
 	}
-
 }
+?>

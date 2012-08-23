@@ -6,7 +6,7 @@
  *
  * This is administrator layout file
  * 
- * @category	Controller
+ * @category	controllers
  * @copyright	2012
  * @author	Igor Zhabskiy <Zhabskiy.Igor@googlemail.com>
  */
@@ -19,23 +19,6 @@
  * @version 0.1
  */
 class Layout extends Templating {
-
-	/**
-	 * _add_admin_model
-	 * 
-	 * @var object	This is object from our Database
-	 */
-	private $_add_admin_model;
-
-	/**
-	 * Constructor
-	 *
-	 * This function initialize object AddAdminModel
-	 */
-	public function __construct() {
-
-		$this -> _AddAdminModel = new AddAdminModel();
-	}
 
 	/**
 	 * makeLayout
@@ -64,8 +47,8 @@ class Layout extends Templating {
 			"address_book"		=> Locale::languageEng('authorization', 'auth'),
 			"log_out"		=> Locale::languageEng('layout', 'log_out'),	
 			"add_admin"		=> Locale::languageEng('layout', 'add_admin'),
-			"prepend"		=> $this -> _AddAdminModel -> adminPermission() ? 8 : 10,
-			"admin_permission"	=> $this -> _AddAdminModel -> adminPermission(),
+			"prepend"		=> AddAdminModel::adminPermission() ? 8 : 10,
+			"admin_permission"	=> AddAdminModel::adminPermission(),
 			"content"		=> Locale::languageEng('layout', 'content'),
 		);
 
@@ -85,16 +68,6 @@ class Layout extends Templating {
 		$tempalate .= Indexes::footerContent();
 
 		return $tempalate;
-	}
-
-	/**
-	 * Destructor
-	 *
-	 * This destructor delete our object AddAdminModel
-	 */
-	public function __destruct() {
-
-		$this -> _add_admin_model = null;
 	}
 }
 ?>

@@ -1,11 +1,11 @@
 <?php
 /**
  * Adress Book
- * 
+ *
  * log_out.php
  *
  * This is administrator login out
- * 
+ *
  * @category	Main
  * @copyright	2012
  * @author	Igor Zhabskiy <Zhabskiy.Igor@googlemail.com>

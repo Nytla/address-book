@@ -1,6 +1,6 @@
 <?php
 /**
- * Adress Book
+ * Adress Book Locale
  * 
  * Locale.php
  *
@@ -162,6 +162,7 @@ class Locale {
 				"city_word"		=> "City",
 				"country_option"	=> '::ALL::',
 				"city_option"		=> '::ALL::',
+				"add_new_record"	=> 'Add New Record'
 
 
 			)

@@ -6,7 +6,7 @@
  *
  * This is administrator address book list
  * 
- * @category	Controller
+ * @category	controllers
  * @copyright	2012
  * @author	Igor Zhabskiy <Zhabskiy.Igor@googlemail.com>
  */
@@ -20,13 +20,13 @@
  */
 class BookList extends Templating {
 
-
-	
-
-
-
-
-	
+	/**
+	 * makeAB
+	 *
+	 * This function make address book list
+	 *
+	 * @return string $tempalate	This is source address book tempalate
+	 */
 	public function makeAB() {
 
 		/**
@@ -49,11 +49,12 @@ class BookList extends Templating {
 
 		$template .= Indexes::scriptsContent($flag, $path);
 
+		/**
+		 * Get clients data from DB
+		 */
+		$clients_data = BookListModel::getClientsData();
 
-
-//$model = new BookListModel();
-
-$data = BookListModel::getClientsData();
+		$count_clients = (count($clients_data) > 0) ? count($clients_data) - 1 : count($clients_data);
 
 		/**
 		 * Create authorization content
@@ -66,9 +67,9 @@ $data = BookListModel::getClientsData();
 			"city_word"		=> Locale::languageEng('book_list', 'city_word'),
 			"country_option"	=> Locale::languageEng('book_list', 'country_option'),
 			"city_option"		=> Locale::languageEng('book_list', 'city_option'),
-
-			"clients_num"		=> count($model -> getClientsData()),
-			"clients_data"		=> $data[1]['admin_login']
+			"add_new_record"	=> Locale::languageEng('book_list', 'add_new_record'),
+			"clients_num"		=> $count_clients,
+			"clients_data"		=> $clients_data
 
 		);
 
@@ -90,7 +91,33 @@ $data = BookListModel::getClientsData();
 		return $template;
 	}
 
-	
+
+
+/*	
+	public function testFunc() {
+
+		$data = BookListModel::getClientsData();
+
+		try {
+
+			if ($data) {
+
+				return count($data);
+
+				//return $data;
+			}
+
+		} catch (E_NOTICE $object) {
+			
+			//$test = 'error!!!: ' . $object;
+
+			return false;
+
+			//Redirect::uriRedirect('bad_connect');
+		}
+
+	}
+*/
 
 
 }

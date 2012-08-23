@@ -1,12 +1,12 @@
 <?php
 /**
- * Adress Book
+ * Adress Book Autoload
  * 
  * autoload.php
  *
  * This is autoload class
  * 
- * @category	Main
+ * @category	autoload
  * @copyright	2012
  * @author	Igor Zhabskiy  <Zhabskiy.Igor@googlemail.com>
  */

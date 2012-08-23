@@ -1,12 +1,12 @@
 <?php
 /**
- * Adress Book
+ * Adress Book Ajax
  * 
  * add_admin.php
  *
  * This is ajax file for added administrator to DB
  * 
- * @category	Ajax
+ * @category	ajax
  * @copyright	2012
  * @author	Igor Zhabskiy  <Zhabskiy.Igor@googlemail.com>
  */
