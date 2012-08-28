@@ -63,7 +63,7 @@ print $AuthorizationController -> makeAuth();
 
 //Cookie::delete('admin_hash');
 
-//print_r($_COOKIE);
-
 //Redirect::uriRedirect(301, 'page_layout.php');
+
+print_r($_COOKIE);
 ?>

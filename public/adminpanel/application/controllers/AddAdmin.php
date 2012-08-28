@@ -1,7 +1,4 @@
 <?php
-ini_set('display_errors', 'on');
-
-error_reporting(E_ALL | E_STRICT);
 /**
  * Adress Book Controller
  * 
@@ -21,24 +18,7 @@ error_reporting(E_ALL | E_STRICT);
  * 
  * @version 0.1
  */
-class AddAdmin extends Templating {
-
-	/**
-	 * _add_admin_model
-	 * 
-	 * @var object	This is object by AddAdminModel
-	 */
-	private $_add_admin_model;
-
-	/**
-	 * Constructor
-	 *
-	 * This function get adminisrator information from Database
-	 */
-	public function __construct() {
-
-		//$this -> _add_admin_model = new AddAdminModel();
-	}	
+class AddAdmin extends Templating {	
 
 	/**
 	 * makeAddForm

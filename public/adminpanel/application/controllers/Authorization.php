@@ -146,9 +146,13 @@ class Authorization extends Templating {
 				/**
 				 * Set cookie with admin id and admin hash
 				 */
-				Cookie::set('admin_id', $admin_data_array['admin_id'], Cookie::SESSION_EXPIRE);//Cookie::THIRTY_DAYS);
+				Cookie::set('admin_id', $admin_data_array['admin_id'], Cookie::SESSION_EXPIRE);
 
-				Cookie::set('admin_hash', $hash, Cookie::SESSION_EXPIRE);//Cookie::THIRTY_DAYS);
+				//Cookie::set('admin_id', $admin_data_array['admin_id'], Cookie::THIRTY_DAYS, '/', 'address_book.loc');
+
+				Cookie::set('admin_hash', $hash, Cookie::SESSION_EXPIRE);
+
+				//Cookie::set('admin_hash', $hash, Cookie::THIRTY_DAYS, '/', 'address_book.loc');
 
 				/**
 				 * Check administator information

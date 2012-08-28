@@ -1,6 +1,4 @@
 			<br>
-			<br>
-			<br>
 			<div class="span-10 prepend-10 append-0 last">
 				<h2>{{ site_name }}</h2>
 			</div>
@@ -11,26 +9,31 @@
 					<fieldset>
 						<legend>{{ search_word }}</legend>
 						<form method="post" name="searchForm" id="searchForm" action="">
-							<div class="span-9 prepend-1">
+							<div class="span-7">
 								<label for="keywords">{{ keywords_word }}</label>
-								<input type="text" name="keywords" id="keywords">
+								<input type="text" name="keywords" id="keywords" size="15">
 							</div>
 
-							<div class="span-5">
+							<div class="span-8">
 								<label for="country">{{ country_word }}</label>
-								<select name="country" id="keywords">
+								<select name="country" id="country">
 									<option value="0">{{ country_option }}</option>
+									{% for id, country in country_array %}
+<option value="{{ id }}">{{ country }}</option>
+									{% endfor %}
+
 								</select>
 							</div>
 
-							<div class="span-4">
+							<div class="span-5">
 								<label for="city">{{ city_word }}</label>
 								<select name="city" id="city">
 									<option value="0">{{ city_option }}</option>
 								</select>
 							</div>
-
+							<div class="span-1">
 							<input type="submit" name="search" value="Search">
+							</div>
 						</form>
 					</fieldset>
 				</h4>
@@ -42,7 +45,7 @@
 			</div>
 
 			<!-- View clients START -->
-			<table cellspacing="0" cellpadding="0" border="0">
+			<table cellspacing="0" cellpadding="0" border="0" id="clients">
 				<thead>
 					<tr>
 						<th class="span-6 prepend-3">ID</th>
@@ -53,16 +56,16 @@
 					</tr>
 				</thead>
 				<tbody>
-{% for i in 0..clients_num %}
+{% for id, value in clients_data %}
 					<tr>
-						<td class="prepend-3">{{ clients_data[i]['id'] }}</td>
-						<td>{{ clients_data[i]['first_name'] }} {{ clients_data[i]['last_name'] }}</td>
-						<td>{{ clients_data[i]['country'] }}</td>
-						<td>{{ clients_data[i]['city'] }}</td>
+						<td class="prepend-3">{{ clients_data[id]['id'] }}</td>
+						<td>{{ clients_data[id]['first_name'] }} {{ clients_data[id]['last_name'] }}</td>
+						<td>{{ clients_data[id]['countryname_en'] }}</td>
+						<td>{{ clients_data[id]['cityname_en'] }}</td>
 						<td>
-							<a href="#edit">Edit</a>
+							<a href="#edit{{ clients_data[i]['id'] }}">Edit</a>
 							|
-							<a href="#delete">Delete</a>
+							<a href="#delete{{ clients_data[i]['id'] }}">Delete</a>
 						</td>
 					<tr>
 {% endfor %}
@@ -72,6 +75,12 @@
 			<br>
 			<br>
 			<br>
-			<div class="span-10 prepend-11 append-0 last">
-				<h3><a href="{{ site_url }}layout.php">BACK_</a></h3>
+			<div class="span-10 prepend-10 append-0 last">
+				<h3><a href="{{ site_url }}layout.php">{{ back_to_page_layout }}</a></h3>
 			</div>
+			<br>
+			<br>
+			<div class="info">
+				{{ phrase }}
+			</div>
+

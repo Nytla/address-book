@@ -43,19 +43,12 @@ class BookList extends Templating {
 
 		$validation = Config::dataArray('jquery', 'path').Config::dataArray('jquery', 'validation');
 
-		$add_admin = Config::dataArray('javascript', 'path').Config::dataArray('javascript', 'add_admin');
+		$add_admin = Config::dataArray('javascript', 'path').Config::dataArray('javascript', 'book_list');
 
 		$path = array("", "$validation", "$add_admin");
 
 		$template .= Indexes::scriptsContent($flag, $path);
-
-		/**
-		 * Get clients data from DB
-		 */
-		$clients_data = BookListModel::getClientsData();
-
-		$count_clients = (count($clients_data) > 0) ? count($clients_data) - 1 : count($clients_data);
-
+		
 		/**
 		 * Create authorization content
 		 */
@@ -68,8 +61,10 @@ class BookList extends Templating {
 			"country_option"	=> Locale::languageEng('book_list', 'country_option'),
 			"city_option"		=> Locale::languageEng('book_list', 'city_option'),
 			"add_new_record"	=> Locale::languageEng('book_list', 'add_new_record'),
-			"clients_num"		=> $count_clients,
-			"clients_data"		=> $clients_data
+			"clients_data"		=> BookListModel::getClientsData(),
+			"back_to_page_layout"	=> Locale::languageEng('book_list', 'back_to_page_layout'),
+			"phrase"		=> BookListModel::getRandomPhrase(),
+			"country_array"		=> BookListModel::getAllCountries()
 
 		);
 
@@ -90,35 +85,5 @@ class BookList extends Templating {
 
 		return $template;
 	}
-
-
-
-/*	
-	public function testFunc() {
-
-		$data = BookListModel::getClientsData();
-
-		try {
-
-			if ($data) {
-
-				return count($data);
-
-				//return $data;
-			}
-
-		} catch (E_NOTICE $object) {
-			
-			//$test = 'error!!!: ' . $object;
-
-			return false;
-
-			//Redirect::uriRedirect('bad_connect');
-		}
-
-	}
-*/
-
-
 }
 ?>

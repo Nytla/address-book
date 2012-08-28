@@ -6,7 +6,7 @@
  *
  * This is administrator logout file
  * 
- * @category	Main
+ * @category	controllers
  * @copyright	2012
  * @author	Igor Zhabskiy <Zhabskiy.Igor@googlemail.com>
  */
@@ -38,7 +38,7 @@ class Logout extends Templating {
 
 			Redirect::uriRedirect(301, Config::dataArray('redirect_page', 'index'));
 		} else {
-			return false;
+			Redirect::uriRedirect(301, Config::dataArray('redirect_page', 'index'));
 		}
 	}
 }

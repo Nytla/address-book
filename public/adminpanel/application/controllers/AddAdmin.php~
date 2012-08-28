@@ -6,7 +6,7 @@
  *
  * This is administrator add file
  * 
- * @category	Controller
+ * @category	controllers
  * @copyright	2012
  * @author	Igor Zhabskiy <Zhabskiy.Igor@googlemail.com>
  */
@@ -25,17 +25,7 @@ class AddAdmin extends Templating {
 	 * 
 	 * @var object	This is object by AddAdminModel
 	 */
-	private $_add_admin_model;
-
-	/**
-	 * Constructor
-	 *
-	 * This function get adminisrator information from Database
-	 */
-	public function __construct() {
-
-		$this -> _add_admin_model = new AddAdminModel();
-	}	
+	private $_add_admin_model;	
 
 	/**
 	 * makeAddForm
@@ -112,7 +102,7 @@ class AddAdmin extends Templating {
 	 *
 	 * This function register new administrator our DB
 	 *
-	 * @return string $tempalate	This is source add new administrator tempalate
+	 * @return boolean
 	 */
 	public function adminRegister($login = '', $password = '') {
 
@@ -120,11 +110,11 @@ class AddAdmin extends Templating {
 			return false;
 		}
 
-		if ($this -> _add_admin_model -> checkAdminExist($login)) {
+		if (AddAdminModel::checkAdminExist($login)) {
 			return false;
 		} else {
 			
-			return $this -> _add_admin_model -> addAdminToDB($password);
+			return AddAdminModel::addAdminToDB($password);
 		}	
 	}
 }

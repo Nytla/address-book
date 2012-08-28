@@ -1,6 +1,6 @@
 <?php
 /**
- * Adress Book
+ * Address Book
  * 
  * page_layout.php
  *
@@ -37,4 +37,10 @@ $LayoutController = new Layout();
 print $LayoutController -> makeLayout();
 
 //print_r($_COOKIE);
+
+
+$obj = new AddAdminModel();
+
+echo $obj -> adminPermission();
+
 ?>

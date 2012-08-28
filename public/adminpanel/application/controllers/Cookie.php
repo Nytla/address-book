@@ -23,7 +23,7 @@
  * 
  * @version 0.1
  */
-class Cookie extends Templating {
+class Cookie {
 
 	/**
 	 * SESSION_EXPIRE

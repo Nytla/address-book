@@ -76,7 +76,10 @@ class Config {
 			"table_name"	=> array(
 
 				"clients"	=> 'clients',
-				"administrators"=> 'administrators'
+				"administrators"=> 'administrators',
+				"phrases"	=> 'phrases',
+				"countries"	=> 'countries',
+				"cities"	=> 'cities'
 
 			),
 
@@ -127,7 +130,8 @@ class Config {
 
 				"path"		=> '/adminpanel/public/javascripts/',
 				"authorization"	=> 'authorization.js',
-				"add_admin"	=> 'add_admin.js'
+				"add_admin"	=> 'add_admin.js',
+				"book_list"	=> 'book_list.js'
 
 			),
 

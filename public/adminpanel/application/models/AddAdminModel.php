@@ -68,17 +68,17 @@ class AddAdminModel extends PDOMysqlConnect {
 		 * Select administrator information
 		 */
 		$select_permission = self::dbConnect() -> query("SELECT `admin_permission` FROM " . self::$_DB_table_name . " WHERE `admin_id` = '" . self::$_admin_id . "' LIMIT 1");
-		try {
 
-			while ($row = $select_permission -> fetch(PDO::FETCH_ASSOC)) {
+		/**
+		 * Get administrator permission from DB
+		 */
+		$admin_permission = $select_permission -> fetch(PDO::FETCH_ASSOC);
 
-				if ($row['admin_permission']) {
-					return true; 
-				}
-			}
+		if ($admin_permission) {
 
-		} catch (E_NOTICE $object) {
+			return $admin_permission['admin_permission'];
 
+		} else {
 			return false;
 		}
 	}
@@ -99,8 +99,21 @@ class AddAdminModel extends PDOMysqlConnect {
 
 		self::$_admin_login = $login;
 
-		$select_login = self::dbConnect() -> query("SELECT `admin_id` FROM " . self::$_DB_table_name . "  WHERE `admin_login` = '" . mysql_escape_string(self::$_admin_login) . "' ");
+		$select_login = self::dbConnect() -> query("SELECT `admin_id` FROM " . self::$_DB_table_name . "  WHERE `admin_login` = '" . mysql_escape_string(self::$_admin_login) . "' LIMIT 1");
 
+		/**
+		 * Get administrator id from DB
+		 */
+		$admin_id = $select_login -> fetch(PDO::FETCH_ASSOC);
+
+		if ($admin_id) {
+
+			return true;
+
+		} else {
+			return false;
+		}
+/*
 		try {
 
 			while ($row = $select_login -> fetch(PDO::FETCH_ASSOC)) {
@@ -114,6 +127,7 @@ class AddAdminModel extends PDOMysqlConnect {
 
 			return false;
 		}
+*/
 	}
 
 	/**

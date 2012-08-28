@@ -1,0 +1,35 @@
+<error>
+	<date>2012-08-27 13:24:45 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: phrases</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/settings/Config.php</filename>
+	<linenum>160</linenum>
+</error>
+<error>
+	<date>2012-08-27 13:25:48 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: phrases</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/settings/Config.php</filename>
+	<linenum>160</linenum>
+</error>
+<error>
+	<date>2012-08-27 13:34:04 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: chrase_text</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/BookListModel.php</filename>
+	<linenum>84</linenum>
+</error>
+<error>
+	<date>2012-08-28 11:03:33 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AuthorizationModel.php</filename>
+	<linenum>116</linenum>
+</error>
+<error>
+	<date>2012-08-28 16:18:23 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: data_array</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/BookListModel.php</filename>
+	<linenum>171</linenum>
+</error>

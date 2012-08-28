@@ -18,7 +18,7 @@
  * 
  * @version 0.1
  */
-class Logout extends Templating {
+class Logout {
 
 	/**
 	 * Logout

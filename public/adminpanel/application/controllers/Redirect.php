@@ -27,7 +27,7 @@
  * 
  * @version 0.1
  */
-class Redirect extends Templating {
+class Redirect {
 
 	/**
 	 * uriRedirect
