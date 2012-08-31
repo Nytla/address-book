@@ -67,11 +67,15 @@ class Authorization extends Templating {
 		 */
 		$name = Config::dataArray('flags', 'js');
 
-		$flag = array("", "$name");
+//		$flag = array("", "$name");
+
+		$flag = array("$name");
 
 		$file = Config::dataArray('javascript', 'path').Config::dataArray('javascript', 'authorization');
 
-		$path = array("", "$file");
+//		$path = array("", "$file");
+
+		$path = array("$file");
 
 		$template .= Indexes::scriptsContent($flag, $path);
 
@@ -110,14 +114,16 @@ class Authorization extends Templating {
 	 *
 	 * @return string $tempalate	This is source authorization tempalate
 	 */
-	public function validateAuth($admin_login, $admin_password) {
+	public function validateAuth($admin_login = '', $admin_password = '') {
 
-		if (is_array(AuthorizationModel::getAuthDataByLogin($admin_login))) {
+		$admin_data_array = AuthorizationModel::getAuthDataByLogin($admin_login);
+
+		if (is_array($admin_data_array)) {
 
 			/**
 			 * Get adminisrator information from DB
 			 */
-			$admin_data_array = array_shift(AuthorizationModel::getAuthDataByLogin($admin_login));
+			$admin_data_array = AuthorizationModel::getAuthDataByLogin($admin_login);
 
 			/**
 			 * Set adminisrator variables
@@ -146,13 +152,21 @@ class Authorization extends Templating {
 				/**
 				 * Set cookie with admin id and admin hash
 				 */
-				//Cookie::set('admin_id', $admin_data_array['admin_id'], Cookie::SESSION_EXPIRE);
+				Cookie::set('admin_id', $admin_data_array['admin_id'], Cookie::SESSION_EXPIRE);
 
-				Cookie::set('admin_id', $admin_data_array['admin_id'], Cookie::THIRTY_DAYS, '/', 'address_book.loc');
+//				setcookie('admin_id', $admin_data_array['admin_id'], time()+3600);
 
-				//Cookie::set('admin_hash', $hash, Cookie::SESSION_EXPIRE);
+//				Cookie::set('admin_id', $admin_data_array['admin_id'], Cookie::SESSION_EXPIRE, '/adminpanel/', '.address_book.loc');
 
-				Cookie::set('admin_hash', $hash, Cookie::THIRTY_DAYS, '/', 'address_book.loc');
+//				Cookie::set('admin_id', $admin_data_array['admin_id'], Cookie::THIRTY_DAYS, '/', 'address_book.loc');
+
+				Cookie::set('admin_hash', $hash, Cookie::SESSION_EXPIRE);
+
+//				setcookie('admin_hash', $hash, time()+3600);
+
+//				Cookie::set('admin_hash', $hash, Cookie::SESSION_EXPIRE, '/adminpanel/', '.address_book.loc');
+
+//				Cookie::set('admin_hash', $hash, Cookie::THIRTY_DAYS, '/', 'address_book.loc');
 
 				/**
 				 * Check administator information
@@ -180,17 +194,13 @@ class Authorization extends Templating {
 	 */
 	private function checkAuth() {
 
-		//check.php
-		# проверка авторизации		
-
-		if (!Cookie::isEmpty('admin_id') and !Cookie::isEmpty('admin_hash')) {
+		//Check cookie from administrator
+		if (!Cookie::isEmpty('admin_id') or !Cookie::isEmpty('admin_hash')) {
 
 			/**
 			 * Get adminisrator information from DB
 			 */
 			$admin_data_array = AuthorizationModel::getAuthDataById();
-
-			$admin_data_array = array_shift($admin_data_array);
 
 			if ($admin_data_array['admin_hash'] !== $_COOKIE['admin_hash'] or $admin_data_array['admin_id'] !== $_COOKIE['admin_id']) {
 
@@ -205,20 +215,30 @@ class Authorization extends Templating {
 		}
 	}
 
+	/**
+	 * checkAuthIndex
+	 *
+	 * This function check authorization on index page
+	 *
+	 * @return boolean
+	 */
 	public function checkAuthIndex() {
 
 		/**
 		 * Check the cookie are set or no
 		 */
-		if (!Cookie::isEmpty('admin_id') and !Cookie::isEmpty('admin_hash')) {
+		if (!Cookie::isEmpty('admin_id') or !Cookie::isEmpty('admin_hash')) {
 
 			if (is_array(AuthorizationModel::getAuthDataById())) {
 
 				/**
 				 * Get adminisrator information from DB and take first array element
 				 */
-				$admin_data_array = array_shift(AuthorizationModel::getAuthDataById());
+				$admin_data_array = AuthorizationModel::getAuthDataById();
 
+				/**
+				 * Check administrator information
+				 */
 				if ($admin_data_array['admin_hash'] !== $_COOKIE['admin_hash'] or $admin_data_array['admin_id'] !== $_COOKIE['admin_id']) {
 					return false;
 				} else {
@@ -245,14 +265,14 @@ class Authorization extends Templating {
 		/**
 		 * Check the cookie are set or no
 		 */
-		if (!Cookie::isEmpty('admin_id') and !Cookie::isEmpty('admin_hash')) {
+		if (!Cookie::isEmpty('admin_id') or !Cookie::isEmpty('admin_hash')) {
 
 			if (is_array(AuthorizationModel::getAuthDataById())) {
 
 				/**
 				 * Get adminisrator information from DB and take first array element
 				 */
-				$admin_data_array = array_shift(AuthorizationModel::getAuthDataById());
+				$admin_data_array = AuthorizationModel::getAuthDataById();
 
 				if ($admin_data_array['admin_hash'] !== $_COOKIE['admin_hash'] or $admin_data_array['admin_id'] !== $_COOKIE['admin_id']) {
 
@@ -285,18 +305,19 @@ class Authorization extends Templating {
 		/**
 		 * Check the cookie are set or no
 		 */
-		if (!Cookie::isEmpty('admin_id') and !Cookie::isEmpty('admin_hash')) {
+		if (!Cookie::isEmpty('admin_id') or !Cookie::isEmpty('admin_hash')) {
 
 			if (is_array(AuthorizationModel::getAuthDataById())) {
 
 				/**
 				 * Get adminisrator information from DB and take first array element
 				 */
-				$admin_data_array = array_shift(AuthorizationModel::getAuthDataById());
+				$admin_data_array = AuthorizationModel::getAuthDataById();
 
-				settype($admin_data_array['admin_permission'], "integer");
-
-				if ($admin_data_array['admin_hash'] !== $_COOKIE['admin_hash'] or $admin_data_array['admin_id'] !== $_COOKIE['admin_id'] or $admin_data_array['admin_permission'] !== 1) {
+				/**
+				 * Check administrator information
+				 */
+				if ($admin_data_array['admin_hash'] !== $_COOKIE['admin_hash'] or $admin_data_array['admin_id'] !== $_COOKIE['admin_id'] or (int) $admin_data_array['admin_permission'] !== 1) {
 
 					Cookie::delete('admin_id');
 
@@ -332,17 +353,19 @@ class Authorization extends Templating {
 
 		$code = '';
 
+		/**
+		 * Create code in cycle
+		 */
 		while(strlen($code) < $length) {
 			$code .= $chars[mt_rand(0, $clean)];
 		}
 
-		try {
-			if ($code) {
-				return $code;
-			}
-
-		} catch (E_NOTICE $object) {
-
+		/**
+		 * Return code or false
+		 */
+		if ($code) {
+			return $code;
+		} else {
 			return false;
 		}
 	}

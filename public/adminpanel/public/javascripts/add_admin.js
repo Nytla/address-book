@@ -48,8 +48,6 @@ $(document).ready(function() {
 	//Validate our form
 	$("#addAdminForm").validate({
 
-		debug: true,
-
 		rules: {
 
 			login: {

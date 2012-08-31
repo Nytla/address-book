@@ -39,13 +39,13 @@ class AddAdmin extends Templating {
 		 */
 		$name = Config::dataArray('flags', 'js');
 
-		$flag = array("", "$name", "$name");
+		$flag = array("$name", "$name");
 
 		$validation = Config::dataArray('jquery', 'path').Config::dataArray('jquery', 'validation');
 
 		$add_admin = Config::dataArray('javascript', 'path').Config::dataArray('javascript', 'add_admin');
 
-		$path = array("", "$validation", "$add_admin");
+		$path = array("$validation", "$add_admin");
 
 		$template .= Indexes::scriptsContent($flag, $path);
 
@@ -57,6 +57,7 @@ class AddAdmin extends Templating {
 			"content"		=> Locale::languageEng('add_admin', 'content'),
 			"login"			=> Locale::languageEng('authorization', 'login'),
 			"password"		=> Locale::languageEng('authorization', 'password'),
+			"save"			=> Locale::languageEng('add_admin', 'save'),
 			"confirm_password"	=> Locale::languageEng('add_admin', 'confirm_password'),
 			"error_empty_login"	=> Locale::languageEng('add_admin', 'error_empty_login'),
 			"error_empty_pass"	=> Locale::languageEng('add_admin', 'error_empty_pass'),

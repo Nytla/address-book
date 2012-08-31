@@ -17,12 +17,12 @@
 require_once(dirname(__FILE__).'/../../application/autoload/autoload.php');
 
 /**
- * Create copy of BookListModel class
+ * Create copy of BookList class
  */
-$BookListModel = new BookListModel();
+$BookListController = new BookList();
 
 /**
  * Get cities from DB
  */
-print $BookListModel -> getCities($_REQUEST['country_id']);
+print $BookListController -> getCities($_REQUEST['country_id']);
 ?>

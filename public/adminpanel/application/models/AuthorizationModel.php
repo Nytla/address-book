@@ -64,23 +64,22 @@ class AuthorizationModel extends PDOMysqlConnect {
 		self::$_DB_table_name = Config::dataArray('table_name', 'administrators');
 
 		/**
-		 * Select administrator information
+		 * Select administrator information from DB
 		 */
-		$select = self::dbConnect() -> query("SELECT * FROM " . self::$_DB_table_name . " WHERE `admin_id` = '" . self::$_admin_id . "' LIMIT 1");
+		$select = self::dbConnect() -> query("
+			SELECT * 
+			FROM " . self::$_DB_table_name . " 
+			WHERE `admin_id` = '" . self::$_admin_id . "' 
+			LIMIT 1");
 
-		try {
+		/**
+		 * Get administrator information from array
+		 */
+		$data_array = $select -> fetch(PDO::FETCH_ASSOC);
 
-			while ($row = $select -> fetch(PDO::FETCH_ASSOC)) {
-
-				$data[$row['admin_id']] = $row;
-			}
-
-			if ($data) {
-				return $data;
-			}
-
-		} catch (E_NOTICE $object) {
-
+		if ($data_array) {
+			return $data_array;
+		} else {
 			return false;
 		}
 	}
@@ -104,21 +103,20 @@ class AuthorizationModel extends PDOMysqlConnect {
 		/**
 		 * Get information from DB
 		 */
-		$select = self::dbConnect() -> query("SELECT `admin_id`, `admin_password` FROM " . self::$_DB_table_name . " WHERE `admin_login` = '" . mysql_escape_string(self::$_admin_login) . "' LIMIT 1");
+		$select = self::dbConnect() -> query("
+			SELECT `admin_id`, `admin_password` 
+			FROM " . self::$_DB_table_name . " 
+			WHERE `admin_login` = '" . mysql_escape_string(self::$_admin_login) . "' 
+			LIMIT 1");
 
-		try {
+		/**
+		 * Get administrator information from array
+		 */
+		$data_array = $select -> fetch(PDO::FETCH_ASSOC);
 
-			while ($row = $select -> fetch(PDO::FETCH_ASSOC)) {
-
-				$data[$row['admin_id']] = $row;
-			}
-
-			if ($data) {
-				return $data;
-			}
-
-		} catch (E_NOTICE $object) {
-
+		if ($data_array) {
+			return $data_array;
+		} else {
 			return false;
 		}
 	}
@@ -137,13 +135,9 @@ class AuthorizationModel extends PDOMysqlConnect {
 		 */
 		$update = self::dbConnect() -> exec("UPDATE " . self::$_DB_table_name . "  SET `admin_hash` = '" . mysql_escape_string($hash) . "' WHERE `admin_id` = '" . $admin_id . "' ");
 
-		try {
-			if ($update) {
-				return true;
-			}
-
-		} catch (E_NOTICE $object) {
-
+		if ($update) {
+			return true;
+		} else {
 			return false;
 		}
 	}

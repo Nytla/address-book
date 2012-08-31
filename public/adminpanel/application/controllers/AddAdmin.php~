@@ -18,14 +18,7 @@
  * 
  * @version 0.1
  */
-class AddAdmin extends Templating {
-
-	/**
-	 * _add_admin_model
-	 * 
-	 * @var object	This is object by AddAdminModel
-	 */
-	private $_add_admin_model;	
+class AddAdmin extends Templating {	
 
 	/**
 	 * makeAddForm
@@ -46,13 +39,13 @@ class AddAdmin extends Templating {
 		 */
 		$name = Config::dataArray('flags', 'js');
 
-		$flag = array("", "$name", "$name");
+		$flag = array("$name", "$name");
 
 		$validation = Config::dataArray('jquery', 'path').Config::dataArray('jquery', 'validation');
 
 		$add_admin = Config::dataArray('javascript', 'path').Config::dataArray('javascript', 'add_admin');
 
-		$path = array("", "$validation", "$add_admin");
+		$path = array("$validation", "$add_admin");
 
 		$template .= Indexes::scriptsContent($flag, $path);
 

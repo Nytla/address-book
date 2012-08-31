@@ -39,13 +39,11 @@ class BookList extends Templating {
 		 */
 		$name = Config::dataArray('flags', 'js');
 
-		$flag = array("", "$name", "$name");
-
-		$validation = Config::dataArray('jquery', 'path').Config::dataArray('jquery', 'validation');
+		$flag = array("$name");
 
 		$add_admin = Config::dataArray('javascript', 'path').Config::dataArray('javascript', 'book_list');
 
-		$path = array("", "$validation", "$add_admin");
+		$path = array("$add_admin");
 
 		$template .= Indexes::scriptsContent($flag, $path);
 		
@@ -58,14 +56,16 @@ class BookList extends Templating {
 			"keywords_word"		=> Locale::languageEng('book_list', 'keywords_word'),			
 			"country_word"		=> Locale::languageEng('book_list', 'country_word'),
 			"city_word"		=> Locale::languageEng('book_list', 'city_word'),
-			"country_option"	=> Locale::languageEng('book_list', 'country_option'),
-			"city_option"		=> Locale::languageEng('book_list', 'city_option'),
+			"empty_option"	=> Locale::languageEng('book_list', 'empty_option'),
 			"add_new_record"	=> Locale::languageEng('book_list', 'add_new_record'),
 			"clients_data"		=> BookListModel::getClientsData(),
 			"back_to_page_layout"	=> Locale::languageEng('book_list', 'back_to_page_layout'),
 			"phrase"		=> BookListModel::getRandomPhrase(),
-			"country_array"		=> BookListModel::getAllCountries()
-
+			"country_array"		=> BookListModel::getAllCountries(),
+			"image_path"		=> Config::dataArray('errors', 'image'),
+			"preloader_alt_text"	=> Locale::languageEng('book_list', 'preloader_alt_text'),
+			"record_edit"		=> Locale::languageEng('book_list', 'record_edit'),
+			"record_delete"		=> Locale::languageEng('book_list', 'record_delete'),
 		);
 
 		/**
@@ -85,5 +85,59 @@ class BookList extends Templating {
 
 		return $template;
 	}
+
+	/**
+	 * getCities
+	 *
+	 * This function get cities from our nodel
+	 *
+	 * @return string $tempalate	This is source address book tempalate
+	 */
+	public function getCities($country_id = '') {
+		
+		$cities = BookListModel::getCitiesFromDb($country_id);
+
+		if ($cities) {
+			return json_encode(array("flag" => true, "cities" => $cities));
+
+		} else {
+			return json_encode(array("flag" => false, "cities" => ''));
+		}
+	}
+
+	/**
+	 * searchClients
+	 *
+	 * This function search our clients in DB
+	 *
+	 * @return string $tempalate	This is source address book tempalate
+	 */
+	public function searchClients($keywords = '') {
+
+		$search_clients = BookListModel::getSearchClients($keywords);
+
+		if ($search_clients) {
+			return json_encode(array("flag" => true, "clients" => $search_clients));
+
+		} else {
+			return json_encode(array("flag" => false, "clients" => '', "error_search_message" => $this -> createErrorSearhMessage($keywords)));
+		}
+	}
+
+	/**
+	 * createErrorSearhMessage
+	 *
+	 * This function create error search message
+	 *
+	 * @return string $tempalate	This is source address book tempalate
+	 */
+	public function createErrorSearhMessage($keywords = '') {
+
+		$error_message = Locale::languageEng('search', 'error_message_one') . $keywords . Locale::languageEng('search', 'error_message_two');
+
+		return $error_message;
+	}
+
+
 }
 ?>

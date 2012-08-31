@@ -1,15 +1,10 @@
 <?php
-
-ini_set('display_errors', 'on');
-
-error_reporting(E_ALL | E_STRICT);
-
 /**
  * Adress Book Ajax
  * 
- * authorization.php
+ * search_clients.php
  *
- * This is ajax file for authorization by administrator
+ * This is ajax file for search clients in DB
  * 
  * @category	ajax
  * @copyright	2012
@@ -32,13 +27,12 @@ $AccessController = new Access();
 $AccessController -> httpRequested();
 
 /**
- * Create authorization object
+ * Create copy of BookList object
  */
-$AuthorizationController = new Authorization();
+$BookListController = new BookListModel();
 
 /**
- * Validate information from form
+ * Run method from our model
  */
-print $AuthorizationController -> validateAuth($_REQUEST['login'], $_REQUEST['password']);
+print $BookListController -> searchClients($_REQUEST['keywords']);
 ?>
-

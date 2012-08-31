@@ -1,15 +1,18 @@
+		<!-- JavaScript file(s) START -->
 {# Include CSS or/and JavaScript files START #}
 {% if num > 0 %}
 {% set one = 'css' %}
-{% for i in 1..num %}
-	{% if flag[i] == one %}
-	<link rel="stylesheet" type="text/css" href="{{ path[i] }}">
+{#% for i in 1..num %#}
+{% for id, value in flag %}
+	{% if flag[id] == one %}
+	<link rel="stylesheet" type="text/css" href="{{ path[id] }}">
 {% else %}
-	<script type="text/javascript" src="{{ path[i] }}"></script>
+	<script type="text/javascript" src="{{ path[id] }}"></script>
 {% endif %}
 {% endfor %}
 {% endif %}
 {# Include CSS or/and JavaScript files FINISH #}
+		<!-- JavaScript file(s) FINISH -->
 	</head>
 	<body>
 		<noscript><p>{{ noscript }}</p></noscript>

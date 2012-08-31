@@ -116,8 +116,8 @@ class Locale {
 
 				"title"			=> 'Admin: Login',				
 				"auth"			=> 'Authorization',
-				"login"			=> 'Login',
-				"password"		=> 'Password',
+				"login"			=> 'Login:',
+				"password"		=> 'Password:',
 				"error_incorect"	=> 'Login or password is incorrect!',
 				"error_empty"		=> 'Login or password is empty!'
 
@@ -137,7 +137,8 @@ class Locale {
 				"title"			=> 'Admin: Add New Administrator',
 				"layout"		=> 'Page Layout',
 				"content"		=> 'Add New Administrator',
-				"confirm_password"	=> 'Confirm password',			
+				"confirm_password"	=> 'Confirm password:',
+				"save"			=> 'Save',	
 				"error_empty_login"	=> 'Please enter a login!',
 				"error_empty_pass"	=> 'Please enter a password!',
 				"error_empty_pass_conf"	=> 'Please enter a confirm password!',
@@ -160,13 +161,49 @@ class Locale {
 				"keywords_word"		=> "Keywords",
 				"country_word"		=> "Country",
 				"city_word"		=> "City",
-				"country_option"	=> '::ALL::',
-				"city_option"		=> '::ALL::',
+				"empty_option"		=> '::ALL::',
 				"add_new_record"	=> 'Add New Record',
-				"back_to_page_layout"	=> "Page Layout"
+				"back_to_page_layout"	=> 'Back to the Page Layout',
+				"preloader_alt_text"	=> 'Loading...',
+				"record_edit"		=> 'Edit',
+				"record_delete"		=> 'Delete'
 
+			),
+
+			"search"	=> array(
+
+				"error_message_one"	=> 'On request "',
+				"error_message_two"	=> '" no results.'
+
+			),
+
+			"add_new_record"=> array(
+
+				"title"			=> 'Admin: Add New Record',
+				"page_name"		=> 'Add New Record',
+				"first_name"		=> 'First Name:',
+				"last_name"		=> 'Last Name:',
+				"email"			=> 'Email:',
+				"country"		=> 'Country:',
+				"city"			=> 'City:',
+				"photo"			=> 'Photo:',
+				"preview"		=> 'Preview',
+				"notes"			=> 'Notes',
+				"reset"			=> 'Reset',
+				"back_to_book_list"	=> 'Back To Address Book',
+
+				"error_required_f_n"	=> 'First Name is required!',
+				"error_min_length_f_n"	=> 'First Name must be at least 5 characters long!',
+				"error_max_length_f_n"	=> 'First Name should contain no more than 16 characters!',
+				"error_required_l_n"	=> "Last Name is required!"
 
 			)
+
+
+
+
+
+
 
 		);
 

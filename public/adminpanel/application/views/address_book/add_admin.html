@@ -13,15 +13,15 @@
 				<fieldset>
 					<form method="post" name="addAdminForm" id="addAdminForm" action="">
 						<p>
-							<label for="login">{{ login }}:</label><br>
+							<label for="login">{{ login }}</label><br>
 							<input id="login" type="text" name="login" class="text" minlength="5" maxlength="16">
 						</p>
 						<p>
-							<label for="pass">{{ password }}:</label><br>
+							<label for="pass">{{ password }}</label><br>
 							<input id="pass" type="password" name="pass" class="text" minlength="5" maxlength="16">
 						</p>
 						<p>
-							<label for="confirm_pass">{{ confirm_password }}:</label><br>
+							<label for="confirm_pass">{{ confirm_password }}</label><br>
 							<input id="confirm_pass" type="password" name="confirm_pass" class="text">
 						</p>
 							<div id="error_empty_login" class="hide">{{ error_empty_login }}</div>
@@ -37,7 +37,7 @@
 							<div id="error_exists" class="hide">{{ error_exists }}</div>
 							<div id="add_good_message" class="hide">{{ add_good_message }}</div>						
 						<p>
-							<input id="loginButton" type="submit" class="submit" value="{{ login }}">
+							<input id="loginButton" type="submit" class="submit" value="{{ save }}">
 						</p>
 					</form>
 				</fieldset>

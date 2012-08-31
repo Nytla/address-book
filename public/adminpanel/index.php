@@ -42,28 +42,10 @@ $AuthorizationController -> checkAuthIndex();
  */
 print $AuthorizationController -> makeAuth();
 
-//////////////////////////////
-//$AuthorizationController -> validateAuth('', '');
 
-//Cookie::set('my_test_igor_3', '7111', Cookie::SESSION_EXPIRE);
 
-//Cookie::delete('my_test_igor_3');
-
-//Redirect::uriRedirect('', 'index.php');
-
-//Cookie::set('my_test_igor_3', '7111', Cookie::SESSION_EXPIRE);
-
-//Cookie::set('my_test_igor_3', '8777', Cookie -> _session_expire);
-
-//Cookie::get('admin_id');
-
-//Cookie::delete('my_test_igor_3');
-
-//Cookie::delete('admin_id');
-
-//Cookie::delete('admin_hash');
-
-//Redirect::uriRedirect(301, 'page_layout.php');
-
+/**
+ * Testing
+ */
 print_r($_COOKIE);
 ?>

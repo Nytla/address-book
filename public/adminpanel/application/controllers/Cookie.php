@@ -2,6 +2,17 @@
 //http://stut.net/2008/10/16/snippet-cookie-class-for-php/
 //http://www.phpclasses.org/browse/file/11554.html
 
+//Some example usage...
+
+// Style preference, persists only until the browser is closed
+//Cookie::Set('style', 'black_and_orange', Cookie::Session);
+
+// Remember the users email address to pre-fill the login form when they return
+//Cookie::Set('rememberme', 'email@domain.com', Cookie::ThirtyDays);
+
+// Tracking cookie that effectively lasts forever
+//Cookie::Set('tracking', 'sdfoiwuyo8who8wfhow8fhso4', Cookie::Lifetime, '/', '.domain.com');
+
 
 
 /**
@@ -167,17 +178,5 @@ class Cookie {
 		}
 		return $retval;
 	}
-
-//Some example usage...
-
-// Style preference, persists only until the browser is closed
-//Cookie::Set('style', 'black_and_orange', Cookie::Session);
-
-// Remember the users email address to pre-fill the login form when they return
-//Cookie::Set('rememberme', 'email@domain.com', Cookie::ThirtyDays);
-
-// Tracking cookie that effectively lasts forever
-//Cookie::Set('tracking', 'sdfoiwuyo8who8wfhow8fhso4', Cookie::Lifetime, '/', '.domain.com');
-
 }
 ?>

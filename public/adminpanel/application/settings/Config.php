@@ -131,7 +131,8 @@ class Config {
 				"path"		=> '/adminpanel/public/javascripts/',
 				"authorization"	=> 'authorization.js',
 				"add_admin"	=> 'add_admin.js',
-				"book_list"	=> 'book_list.js'
+				"book_list"	=> 'book_list.js',
+				"add_new_record"=> 'add_new_record.js'
 
 			),
 
@@ -154,7 +155,8 @@ class Config {
 				"authorization"	=> 'authorization.html',
 				"layout"	=> 'layout.html',
 				"add_admin"	=> 'add_admin.html',
-				"book_list"	=> 'book_list.html'
+				"book_list"	=> 'book_list.html',
+				"add_new_record"=> 'add_new_record.html'
 
 			)
 

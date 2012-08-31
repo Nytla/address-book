@@ -55,7 +55,7 @@ class Indexes extends Templating {
 	 * 
 	 * @return string $tempalate	This is source scripts tempalate
 	 */
-	static public function scriptsContent($flag = array(""), $path = array("")) {
+	static public function scriptsContent($flag = array(), $path = array()) {
 
 		/**
 		 * Include css or/and javascript content
@@ -63,7 +63,7 @@ class Indexes extends Templating {
 		$template_name = Config::dataArray('templates', 'scripts');
 
 		$params = array(
-			"num"		=> count($flag) - 1,
+			"num"		=> count($flag),
 			"flag"		=> $flag,
 			"path"		=> $path,
 			"noscript"	=> Locale::languageEng('noscript', 'message'),

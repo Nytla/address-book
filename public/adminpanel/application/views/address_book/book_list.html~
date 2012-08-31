@@ -3,6 +3,12 @@
 				<h2>{{ site_name }}</h2>
 			</div>
 			<br>
+			<!-- Preloader START -->
+			<div id="preloader" class="span-10 prepend-9 append-0 last hide">
+				<img class="top" width="220" height="19" alt="{{ preloader_alt_text }}" src="{{ image_path }}ajax-loader.gif">
+			</div>
+			<!-- Preloader FINISH -->
+
 			<!-- Search Form START -->
 			<div class="span-24 last">
 				<h4>
@@ -11,13 +17,13 @@
 						<form method="post" name="searchForm" id="searchForm" action="">
 							<div class="span-7">
 								<label for="keywords">{{ keywords_word }}</label>
-								<input type="text" name="keywords" id="keywords" size="15">
+								<input type="text" name="keywords" id="keywords" size="15" maxlength="18">
 							</div>
 
 							<div class="span-8">
 								<label for="country">{{ country_word }}</label>
 								<select name="country" id="country">
-									<option value="0">{{ country_option }}</option>
+									<option value="0">{{ empty_option }}</option>
 									{% for id, country in country_array %}
 <option value="{{ id }}">{{ country }}</option>
 									{% endfor %}
@@ -28,11 +34,11 @@
 							<div class="span-5">
 								<label for="city">{{ city_word }}</label>
 								<select name="city" id="city">
-									<option value="0">{{ city_option }}</option>
+									<option value="0">{{ empty_option }}</option>
 								</select>
 							</div>
 							<div class="span-1">
-							<input type="submit" name="search" value="Search">
+							<input type="submit" name="search" id="search" value="{{ search_word }}">
 							</div>
 						</form>
 					</fieldset>
@@ -44,8 +50,17 @@
 				<h3><a href="{{ site_url }}add_new_record.php">{{ add_new_record }}</a></h3>
 			</div>
 
+			<hr>
+			<!-- Error message for search START -->
+			<div id="search_error" class="prepend-8 error hide">
+				<h3>
+					<!--On request <strong>sad3edsfr342</strong> no results.-->
+				</h3>
+			</div>
+			<!-- Error message for search FINISH -->
+
 			<!-- View clients START -->
-			<table cellspacing="0" cellpadding="0" border="0">
+			<table cellspacing="0" cellpadding="0" border="0" id="clients">
 				<thead>
 					<tr>
 						<th class="span-6 prepend-3">ID</th>
@@ -55,7 +70,7 @@
 						<th class="span-6">Action</th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody id="content_clients">
 {% for id, value in clients_data %}
 					<tr>
 						<td class="prepend-3">{{ clients_data[id]['id'] }}</td>
@@ -63,12 +78,13 @@
 						<td>{{ clients_data[id]['countryname_en'] }}</td>
 						<td>{{ clients_data[id]['cityname_en'] }}</td>
 						<td>
-							<a href="#edit{{ clients_data[i]['id'] }}">Edit</a>
+							<a href="#edit{{ clients_data[id]['id'] }}">{{ record_edit }}</a>
 							|
-							<a href="#delete{{ clients_data[i]['id'] }}">Delete</a>
+							<a href="#delete{{ clients_data[id]['id'] }}">{{ record_delete }}</a>
 						</td>
 					<tr>
 {% endfor %}
+				</tbody>
 			</table>
 			<!-- View clients FINISH -->
 
@@ -80,7 +96,8 @@
 			</div>
 			<br>
 			<br>
+			<!-- View phrase START -->
 			<div class="info">
 				{{ phrase }}
 			</div>
-
+			<!-- View phrase START -->

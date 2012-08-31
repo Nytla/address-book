@@ -1,6 +1,6 @@
-			<hr>
-			<hr>
-			<hr>
+			<br>
+			<br>
+			<br>
 			<div class="span-10 prepend-11 append-0">
 				<h3><a href="{{ site_url }}layout.php">{{ layout }}</a></h3>
 			</div>
@@ -13,15 +13,15 @@
 				<fieldset>
 					<form method="post" name="addAdminForm" id="addAdminForm" action="">
 						<p>
-							<label for="login">{{ login }}:</label><br>
+							<label for="login">{{ login }}</label><br>
 							<input id="login" type="text" name="login" class="text" minlength="5" maxlength="16">
 						</p>
 						<p>
-							<label for="pass">{{ password }}:</label><br>
+							<label for="pass">{{ password }}</label><br>
 							<input id="pass" type="password" name="pass" class="text" minlength="5" maxlength="16">
 						</p>
 						<p>
-							<label for="confirm_pass">{{ confirm_password }}:</label><br>
+							<label for="confirm_pass">{{ confirm_password }}</label><br>
 							<input id="confirm_pass" type="password" name="confirm_pass" class="text">
 						</p>
 							<div id="error_empty_login" class="hide">{{ error_empty_login }}</div>
@@ -42,6 +42,6 @@
 					</form>
 				</fieldset>
 			</div>
-			<hr>
-			<hr>
-			<hr>
+			<br>
+			<br>
+			<br>

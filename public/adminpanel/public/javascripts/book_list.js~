@@ -1,71 +1,133 @@
 /**
- * Create select list for our cities
+ * Formed Book list page 
  */
 $(document).ready(function() {
 
+	//Create select list for our cities
 	$("#country").change(function() {
 
-		var obj_options = { country_id: this.value };
+		//Set object with our options (country id)
+		var obj_options = {
+			module:		'create_cities',
+			file_name:	'cities_formed.php',
+			data:		{ country_id: this.value }
+		};
+
+		//Get cities from DB
+		$.ajaxes(obj_options);
+	});
+
+
+
+	//Search keywords, country and city in DB
+	$("#searchForm").submit(function() {
+
+		var keywords = $("#keywords").val();
+
+		//Set object options for ajax request
+		var obj_options = {
+			module:		'search_clients',
+			file_name:	'search_clients.php',
+			data:		{ keywords: keywords }
+
+		};
+
+		//Create client list with ajax
+		$.ajaxes(obj_options);
+
+		//Don't submit our search form
+		return false;
+
+	});
+
+
+
+});
+
+/**
+ * Ajaxes function for our book
+ */
+(function($) {
+	$.ajaxes = function(object_options) {
 
 		$.ajax({
 			type: "POST",
 			dataType: "json",
-			url: "./application/ajax/cities_formed.php",
+			url: "./application/ajax/"+object_options.file_name+"",
 			cache: false,
-			data: obj_options,
+			data: object_options.data,
+			complete: function() {
+				//Hide preloader image
+				$('#preloader').fadeOut('slow', function() {});
+			},
 			success: function(object) {
 
-				if (object.clients == false) {
+				//Show preloader image
+				$("#preloader").removeClass("hide").css("display", "block");
+			
+				//Make code depending on the module				
+				switch(object_options.module) {
 
-					return false;
-				} else {
+					//Create our cities select list
+					case 'create_cities':
 
-					//Set style for cities list
-					$("#city").css("width", "150");
+						//if (object.flag == false) {
+						//	return false;
 
-					//Delete all options element, but not first
-					$("#city option").remove();
+						//Set style for cities list
+						$("#city").css("width", "150");
 
-					$("#city").append(new Option('::ALL::', 0));
+						//Delete all options element, but not first
+						$("#city option").remove();
 
-					//Create options element for sity list
-					$.each(object.clients, function(index, value) {
+						$("#city").append(new Option('::ALL::', 0));
 
-						$("#city").append(new Option(value, index));
-					});
+						//Create options element for sity list
+						$.each(object.cities, function(index, value) {
+
+							$("#city").append(new Option(value, index));
+						});
+
+					break;
+
+					//Create client list
+					case 'search_clients':
+
+						if (object.flag == false) {
+
+							//Hide clients table
+							$("#clients").addClass("hide");
+
+							//Show search error message
+							$("#search_error").removeClass("hide");
+
+							//Insert message in our block
+							$("#search_error h3").html(object.error_search_message);
+
+
+						} else {
+
+							//Show our clients table
+							$("#clients").removeClass("hide");
+
+							//Hide search error message
+							$("#search_error").addClass("hide");
+
+							//Delete client from table
+							$("#content_clients tr").remove();
+
+							//Create client table
+							$.each(object.clients, function(index, value) {
+
+								//Create clients table 
+								$("#clients:last").append("<tr><td class=\"prepend-3\">"+value.id+"</td><td>"+value.first_name+ " "+value.last_name+"</td><td>"+value.countryname_en+"</td><<td>"+value.cityname_en+"</td><td><a href=\"#edit\">Edit</a> | <a href=\"#delete\">Delete</a></td></tr><tr></tr>");
+
+							});
+						}
+					break;
+
 				}
 			}
 		});
-	});
-
-
-	//Sort our table
-	//http://www.datatables.net/examples/advanced_init/sorting_control.html
-/*
-	$("#clients").dataTable({
-
-		"aoColumns": [
-
-			{ "asSorting": [ "desc", "asc" ] },
-			{ "asSorting": [ "desc", "asc" ] },
-			{ "asSorting": [ "desc", "asc" ] },			
-
-		]
-
-	});
-*/
-
-});
-/*
-$(document).ready(function() {
-	$('#example').dataTable( {
-		"aoColumns": [
-			null,
-			{ "asSorting": [ "asc" ] },
-			{ "asSorting": [ "desc", "asc", "asc" ] },
-			{ "asSorting": [ "desc" ] },
-			null
-		]
-	} );
-} );
-*/
+	}
+})(jQuery);

@@ -2,9 +2,9 @@
 /**
  * Address Book
  * 
- * book_list.php
+ * add_new_record.php
  *
- * This is administrator address book list page
+ * This is page which add new administrator
  * 
  * @category	Main
  * @copyright	2012
@@ -27,25 +27,25 @@ $AuthorizationController = new Authorization();
 $AuthorizationController -> checkAuthNotIndex();
 
 /**
- * Create book list object
+ * Create copy of AddNewRecord object
  */
-$BookListController = new BookList();
+$AddNewRecordController = new AddNewRecord();
 
 /**
- * Print our address book
+ * Print add new record form 
  */
-print $BookListController -> makeAB();
+print $AddNewRecordController -> makeAddForm();
 
 
 
+//////////////////
+print_r($_COOKIE);
 /*
 echo '
-<h1>This is address book<h1>
+<h1>This is Add new ewcord<h1>
 <br>
 <a href="./index.php">Back</a>
 </h1>
 ';
 */
-
-print_r($_COOKIE);
 ?>

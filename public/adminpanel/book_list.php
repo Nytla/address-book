@@ -19,12 +19,12 @@ require_once(dirname(__FILE__).'/application/autoload/autoload.php');
 /**
  * Create authorization object
  */
-//$AuthorizationController = new Authorization();
+$AuthorizationController = new Authorization();
 
 /**
  * Validate information from form
  */
-//$AuthorizationController -> checkAuthNotIndex();
+$AuthorizationController -> checkAuthNotIndex();
 
 /**
  * Create book list object
@@ -38,14 +38,6 @@ print $BookListController -> makeAB();
 
 
 
-/*
-echo '
-<h1>This is address book<h1>
-<br>
-<a href="./index.php">Back</a>
-</h1>
-';
-*/
-
-//print_r($_COOKIE);
+//////////////////
+print_r($_COOKIE);
 ?>

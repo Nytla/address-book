@@ -75,7 +75,7 @@ class BookListModel extends PDOMysqlConnect {
 		self::$_DB_table_name_cities = Config::dataArray('table_name', 'cities');
 
 		/**
-		 * Select administrator information
+		 * Select clients in DB
 		 */
 		$select_clients = self::dbConnect() -> query("
 			SELECT * FROM " . self::$_DB_table_name_clients . ", " . self::$_DB_table_name_countries . ", " . self::$_DB_table_name_cities . "
@@ -84,6 +84,9 @@ class BookListModel extends PDOMysqlConnect {
 			ORDER BY `id`
 			LIMIT " . self::$_DB_limit . "");
 
+		/**
+		 * Return array from DB
+		 */
 		try {
 
 			while ($row = $select_clients -> fetch(PDO::FETCH_ASSOC)) {
@@ -144,7 +147,7 @@ class BookListModel extends PDOMysqlConnect {
 	 *
 	 * @return array $countries	This is countries id and name
 	 */
-	public function getCities($country_id) {
+	static public function getCitiesFromDb($country_id = '') {
 
 		/**
 		 * Set adminisrator variable
@@ -170,11 +173,84 @@ class BookListModel extends PDOMysqlConnect {
 		
 		if ($data_array) {
 
-			return json_encode(array('cities' => $data_array));
+//			return json_encode(array('cities' => $data_array));
+
+			return $data_array;
 
 		} else {
-			return json_encode(array('cities' => false));
+//			return json_encode(array('cities' => false));
+
+			return false;
 		}
+	}
+
+	/**
+	 * searchClients
+	 *
+	 * This function search our clients in Database
+	 *
+	 * @return array $phrase_text	This is phrase from Database
+	 */
+	static public function getSearchClients($keywords = '', $country_id = '', $city_id = '') {
+
+		/**
+		 * Set table name variables
+		 */
+		self::$_DB_table_name_clients = Config::dataArray('table_name', 'clients');
+
+		self::$_DB_table_name_countries = Config::dataArray('table_name', 'countries');
+
+		self::$_DB_table_name_cities = Config::dataArray('table_name', 'cities');
+
+		
+		/**
+		 * Search clients in DB
+		 */
+		$search_clients = self::dbConnect() -> query("
+			SELECT * FROM " . self::$_DB_table_name_clients . ", " . self::$_DB_table_name_countries . ", " . self::$_DB_table_name_cities . "
+			WHERE 
+				" . self::$_DB_table_name_clients .".first_name LIKE '$keywords%'
+				AND
+				" . self::$_DB_table_name_clients .".country = " . self::$_DB_table_name_countries . ".country_id
+				AND 
+				" . self::$_DB_table_name_clients .".city = " . self::$_DB_table_name_cities . ".city_id
+			ORDER BY `id`
+			LIMIT " . self::$_DB_limit . "");
+
+			//where `text1` like '%123%' or `text2` like '%123%'
+
+		/**
+		 * Return array from DB
+		 */
+		try {
+
+			while ($row = $search_clients -> fetch(PDO::FETCH_ASSOC)) {
+
+				$data[] = $row;
+			}
+
+			if ($data) {
+				return $data;
+			}
+
+		} catch (E_NOTICE $object) {
+			
+			return false;
+
+/*
+			return ("
+			SELECT * FROM " . self::$_DB_table_name_clients . ", " . self::$_DB_table_name_countries . ", " . self::$_DB_table_name_cities . "
+			WHERE 
+				" . self::$_DB_table_name_clients .".first_name LIKE '$keywords%'
+				AND
+				" . self::$_DB_table_name_clients .".country = " . self::$_DB_table_name_countries . ".country_id
+				AND 
+				" . self::$_DB_table_name_clients .".city = " . self::$_DB_table_name_cities . ".city_id
+			ORDER BY `id`
+			LIMIT " . self::$_DB_limit . "");
+*/
+		}
+
 	}
 
 	/**
