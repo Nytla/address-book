@@ -58,6 +58,7 @@ class AddNewRecord extends Templating {
 			"last_name"		=> Locale::languageEng('add_new_record', 'last_name'),
 			"email"			=> Locale::languageEng('add_new_record', 'email'),
 			"country"		=> Locale::languageEng('add_new_record', 'country'),
+			"country_array"		=> BookListModel::getAllCountries(),
 			"city"			=> Locale::languageEng('add_new_record', 'city'),
 			"empty_option"		=> Locale::languageEng('book_list', 'empty_option'),
 			"photo"			=> Locale::languageEng('add_new_record', 'photo'),
@@ -68,7 +69,20 @@ class AddNewRecord extends Templating {
 			"error_empty_f_n"	=> Locale::languageEng('add_new_record', 'error_required_f_n'),
 			"error_min_length_f_n"	=> Locale::languageEng('add_new_record', 'error_min_length_f_n'),
 			"error_max_length_f_n"	=> Locale::languageEng('add_new_record', 'error_max_length_f_n'),
+			"error_empty_l_n"	=> Locale::languageEng('add_new_record', 'error_required_l_n'),
+			"error_min_length_l_n"	=> Locale::languageEng('add_new_record', 'error_min_length_l_n'),
+			"error_max_length_l_n"	=> Locale::languageEng('add_new_record', 'error_max_length_l_n'),
+			"error_empty_email"	=> Locale::languageEng('add_new_record', 'error_required_email'),
+			"error_min_length_email"=> Locale::languageEng('add_new_record', 'error_min_length_email'),
+			"error_max_length_email"=> Locale::languageEng('add_new_record', 'error_max_length_email'),
+			"error_incorect_email"	=> Locale::languageEng('add_new_record', 'error_incorect_email'),
+			"error_empty_country"	=> Locale::languageEng('add_new_record', 'error_empty_country'),
+			"error_empty_city"	=> Locale::languageEng('add_new_record', 'error_empty_city'),
+			"error_upload_photo"	=> Locale::languageEng('add_new_record', 'error_upload_photo'),
 		);
+
+
+
 
 		/**
 		 * Set template name

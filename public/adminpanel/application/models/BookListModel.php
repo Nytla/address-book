@@ -49,12 +49,53 @@ class BookListModel extends PDOMysqlConnect {
 	static private $_DB_table_name_phrases;
 
 	/**
+	 * _DB_search_keywords
+	 * 
+	 * @var string	This is keywords search for Database
+	 */
+	static private $_DB_search_keywords;
+
+	/**
+	 * _DB_search_country
+	 * 
+	 * @var string	This is country search for Database
+	 */
+	static private $_DB_search_country;
+
+	/**
+	 * _DB_search_city
+	 * 
+	 * @var string	This is country search for Database
+	 */
+	static private $_DB_search_city;
+
+	/**
+	 * _DB_field
+	 * 
+	 * @var string	This is name of field whish sortes for Database
+	 */
+	static private $_DB_field;
+
+	/**
+	 * _DB_order_sort
+	 * 
+	 * @var string	This is order (ASC/DESC) of sort field for Database
+	 */
+	static private $_DB_order_sort;
+
+	/**
+	 * _DB_page
+	 * 
+	 * @var string	This is page for Database
+	 */
+	static private $_DB_page;
+
+	/**
 	 * _DB_limit
 	 * 
 	 * @var string	This is limit for Database selections
 	 */
 	static private $_DB_limit = 10;
-
 
 	/**
 	 * getAuthData
@@ -68,11 +109,11 @@ class BookListModel extends PDOMysqlConnect {
 		/**
 		 * Set adminisrator variable
 		 */
-		self::$_DB_table_name_clients = Config::dataArray('table_name', 'clients');
+		self::$_DB_table_name_clients	= Config::dataArray('table_name', 'clients');
 
 		self::$_DB_table_name_countries = Config::dataArray('table_name', 'countries');
 
-		self::$_DB_table_name_cities = Config::dataArray('table_name', 'cities');
+		self::$_DB_table_name_cities	= Config::dataArray('table_name', 'cities');
 
 		/**
 		 * Select clients in DB
@@ -131,7 +172,7 @@ class BookListModel extends PDOMysqlConnect {
 			$data_array[$row['country_id']] = $row['countryname_en'];
 		}
 		
-		if ($data_array) {
+		if (!empty($data_array)) {
 
 			return $data_array;
 
@@ -171,14 +212,11 @@ class BookListModel extends PDOMysqlConnect {
 			$data_array[$row['city_id']] = $row['cityname_en'];
 		}
 		
-		if ($data_array) {
-
-//			return json_encode(array('cities' => $data_array));
+		if (!empty($data_array)) {
 
 			return $data_array;
 
 		} else {
-//			return json_encode(array('cities' => false));
 
 			return false;
 		}
@@ -191,33 +229,57 @@ class BookListModel extends PDOMysqlConnect {
 	 *
 	 * @return array $phrase_text	This is phrase from Database
 	 */
-	static public function getSearchClients($keywords = '', $country_id = '', $city_id = '') {
+	static public function getSearchClients($keywords = '', $country_id = '', $city_id = '', $field_name = '', $order_sort = '', $page = '', $limit = "") {
 
 		/**
 		 * Set table name variables
 		 */
-		self::$_DB_table_name_clients = Config::dataArray('table_name', 'clients');
+		self::$_DB_table_name_clients	= Config::dataArray('table_name', 'clients');
 
 		self::$_DB_table_name_countries = Config::dataArray('table_name', 'countries');
 
-		self::$_DB_table_name_cities = Config::dataArray('table_name', 'cities');
+		self::$_DB_table_name_cities	= Config::dataArray('table_name', 'cities');
 
+		self::$_DB_search_keywords	= ($keywords) ? "CONCAT_WS(' ', `first_name`, `last_name`) LIKE '%$keywords%' AND " : '';
+
+		self::$_DB_search_country	= ($country_id) ? self::$_DB_table_name_clients .".country = '$country_id' AND " : '';
+
+		self::$_DB_search_city		= ($city_id) ? self::$_DB_table_name_clients .".city = '$city_id' AND " : '';
+
+		self::$_DB_field		= ($field_name) ? "ORDER BY `$field_name` " : '';
+
+		self::$_DB_order_sort		= ($order_sort) ? "$order_sort " : '';
+
+		self::$_DB_page			= ($page) ? "$page," : '';
+
+		self::$_DB_limit		= ($limit) ? "$limit" : 10; // And other query
 		
 		/**
 		 * Search clients in DB
 		 */
 		$search_clients = self::dbConnect() -> query("
-			SELECT * FROM " . self::$_DB_table_name_clients . ", " . self::$_DB_table_name_countries . ", " . self::$_DB_table_name_cities . "
+			SELECT SQL_CALC_FOUND_ROWS *, CONCAT_WS(' ', `first_name`, `last_name`) AS `full_name` FROM " . self::$_DB_table_name_clients . ", " . self::$_DB_table_name_countries . ", " . self::$_DB_table_name_cities . "
 			WHERE 
-				" . self::$_DB_table_name_clients .".first_name LIKE '$keywords%'
-				AND
+
+				" . self::$_DB_search_keywords . "
+
+				" . self::$_DB_search_country . "
+
+				" . self::$_DB_search_city .  "
+
 				" . self::$_DB_table_name_clients .".country = " . self::$_DB_table_name_countries . ".country_id
 				AND 
 				" . self::$_DB_table_name_clients .".city = " . self::$_DB_table_name_cities . ".city_id
 			ORDER BY `id`
-			LIMIT " . self::$_DB_limit . "");
+			LIMIT " . self::$_DB_limit . "
+		");
 
-			//where `text1` like '%123%' or `text2` like '%123%'
+		/**
+		 * Get numbers of rows from mysql memory
+		 */
+		$search_count = self::dbConnect() -> query("
+			SELECT FOUND_ROWS() AS `counting`
+		");
 
 		/**
 		 * Return array from DB
@@ -241,13 +303,19 @@ class BookListModel extends PDOMysqlConnect {
 			return ("
 			SELECT * FROM " . self::$_DB_table_name_clients . ", " . self::$_DB_table_name_countries . ", " . self::$_DB_table_name_cities . "
 			WHERE 
-				" . self::$_DB_table_name_clients .".first_name LIKE '$keywords%'
-				AND
+
+				" . self::$_DB_search_keywords . "
+
+				" . self::$_DB_search_country . "
+
+				" . self::$_DB_search_city .  "
+
 				" . self::$_DB_table_name_clients .".country = " . self::$_DB_table_name_countries . ".country_id
 				AND 
 				" . self::$_DB_table_name_clients .".city = " . self::$_DB_table_name_cities . ".city_id
 			ORDER BY `id`
-			LIMIT " . self::$_DB_limit . "");
+			LIMIT " . self::$_DB_limit . "
+		");
 */
 		}
 
@@ -277,7 +345,7 @@ class BookListModel extends PDOMysqlConnect {
 		 */
 		$phrase_text = $select_chrase -> fetch(PDO::FETCH_ASSOC);
 
-		if ($phrase_text) {
+		if (!empty($phrase_text)) {
 
 			return $phrase_text['phrase_text'];
 

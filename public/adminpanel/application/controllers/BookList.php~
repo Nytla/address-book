@@ -56,7 +56,7 @@ class BookList extends Templating {
 			"keywords_word"		=> Locale::languageEng('book_list', 'keywords_word'),			
 			"country_word"		=> Locale::languageEng('book_list', 'country_word'),
 			"city_word"		=> Locale::languageEng('book_list', 'city_word'),
-			"empty_option"	=> Locale::languageEng('book_list', 'empty_option'),
+			"empty_option"		=> Locale::languageEng('book_list', 'empty_option'),
 			"add_new_record"	=> Locale::languageEng('book_list', 'add_new_record'),
 			"clients_data"		=> BookListModel::getClientsData(),
 			"back_to_page_layout"	=> Locale::languageEng('book_list', 'back_to_page_layout'),
@@ -64,7 +64,8 @@ class BookList extends Templating {
 			"country_array"		=> BookListModel::getAllCountries(),
 			"image_path"		=> Config::dataArray('errors', 'image'),
 			"preloader_alt_text"	=> Locale::languageEng('book_list', 'preloader_alt_text'),
-			"error_search_message"	=> ''
+			"record_edit"		=> Locale::languageEng('book_list', 'record_edit'),
+			"record_delete"		=> Locale::languageEng('book_list', 'record_delete'),
 		);
 
 		/**
@@ -111,7 +112,7 @@ class BookList extends Templating {
 	 *
 	 * @return string $tempalate	This is source address book tempalate
 	 */
-	public function searchClients($keywords = '') {
+	public function searchClients($keywords = '', $country_id = '', $city_id = '') {
 
 		$search_clients = BookListModel::getSearchClients($keywords);
 

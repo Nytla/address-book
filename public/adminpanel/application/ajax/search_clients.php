@@ -34,5 +34,5 @@ $BookListController = new BookList();
 /**
  * Run method from our model
  */
-print $BookListController -> searchClients($_REQUEST['keywords']);
+print $BookListController -> searchClients($_REQUEST['keywords'], $_REQUEST['country_id'], $_REQUEST['city_id']);
 ?>

@@ -22,25 +22,34 @@ $(document).ready(function() {
 	//Search keywords, country and city in DB
 	$("#searchForm").submit(function() {
 
+		//Set search variables
 		var keywords = $("#keywords").val();
+
+		var country = $("#country").val();
+
+		var city = $("#city").val();
 
 		//Set object options for ajax request
 		var obj_options = {
 			module:		'search_clients',
 			file_name:	'search_clients.php',
-			data:		{ keywords: keywords }
+			data:		{ 
+				keywords:	keywords,
+				country_id:	country,
+				city_id:	city
+			}
 
 		};
 
 		//Create client list with ajax
 		$.ajaxes(obj_options);
 
+		$.formHash(keywords, country, city);
+
 		//Don't submit our search form
 		return false;
 
 	});
-
-
 
 });
 
@@ -119,7 +128,7 @@ $(document).ready(function() {
 							$.each(object.clients, function(index, value) {
 
 								//Create clients table 
-								$("#clients:last").append("<tr><td class=\"prepend-3\">"+value.id+"</td><td>"+value.first_name+ " "+value.last_name+"</td><td>"+value.countryname_en+"</td><<td>"+value.cityname_en+"</td><td><a href=\"#edit\">Edit</a> | <a href=\"#delete\">Delete</a></td></tr><tr></tr>");
+								$("#clients:last").append("<tr><td class=\"prepend-3\">"+value.id+"</td><td>"+value.full_name+ "</td><td>"+value.countryname_en+"</td><<td>"+value.cityname_en+"</td><td><a href=\"#edit\">Edit</a> | <a href=\"#delete\">Delete</a></td></tr><tr></tr>");
 
 							});
 						}
@@ -128,5 +137,36 @@ $(document).ready(function() {
 				}
 			}
 		});
+	}
+})(jQuery);
+
+/**
+ * 
+ */
+(function($) {
+	$.formHash = function(keywords, country, city, field, order, page, limit) {
+
+		//Set variables for hash
+		var keywords = (keywords) ? keywords : '';
+
+		var country = (country) ? country : '';
+
+		var city = (city) ? city : '';
+
+		var field = (field) ? field : '';
+
+		var order = (order) ? order : '';
+
+		var page = (page) ? page : '';
+
+		var limit = (limit) ? limit : '';
+
+		//Set variable for url hash
+		var hash = '#keywords=' + keywords + '&country=' + country + '&city=' + city + '&field=' + field + '&order=' + order + '&page=' + page + '&limit=' + limit;
+
+		$(location).attr("hash", hash);
+
+		console.log($(location).attr('hash'));
+
 	}
 })(jQuery);

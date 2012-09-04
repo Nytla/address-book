@@ -56,7 +56,7 @@ class BookList extends Templating {
 			"keywords_word"		=> Locale::languageEng('book_list', 'keywords_word'),			
 			"country_word"		=> Locale::languageEng('book_list', 'country_word'),
 			"city_word"		=> Locale::languageEng('book_list', 'city_word'),
-			"empty_option"	=> Locale::languageEng('book_list', 'empty_option'),
+			"empty_option"		=> Locale::languageEng('book_list', 'empty_option'),
 			"add_new_record"	=> Locale::languageEng('book_list', 'add_new_record'),
 			"clients_data"		=> BookListModel::getClientsData(),
 			"back_to_page_layout"	=> Locale::languageEng('book_list', 'back_to_page_layout'),
@@ -112,9 +112,9 @@ class BookList extends Templating {
 	 *
 	 * @return string $tempalate	This is source address book tempalate
 	 */
-	public function searchClients($keywords = '') {
+	public function searchClients($keywords = '', $country_id = '', $city_id = '') {
 
-		$search_clients = BookListModel::getSearchClients($keywords);
+		$search_clients = BookListModel::getSearchClients($keywords, $country_id, $city_id);
 
 		if ($search_clients) {
 			return json_encode(array("flag" => true, "clients" => $search_clients));

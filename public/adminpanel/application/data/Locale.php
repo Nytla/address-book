@@ -188,14 +188,23 @@ class Locale {
 				"city"			=> 'City:',
 				"photo"			=> 'Photo:',
 				"preview"		=> 'Preview',
-				"notes"			=> 'Notes',
+				"notes"			=> 'Notes:',
 				"reset"			=> 'Reset',
 				"back_to_book_list"	=> 'Back to the Address Book',
 
 				"error_required_f_n"	=> 'First Name is required!',
 				"error_min_length_f_n"	=> 'First Name must be at least 5 characters long!',
 				"error_max_length_f_n"	=> 'First Name should contain no more than 16 characters!',
-				"error_required_l_n"	=> "Last Name is required!"
+				"error_required_l_n"	=> "Last Name is required!",
+				"error_min_length_l_n"	=> 'Last Name must be at least 5 characters long!',
+				"error_max_length_l_n"	=> 'Last Name should contain no more than 16 characters!',
+				"error_required_email"	=> 'Email address is required!',
+				"error_min_length_email"=> 'Email address must be at least 5 characters long!',
+				"error_max_length_email"=> 'Email address should contain no more than 16 characters!',
+				"error_incorect_email"	=> 'Please enter a valid email address!',
+				"error_empty_country"	=> 'Country is required!',
+				"error_empty_city"	=> 'City is required!',
+				"error_upload_photo"	=> 'Please upload your photo!'
 
 			)
 

@@ -22,21 +22,19 @@
 							<div>
 								<label for="country">{{ country }}</label>
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select name="country" id="country">
-									<option value="0">{{ empty_option }}</option>
+									<option value="">{{ empty_option }}</option>
+
+	<option value="1">Test</option>
+
 									{% for id, country in country_array %}
 	<option value="{{ id }}">{{ country }}</option>
 									{% endfor %}
-
 								</select>
 							</div>
 							<div>
 								<label for="city">{{ city }}</label>
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select name="city" id="city">
-									<option value="0">{{ empty_option }}</option>
-									{% for id, country in country_array %}
-	<option value="{{ id }}">{{ country }}</option>
-									{% endfor %}
-
+									<option value="">{{ empty_option }}</option>
 								</select>
 							</div>
 							<div>
@@ -55,23 +53,25 @@
 								<br>
 								<textarea name="notes" id="notes" class="text"></textarea>
 							</p>
-							<!--
-							<div id="error_empty_f_n" class="hide">{{ error_empty_f_n }}</div>						
-							<div id="error_empty_f_n" class="hide">{{ error_min_length_f_n }}</div>
-							<div id="error_max_length_f_n" class="hide">{{ error_max_length_f_n }}</div>
-							-->
-							<div id="container">
-								<div id="error_empty_f_n" class="hide">{{ error_empty_f_n }}</div>
-								<div id="error_empty_f_n" class="hide">{{ error_min_length_f_n }}</div>
-								<div id="error_max_length_f_n" class="hide">{{ error_max_length_f_n }}</div>
-							</div>
-
+							
 							<div class="span-8 prepend-3">
 								<input type="submit" name="save" id="save" value="{{ save }}">
 								<input type="reset" name="search" id="search" value="{{ reset }}">
 							</div>
 
-							
+							<div id="error_empty_f_n" class="hide">{{ error_empty_f_n }}</div>
+							<div id="error_min_length_f_n" class="hide">{{ error_min_length_f_n }}</div>
+							<div id="error_max_length_f_n" class="hide">{{ error_max_length_f_n }}</div>
+							<div id="error_empty_l_n" class="hide">{{ error_empty_l_n }}</div>
+							<div id="error_min_length_l_n" class="hide">{{ error_min_length_l_n }}</div>
+							<div id="error_max_length_l_n" class="hide">{{ error_max_length_l_n }}</div>
+							<div id="error_empty_email" class="hide">{{ error_empty_email }}</div>
+							<div id="error_min_length_email" class="hide">{{ error_min_length_email }}</div>
+							<div id="error_max_length_email" class="hide">{{ error_max_length_email }}</div>
+							<div id="error_incorect_email" class="hide">{{ error_incorect_email }}</div>
+							<div id="error_empty_country" class="hide">{{ error_empty_country }}</div>
+							<div id="error_empty_city" class="hide">{{ error_empty_city }}</div>
+
 							
 						</form>
 					</div>

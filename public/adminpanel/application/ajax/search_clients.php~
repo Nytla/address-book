@@ -29,7 +29,7 @@ $AccessController -> httpRequested();
 /**
  * Create copy of BookList object
  */
-$BookListController = new BookListModel();
+$BookListController = new BookList();
 
 /**
  * Run method from our model
