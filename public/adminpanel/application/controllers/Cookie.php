@@ -2,16 +2,18 @@
 //http://stut.net/2008/10/16/snippet-cookie-class-for-php/
 //http://www.phpclasses.org/browse/file/11554.html
 
-//Some example usage...
+/*
+My example
+Cookie::set('remember_me', 'true', Cookie::SEVEN_DAYS, '/php/cookie/', '.testing.loc');
 
-// Style preference, persists only until the browser is closed
-//Cookie::Set('style', 'black_and_orange', Cookie::Session);
+Cookie::delete('remember_me', '/php/cookie/', '.testing.loc');
 
-// Remember the users email address to pre-fill the login form when they return
-//Cookie::Set('rememberme', 'email@domain.com', Cookie::ThirtyDays);
+#############
 
-// Tracking cookie that effectively lasts forever
-//Cookie::Set('tracking', 'sdfoiwuyo8who8wfhow8fhso4', Cookie::Lifetime, '/', '.domain.com');
+Cookie::set('admin_id', '334', Cookie::SESSION_EXPIRE);
+
+Cookie::delete('admin_id');
+*/
 
 
 
@@ -129,6 +131,7 @@ class Cookie {
 	 * @return bool
 	 */
 	static public function set($name, $value, $expiry = self::ONE_YEAR, $path = '/', $domain = false) {
+		
 		$retval = false;
 	
 		if (!headers_sent()) {
@@ -137,18 +140,19 @@ class Cookie {
 			}
 
 			if ($expiry === -1) {
-				$expiry = 1893456000; // Lifetime = 2030-01-01 00:00:00
+
+				/*
+				 * Lifetime = 2030-01-01 00:00:00
+				 */
+				$expiry = 1893456000;
+
 			} elseif (is_numeric($expiry)) {
 				$expiry += time();
 			} else {
 				$expiry = strtotime($expiry);
-
-				$retval = setcookie($name, $value, $expiry, $path, $domain);
-				
-				if ($retval) {
-					$_COOKIE[$name] = $value;
-				}
 			}
+
+			$retval = setcookie($name, $value, $expiry, $path, $domain);
 		}
 
 		return $retval;
@@ -163,18 +167,16 @@ class Cookie {
 	 * @param bool $remove_from_global Set to true to remove this cookie from this request.
 	 * @return bool
 	*/
-	static public function delete($name, $path = '/', $domain = false, $remove_from_global = false) {
+	static public function delete($name, $path = '/', $domain = false) {
 	
 		$retval = false;
+
 		if (!headers_sent()) {		
 			if ($domain === false) {
 				$domain = $_SERVER['HTTP_HOST'];
-				$retval = setcookie($name, '', time() - 3600, $path, $domain);
 			}
 
-			if ($remove_from_global) {
-				unset($_COOKIE[$name]);
-			}
+			$retval = setcookie($name, '', time() - 3600, $path, $domain);
 		}
 		return $retval;
 	}

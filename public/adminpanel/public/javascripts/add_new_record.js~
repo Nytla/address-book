@@ -166,7 +166,7 @@ $(document).ready(function() {
 						//Delete all options element, but not first
 						$("#city option").remove();
 
-						$("#city").append(new Option('::ALL::', 0));
+						$("#city").append(new Option('::ALL::', ""));
 
 						//Create options element for sity list
 						$.each(object.cities, function(index, value) {

@@ -57,6 +57,7 @@ class AddAdmin extends Templating {
 			"content"		=> Locale::languageEng('add_admin', 'content'),
 			"login"			=> Locale::languageEng('authorization', 'login'),
 			"password"		=> Locale::languageEng('authorization', 'password'),
+			"save"			=> Locale::languageEng('add_admin', 'save'),
 			"confirm_password"	=> Locale::languageEng('add_admin', 'confirm_password'),
 			"error_empty_login"	=> Locale::languageEng('add_admin', 'error_empty_login'),
 			"error_empty_pass"	=> Locale::languageEng('add_admin', 'error_empty_pass'),
@@ -100,14 +101,20 @@ class AddAdmin extends Templating {
 	public function adminRegister($login = '', $password = '') {
 
 		if(!preg_match("/^[a-zA-Z0-9_-]+$/", $login) or !preg_match("/^[a-zA-Z0-9_-]+$/", $password)) {
-			return false;
+			//return false;
+
+			return json_encode(array('validate' => false));
 		}
 
 		if (AddAdminModel::checkAdminExist($login)) {
-			return false;
+			//return false;
+
+			return json_encode(array('validate' => false));
 		} else {
 			
-			return AddAdminModel::addAdminToDB($password);
+			//return AddAdminModel::addAdminToDB($password);
+
+			return json_encode(array('validate' => AddAdminModel::addAdminToDB($password)));
 		}	
 	}
 }

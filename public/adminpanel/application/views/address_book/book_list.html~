@@ -74,7 +74,7 @@
 {% for id, value in clients_data %}
 					<tr>
 						<td class="prepend-3">{{ clients_data[id]['id'] }}</td>
-						<td>{{ clients_data[id]['full_name'] }}</td>
+						<td>{{ clients_data[id]['first_name'] }} {{ clients_data[id]['last_name'] }}</td>
 						<td>{{ clients_data[id]['countryname_en'] }}</td>
 						<td>{{ clients_data[id]['cityname_en'] }}</td>
 						<td>
@@ -101,3 +101,10 @@
 				{{ phrase }}
 			</div>
 			<!-- View phrase START -->
+
+			<div>
+				{{ clients_num }}
+				{% for id, value in clients_num %}
+					{{ id }} = {{ value }} <br>
+			</div>
+

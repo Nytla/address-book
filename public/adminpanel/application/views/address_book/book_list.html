@@ -101,3 +101,11 @@
 				{{ phrase }}
 			</div>
 			<!-- View phrase START -->
+
+			<div>
+				{{ clients_num }}
+				{% for id, value in clients_num %}
+					{{ id }} = {{ value }} <br>
+				{% endfor %}
+			</div>
+

@@ -77,11 +77,15 @@ class AuthorizationModel extends PDOMysqlConnect {
 		 */
 		$data_array = $select -> fetch(PDO::FETCH_ASSOC);
 
+		return ($data_array) ? $data_array : false;
+
+/*
 		if ($data_array) {
 			return $data_array;
 		} else {
 			return false;
 		}
+*/
 	}
 
 	/**
@@ -114,11 +118,14 @@ class AuthorizationModel extends PDOMysqlConnect {
 		 */
 		$data_array = $select -> fetch(PDO::FETCH_ASSOC);
 
+		return ($data_array) ? $data_array : false;
+/*
 		if ($data_array) {
 			return $data_array;
 		} else {
 			return false;
 		}
+*/
 	}
 
 	/**
@@ -135,11 +142,14 @@ class AuthorizationModel extends PDOMysqlConnect {
 		 */
 		$update = self::dbConnect() -> exec("UPDATE " . self::$_DB_table_name . "  SET `admin_hash` = '" . mysql_escape_string($hash) . "' WHERE `admin_id` = '" . $admin_id . "' ");
 
+		return ($update) ? true : false;
+/*
 		if ($update) {
 			return true;
 		} else {
 			return false;
 		}
+*/
 	}
 }
 ?>

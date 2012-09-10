@@ -16,7 +16,7 @@ $(document).ready(function() {
 		
 		$('#error_empty').removeClass().addClass("hide");
 	});
-	
+
 	/**
 	 * Submit authorization form on Ajax
 	 */
@@ -48,9 +48,9 @@ $(document).ready(function() {
 				login: login,
 				password: password
 			},
-			success: function(json_object) {
+			success: function(object) {
 
-				if(json_object.validate == false) {
+				if(object.validate == false) {
 
 					$('#error').removeClass().addClass("error");
 				} else {

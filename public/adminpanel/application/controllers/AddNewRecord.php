@@ -81,9 +81,6 @@ class AddNewRecord extends Templating {
 			"error_upload_photo"	=> Locale::languageEng('add_new_record', 'error_upload_photo'),
 		);
 
-
-
-
 		/**
 		 * Set template name
 		 */
@@ -101,6 +98,5 @@ class AddNewRecord extends Templating {
 
 		return $template;
 	}
-
 }
 ?>

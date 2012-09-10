@@ -9,11 +9,11 @@
 				<fieldset>
 					<form method="post" name="authForm" id="authForm" action="">
 						<p>
-							<label for="login">{{ login }}:</label><br>
+							<label for="login">{{ login }}</label><br>
 							<input id="login" type="text" name="valueLogin" class="text" maxlength="16" />
 						</p>
 						<p>
-							<label for="pass">{{ password }}:</label><br>
+							<label for="pass">{{ password }}</label><br>
 							<input id="pass" type="password" name="valuePass" class="text" maxlength="16" />
 						</p>
 							<div id="error" class="hide">{{ error_incorect }}</div>
@@ -25,6 +25,6 @@
 				</fieldset>
 			</div>
 			<!-- Authorization form FINISH -->
-			<hr>
-			<hr>
-			<hr>
+			<br>
+			<br>
+			<br>

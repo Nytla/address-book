@@ -141,8 +141,26 @@ $(document).ready(function() {
 })(jQuery);
 
 /**
- * 
+ * Formed URL hash
  */
+(function($) {
+	$.formHash = function(keywords, country, city) {
+
+		//Set variables for hash
+		var keywords = (keywords) ? keywords : '';
+
+		var country = (country) ? country : '';
+
+		var city = (city) ? city : '';
+
+		//Set variable for url hash
+		var hash = '#keywords=' + keywords + '&country=' + country + '&city=' + city;
+
+		$(location).attr("hash", hash);
+	}
+})(jQuery);
+
+/*
 (function($) {
 	$.formHash = function(keywords, country, city, field, order, page, limit) {
 
@@ -170,3 +188,4 @@ $(document).ready(function() {
 
 	}
 })(jQuery);
+*/

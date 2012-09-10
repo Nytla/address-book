@@ -24,6 +24,7 @@
 							<label for="confirm_pass">{{ confirm_password }}</label><br>
 							<input id="confirm_pass" type="password" name="confirm_pass" class="text">
 						</p>
+						<p>
 							<div id="error_empty_login" class="hide">{{ error_empty_login }}</div>
 							<div id="error_empty_pass" class="hide">{{ error_empty_pass }}</div>
 							<div id="error_empty_pass_conf" class="hide">{{ error_empty_pass_conf }}</div>
@@ -35,11 +36,12 @@
 							<div id="error_max_length_pass" class="hide">{{ error_max_length_pass }}</div>
 							<div id="error_confirm" class="hide">{{ error_confirm }}</div>
 							<div id="error_exists" class="hide">{{ error_exists }}</div>
-							<div id="add_good_message" class="hide">{{ add_good_message }}</div>						
+						</p>
 						<p>
 							<input id="loginButton" type="submit" class="submit" value="{{ save }}">
 						</p>
 					</form>
+					<div id="add_good_message" class="hide">{{ add_good_message }}</div>
 				</fieldset>
 			</div>
 			<br>

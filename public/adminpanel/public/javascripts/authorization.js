@@ -48,14 +48,14 @@ $(document).ready(function() {
 				login: login,
 				password: password
 			},
-			success: function(json_object) {
+			success: function(object) {
 
-				if(json_object.validate == false) {
+				if(object.validate == false) {
 
 					$('#error').removeClass().addClass("error");
 				} else {
 
-					var url = json_object.redirect_file;
+					var url = object.redirect_file;
 
 					$(location).attr('href',url);
 				}

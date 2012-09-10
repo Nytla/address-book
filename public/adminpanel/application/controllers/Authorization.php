@@ -85,7 +85,8 @@ class Authorization extends Templating {
 			"site_name"		=> Locale::languageEng('site', 'name'),
 			"auth"			=> Locale::languageEng('authorization', 'auth'),
 			'login'			=> Locale::languageEng('authorization', 'login'),			
-			'password'		=> Locale::languageEng('authorization', 'password'),
+			'password'		=> Locale::languageEng('authorization', 'password'),			
+			'login_button'		=> Locale::languageEng('authorization', 'login_button'),
 			"error_incorect"	=> Locale::languageEng('authorization', 'error_incorect'),
 			"error_empty"		=> Locale::languageEng('authorization', 'error_empty'),
 		);
@@ -148,21 +149,9 @@ class Authorization extends Templating {
 				/**
 				 * Set cookie with admin id and admin hash
 				 */
-				Cookie::set('admin_id', $admin_data_array['admin_id'], Cookie::SESSION_EXPIRE);
+				Cookie::set('admin_id', $admin_data_array['admin_id'], Cookie::THIRTY_DAYS);
 
-//				setcookie('admin_id', $admin_data_array['admin_id'], time()+3600);
-
-//				Cookie::set('admin_id', $admin_data_array['admin_id'], Cookie::SESSION_EXPIRE, '/adminpanel/', '.address_book.loc');
-
-//				Cookie::set('admin_id', $admin_data_array['admin_id'], Cookie::THIRTY_DAYS, '/', 'address_book.loc');
-
-				Cookie::set('admin_hash', $hash, Cookie::SESSION_EXPIRE);
-
-//				setcookie('admin_hash', $hash, time()+3600);
-
-//				Cookie::set('admin_hash', $hash, Cookie::SESSION_EXPIRE, '/adminpanel/', '.address_book.loc');
-
-//				Cookie::set('admin_hash', $hash, Cookie::THIRTY_DAYS, '/', 'address_book.loc');
+				Cookie::set('admin_hash', $hash, Cookie::THIRTY_DAYS);
 
 				/**
 				 * Check administator information
@@ -191,7 +180,7 @@ class Authorization extends Templating {
 	private function checkAuth() {
 
 		//Check cookie from administrator
-		if (!Cookie::isEmpty('admin_id') or !Cookie::isEmpty('admin_hash')) {
+		if (Cookie::exists('admin_id') or Cookie::exists('admin_hash')) {
 
 			/**
 			 * Get adminisrator information from DB
@@ -223,7 +212,7 @@ class Authorization extends Templating {
 		/**
 		 * Check the cookie are set or no
 		 */
-		if (!Cookie::isEmpty('admin_id') or !Cookie::isEmpty('admin_hash')) {
+		if (Cookie::exists('admin_id') or Cookie::exists('admin_hash')) {
 
 			if (is_array(AuthorizationModel::getAuthDataById())) {
 
@@ -261,7 +250,7 @@ class Authorization extends Templating {
 		/**
 		 * Check the cookie are set or no
 		 */
-		if (!Cookie::isEmpty('admin_id') or !Cookie::isEmpty('admin_hash')) {
+		if (Cookie::exists('admin_id') or Cookie::exists('admin_hash')) {
 
 			if (is_array(AuthorizationModel::getAuthDataById())) {
 
@@ -301,7 +290,7 @@ class Authorization extends Templating {
 		/**
 		 * Check the cookie are set or no
 		 */
-		if (!Cookie::isEmpty('admin_id') or !Cookie::isEmpty('admin_hash')) {
+		if (Cookie::exists('admin_id') or Cookie::exists('admin_hash')) {
 
 			if (is_array(AuthorizationModel::getAuthDataById())) {
 
@@ -359,11 +348,14 @@ class Authorization extends Templating {
 		/**
 		 * Return code or false
 		 */
+		return (isset($code)) ? $code : false;
+/*
 		if ($code) {
 			return $code;
 		} else {
 			return false;
 		}
+*/
 	}
 }
 ?>

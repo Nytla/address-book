@@ -48,6 +48,11 @@ class BookList extends Templating {
 		$template .= Indexes::scriptsContent($flag, $path);
 		
 		/**
+		 * Get clients data from DB
+		 */
+		$get_clients_data = BookListModel::getClientsData();
+
+		/**
 		 * Create authorization content
 		 */
 		$params = array(
@@ -58,7 +63,8 @@ class BookList extends Templating {
 			"city_word"		=> Locale::languageEng('book_list', 'city_word'),
 			"empty_option"		=> Locale::languageEng('book_list', 'empty_option'),
 			"add_new_record"	=> Locale::languageEng('book_list', 'add_new_record'),
-			"clients_data"		=> BookListModel::getClientsData(),
+			"clients_data"		=> $get_clients_data['clients_array'],
+			"clients_num"		=> $get_clients_data['clients_num'],
 			"back_to_page_layout"	=> Locale::languageEng('book_list', 'back_to_page_layout'),
 			"phrase"		=> BookListModel::getRandomPhrase(),
 			"country_array"		=> BookListModel::getAllCountries(),
@@ -138,6 +144,57 @@ class BookList extends Templating {
 		return $error_message;
 	}
 
+	/**
+	 * pageNavigationRight
+	 *
+	 * This function create error search message
+	 *
+	 * @return string $tempalate	This is source address book tempalate
+	 */
+	public function pageNavigationRight($page = 1, $limit = 0) {
 
+		$clients_num = '';
+
+		
+/*
+//---------------------------------------------
+//Запрос для подсчета количества записей в бд
+//---------------------------------------------
+$result = mysql_query("SELECT COUNT(*) FROM ".$SysValue['table_name']['table_name_1']." WHERE `first_name` LIKE '".$_SESSION['search']."%' AND `country` LIKE '".$_SESSION['search_country']."%' AND `city` LIKE '".$_SESSION['search_city']."%'");
+
+$client = mysql_result($result, 0);
+
+if (isset($_GET['limit']) and $_GET['limit'] == 'all') {
+	$num_str = $client;
+	
+	$num_get = 'all';
+} else {
+	$num_str = $limit;
+	
+	$num_get = $limit;
+}
+
+$total = intval(($client - 1) / $num_str) + 1;
+
+if ($page > $total) {
+	$page = $total;
+}
+
+$start = $page * $num_str - $num_str;
+
+return true;
+*/
+	}
+
+	/**
+	 * limitNavigationLeft
+	 *
+	 * This function create error search message
+	 *
+	 * @return string $tempalate	This is source address book tempalate
+	 */
+	public function limitNavigationLeft($keywords = '') {
+
+	}
 }
 ?>

@@ -119,15 +119,64 @@ class BookListModel extends PDOMysqlConnect {
 		 * Select clients in DB
 		 */
 		$select_clients = self::dbConnect() -> query("
-			SELECT * FROM " . self::$_DB_table_name_clients . ", " . self::$_DB_table_name_countries . ", " . self::$_DB_table_name_cities . "
-			WHERE " . self::$_DB_table_name_clients .".country = " . self::$_DB_table_name_countries . ".country_id
+			SELECT SQL_CALC_FOUND_ROWS * 
+			FROM " . self::$_DB_table_name_clients . ", " . self::$_DB_table_name_countries . ", " . self::$_DB_table_name_cities . "
+			WHERE 
+				" . self::$_DB_table_name_clients .".country = " . self::$_DB_table_name_countries . ".country_id
+				AND " . self::$_DB_table_name_clients .".city = " . self::$_DB_table_name_cities . ".city_id
+
+			ORDER BY `id`
+			LIMIT " . self::$_DB_limit . "
+		");
+
+		/**
+		 * Create array in cycle
+		 */ 
+		while ($row = $select_clients -> fetch(PDO::FETCH_ASSOC)) {
+
+			$data[] = $row;
+		}
+
+		/**
+		 * Get numbers of rows from mysql memory
+		 */
+
+		$clients_num = self::dbConnect() -> query("
+			SELECT FOUND_ROWS() AS `counting`
+		");
+
+		/**
+		 * Select clients in DB
+		 */
+/*
+		$clients_num = self::dbConnect() -> query("
+			SELECT COUNT(`id`)
+			FROM " . self::$_DB_table_name_clients . ", " . self::$_DB_table_name_countries . ", " . self::$_DB_table_name_cities . "
+			WHERE 
+				" . self::$_DB_table_name_clients .".country = " . self::$_DB_table_name_countries . ".country_id
 				AND " . self::$_DB_table_name_clients .".city = " . self::$_DB_table_name_cities . ".city_id
 			ORDER BY `id`
-			LIMIT " . self::$_DB_limit . "");
+			LIMIT " . self::$_DB_limit . "
+		");		
+*/
+/*
+		$clients_num = "SELECT SQL_CALC_FOUND_ROWS * 
+			FROM " . self::$_DB_table_name_clients . ", " . self::$_DB_table_name_countries . ", " . self::$_DB_table_name_cities . "
+			WHERE 
+				" . self::$_DB_table_name_clients .".country = " . self::$_DB_table_name_countries . ".country_id
+				AND " . self::$_DB_table_name_clients .".city = " . self::$_DB_table_name_cities . ".city_id
 
+			ORDER BY `id`
+			LIMIT " . self::$_DB_limit . "";
+*/
 		/**
 		 * Return array from DB
 		 */
+		return array("clients_array" => isset($data) ? $data : false, "clients_num" => $clients_num -> fetch(PDO::FETCH_ASSOC));
+
+		//return (isset($data)) ? $data : false;
+
+/*
 		try {
 
 			while ($row = $select_clients -> fetch(PDO::FETCH_ASSOC)) {
@@ -143,6 +192,7 @@ class BookListModel extends PDOMysqlConnect {
 			
 			return false;
 		}
+*/
 	}
 
 	/**
@@ -162,7 +212,11 @@ class BookListModel extends PDOMysqlConnect {
 		/**
 		 * Select administrator information
 		 */
-		$select_countries = self::dbConnect() -> query("SELECT `country_id`, `countryname_en` FROM " . self::$_DB_table_name_countries . " ORDER BY `countryname_en`");
+		$select_countries = self::dbConnect() -> query("
+			SELECT `country_id`, `countryname_en` 
+			FROM " . self::$_DB_table_name_countries . " 
+			ORDER BY `countryname_en`
+		");
 
 		/**
 		 * Get our countries
@@ -171,7 +225,9 @@ class BookListModel extends PDOMysqlConnect {
 
 			$data_array[$row['country_id']] = $row['countryname_en'];
 		}
-		
+
+		return (isset($data_array) and is_array($data_array)) ? $data_array : false;
+/*
 		if (!empty($data_array)) {
 
 			return $data_array;
@@ -179,6 +235,7 @@ class BookListModel extends PDOMysqlConnect {
 		} else {
 			return false;
 		}
+*/
 	}
 
 	/**
@@ -212,6 +269,8 @@ class BookListModel extends PDOMysqlConnect {
 			$data_array[$row['city_id']] = $row['cityname_en'];
 		}
 		
+		return (isset($data_array) and is_array($data_array)) ? $data_array : false;
+/*
 		if (!empty($data_array)) {
 
 			return $data_array;
@@ -220,6 +279,7 @@ class BookListModel extends PDOMysqlConnect {
 
 			return false;
 		}
+*/
 	}
 
 	/**
@@ -345,6 +405,8 @@ class BookListModel extends PDOMysqlConnect {
 		 */
 		$phrase_text = $select_chrase -> fetch(PDO::FETCH_ASSOC);
 
+		return (isset($phrase_text)) ? $phrase_text['phrase_text'] : false;
+/*
 		if (!empty($phrase_text)) {
 
 			return $phrase_text['phrase_text'];
@@ -352,6 +414,7 @@ class BookListModel extends PDOMysqlConnect {
 		} else {
 			return false;
 		}
+*/
 	}
 }
 ?>

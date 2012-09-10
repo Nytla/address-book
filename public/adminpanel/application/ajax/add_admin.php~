@@ -1,12 +1,12 @@
 <?php
 /**
- * Adress Book
+ * Adress Book Ajax
  * 
  * add_admin.php
  *
  * This is ajax file for added administrator to DB
  * 
- * @category	Ajax
+ * @category	ajax
  * @copyright	2012
  * @author	Igor Zhabskiy  <Zhabskiy.Igor@googlemail.com>
  */
@@ -26,17 +26,14 @@ $AccessController = new Access();
  */
 $AccessController -> httpRequested();
 
+
 /**
  * Create AddAdminController object
  */
 $AddAdminController = new AddAdmin();
 
-//print $_REQUEST['login'] . 'and' . $_REQUEST['password'];
-
 /**
- *
+ * Add new administrator to DB
  */
 print $AddAdminController -> adminRegister($_REQUEST['login'], $_REQUEST['password']);
-
-//print 'Work_dd';
 ?>

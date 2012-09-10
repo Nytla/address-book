@@ -48,8 +48,6 @@ $(document).ready(function() {
 	//Validate our form
 	$("#addAdminForm").validate({
 
-		debug: true,
-
 		rules: {
 
 			login: {
@@ -148,29 +146,34 @@ function isValidPassword(password){
  * Ajaxes function for our form
  */
 (function($) {
-	$.ajaxes = function(obj_options) {
+	$.ajaxes = function(object_options) {
 
 		$.ajax({  
 			type: "POST",
-			//dataType: "json",
+			dataType: "json",
 			url: "./application/ajax/add_admin.php",
 			cache: false,
-			data: obj_options,
-			success: function(data) {
+			data: object_options,
+			success: function(object) {				
 
-				if (data == false) {
+				if (obj.validate == false) {				
 
+					//Show error message
 					$('#error_exists').removeClass().addClass("error");
-					
 				} else {
 
+					//Hide form
+					$('#addAdminForm').addClass("hide");
+					
+					//Clear form
 					$("#login").val('');
 
 					$("#pass").val('');
 
 					$("#confirm_pass").val('');
 
-					$('#add_good_message').removeClass().addClass("success");
+					//Show success message
+					$('#add_good_message').removeClass("hide").addClass("success");
 				}
 			}
 		});

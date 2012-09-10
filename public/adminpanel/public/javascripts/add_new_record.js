@@ -7,14 +7,14 @@ $(document).ready(function() {
 	$("#country").change(function() {
 
 		//Set object with our options (country id)
-		var obj_options = {
+		var object_options = {
 			module:		'create_cities',
 			file_name:	'cities_formed.php',
 			data:		{ country_id: this.value }
 		};
 
 		//Get cities from DB
-		$.ajaxes(obj_options);
+		$.ajaxes(object_options);
 	});
 
 

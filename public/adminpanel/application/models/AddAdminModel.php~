@@ -67,13 +67,19 @@ class AddAdminModel extends PDOMysqlConnect {
 		/**
 		 * Select administrator information
 		 */
-		$select_permission = self::dbConnect() -> query("SELECT `admin_permission` FROM " . self::$_DB_table_name . " WHERE `admin_id` = '" . self::$_admin_id . "' LIMIT 1");
+		$select_permission = self::dbConnect() -> query("
+			SELECT `admin_permission` 
+			FROM " . self::$_DB_table_name . " 
+			WHERE `admin_id` = '" . self::$_admin_id . "' 
+			LIMIT 1");
 
 		/**
 		 * Get administrator permission from DB
 		 */
 		$admin_permission = $select_permission -> fetch(PDO::FETCH_ASSOC);
 
+		return ($admin_permission) ? $admin_permission['admin_permission'] : false;
+/*
 		if ($admin_permission) {
 
 			return $admin_permission['admin_permission'];
@@ -81,6 +87,7 @@ class AddAdminModel extends PDOMysqlConnect {
 		} else {
 			return false;
 		}
+*/
 	}
 
 	/**
@@ -106,6 +113,8 @@ class AddAdminModel extends PDOMysqlConnect {
 		 */
 		$admin_id = $select_login -> fetch(PDO::FETCH_ASSOC);
 
+		return ($admin_id) ? true : false;
+/*
 		if ($admin_id) {
 
 			return true;
@@ -113,7 +122,8 @@ class AddAdminModel extends PDOMysqlConnect {
 		} else {
 			return false;
 		}
-
+*/
+/*
 		try {
 
 			while ($row = $select_login -> fetch(PDO::FETCH_ASSOC)) {
@@ -127,6 +137,7 @@ class AddAdminModel extends PDOMysqlConnect {
 
 			return false;
 		}
+*/
 	}
 
 	/**

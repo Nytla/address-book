@@ -118,6 +118,7 @@ class Locale {
 				"auth"			=> 'Authorization',
 				"login"			=> 'Login:',
 				"password"		=> 'Password:',
+				"login_button"		=> 'Login',
 				"error_incorect"	=> 'Login or password is incorrect!',
 				"error_empty"		=> 'Login or password is empty!'
 
@@ -172,8 +173,8 @@ class Locale {
 
 			"search"	=> array(
 
-				"error_message_one"	=> 'On request "',
-				"error_message_two"	=> '" no results.'
+				"error_message_one"	=> 'Your search <strong>',
+				"error_message_two"	=> '</strong> did not match any client.'
 
 			),
 

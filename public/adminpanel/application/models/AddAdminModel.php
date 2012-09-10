@@ -78,6 +78,8 @@ class AddAdminModel extends PDOMysqlConnect {
 		 */
 		$admin_permission = $select_permission -> fetch(PDO::FETCH_ASSOC);
 
+		return ($admin_permission) ? $admin_permission['admin_permission'] : false;
+/*
 		if ($admin_permission) {
 
 			return $admin_permission['admin_permission'];
@@ -85,6 +87,7 @@ class AddAdminModel extends PDOMysqlConnect {
 		} else {
 			return false;
 		}
+*/
 	}
 
 	/**
@@ -110,6 +113,8 @@ class AddAdminModel extends PDOMysqlConnect {
 		 */
 		$admin_id = $select_login -> fetch(PDO::FETCH_ASSOC);
 
+		return ($admin_id) ? true : false;
+/*
 		if ($admin_id) {
 
 			return true;
@@ -117,6 +122,7 @@ class AddAdminModel extends PDOMysqlConnect {
 		} else {
 			return false;
 		}
+*/
 /*
 		try {
 
@@ -153,6 +159,9 @@ class AddAdminModel extends PDOMysqlConnect {
 		 */
 		$insert_admin = self::dbConnect() -> exec("INSERT INTO " . self::$_DB_table_name . " (`admin_id`, `admin_login`, `admin_password`, `admin_hash`, `admin_permission`) VALUES ('', '" . mysql_escape_string(self::$_admin_login) . "', '" . mysql_escape_string(self::$_admin_password) . "', '', 0)");
 
+		return ($insert_admin) ? true : false;
+
+/*
 		try {
 			if ($insert_admin) {
 				return true; 
@@ -162,6 +171,7 @@ class AddAdminModel extends PDOMysqlConnect {
 
 			return false;
 		}
+*/
 	}
 }
 ?>
