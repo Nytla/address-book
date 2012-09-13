@@ -155,7 +155,7 @@ class Config {
 				"authorization"	=> 'authorization.html',
 				"layout"	=> 'layout.html',
 				"add_admin"	=> 'add_admin.html',
-				"book_list"	=> 'book_list.html'
+				"book_list"	=> 'book_list.html',
 				"add_new_record"=> 'add_new_record.html'
 
 			)

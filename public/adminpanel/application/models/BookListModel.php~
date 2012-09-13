@@ -119,7 +119,7 @@ class BookListModel extends PDOMysqlConnect {
 		 * Select clients in DB
 		 */
 		$select_clients = self::dbConnect() -> query("
-			SELECT SQL_CALC_FOUND_ROWS * 
+			SELECT * 
 			FROM " . self::$_DB_table_name_clients . ", " . self::$_DB_table_name_countries . ", " . self::$_DB_table_name_cities . "
 			WHERE 
 				" . self::$_DB_table_name_clients .".country = " . self::$_DB_table_name_countries . ".country_id
@@ -138,42 +138,9 @@ class BookListModel extends PDOMysqlConnect {
 		}
 
 		/**
-		 * Get numbers of rows from mysql memory
-		 */
-
-		$clients_num = self::dbConnect() -> query("
-			SELECT FOUND_ROWS() AS `counting`
-		");
-
-		/**
-		 * Select clients in DB
-		 */
-/*
-		$clients_num = self::dbConnect() -> query("
-			SELECT COUNT(`id`)
-			FROM " . self::$_DB_table_name_clients . ", " . self::$_DB_table_name_countries . ", " . self::$_DB_table_name_cities . "
-			WHERE 
-				" . self::$_DB_table_name_clients .".country = " . self::$_DB_table_name_countries . ".country_id
-				AND " . self::$_DB_table_name_clients .".city = " . self::$_DB_table_name_cities . ".city_id
-			ORDER BY `id`
-			LIMIT " . self::$_DB_limit . "
-		");		
-*/
-		$clients_num = "SELECT SQL_CALC_FOUND_ROWS * 
-			FROM " . self::$_DB_table_name_clients . ", " . self::$_DB_table_name_countries . ", " . self::$_DB_table_name_cities . "
-			WHERE 
-				" . self::$_DB_table_name_clients .".country = " . self::$_DB_table_name_countries . ".country_id
-				AND " . self::$_DB_table_name_clients .".city = " . self::$_DB_table_name_cities . ".city_id
-
-			ORDER BY `id`
-			LIMIT " . self::$_DB_limit . "";
-
-		/**
 		 * Return array from DB
 		 */
-		return array("clients_array" => isset($data) ? $data : false, "clients_num" => $clients_num -> fetch(PDO::FETCH_ASSOC));
-
-		//return (isset($data)) ? $data : false;
+		return (isset($data)) ? $data : false;
 
 /*
 		try {
@@ -192,6 +159,34 @@ class BookListModel extends PDOMysqlConnect {
 			return false;
 		}
 */
+	}
+
+	static public function countClientInDB() {
+
+		/**
+		 * Set adminisrator variable
+		 */
+		self::$_DB_table_name_clients	= Config::dataArray('table_name', 'clients');
+
+		self::$_DB_table_name_countries = Config::dataArray('table_name', 'countries');
+
+		self::$_DB_table_name_cities	= Config::dataArray('table_name', 'cities');
+
+		/**
+		 * Get numbers of rows from mysql memory
+		 */
+		$clients_num = self::dbConnect() -> query("
+			SELECT COUNT(*) AS `counting`
+			FROM " . self::$_DB_table_name_clients . ", " . self::$_DB_table_name_countries . ", " . self::$_DB_table_name_cities . "
+			WHERE 
+				" . self::$_DB_table_name_clients .".country = " . self::$_DB_table_name_countries . ".country_id
+				AND " . self::$_DB_table_name_clients .".city = " . self::$_DB_table_name_cities . ".city_id
+		");		
+
+		$clients_num = $clients_num -> fetch(PDO::FETCH_ASSOC);
+
+		return (isset($clients_num)) ? $clients_num['counting'] : false;
+
 	}
 
 	/**

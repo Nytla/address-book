@@ -137,6 +137,7 @@ class PDOMysqlConnect extends Exceptionizer {
 	 *
 	 * This is destructor close connect with Data Base
 	 */
+
 	public function __destruct() {
 
 		self::$_DB_connect = null;

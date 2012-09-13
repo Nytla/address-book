@@ -4,6 +4,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 		<title>@title@</title>
+		<link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
 		<link rel="stylesheet" type="text/css" href="/css/style.css" />
 		<link rel="stylesheet" type="text/css" href="/css/style_for_impromptu.css" />
 		<!--[if IE 7]>

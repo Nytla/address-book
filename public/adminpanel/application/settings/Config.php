@@ -95,7 +95,10 @@ class Config {
 				"settings"	=> 'settings/',
 				"views"		=> 'views/',
 				"libraries" 	=> 'libraries/',
-				"public"	=> 'public/'
+				"public"	=> 'public/',
+				"images"	=> 'images/',
+				"javascripts"	=> 'javascripts/',
+				"styles"	=> 'styles/'
 
 			),
 

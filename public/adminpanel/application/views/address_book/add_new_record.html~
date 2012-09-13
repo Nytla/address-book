@@ -71,7 +71,7 @@
 							<div id="error_incorect_email" class="hide">{{ error_incorect_email }}</div>
 							<div id="error_empty_country" class="hide">{{ error_empty_country }}</div>
 							<div id="error_empty_city" class="hide">{{ error_empty_city }}</div>
-
+							<div id="error_upload_photo" class="hide">{{ error_upload_photo }}</div>
 							
 						</form>
 					</div>

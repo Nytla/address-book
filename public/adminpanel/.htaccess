@@ -17,19 +17,6 @@ DirectoryIndex index.php
 ##Lock file if in foler not index file
 Options -Indexes
 
-##RewriteEngine include
-#RewriteEngine  on
-
-##Redirect all request to index.php
-#RewriteCond %{SCRIPT_FILENAME} !-f
-#RewriteCond %{SCRIPT_FILENAME} !-d
-#RewriteRule ^(.*)$ index.php [L]
-
-#RewriteCond %{SCRIPT_FILENAME} !-f
-#RewriteCond %{SCRIPT_FILENAME} !-d
-#RewriteRule .* index.php [L]
-#DirectoryIndex index.php error.php
-
 ##Redirect when errors code
 ##1xx
 ErrorDocument 100 /adminpanel/error.php?error=100

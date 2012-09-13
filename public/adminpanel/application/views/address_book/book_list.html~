@@ -88,6 +88,43 @@
 			</table>
 			<!-- View clients FINISH -->
 
+			<!--View navigation Start -->
+			<div id="pagination" class="span-10 prepend-19 append-0 last">
+				<!-- Page: &lt;Prev 1 | 2 | 3 Next&gt; -->
+
+				<br>
+
+Page: &lt;Prev 
+{% for id, value in clients_num %}
+
+	{% if id == 0 %}
+
+		{{ clients_num[id]['page_num'] }} |
+
+	{% else %}
+
+		 <a href="#
+keywords={{ clients_num[id]['keywords'] }}
+&country={{ clients_num[id]['country_id'] }}
+&city={{ clients_num[id]['city_id'] }}
+&field={{ clients_num[id]['field_name'] }}
+&page={{ clients_num[id]['page_num'] }}
+&limit={{ clients_num[id]['limit'] }}">{{ clients_num[id]['page_num'] }}</a>
+
+	{% endif %}
+
+	{% set separator = id + 1 %}
+
+	{% if separator == id %}
+		|
+	{% endif %}
+
+{% endfor %}
+Next&gt;
+
+			</div>			
+			<!--View navigation Start -->
+
 			<br>
 			<br>
 			<br>
@@ -102,9 +139,12 @@
 			</div>
 			<!-- View phrase START -->
 
+
+<!--
 			<div>
 				{{ clients_num }}
 				{% for id, value in clients_num %}
 					{{ id }} = {{ value }} <br>
+				{% endfor %}
 			</div>
-
+-->

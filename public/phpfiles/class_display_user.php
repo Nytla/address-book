@@ -595,6 +595,14 @@ class UserDisplay {
 		
 		$start = $page * $num_str - $num_str;
 		
+		echo
+		'<hr>' . 
+		'clients = ' . $client . '<br />' .
+		'page = ' . $page . '<br />' .
+		'total = ' . $total . '<br />' .
+		'limit = ' . $limit . '<br />' . 
+		'<hr>';
+
 		return true;
 	}
 	

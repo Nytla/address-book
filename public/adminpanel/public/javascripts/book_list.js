@@ -17,8 +17,6 @@ $(document).ready(function() {
 		$.ajaxes(obj_options);
 	});
 
-
-
 	//Search keywords, country and city in DB
 	$("#searchForm").submit(function() {
 
@@ -29,27 +27,69 @@ $(document).ready(function() {
 
 		var city = $("#city").val();
 
-		//Set object options for ajax request
-		var obj_options = {
-			module:		'search_clients',
-			file_name:	'search_clients.php',
-			data:		{ 
+		//Create client list with ajax
+		if (keywords !== "" || country != 0 || city != 0) {
+
+			//Set object options for ajax request
+			var object_options_search = {
+				module:		'search_clients',
+				file_name:	'search_clients.php',
+				data:		{ 
+					keywords:	keywords,
+					country_id:	country,
+					city_id:	city
+				}
+			};
+
+			$.ajaxes(object_options_search);
+
+			//Set object options for function which formed uri hash
+			var object_options_hash = {
+				module:		'search', 
 				keywords:	keywords,
 				country_id:	country,
 				city_id:	city
-			}
+			};
 
-		};
-
-		//Create client list with ajax
-		$.ajaxes(obj_options);
-
-		$.formHash(keywords, country, city);
+			$.formHash(object_options_hash);
+		}
 
 		//Don't submit our search form
 		return false;
+	});
+
+
+
+
+	//Pagination loading
+
+	$("#pagination").click(function(){
+
+//		alert('oopss');
+
+		var object_hash = $.parseHash();
+
+		//Set object options for function which formed uri hash
+/*		var object_options_hash = {
+			module:		'pagination', 
+			keywords:	keywords,
+			country_id:	country,
+			city_id:	city,
+			field:		'id',
+			order:		'desc',
+			page:		'2',
+			limit:		'10'
+		};
+
+		$.formHash(object_options_hash);
+*/
+		
+		//return false;
 
 	});
+
+
+
 
 });
 
@@ -79,9 +119,6 @@ $(document).ready(function() {
 
 					//Create our cities select list
 					case 'create_cities':
-
-						//if (object.flag == false) {
-						//	return false;
 
 						//Set style for cities list
 						$("#city").css("width", "150");
@@ -128,7 +165,7 @@ $(document).ready(function() {
 							$.each(object.clients, function(index, value) {
 
 								//Create clients table 
-								$("#clients:last").append("<tr><td class=\"prepend-3\">"+value.id+"</td><td>"+value.full_name+ "</td><td>"+value.countryname_en+"</td><<td>"+value.cityname_en+"</td><td><a href=\"#edit\">Edit</a> | <a href=\"#delete\">Delete</a></td></tr><tr></tr>");
+								$("#clients:last").append("<tr><td class=\"prepend-3\">"+value.id+"</td><td>"+value.full_name+ "</td><td>"+value.countryname_en+"</td><<td>"+value.cityname_en+"</td><td><a href=\"#edit="+value.id+"\">Edit</a> | <a href=\"#delete="+value.id+"\">Delete</a></td></tr><tr></tr>");
 
 							});
 						}
@@ -144,19 +181,71 @@ $(document).ready(function() {
  * Formed URL hash
  */
 (function($) {
-	$.formHash = function(keywords, country, city) {
+//	$.formHash = function(keywords, country, city) {
+
+	$.formHash = function(object_options) {
 
 		//Set variables for hash
-		var keywords = (keywords) ? keywords : '';
+/*		var keywords = (keywords) ? keywords : "";
 
-		var country = (country) ? country : '';
+		var country = (country) ? country : "";
 
-		var city = (city) ? city : '';
+		var city = (city) ? city : "";
+*/
 
 		//Set variable for url hash
-		var hash = '#keywords=' + keywords + '&country=' + country + '&city=' + city;
+		switch (object_options.module) {
 
+			//Search
+			case ("search"):
+
+				var hash = '#keywords=' + object_options.keywords + '&country=' + object_options.country_id + '&city=' + object_options.city_id;
+
+			break;
+
+			//Pagination
+			case ("pagination"):
+
+				var hash = '#keywords=' + object_options.keywords + '&country=' + object_options.country_id + '&city=' + object_options.city_id + '&field=' + object_options.field + '&order=' + object_options.order + '&page=' + object_options.page + '&limit=' + object_options.limit;
+
+			break;
+		}
+
+		//Set hash
 		$(location).attr("hash", hash);
+
+	}
+})(jQuery);
+
+/**
+ * Parse hash from url
+ */
+(function($){
+	$.parseHash = function() {
+
+		//Get the URI and remove the hash
+//		var uri = window.location.hash.substring(1);
+
+		var uri = $(location).attr('hash').substring(1);
+
+		//Parse the data
+		var elements = uri.split('&');
+
+		//The Object that will have the data
+		var data = new Object();
+
+		//Do a for loop
+		for(i = 0; i < elements.length; i++) {
+
+			//Split the element to item -> value format
+			var cur = elements[i].split('=');
+
+			//Append the element to the list
+			data[cur[0]] = cur[1]; 
+		}
+
+		//Return the result
+		return data;
 	}
 })(jQuery);
 

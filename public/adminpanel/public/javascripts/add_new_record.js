@@ -1,3 +1,7 @@
+//Ajax Image Upload with Progressbar with jQuery and PHP - http://www.saaraan.com/2012/05/ajax-image-upload-with-progressbar-with-jquery-and-php
+//Demo - http://www.saaraan.com/assets/ajax-image-upload-progressbar/
+
+
 /**
  * Validate add new administrator form
  */
@@ -123,7 +127,7 @@ $(document).ready(function() {
 
 		submitHandler: function() {
 
-			
+			alert('Submited~');
 
 		}
 
@@ -148,70 +152,8 @@ $(document).ready(function() {
 			},
 			success: function(object) {
 
-				//Show preloader image
-				$("#preloader").removeClass("hide").css("display", "block");
-			
-				//Make code depending on the module				
-				switch(object_options.module) {
+				
 
-					//Create our cities select list
-					case 'create_cities':
-
-						//if (object.flag == false) {
-						//	return false;
-
-						//Set style for cities list
-						$("#city").css("width", "150");
-
-						//Delete all options element, but not first
-						$("#city option").remove();
-
-						$("#city").append(new Option('::ALL::', ""));
-
-						//Create options element for sity list
-						$.each(object.cities, function(index, value) {
-
-							$("#city").append(new Option(value, index));
-						});
-
-					break;
-
-					//Create client list
-					case 'search_clients':
-
-						if (object.flag == false) {
-
-							//Hide clients table
-							$("#clients").addClass("hide");
-
-							//Show search error message
-							$("#search_error").removeClass("hide");
-
-							//Insert message in our block
-							$("#search_error h3").html(object.error_search_message);
-
-						} else {
-
-							//Show our clients table
-							$("#clients").removeClass("hide");
-
-							//Hide search error message
-							$("#search_error").addClass("hide");
-
-							//Delete client from table
-							$("#content_clients tr").remove();
-
-							//Create client table
-							$.each(object.clients, function(index, value) {
-
-								//Create clients table 
-								$("#clients:last").append("<tr><td class=\"prepend-3\">"+value.id+"</td><td>"+value.first_name+ " "+value.last_name+"</td><td>"+value.countryname_en+"</td><<td>"+value.cityname_en+"</td><td><a href=\"#edit\">Edit</a> | <a href=\"#delete\">Delete</a></td></tr><tr></tr>");
-
-							});
-						}
-					break;
-
-				}
 			}
 		});
 	}

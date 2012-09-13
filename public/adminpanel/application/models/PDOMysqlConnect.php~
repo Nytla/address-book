@@ -112,9 +112,7 @@ class PDOMysqlConnect extends Exceptionizer {
 				self::$_DB_login,
 				self::$_DB_password,
 				array(
-//					PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'' . self::$_DB_encoding . '\''
-//Config::dataArray('server', 'backslash')
-					PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES " . Config::dataArray('server', 'backslash') . "" . self::$_DB_encoding . "" . Config::dataArray('server', 'backslash')""
+					PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'' . self::$_DB_encoding . '\''
 				)
 			);
 
@@ -139,9 +137,11 @@ class PDOMysqlConnect extends Exceptionizer {
 	 *
 	 * This is destructor close connect with Data Base
 	 */
+/*
 	public function __destruct() {
 
 		self::$_DB_connect = null;
 	}
+*/
 }
 ?>

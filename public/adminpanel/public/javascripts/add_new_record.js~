@@ -1,3 +1,7 @@
+//Ajax Image Upload with Progressbar with jQuery and PHP - http://www.saaraan.com/2012/05/ajax-image-upload-with-progressbar-with-jquery-and-php
+//Demo - http://www.saaraan.com/assets/ajax-image-upload-progressbar/
+
+
 /**
  * Validate add new administrator form
  */
@@ -7,14 +11,14 @@ $(document).ready(function() {
 	$("#country").change(function() {
 
 		//Set object with our options (country id)
-		var obj_options = {
+		var object_options = {
 			module:		'create_cities',
 			file_name:	'cities_formed.php',
 			data:		{ country_id: this.value }
 		};
 
 		//Get cities from DB
-		$.ajaxes(obj_options);
+		$.ajaxes(object_options);
 	});
 
 
@@ -123,7 +127,7 @@ $(document).ready(function() {
 
 		submitHandler: function() {
 
-			
+			alert('Submited~');
 
 		}
 

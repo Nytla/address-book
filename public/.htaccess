@@ -1,5 +1,5 @@
 AddDefaultCharset utf-8
 
-<Files ~ ".(sql|txt|ini|log|ico)$">
+<Files ~ ".(sql|txt|ini|log)$">
 	Deny from all
 </Files>

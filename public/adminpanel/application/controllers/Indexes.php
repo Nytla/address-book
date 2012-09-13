@@ -39,6 +39,7 @@ class Indexes extends Templating {
 			"charset"	=> Config::dataArray('common', 'charset'),
 			"site_name"	=> Locale::languageEng('site', 'title'),
 			"title"		=> $title,
+			"image_path"	=> Config::dataArray('server', 'slash').Config::dataArray('paths', 'adminpanel').Config::dataArray('paths', 'public').Config::dataArray('paths', 'images'),
 			"screen"	=> Config::dataArray('css', 'path'),
 			"print"		=> Config::dataArray('css', 'path'),
 			"ie"		=> Config::dataArray('css', 'path'),

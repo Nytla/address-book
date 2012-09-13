@@ -2,7 +2,6 @@
 {# Include CSS or/and JavaScript files START #}
 {% if num > 0 %}
 {% set one = 'css' %}
-{#% for i in 1..num %#}
 {% for id, value in flag %}
 	{% if flag[id] == one %}
 	<link rel="stylesheet" type="text/css" href="{{ path[id] }}">
