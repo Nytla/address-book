@@ -194,3 +194,38 @@
 	<filename>/var/www/address_book.loc/public/adminpanel/application/models/BookListModel.php</filename>
 	<linenum>348</linenum>
 </error>
+<error>
+	<date>2012-09-14 12:08:17 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/BookListModel.php</filename>
+	<linenum>348</linenum>
+</error>
+<error>
+	<date>2012-09-14 12:15:22 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/BookListModel.php</filename>
+	<linenum>348</linenum>
+</error>
+<error>
+	<date>2012-09-14 12:35:13 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/BookListModel.php</filename>
+	<linenum>348</linenum>
+</error>
+<error>
+	<date>2012-09-14 12:54:05 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: $country_id</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/ajax/pagination_right.php</filename>
+	<linenum>37</linenum>
+</error>
+<error>
+	<date>2012-09-14 12:54:44 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: field_name</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/ajax/pagination_right.php</filename>
+	<linenum>37</linenum>
+</error>

@@ -2,9 +2,9 @@
 /**
  * Adress Book Ajax
  * 
- * cities_formed.php
+ * pagination_right.php
  *
- * This is ajax file which formed cities list from DB
+ * This is ajax file which formed right pagination
  * 
  * @category	ajax
  * @copyright	2012
@@ -32,7 +32,6 @@ $AccessController -> httpRequested();
 $BookListController = new BookList();
 
 /**
- * Get cities from DB
+ * Get client from DB
  */
-print $BookListController -> getCities($_REQUEST['country_id']);
-?>
+print $BookListController -> paginationRight($_REQUEST['keywords'], $_REQUEST['country_id'], $_REQUEST['city_id'], $_REQUEST['field'], $_REQUEST['order'], $_REQUEST['page'], $_REQUEST['limit']);

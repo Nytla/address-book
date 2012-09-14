@@ -1,5 +1,10 @@
 <?php
 //Pagination - http://www.tonymarston.net/php-mysql/pagination.html
+//Table sort and navigation on jQuery UI - http://tablesorter.com/docs/example-pager.html
+//DataTable (sort, search and navigation) - http://www.datatables.net/
+//Table search, pagination, and sort - http://flexigrid.info/
+
+
 //Task managers
 //http://todoist.com/
 //http://asana.com/
@@ -71,7 +76,7 @@ class BookList extends Templating {
 			"empty_option"		=> Locale::languageEng('book_list', 'empty_option'),
 			"add_new_record"	=> Locale::languageEng('book_list', 'add_new_record'),
 			"clients_data"		=> BookListModel::getClientsData(),
-			"clients_num"		=> $this -> pageNavigationRight(),
+			"clients_num"		=> $this -> paginationRight(),
 			"back_to_page_layout"	=> Locale::languageEng('book_list', 'back_to_page_layout'),
 			"phrase"		=> BookListModel::getRandomPhrase(),
 			"country_array"		=> BookListModel::getAllCountries(),
@@ -158,7 +163,7 @@ class BookList extends Templating {
 	 *
 	 * @return string $tempalate	This is source address book tempalate
 	 */
-	public function pageNavigationRight($keywords = '', $country = 0, $city = 0, $field_name = '', $order_sort = '', $page = 1, $limit = 10) {
+	public function paginationRight($keywords = '', $country_id = 0, $city_id = 0, $field_name = '', $order_sort = '', $page = 1, $limit = 10) {
 
 		/**
 		 * Count clients in DB
@@ -286,11 +291,15 @@ class BookList extends Templating {
 			print_r($element_nav_array);
 */
 
+
+			$clients_data = BookListModel::getSearchClients($keywords, $country_id, $city_id, $field_name, $order_sort, $page, $limit);
+
 		}
 
 
 		return $element_nav_array;
 
+//		return json_encode(array("flag" => true, "clients" => $clients_data));
 
 
 	}

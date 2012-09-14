@@ -65,12 +65,38 @@ $(document).ready(function() {
 
 	$("#pagination").click(function(){
 
-//		alert('oopss');
+		alert('oopss');
 
+		//Set search variables
+		var keywords = $("#keywords").val();
+
+		var country = $("#country").val();
+
+		var city = $("#city").val();
+
+		//Set object options for ajax request
+		var object_options_pagination = {
+			module:		'pagination_right',
+			file_name:	'pagination_right.php',
+			data:		{
+				keywords:	keywords,
+				country_id:	country,
+				city_id:	city,
+				field:		'id',
+				order:		'desc',
+				page:		'2',
+				limit:		'10'
+			}
+		};
+
+		$.ajaxes(object_options_pagination);
+
+
+/*
 		var object_hash = $.parseHash();
 
 		//Set object options for function which formed uri hash
-/*		var object_options_hash = {
+		var object_options_hash = {
 			module:		'pagination', 
 			keywords:	keywords,
 			country_id:	country,

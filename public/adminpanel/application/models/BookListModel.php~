@@ -283,7 +283,7 @@ class BookListModel extends PDOMysqlConnect {
 	 *
 	 * @return array $phrase_text	This is phrase from Database
 	 */
-	static public function getSearchClients($keywords = '', $country_id = '', $city_id = '', $field_name = '', $order_sort = '', $page = '', $limit = "") {
+	static public function getSearchClients($keywords = '', $country_id = '', $city_id = '', $field_name = '', $order_sort = '', $page = '', $limit = '') {
 
 		/**
 		 * Set table name variables

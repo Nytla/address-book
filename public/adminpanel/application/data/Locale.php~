@@ -173,8 +173,8 @@ class Locale {
 
 			"search"	=> array(
 
-				"error_message_one"	=> 'Your search "<strong>',
-				"error_message_two"	=> '</strong>" did not match any client.'
+				"error_message_one"	=> 'Your search <strong>',
+				"error_message_two"	=> '</strong> did not match any client.'
 
 			),
 

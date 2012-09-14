@@ -108,6 +108,7 @@ keywords={{ clients_num[id]['keywords'] }}
 &country={{ clients_num[id]['country_id'] }}
 &city={{ clients_num[id]['city_id'] }}
 &field={{ clients_num[id]['field_name'] }}
+&order={{ clients_num[id]['order_sort'] }}
 &page={{ clients_num[id]['page_num'] }}
 &limit={{ clients_num[id]['limit'] }}">{{ clients_num[id]['page_num'] }}</a>
 
