@@ -118,7 +118,11 @@ class Config {
 			),
 
 			"css"		=> array(
-				"path"		=> '/adminpanel/libraries/css/blueprint-v1.0.1/blueprint/'
+				"path"		=> '/adminpanel/libraries/css/blueprint-v1.0.1/blueprint/',
+				"path_style"	=> '/adminpanel/public/styles/',
+				"c_css"		=> 'site_jui_1.2.c.1.css',
+				"demo_table"	=> 'demo_table_jui.css',
+				"jquery_ui"	=> 'jquery-ui-1.7.2.custom.css'
 
 			),
 
@@ -135,6 +139,7 @@ class Config {
 				"authorization"	=> 'authorization.js',
 				"add_admin"	=> 'add_admin.js',
 				"book_list"	=> 'book_list.js',
+				"data_table"	=> 'jQuery_dataTables_1.9.3_min.js',
 				"add_new_record"=> 'add_new_record.js'
 
 			),

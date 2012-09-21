@@ -229,3 +229,24 @@
 	<filename>/var/www/address_book.loc/public/adminpanel/application/ajax/pagination_right.php</filename>
 	<linenum>37</linenum>
 </error>
+<error>
+	<date>2012-09-21 13:28:13 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: add_admin</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/BookList.php</filename>
+	<linenum>62</linenum>
+</error>
+<error>
+	<date>2012-09-21 13:59:39 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: _c_css</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/settings/Config.php</filename>
+	<linenum>172</linenum>
+</error>
+<error>
+	<date>2012-09-21 13:59:47 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: c_css</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/BookList.php</filename>
+	<linenum>77</linenum>
+</error>

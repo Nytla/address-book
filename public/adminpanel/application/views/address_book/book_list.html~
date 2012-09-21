@@ -9,57 +9,15 @@
 			</div>
 			<!-- Preloader FINISH -->
 
-			<!-- Search Form START -->
-			<div class="span-24 last">
-				<h4>
-					<fieldset>
-						<legend>{{ search_word }}</legend>
-						<form method="post" name="searchForm" id="searchForm" action="">
-							<div class="span-7">
-								<label for="keywords">{{ keywords_word }}</label>
-								<input type="text" name="keywords" id="keywords" size="15" maxlength="18">
-							</div>
-
-							<div class="span-8">
-								<label for="country">{{ country_word }}</label>
-								<select name="country" id="country">
-									<option value="0">{{ empty_option }}</option>
-									{% for id, country in country_array %}
-<option value="{{ id }}">{{ country }}</option>
-									{% endfor %}
-
-								</select>
-							</div>
-
-							<div class="span-5">
-								<label for="city">{{ city_word }}</label>
-								<select name="city" id="city">
-									<option value="0">{{ empty_option }}</option>
-								</select>
-							</div>
-							<div class="span-1">
-							<input type="submit" name="search" id="search" value="{{ search_word }}">
-							</div>
-						</form>
-					</fieldset>
-				</h4>
-			</div>
-			<!-- Search Form FINISH -->
-
+			<!-- Url Add New Record START -->
 			<div class="span-10 prepend-10 append-0 last">
 				<h3><a href="{{ site_url }}add_new_record.php">{{ add_new_record }}</a></h3>
 			</div>
-
-			<hr>
-			<!-- Error message for search START -->
-			<div id="search_error" class="prepend-8 error hide">
-				<h3>
-					<!--On request <strong>sad3edsfr342</strong> no results.-->
-				</h3>
-			</div>
-			<!-- Error message for search FINISH -->
-
+			<!-- Url Add New Record FINISH -->
+				
 			<!-- View clients START -->
+//
+<!--
 			<table cellspacing="0" cellpadding="0" border="0" id="clients">
 				<thead>
 					<tr>
@@ -70,7 +28,7 @@
 						<th class="span-6">Action</th>
 					</tr>
 				</thead>
-				<tbody id="content_clients">
+				<tbody>
 {% for id, value in clients_data %}
 					<tr>
 						<td class="prepend-3">{{ clients_data[id]['id'] }}</td>
@@ -86,45 +44,182 @@
 {% endfor %}
 				</tbody>
 			</table>
-			<!-- View clients FINISH -->
+-->
 
-			<!--View navigation Start -->
-			<div id="pagination" class="span-10 prepend-19 append-0 last">
-				<!-- Page: &lt;Prev 1 | 2 | 3 Next&gt; -->
 
-				<br>
-
-Page: &lt;Prev 
-{% for id, value in clients_num %}
-
-	{% if id == 0 %}
-
-		{{ clients_num[id]['page_num'] }} |
-
-	{% else %}
-
-		 <a href="#
-keywords={{ clients_num[id]['keywords'] }}
-&country={{ clients_num[id]['country_id'] }}
-&city={{ clients_num[id]['city_id'] }}
-&field={{ clients_num[id]['field_name'] }}
-&order={{ clients_num[id]['order_sort'] }}
-&page={{ clients_num[id]['page_num'] }}
-&limit={{ clients_num[id]['limit'] }}">{{ clients_num[id]['page_num'] }}</a>
-
-	{% endif %}
-
-	{% set separator = id + 1 %}
-
-	{% if separator == id %}
-		|
-	{% endif %}
-
+		<div class="full_width">
+			<div id="example_wrapper" class="dataTables_wrapper" role="grid">
+				<table cellpadding="0" cellspacing="0" border="0" class="display" id="example" style="width:980px">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Name</th>
+							<th>Country</th>
+							<th>City</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody>
+{% for id, value in clients_data %}
+					<tr class="gradeA">
+						<td>{{ clients_data[id]['id'] }}</td>
+						<td>{{ clients_data[id]['first_name'] }} {{ clients_data[id]['last_name'] }}</td>
+						<td>{{ clients_data[id]['countryname_en'] }}</td>
+						<td>{{ clients_data[id]['cityname_en'] }}</td>
+						<td>
+							<a href="#edit={{ clients_data[id]['id'] }}">{{ record_edit }}</a>
+							|
+							<a href="#delete={{ clients_data[id]['id'] }}">{{ record_delete }}</a>
+						</td>
+					<tr>
 {% endfor %}
-Next&gt;
+				</tbody>
+			</table>
+		</div>
+	</div>
 
-			</div>			
-			<!--View navigation Start -->
+
+<!--
+		<div class="full_width">
+			<div id="example_wrapper" class="dataTables_wrapper" role="grid">
+				<table cellpadding="0" cellspacing="0" border="0" class="display" id="example" style="width:980px">
+					<thead>
+						<tr>
+							<th>Rendering engine</th>
+							<th>Browser</th>
+							<th>Platform(s)</th>
+							<th>Engine version</th>
+							<th>CSS grade</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="gradeX">
+							<td>Trident</td>
+							<td>Internet Explorer 4.0</td>
+							<td>Win 95+</td>
+							<td class="center">4</td>
+							<td class="center">X</td>
+						</tr>
+						<tr class="gradeC">
+							<td>Trident</td>
+							<td>Internet Explorer 5.0</td>
+							<td>Win 95+</td>
+							<td class="center">5</td>
+							<td class="center">C</td>
+						</tr>
+						<tr class="gradeA">
+							<td>Trident</td>
+							<td>Internet
+								 Explorer 5.5</td>
+							<td>Win 95+</td>
+							<td class="center">5.5</td>
+							<td class="center">A</td>
+						</tr>
+						<tr class="gradeA">
+							<td>Trident</td>
+							<td>Internet
+								 Explorer 6</td>
+							<td>Win 98+</td>
+							<td class="center">6</td>
+							<td class="center">A</td>
+						</tr>
+						<tr class="gradeA">
+							<td>Trident</td>
+							<td>Internet Explorer 7</td>
+							<td>Win XP SP2+</td>
+							<td class="center">7</td>
+							<td class="center">A</td>
+						</tr>
+						<tr class="gradeA">
+							<td>Trident</td>
+							<td>AOL browser (AOL desktop)</td>
+							<td>Win XP</td>
+							<td class="center">6</td>
+							<td class="center">A</td>
+						</tr>
+						<tr class="gradeA">
+							<td>Gecko</td>
+							<td>Firefox 1.0</td>
+							<td>Win 98+ / OSX.2+</td>
+							<td class="center">1.7</td>
+							<td class="center">A</td>
+						</tr>
+						<tr class="gradeA">
+							<td>Gecko</td>
+							<td>Firefox 1.5</td>
+							<td>Win 98+ / OSX.2+</td>
+							<td class="center">1.8</td>
+							<td class="center">A</td>
+						</tr>
+						<tr class="gradeA">
+							<td>Gecko</td>
+							<td>Firefox 2.0</td>
+							<td>Win 98+ / OSX.2+</td>
+							<td class="center">1.8</td>
+							<td class="center">A</td>
+						</tr>
+						<tr class="gradeA">
+							<td>Gecko</td>
+							<td>Firefox 3.0</td>
+							<td>Win 2k+ / OSX.3+</td>
+							<td class="center">1.9</td>
+							<td class="center">A</td>
+						</tr>
+						<tr class="gradeA">
+							<td>Gecko</td>
+							<td>Camino 1.0</td>
+							<td>OSX.2+</td>
+							<td class="center">1.8</td>
+							<td class="center">A</td>
+						</tr>
+						<tr class="gradeA">
+							<td>Gecko</td>
+							<td>Camino 1.5</td>
+							<td>OSX.3+</td>
+							<td class="center">1.8</td>
+							<td class="center">A</td>
+						</tr>
+						<tr class="gradeA">
+							<td>Gecko</td>
+							<td>Netscape 7.2</td>
+							<td>Win 95+ / Mac OS 8.6-9.2</td>
+							<td class="center">1.7</td>
+							<td class="center">A</td>
+						</tr>
+						<tr class="gradeA">
+							<td>Gecko</td>
+							<td>Netscape Browser 8</td>
+							<td>Win 98SE+</td>
+							<td class="center">1.7</td>
+							<td class="center">A</td>
+						</tr>
+						<tr class="gradeA">
+							<td>Gecko</td>
+							<td>Netscape Navigator 9</td>
+							<td>Win 98+ / OSX.2+</td>
+							<td class="center">1.8</td>
+							<td class="center">A</td>
+						</tr>
+						<tr class="gradeA">
+							<td>Gecko</td>
+							<td>Mozilla 1.0</td>
+							<td>Win 95+ / OSX.1+</td>
+							<td class="center">1</td>
+							<td class="center">A</td>
+						</tr>
+						<tr class="gradeA">
+							<td>Gecko</td>
+							<td>Mozilla 1.1</td>
+							<td>Win 95+ / OSX.1+</td>
+							<td class="center">1.1</td>
+							<td class="center">A</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+-->
+			<!-- View clients FINISH -->
 
 			<br>
 			<br>
@@ -138,14 +233,4 @@ Next&gt;
 			<div class="info">
 				{{ phrase }}
 			</div>
-			<!-- View phrase START -->
-
-
-<!--
-			<div>
-				{{ clients_num }}
-				{% for id, value in clients_num %}
-					{{ id }} = {{ value }} <br>
-				{% endfor %}
-			</div>
--->
+			<!-- View phrase FINISH -->
