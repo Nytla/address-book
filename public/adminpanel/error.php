@@ -12,20 +12,12 @@
  */
 
 /**
- * Authorization
- * 
- * This is administrator authorization class
- * 
- * @version 0.1
- */
-
-/**
  * Include autoload file
  */
 require_once(dirname(__FILE__).'/application/autoload/autoload.php');
 
 /**
- * Create authorization object
+ * Create copy of error object
  */
 $ErrorsController = new Errors();
 

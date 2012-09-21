@@ -1,5 +1,0 @@
-#<files *.*>
-<Files ~".(php|log|sql)$"> 
- Order Deny,Allow
- Deny From All
-</files>
