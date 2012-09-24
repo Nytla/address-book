@@ -27,7 +27,7 @@ $AuthorizationController = new Authorization();
 $AuthorizationController -> checkAuthAdminPermission();
 
 /**
- * Create authorization object
+ * Create copy of add administrator object
  */
 $AddAdminController = new AddAdmin();
 

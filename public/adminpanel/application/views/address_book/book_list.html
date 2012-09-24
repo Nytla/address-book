@@ -61,23 +61,22 @@
 					</thead>
 					<tbody>
 {% for id, value in clients_data %}
-					<tr class="gradeA">
-						<td>{{ clients_data[id]['id'] }}</td>
-						<td>{{ clients_data[id]['first_name'] }} {{ clients_data[id]['last_name'] }}</td>
-						<td>{{ clients_data[id]['countryname_en'] }}</td>
-						<td>{{ clients_data[id]['cityname_en'] }}</td>
-						<td>
-							<a href="#edit={{ clients_data[id]['id'] }}">{{ record_edit }}</a>
-							|
-							<a href="#delete={{ clients_data[id]['id'] }}">{{ record_delete }}</a>
-						</td>
-					<tr>
+						<tr class="gradeA">
+							<td>{{ clients_data[id]['id'] }}</td>
+							<td>{{ clients_data[id]['first_name'] }} {{ clients_data[id]['last_name'] }}</td>
+							<td>{{ clients_data[id]['countryname_en'] }}</td>
+							<td>{{ clients_data[id]['cityname_en'] }}</td>
+							<td>
+								<a href="#edit={{ clients_data[id]['id'] }}">{{ record_edit }}</a>
+								|
+								<a href="#delete={{ clients_data[id]['id'] }}">{{ record_delete }}</a>
+							</td>
+						</tr>
 {% endfor %}
-				</tbody>
+					</tbody>
 			</table>
 		</div>
 	</div>
-
 
 <!--
 		<div class="full_width">
@@ -219,6 +218,7 @@
 			</div>
 		</div>
 -->
+
 			<!-- View clients FINISH -->
 
 			<br>

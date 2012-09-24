@@ -126,8 +126,10 @@ class BookListModel extends PDOMysqlConnect {
 				AND " . self::$_DB_table_name_clients .".city = " . self::$_DB_table_name_cities . ".city_id
 
 			ORDER BY `id`
-			LIMIT 0," . self::$_DB_limit . "
+			
 		");
+
+		//LIMIT 0," . self::$_DB_limit . "
 
 		/**
 		 * Create array in cycle

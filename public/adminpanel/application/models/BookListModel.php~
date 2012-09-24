@@ -186,15 +186,6 @@ class BookListModel extends PDOMysqlConnect {
 		$phrase_text = $select_chrase -> fetch(PDO::FETCH_ASSOC);
 
 		return (isset($phrase_text)) ? $phrase_text['phrase_text'] : false;
-/*
-		if (!empty($phrase_text)) {
-
-			return $phrase_text['phrase_text'];
-
-		} else {
-			return false;
-		}
-*/
 	}
 }
 ?>
