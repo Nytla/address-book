@@ -54,7 +54,7 @@ class BookList extends Templating {
 		$js = Config::dataArray('flags', 'js');
 
 		$flag = array(
-			"$css",
+//			"$css",
 			"$css",
 			"$css",
 			"$js",
@@ -77,7 +77,7 @@ class BookList extends Templating {
 		$book_list = Config::dataArray('javascript', 'path').Config::dataArray('javascript', 'book_list');
 
 		$path = array(
-			"$c_css",
+//			"$c_css",
 			"$demo_table",
 			"$jquery_ui",
 			"$data_table",
@@ -128,5 +128,31 @@ class BookList extends Templating {
 
 		return $template;
 	}
+
+	/**
+	 * getCities
+	 *
+	 * This function get cities from our nodel
+	 *
+	 * @return string $tempalate This is source address book tempalate
+	 */
+	public function getCities($country_id = '') {
+
+		$cities = BookListModel::getCitiesFromDb($country_id);
+
+		return ($cities) ? json_encode(array("flag" => true, "cities" => $cities)) : json_encode(array("flag" => false));
+	}
+
+	/**
+	 * getClientsDataJSON
+	 *
+	 * This function get clients information from DB in JSON format
+	 *
+	 * @return object	This is JSON object from DB
+	 */
+	public function getClientsDataJSON() {
+
+		return json_encode(BookListModel::getClientsData());
+	} 
 }
 ?>

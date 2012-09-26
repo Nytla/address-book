@@ -49,55 +49,6 @@ class BookListModel extends PDOMysqlConnect {
 	static private $_DB_table_name_phrases;
 
 	/**
-	 * _DB_search_keywords
-	 * 
-	 * @var string	This is keywords search for Database
-	 */
-	static private $_DB_search_keywords;
-
-	/**
-	 * _DB_search_country
-	 * 
-	 * @var string	This is country search for Database
-	 */
-	static private $_DB_search_country;
-
-	/**
-	 * _DB_search_city
-	 * 
-	 * @var string	This is country search for Database
-	 */
-	static private $_DB_search_city;
-
-	/**
-	 * _DB_field
-	 * 
-	 * @var string	This is name of field whish sortes for Database
-	 */
-	static private $_DB_field;
-
-	/**
-	 * _DB_order_sort
-	 * 
-	 * @var string	This is order (ASC/DESC) of sort field for Database
-	 */
-	static private $_DB_order_sort;
-
-	/**
-	 * _DB_page
-	 * 
-	 * @var string	This is page for Database
-	 */
-	static private $_DB_page;
-
-	/**
-	 * _DB_limit
-	 * 
-	 * @var string	This is limit for Database selections
-	 */
-	static private $_DB_limit = 10;
-
-	/**
 	 * getAuthData
 	 *
 	 * This function get authorization data from Database
@@ -124,12 +75,13 @@ class BookListModel extends PDOMysqlConnect {
 			WHERE 
 				" . self::$_DB_table_name_clients .".country = " . self::$_DB_table_name_countries . ".country_id
 				AND " . self::$_DB_table_name_clients .".city = " . self::$_DB_table_name_cities . ".city_id
-
-			ORDER BY `id`
-			
 		");
 
+		//ORDER BY `id` asc
+
 		//LIMIT 0," . self::$_DB_limit . "
+
+		$clients_array = array();
 
 		/**
 		 * Create array in cycle
@@ -137,12 +89,18 @@ class BookListModel extends PDOMysqlConnect {
 		while ($row = $select_clients -> fetch(PDO::FETCH_ASSOC)) {
 
 			$data[] = $row;
+
+			//$clients_array_new = array($row['id'], $row['first_name'] . " " . $row['last_name'], $row['countryname_en'], $row['cityname_en']);
+
+			//array_push($clients_array, $clients_array_new);
 		}
 
 		/**
 		 * Return array from DB
 		 */
 		return (isset($data)) ? $data : false;
+
+//		return (isset($clients_array)) ? $clients_array : false;
 
 /*
 		try {
@@ -161,6 +119,74 @@ class BookListModel extends PDOMysqlConnect {
 			return false;
 		}
 */
+	}
+
+	/**
+	 * getAllCountries
+	 *
+	 * This function get all countries from Database
+	 *
+	 * @return array $countries This is countries id and name
+	 */
+	static public function getAllCountries() {
+
+		/**
+		 * Set adminisrator variable
+		 */
+		self::$_DB_table_name_countries = Config::dataArray('table_name', 'countries');
+
+		/**
+		 * Select administrator information
+		 */
+		$select_countries = self::dbConnect() -> query("
+			SELECT `country_id`, `countryname_en`
+			FROM " . self::$_DB_table_name_countries . "
+			ORDER BY `countryname_en`
+		");
+
+		/**
+		 * Get our countries
+		 */
+		while ($row = $select_countries -> fetch(PDO::FETCH_ASSOC)) {
+
+			$data_array[$row['country_id']] = $row['countryname_en'];
+		}
+
+		return (isset($data_array) and is_array($data_array)) ? $data_array : false;
+	}
+
+	/**
+	 * getAllCountries
+	 *
+	 * This function get all countries from Database
+	 *
+	 * @return array $countries This is countries id and name
+	 */
+	static public function getCitiesFromDb($country_id = '') {
+
+		/**
+		 * Set adminisrator variable
+		 */
+		self::$_DB_table_name_cities = Config::dataArray('table_name', 'cities');
+
+		/**
+		 * Select administrator information
+		 */
+		$select_cities = self::dbConnect() -> query("
+			SELECT `city_id`, `cityname_en`
+			FROM " . self::$_DB_table_name_cities . "
+			WHERE `country_id` = '$country_id'
+			ORDER BY `cityname_en`");
+
+		/**
+		 * Get our countries
+		 */
+		while ($row = $select_cities -> fetch(PDO::FETCH_ASSOC)) {
+
+			$data_array[$row['city_id']] = $row['cityname_en'];
+		}
+
+		return (isset($data_array) and is_array($data_array)) ? $data_array : false;
 	}
 
 	/**

@@ -14,7 +14,7 @@
 				<h3><a href="{{ site_url }}add_new_record.php">{{ add_new_record }}</a></h3>
 			</div>
 			<!-- Url Add New Record FINISH -->
-				
+		</div>
 			<!-- View clients START -->
 <!-- http://datatables.net/examples/ -->
 <!--
@@ -46,10 +46,10 @@
 			</table>
 -->
 
-
+	<div class="container">
 		<div class="full_width">
 			<div id="example_wrapper" class="dataTables_wrapper" role="grid">
-				<table cellpadding="0" cellspacing="0" border="0" class="display" id="example" style="width:980px">
+				<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
 					<thead>
 						<tr>
 							<th>ID</th>
@@ -67,17 +67,17 @@
 							<td>{{ clients_data[id]['countryname_en'] }}</td>
 							<td>{{ clients_data[id]['cityname_en'] }}</td>
 							<td>
-								<a href="#edit={{ clients_data[id]['id'] }}">{{ record_edit }}</a>
+								<a href="#edit={{ clients_data[id]['id'] }}" id="edit" name="{{ clients_data[id]['id'] }}">{{ record_edit }}</a>
 								|
-								<a href="#delete={{ clients_data[id]['id'] }}">{{ record_delete }}</a>
+								<a href="#delete={{ clients_data[id]['id'] }}" id="delete">{{ record_delete }}</a>
 							</td>
 						</tr>
 {% endfor %}
 					</tbody>
-			</table>
+				</table>
+			</div>
 		</div>
 	</div>
-
 <!--
 		<div class="full_width">
 			<div id="example_wrapper" class="dataTables_wrapper" role="grid">
@@ -220,15 +220,15 @@
 -->
 
 			<!-- View clients FINISH -->
-
-			<br>
-			<br>
-			<br>
+<div class="container showgrid">
+			<hr>
+			<hr>
+			<hr>
 			<div class="span-10 prepend-10 append-0 last">
 				<h3><a href="{{ site_url }}layout.php">{{ back_to_page_layout }}</a></h3>
 			</div>
-			<br>
-			<br>
+			<hr>
+			<hr>
 			<!-- View phrase START -->
 			<div class="info">
 				{{ phrase }}

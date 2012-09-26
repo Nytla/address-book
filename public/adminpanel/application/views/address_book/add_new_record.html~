@@ -24,7 +24,6 @@
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select name="country" id="country">
 									<option value="">{{ empty_option }}</option>
 
-	<option value="1">Test</option>
 
 									{% for id, country in country_array %}
 	<option value="{{ id }}">{{ country }}</option>
@@ -39,7 +38,7 @@
 							</div>
 							<div>
 								<label for="photo">{{ photo }}</label>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="file" name="photo" id="photo" class="text" minlength="5" maxlength="16">
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="file" name="photo" id="photo" class="text">
 							</div>
 	<!-- PREVIEW START
 							<p>

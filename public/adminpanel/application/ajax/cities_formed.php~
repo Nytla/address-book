@@ -17,6 +17,16 @@
 require_once(dirname(__FILE__).'/../../application/autoload/autoload.php');
 
 /**
+ * Create access object
+ */
+$AccessController = new Access();
+
+/**
+ * Run method
+ */
+$AccessController -> httpRequested();
+
+/**
  * Create copy of BookList class
  */
 $BookListController = new BookList();
@@ -24,5 +34,6 @@ $BookListController = new BookList();
 /**
  * Get cities from DB
  */
-print $BookListController -> getCities($_REQUEST['country_id']);
+print $BookListController -> getClientsDataJSON();
+//print $BookListController -> getCities($_REQUEST['country_id']);
 ?>

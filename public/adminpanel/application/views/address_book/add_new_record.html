@@ -23,9 +23,6 @@
 								<label for="country">{{ country }}</label>
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select name="country" id="country">
 									<option value="">{{ empty_option }}</option>
-
-	<option value="1">Test</option>
-
 									{% for id, country in country_array %}
 	<option value="{{ id }}">{{ country }}</option>
 									{% endfor %}

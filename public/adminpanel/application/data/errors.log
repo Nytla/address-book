@@ -285,3 +285,220 @@
 	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
 	<linenum>308</linenum>
 </error>
+<error>
+	<date>2012-09-24 10:11:58 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>require_once(/var/www/address_book.loc/public/adminpanel/application/views/address_book/cache/d6/01/2050eff44bdd967fad894821c0cd.php): failed to open stream: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>308</linenum>
+</error>
+<error>
+	<date>2012-09-24 10:14:50 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>require_once(/var/www/address_book.loc/public/adminpanel/application/views/address_book/cache/71/00/f85e28c4bf885231bcd81e98fc18.php): failed to open stream: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>308</linenum>
+</error>
+<error>
+	<date>2012-09-24 10:15:12 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>require_once(/var/www/address_book.loc/public/adminpanel/application/views/address_book/cache/81/56/2e02c8ae5d713af83551c4470a45.php): failed to open stream: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>308</linenum>
+</error>
+<error>
+	<date>2012-09-24 10:17:30 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>require_once(/var/www/address_book.loc/public/adminpanel/application/views/address_book/cache/71/00/f85e28c4bf885231bcd81e98fc18.php): failed to open stream: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>308</linenum>
+</error>
+<error>
+	<date>2012-09-24 10:57:37 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>require_once(/var/www/address_book.loc/public/adminpanel/application/views/address_book/cache/d6/01/2050eff44bdd967fad894821c0cd.php): failed to open stream: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>308</linenum>
+</error>
+<error>
+	<date>2012-09-24 11:06:29 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>require_once(/var/www/address_book.loc/public/adminpanel/application/views/address_book/cache/81/56/2e02c8ae5d713af83551c4470a45.php): failed to open stream: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>308</linenum>
+</error>
+<error>
+	<date>2012-09-24 11:16:20 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>require_once(/var/www/address_book.loc/public/adminpanel/application/views/address_book/cache/47/54/f457358b9fd8be3423f0105cf6c0.php): failed to open stream: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>308</linenum>
+</error>
+<error>
+	<date>2012-09-24 11:19:22 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>require_once(/var/www/address_book.loc/public/adminpanel/application/views/address_book/cache/71/00/f85e28c4bf885231bcd81e98fc18.php): failed to open stream: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>308</linenum>
+</error>
+<error>
+	<date>2012-09-24 11:20:22 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>require_once(/var/www/address_book.loc/public/adminpanel/application/views/address_book/cache/47/54/f457358b9fd8be3423f0105cf6c0.php): failed to open stream: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>308</linenum>
+</error>
+<error>
+	<date>2012-09-24 11:20:55 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>require_once(/var/www/address_book.loc/public/adminpanel/application/views/address_book/cache/47/54/f457358b9fd8be3423f0105cf6c0.php): failed to open stream: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>308</linenum>
+</error>
+<error>
+	<date>2012-09-24 11:44:39 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>require_once(/var/www/address_book.loc/public/adminpanel/application/views/address_book/cache/47/54/f457358b9fd8be3423f0105cf6c0.php): failed to open stream: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>308</linenum>
+</error>
+<error>
+	<date>2012-09-24 11:45:17 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>require_once(/var/www/address_book.loc/public/adminpanel/application/views/address_book/cache/47/54/f457358b9fd8be3423f0105cf6c0.php): failed to open stream: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>308</linenum>
+</error>
+<error>
+	<date>2012-09-24 12:08:16 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>require_once(/var/www/address_book.loc/public/adminpanel/application/views/address_book/cache/81/56/2e02c8ae5d713af83551c4470a45.php): failed to open stream: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>308</linenum>
+</error>
+<error>
+	<date>2012-09-24 13:50:58 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>require_once(/var/www/address_book.loc/public/adminpanel/application/views/address_book/cache/47/54/f457358b9fd8be3423f0105cf6c0.php): failed to open stream: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>308</linenum>
+</error>
+<error>
+	<date>2012-09-24 15:08:47 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>require_once(/var/www/address_book.loc/public/adminpanel/application/views/address_book/cache/71/00/f85e28c4bf885231bcd81e98fc18.php): failed to open stream: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>308</linenum>
+</error>
+<error>
+	<date>2012-09-24 16:11:50 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>require_once(/var/www/address_book.loc/public/adminpanel/application/views/address_book/cache/47/54/f457358b9fd8be3423f0105cf6c0.php): failed to open stream: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>308</linenum>
+</error>
+<error>
+	<date>2012-09-24 16:13:28 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>require_once(/var/www/address_book.loc/public/adminpanel/application/views/address_book/cache/71/00/f85e28c4bf885231bcd81e98fc18.php): failed to open stream: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>308</linenum>
+</error>
+<error>
+	<date>2012-09-24 16:21:08 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>require_once(/var/www/address_book.loc/public/adminpanel/application/views/address_book/cache/47/54/f457358b9fd8be3423f0105cf6c0.php): failed to open stream: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>308</linenum>
+</error>
+<error>
+	<date>2012-09-24 17:52:58 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>require_once(/var/www/address_book.loc/public/adminpanel/application/views/address_book/cache/71/00/f85e28c4bf885231bcd81e98fc18.php): failed to open stream: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>308</linenum>
+</error>
+<error>
+	<date>2012-09-24 17:59:21 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>chmod(): No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>930</linenum>
+</error>
+<error>
+	<date>2012-09-25 10:55:55 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>array_push() expects parameter 1 to be array, string given</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/BookListModel.php</filename>
+	<linenum>95</linenum>
+</error>
+<error>
+	<date>2012-09-25 11:21:33 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>require_once(./application/views/address_book/cache/47/54/f457358b9fd8be3423f0105cf6c0.php): failed to open stream: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>308</linenum>
+</error>
+<error>
+	<date>2012-09-25 12:33:37 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>require_once(/var/www/address_book.loc/public/adminpanel/application/views/address_book/cache/81/56/2e02c8ae5d713af83551c4470a45.php): failed to open stream: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>308</linenum>
+</error>
+<error>
+	<date>2012-09-25 12:35:45 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>require_once(/var/www/address_book.loc/public/adminpanel/application/views/address_book/cache/71/00/f85e28c4bf885231bcd81e98fc18.php): failed to open stream: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>308</linenum>
+</error>
+<error>
+	<date>2012-09-25 12:37:31 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>require_once(./application/views/address_book/cache/81/56/2e02c8ae5d713af83551c4470a45.php): failed to open stream: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>308</linenum>
+</error>
+<error>
+	<date>2012-09-25 12:41:46 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>require_once(/var/www/address_book.loc/public/adminpanel/application/views/address_book/cache/81/56/2e02c8ae5d713af83551c4470a45.php): failed to open stream: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>308</linenum>
+</error>
+<error>
+	<date>2012-09-25 12:48:30 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>require_once(/var/www/address_book.loc/public/adminpanel/application/views/address_book/cache/71/00/f85e28c4bf885231bcd81e98fc18.php): failed to open stream: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>308</linenum>
+</error>
+<error>
+	<date>2012-09-25 13:20:52 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>chmod(): No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>930</linenum>
+</error>
+<error>
+	<date>2012-09-25 13:51:02 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>require_once(/var/www/address_book.loc/public/adminpanel/application/views/address_book/cache/71/00/f85e28c4bf885231bcd81e98fc18.php): failed to open stream: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>308</linenum>
+</error>
+<error>
+	<date>2012-09-25 13:54:23 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>require_once(/var/www/address_book.loc/public/adminpanel/application/views/address_book/cache/d6/01/2050eff44bdd967fad894821c0cd.php): failed to open stream: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>308</linenum>
+</error>
+<error>
+	<date>2012-09-25 16:34:36 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>require_once(/var/www/address_book.loc/public/adminpanel/application/views/address_book/cache/81/56/2e02c8ae5d713af83551c4470a45.php): failed to open stream: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>308</linenum>
+</error>

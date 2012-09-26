@@ -152,7 +152,19 @@ $(document).ready(function() {
 			},
 			success: function(object) {
 
-				
+				//Set select element width
+				$("#city").css("width", "242");
+
+				//Delete all options element, but not first
+				$("#city option").remove();
+
+				$("#city").append(new Option('::ALL::', 0));
+
+				//Create options element for sity list
+				$.each(object.cities, function(index, value) {
+
+					$("#city").append(new Option(value, index));
+				});
 
 			}
 		});

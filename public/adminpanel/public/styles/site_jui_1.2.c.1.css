@@ -146,7 +146,7 @@ abbr,acronym { border:0; }
 html, body { margin: 0; padding: 0; width: 100%; font: 100%/1.45em "Lucida Grande", Verdana, Arial, Helvetica, sans-serif; color: #111; }
 body.grid_1_2 { }
 body.grid_2_3 { }
-#fw_container { width: 980px; padding-top: 2em; margin: 0 auto; }
+#fw_container { width: 950px; padding-top: 2em; margin: 0 auto; }
 #fw_content { }
 #fw_footer { padding-top: 4em; font-size: 75%; }
 body.grid_1_2 .grid_column_1 { width: 470px; padding-right: 20px; float: left; }
@@ -158,7 +158,7 @@ body.grid_3_2 .grid_column_2 { width: 633px; padding-left: 20px; float: left; }
 .grid_column_1r { width: 306px; padding-right: 20px; float: left; }
 .grid_column_2r { width: 633px; padding-left: 20px; float: right; }
 .grid_full { width: 100%; }
-.full_width { width: 980px; }
+.full_width { width: 950px; }
 #fw_header { margin-bottom: 3em; position: relative; }
 .forums #fw_header { margin-bottom: 0em; }
 #fw_header ul { padding-top: 25px; padding-left: 0px; }
