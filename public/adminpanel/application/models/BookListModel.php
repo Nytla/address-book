@@ -190,6 +190,43 @@ class BookListModel extends PDOMysqlConnect {
 	}
 
 	/**
+	 * deleteClientFromDB
+	 *
+	 * This function delete client from Database
+	 *
+	 * @return array $phrase_text	This is phrase from Database
+	 */
+	static public function deleteClientFromDB($id) {
+
+		if (isset($id)) {
+
+			/**
+			 * Clean id and leave only number
+			 */
+			$id_valid = preg_replace("/([^\d])/", "", $id);
+
+			/**
+			 * Set adminisrator variable
+			 */
+			self::$_DB_table_name_clients	= Config::dataArray('table_name', 'clients');
+
+			/**
+			 * Delete client from DB
+			 */
+			$delete_client = self::dbConnect() -> exec("
+				DELETE 
+				FROM " . self::$_DB_table_name_clients . "
+				WHERE `id` = '$id_valid'
+			");
+		}
+
+		/**
+		 * If client deleted return true else false
+		 */
+		return ($delete_client) ? true : false;
+	}
+
+	/**
 	 * getRandomPhrase
 	 *
 	 * This function get random phrase from Database

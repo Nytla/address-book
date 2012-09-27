@@ -502,3 +502,206 @@
 	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
 	<linenum>308</linenum>
 </error>
+<error>
+	<date>2012-09-26 12:46:19 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>chmod(): No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>930</linenum>
+</error>
+<error>
+	<date>2012-09-26 14:17:56 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: validation</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/AddNewRecord.php</filename>
+	<linenum>54</linenum>
+</error>
+<error>
+	<date>2012-09-26 14:18:50 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: valid_plugin</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/AddNewRecord.php</filename>
+	<linenum>55</linenum>
+</error>
+<error>
+	<date>2012-09-26 15:11:07 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: country_id</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/ajax/cities_formed.php</filename>
+	<linenum>37</linenum>
+</error>
+<error>
+	<date>2012-09-26 15:11:17 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: country_id</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/ajax/cities_formed.php</filename>
+	<linenum>37</linenum>
+</error>
+<error>
+	<date>2012-09-26 15:12:18 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: country_id</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/ajax/cities_formed.php</filename>
+	<linenum>37</linenum>
+</error>
+<error>
+	<date>2012-09-26 15:20:02 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: country_id</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/ajax/cities_formed.php</filename>
+	<linenum>37</linenum>
+</error>
+<error>
+	<date>2012-09-26 15:20:41 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: country_id</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/ajax/cities_formed.php</filename>
+	<linenum>37</linenum>
+</error>
+<error>
+	<date>2012-09-26 15:21:08 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: country_id</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/ajax/cities_formed.php</filename>
+	<linenum>37</linenum>
+</error>
+<error>
+	<date>2012-09-26 15:23:11 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: country_id</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/ajax/cities_formed.php</filename>
+	<linenum>37</linenum>
+</error>
+<error>
+	<date>2012-09-26 15:23:24 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: country_id</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/ajax/cities_formed.php</filename>
+	<linenum>37</linenum>
+</error>
+<error>
+	<date>2012-09-26 15:24:17 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: country_id</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/ajax/cities_formed.php</filename>
+	<linenum>37</linenum>
+</error>
+<error>
+	<date>2012-09-26 15:25:33 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: country_id</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/ajax/cities_formed.php</filename>
+	<linenum>37</linenum>
+</error>
+<error>
+	<date>2012-09-26 16:16:41 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>imagejpeg(): Unable to open './uploads/6351051074.png' for writing: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/AddNewRecord.php</filename>
+	<linenum>236</linenum>
+</error>
+<error>
+	<date>2012-09-26 16:20:25 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>imagejpeg(): Unable to open '/adminpanel/public/images/upload_client/7217402476.jpg' for writing: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/AddNewRecord.php</filename>
+	<linenum>236</linenum>
+</error>
+<error>
+	<date>2012-09-26 16:21:20 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>imagejpeg(): Unable to open '/adminpanel/public/images/upload_client/9275054214.jpg' for writing: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/AddNewRecord.php</filename>
+	<linenum>236</linenum>
+</error>
+<error>
+	<date>2012-09-26 16:22:26 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>imagejpeg(): Unable to open '/adminpanel/public/images/upload_client/7838889174.jpg' for writing: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/AddNewRecord.php</filename>
+	<linenum>236</linenum>
+</error>
+<error>
+	<date>2012-09-26 16:23:19 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>imagejpeg(): Unable to open './public/images/upload_client/9757297160.jpg' for writing: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/AddNewRecord.php</filename>
+	<linenum>239</linenum>
+</error>
+<error>
+	<date>2012-09-26 16:24:28 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>imagejpeg(): Unable to open './../../../public/images/upload_client/3883625613.jpg' for writing: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/AddNewRecord.php</filename>
+	<linenum>241</linenum>
+</error>
+<error>
+	<date>2012-09-26 18:08:28 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: image</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/settings/Config.php</filename>
+	<linenum>175</linenum>
+</error>
+<error>
+	<date>2012-09-26 18:08:31 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: image</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/settings/Config.php</filename>
+	<linenum>175</linenum>
+</error>
+<error>
+	<date>2012-09-26 18:08:34 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: image</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/settings/Config.php</filename>
+	<linenum>175</linenum>
+</error>
+<error>
+	<date>2012-09-27 10:23:48 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>chmod(): No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>930</linenum>
+</error>
+<error>
+	<date>2012-09-27 10:26:25 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: HTTP_X_REQUESTED_WITH</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Access.php</filename>
+	<linenum>33</linenum>
+</error>
+<error>
+	<date>2012-09-27 10:27:01 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: HTTP_X_REQUESTED_WITH</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Access.php</filename>
+	<linenum>33</linenum>
+</error>
+<error>
+	<date>2012-09-27 12:18:49 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>chmod(): No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>930</linenum>
+</error>
+<error>
+	<date>2012-09-27 13:45:30 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>chmod(): No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>930</linenum>
+</error>
+<error>
+	<date>2012-09-27 15:32:47 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Use of undefined constant delete_client - assumed 'delete_client'</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/BookListModel.php</filename>
+	<linenum>226</linenum>
+</error>
+<error>
+	<date>2012-09-27 16:50:31 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>require_once(/var/www/address_book.loc/public/adminpanel/application/views/address_book/cache/81/56/2e02c8ae5d713af83551c4470a45.php): failed to open stream: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>308</linenum>
+</error>

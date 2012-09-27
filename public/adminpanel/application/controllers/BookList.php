@@ -153,6 +153,23 @@ class BookList extends Templating {
 	public function getClientsDataJSON() {
 
 		return json_encode(BookListModel::getClientsData());
-	} 
+	}
+
+	/**
+	 * deleteClient
+	 *
+	 * This function get clients information from DB in JSON format
+	 *
+	 * @return object	This is JSON object from DB
+	 */
+	public function deleteClient($id) {
+
+		return json_encode(array("flag" => BookListModel::deleteClientFromDB($id)));
+	}
+
+
+
+
+
 }
 ?>

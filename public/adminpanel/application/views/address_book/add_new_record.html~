@@ -6,7 +6,7 @@
 			<div id="auth_content" class="span-16 prepend-4 append-0">
 				<fieldset>
 					<div class="prepend-2">
-						<form method="post" name="addnewrecordForm" id="addnewrecordForm" action="">
+						<form action="" method="post" id="InformationForm">
 							<div>
 								<label for="first_name">{{ first_name }}</label>
 								<input type="text" name="first_name" id="first_name" class="text" minlength="5" maxlength="16">
@@ -23,8 +23,6 @@
 								<label for="country">{{ country }}</label>
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select name="country" id="country">
 									<option value="">{{ empty_option }}</option>
-
-
 									{% for id, country in country_array %}
 	<option value="{{ id }}">{{ country }}</option>
 									{% endfor %}
@@ -36,17 +34,25 @@
 									<option value="">{{ empty_option }}</option>
 								</select>
 							</div>
+						</form>
+						<form action="" method="post" enctype="multipart/form-data" id="ImagesForm">
 							<div>
+								<input type="hidden" name="MAX_FILE_SIZE" value="1024000">
 								<label for="photo">{{ photo }}</label>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="file" name="photo" id="photo" class="text">
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="file" name="image_file" id="image_file" class="text">
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" name="upload_photo" id="upload_photo" value="Upload" disabled>
+								<img class="hide" width="32" height="32" alt="{{ preloader_alt_text }}" src="{{ image_path }}photo-loader.gif" id="preloader">
+							
 							</div>
-	<!-- PREVIEW START
-							<p>
-								<label for="photo">{{ photo }}</label>
-								<input type="file" name="photo" id="photo" class="text" minlength="5" maxlength="16">
-							</p>
-	PREVIEW FINISH -->
-
+							<div>
+								<h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Allowed image types: jpeg, gif, png | Maximum file size: 1 Mb</h6>
+							</div>
+	
+							<div id="preview_photo" class="prepend-2 hide">
+								<img width="" height="" alt="" src="">
+							</div>
+						</form>
+						<form action="" method="post" id="NotesForm">	
 							<p>
 								<label for="notes">{{ notes }}</label>
 								<br>
@@ -73,6 +79,7 @@
 							<div id="error_upload_photo" class="hide">{{ error_upload_photo }}</div>
 							
 						</form>
+
 					</div>
 				</fieldset>
 			</div>

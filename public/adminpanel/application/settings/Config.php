@@ -56,6 +56,7 @@ class Config {
 
 				"protocol"	=> 'http',
 				"name"		=> $_SERVER['SERVER_NAME'],
+				"dot"		=> '.',
 				"separator"	=> ':',
 				"slash"		=> '/',
 				"backslash"	=> "\\"
@@ -98,7 +99,8 @@ class Config {
 				"public"	=> 'public/',
 				"images"	=> 'images/',
 				"javascripts"	=> 'javascripts/',
-				"styles"	=> 'styles/'
+				"styles"	=> 'styles/',
+				"uploads_client"=> 'uploads_client/'
 
 			),
 
@@ -129,8 +131,8 @@ class Config {
 			"jquery"	=> array(
 
 				"path"		=> '/adminpanel/libraries/jquery/',
-				"validation"	=> 'jQuery_validation_1.9.0.js'
-
+				"valid_plugin"	=> 'jQuery_validation_1.9.0.js',
+				"form_plugin"	=> 'jQuery_form_3.14.js'
 			),
 
 			"javascript"	=> array(

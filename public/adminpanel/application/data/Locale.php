@@ -188,11 +188,11 @@ class Locale {
 				"country"		=> 'Country:',
 				"city"			=> 'City:',
 				"photo"			=> 'Photo:',
+				"thumbnail_photo"	=> 'Thumbnail photo',
 				"preview"		=> 'Preview',
 				"notes"			=> 'Notes:',
 				"reset"			=> 'Reset',
 				"back_to_book_list"	=> 'Back to the Address Book',
-
 				"error_required_f_n"	=> 'First Name is required!',
 				"error_min_length_f_n"	=> 'First Name must be at least 5 characters long!',
 				"error_max_length_f_n"	=> 'First Name should contain no more than 16 characters!',

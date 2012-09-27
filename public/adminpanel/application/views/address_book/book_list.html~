@@ -67,7 +67,7 @@
 							<td>{{ clients_data[id]['countryname_en'] }}</td>
 							<td>{{ clients_data[id]['cityname_en'] }}</td>
 							<td>
-								<a href="#edit={{ clients_data[id]['id'] }}" id="edit" name="ffd">{{ record_edit }}</a>
+								<a href="#edit={{ clients_data[id]['id'] }}" id="edit" name="{{ clients_data[id]['id'] }}">{{ record_edit }}</a>
 								|
 								<a href="#delete={{ clients_data[id]['id'] }}" id="delete">{{ record_delete }}</a>
 							</td>
@@ -221,14 +221,13 @@
 
 			<!-- View clients FINISH -->
 <div class="container showgrid">
-			<hr>
-			<hr>
-			<hr>
+			<br>
+			<br>
 			<div class="span-10 prepend-10 append-0 last">
 				<h3><a href="{{ site_url }}layout.php">{{ back_to_page_layout }}</a></h3>
 			</div>
-			<hr>
-			<hr>
+			<br>
+			<br>
 			<!-- View phrase START -->
 			<div class="info">
 				{{ phrase }}

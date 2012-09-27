@@ -34,6 +34,9 @@ $BookListController = new BookList();
 /**
  * Get cities from DB
  */
-print $BookListController -> getClientsDataJSON();
 //print $BookListController -> getCities($_REQUEST['country_id']);
+
+print_r($_POST);
+
+print_r($_FILES);
 ?>

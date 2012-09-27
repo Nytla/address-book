@@ -164,30 +164,67 @@ class BookListModel extends PDOMysqlConnect {
 	 */
 	static public function getCitiesFromDb($country_id = '') {
 
-	/**
-	* Set adminisrator variable
-	*/
-	self::$_DB_table_name_cities = Config::dataArray('table_name', 'cities');
+		/**
+		 * Set adminisrator variable
+		 */
+		self::$_DB_table_name_cities = Config::dataArray('table_name', 'cities');
 
-	/**
-	* Select administrator information
-	*/
-	$select_cities = self::dbConnect() -> query("
-	SELECT `city_id`, `cityname_en`
-	FROM " . self::$_DB_table_name_cities . "
-	WHERE `country_id` = '$country_id'
-	ORDER BY `cityname_en`");
+		/**
+		 * Select administrator information
+		 */
+		$select_cities = self::dbConnect() -> query("
+			SELECT `city_id`, `cityname_en`
+			FROM " . self::$_DB_table_name_cities . "
+			WHERE `country_id` = '$country_id'
+			ORDER BY `cityname_en`");
 
-	/**
-	* Get our countries
-	*/
-	while ($row = $select_cities -> fetch(PDO::FETCH_ASSOC)) {
+		/**
+		 * Get our countries
+		 */
+		while ($row = $select_cities -> fetch(PDO::FETCH_ASSOC)) {
 
-	$data_array[$row['city_id']] = $row['cityname_en'];
+			$data_array[$row['city_id']] = $row['cityname_en'];
+		}
+
+		return (isset($data_array) and is_array($data_array)) ? $data_array : false;
 	}
 
-	return (isset($data_array) and is_array($data_array)) ? $data_array : false;
+	/**
+	 * deleteClientFromDB
+	 *
+	 * This function delete client from Database
+	 *
+	 * @return array $phrase_text	This is phrase from Database
+	 */
+	static public function deleteClientFromDB($id) {
 
+		if (isset($id)) {
+
+			/**
+			 * Clean id and leave only number
+			 */
+			$id_valid = preg_replace("/([^\d])/", "", $id);
+
+			/**
+			 * Set adminisrator variable
+			 */
+			self::$_DB_table_name_clients	= Config::dataArray('table_name', 'clients');
+
+			/**
+			 * Delete client from DB
+			 */
+			$delete_client = self::dbConnect() -> exec("
+				DELETE 
+				FROM " . self::$_DB_table_name_clients . "
+				WHERE `id` = '$id_valid'
+			");
+		}
+
+		/**
+		 * If client deleted return true else false
+		 */
+		return (delete_client) ? true : false;
+	}
 
 	/**
 	 * getRandomPhrase

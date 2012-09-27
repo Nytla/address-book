@@ -41,7 +41,7 @@ class AddAdmin extends Templating {
 
 		$flag = array("$name", "$name");
 
-		$validation = Config::dataArray('jquery', 'path').Config::dataArray('jquery', 'validation');
+		$validation = Config::dataArray('jquery', 'path').Config::dataArray('jquery', 'valid_plugin');
 
 		$add_admin = Config::dataArray('javascript', 'path').Config::dataArray('javascript', 'add_admin');
 

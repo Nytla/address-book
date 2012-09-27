@@ -1,11 +1,37 @@
 //Ajax Image Upload with Progressbar with jQuery and PHP - http://www.saaraan.com/2012/05/ajax-image-upload-with-progressbar-with-jquery-and-php
 //Demo - http://www.saaraan.com/assets/ajax-image-upload-progressbar/
-
+//ajaxForm - http://www.malsup.com/jquery/form/#options-object
 
 /**
  * Validate add new administrator form
  */
 $(document).ready(function() {
+
+
+/*
+var object_options = {
+			module:		'create_cities',
+			file_name:	'cities_formed.php',
+};
+
+console.log(object_options);
+*/
+
+
+	var option_selected = $("#country option:selected").val();
+
+	if (option_selected != "") {
+
+		//Set object with our options (country id)
+		var object_options = {
+			module:		'create_cities',
+			file_name:	'cities_formed.php',
+			data:		{ country_id: option_selected }
+		};
+
+		//Get cities from DB
+		$.ajaxes(object_options);
+	}
 
 	//Create select list for our cities
 	$("#country").change(function() {
@@ -50,9 +76,34 @@ $(document).ready(function() {
 	var error_upload_photo = $("#error_upload_photo").html();
 
 
+	$("#ImagesForm").validate({
+
+		rules: {
+				image_file: {
+					required: true
+				}
+
+			},
+
+		messages: {
+
+				image_file: {
+					required: error_upload_photo
+				}
+		},
+
+		errorElement: "div",
+
+		submitHandler: function() {
+
+			alert('Submited~');
+		}
+	});
+
+
 
 	//Validate our form
-	$("#addnewrecordForm").validate({
+	$("#InformationForm").validate({
 
 		rules: {
 
@@ -83,7 +134,7 @@ $(document).ready(function() {
 				required: true
 			},
 
-			photo: {
+			image_file: {
 				required: true
 			}
 
@@ -118,7 +169,7 @@ $(document).ready(function() {
 				required: error_empty_city
 			},
 
-			photo: {
+			image_file: {
 				required: error_upload_photo
 			}
 		},
@@ -129,9 +180,35 @@ $(document).ready(function() {
 
 			alert('Submited~');
 
+			
+
 		}
 
 	});
+
+	//Action or disabled input file button Upload
+	$.InputFileButton();
+
+	//Upload and preview photo
+	$("#upload_photo").click(function() {
+
+		//alert(':-)');
+
+		//Upload photo
+		//$.uploadPhoto();
+		
+		
+
+	});
+
+	$("#save").click(function() {
+
+		$("#InformationForm, #ImagesForm").submit();
+
+		return false;
+
+	});
+
 });
 
 /**
@@ -153,18 +230,93 @@ $(document).ready(function() {
 			success: function(object) {
 
 				//Set select element width
-				$("#city").css("width", "240");
+				$("#city").css("width", "242");
 
 				//Delete all options element, but not first
 				$("#city option").remove();
 
-				$("#city").append(new Option('::ALL::', 0));
+				$("#city").append(new Option('::ALL::', ''));
 
 				//Create options element for sity list
 				$.each(object.cities, function(index, value) {
 
 					$("#city").append(new Option(value, index));
 				});
+
+			}
+		});
+	}
+})(jQuery);
+
+/**
+ * Form submit by jQuery Form Plugin
+ */
+(function($) {
+	$.uploadPhoto = function() {
+
+		console.log('777');
+
+		$("#ImagesForm").ajaxForm({
+			method : "POST",
+			dataType: "json",
+			url: "./application/ajax/resize_photo.php",
+			beforeSend: function() {
+				//Before sending form
+
+				//Disable upload button
+				$("#save").attr('disabled', '');
+				//statustxt.empty();
+				//show progressbar
+				//$("#preloader").slideDown();
+				$("#preloader").removeClass('hide');
+			},
+			complete: function(object) {
+				//On complete request
+				
+				//Reset form
+				//myform.resetForm();
+
+				 //Enable submit button
+				$("#save").removeAttr('disabled');
+
+				//Hide progressbar
+				//$("#preloader").slideUp();
+				$("#preloader").addClass('hide');
+
+				//Convert string to object
+				var obj = jQuery.parseJSON(object.responseText);
+/*
+				$("#preview_photo img")
+					.attr("width", obj.image_width)
+					.attr("height", obj.image_height)
+					.attr("src", obj.image_name)
+					.attr("alt", obj.image_alt)
+					.parent()
+					.removeClass("hide");
+*/
+			}
+		});
+
+	}
+})(jQuery);
+
+/**
+ * Input file button action or disabled
+ */
+(function($) {
+	$.InputFileButton = function() {
+
+		var img_path = $("#image_file").val();
+
+		if (img_path != "") {
+			$("#upload_photo").removeAttr("disabled");
+
+		}
+
+		$("#image_file").change(function(img_path){
+
+			if (img_path != "") {
+				$("#upload_photo").removeAttr("disabled");
 
 			}
 		});

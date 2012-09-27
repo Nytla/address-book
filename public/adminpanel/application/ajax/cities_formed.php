@@ -35,4 +35,3 @@ $BookListController = new BookList();
  * Get cities from DB
  */
 print $BookListController -> getCities($_REQUEST['country_id']);
-?>
