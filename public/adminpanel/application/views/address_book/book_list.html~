@@ -11,7 +11,7 @@
 
 			<!-- Url Add New Record START -->
 			<div class="span-10 prepend-10 append-0 last">
-				<h3><a href="{{ site_url }}add_new_record.php">{{ add_new_record }} {{ testing }}</a></h3>
+				<h3><a href="{{ site_url }}add_new_record.php">{{ add_new_record }}</a></h3>
 			</div>
 			<!-- Url Add New Record FINISH -->
 		</div>

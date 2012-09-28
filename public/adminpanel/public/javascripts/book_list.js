@@ -58,7 +58,7 @@
  * Create selected element Country and City 
  */
 function fnCreateSelect(aData, num) {
-	var option_name = (num == 2) ? 'Country' : 'City';
+	var option_name = (num == 3) ? 'Country' : 'City';
 
 	var r='<select><option value="">'+option_name+'</option>', i, iLen=aData.length;
 	for ( i=0 ; i<iLen ; i++ )
@@ -154,13 +154,15 @@ $(document).ready(function() {
 		"sDom": '<"top"if<"clear">>rt<"bottom"lp<"clear">>',
 		"bJQueryUI": true,
 		"sPaginationType": "full_numbers",
+		"aaSorting": [[ 1, "asc" ]],
 		"aoColumnDefs": [
-			{ "bSortable": false, "aTargets": [ 4 ] }
+			{ "bSortable": false, "aTargets": [ 0,5 ] }
 		],
 		"aLengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
 
 
 	});
+
 
 	//Set background color for our thead
 	//$("#example thead tr th").css("background-color", "#C3D9FF");
@@ -594,9 +596,11 @@ var oTable = $('#example').dataTable({
 	//Create Country and City selected elements search
 	$("#example_filter label").each( function ( i ) {
 
-		if (i == 0) {return;}
+		if (i == 0 ) {
+			return;
+		}
 
-		i = (i == 1) ? 2 : 3;
+		i = (i == 1) ? 3 : 4;
 
 		this.innerHTML = fnCreateSelect( oTable.fnGetColumnData(i), i );
 		$('select', this).change( function () {
@@ -625,7 +629,7 @@ var oTable = $('#example').dataTable({
 			//Create object for ajax request
 			var object_options = {
 
-				id:		delete_id,
+				id: delete_id,
 			};
 
 			console.log(object_options);

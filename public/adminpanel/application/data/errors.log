@@ -705,3 +705,10 @@
 	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
 	<linenum>308</linenum>
 </error>
+<error>
+	<date>2012-09-28 11:56:51 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>require_once(/var/www/address_book.loc/public/adminpanel/application/views/address_book/cache/47/54/f457358b9fd8be3423f0105cf6c0.php): failed to open stream: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>308</linenum>
+</error>

@@ -109,6 +109,7 @@ class BookList extends Templating {
 			"preloader_alt_text"	=> Locale::languageEng('book_list', 'preloader_alt_text'),
 			"record_edit"		=> Locale::languageEng('book_list', 'record_edit'),
 			"record_delete"		=> Locale::languageEng('book_list', 'record_delete'),
+
 		);
 
 		/**
