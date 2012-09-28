@@ -11,7 +11,7 @@
 
 			<!-- Url Add New Record START -->
 			<div class="span-10 prepend-10 append-0 last">
-				<h3><a href="{{ site_url }}add_new_record.php">{{ add_new_record }}</a></h3>
+				<h3><a href="{{ site_url }}add_new_record.php">{{ add_new_record }} {{ testing }}</a></h3>
 			</div>
 			<!-- Url Add New Record FINISH -->
 		</div>
@@ -69,7 +69,7 @@
 							<td>
 								<a href="#edit={{ clients_data[id]['id'] }}" id="edit" name="{{ clients_data[id]['id'] }}">{{ record_edit }}</a>
 								|
-								<a href="#delete={{ clients_data[id]['id'] }}" id="delete">{{ record_delete }}</a>
+								<a href="#delete={{ clients_data[id]['id'] }}" id="delete" name="{{ clients_data[id]['id'] }}">{{ record_delete }}</a>
 							</td>
 						</tr>
 {% endfor %}
