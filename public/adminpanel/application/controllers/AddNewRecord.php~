@@ -82,7 +82,7 @@ class AddNewRecord extends Templating {
 			"last_name"		=> Locale::languageEng('add_new_record', 'last_name'),
 			"email"			=> Locale::languageEng('add_new_record', 'email'),
 			"country"		=> Locale::languageEng('add_new_record', 'country'),
-			"country_array"		=> BookListModel::getAllCountries(),
+			"country_array"		=> BookListModel::getAllCountriesFromDB(),
 			"city"			=> Locale::languageEng('add_new_record', 'city'),
 			"empty_option"		=> Locale::languageEng('book_list', 'empty_option'),
 			"photo"			=> Locale::languageEng('add_new_record', 'photo'),
@@ -104,6 +104,9 @@ class AddNewRecord extends Templating {
 			"error_empty_country"	=> Locale::languageEng('add_new_record', 'error_empty_country'),
 			"error_empty_city"	=> Locale::languageEng('add_new_record', 'error_empty_city'),
 			"error_upload_photo"	=> Locale::languageEng('add_new_record', 'error_upload_photo'),
+			"error_image_size"	=> Locale::languageEng('add_new_record', 'error_image_size'),
+			"error_image_extension"	=> Locale::languageEng('add_new_record', 'error_image_extension'),
+			"add_good_message"	=> Locale::languageEng('add_new_record', 'add_good_message'),
 		);
 
 		/**
@@ -145,9 +148,21 @@ class AddNewRecord extends Templating {
 			$jpg_quality            = 90; //Image quality
 
 			// check if file upload went ok
+/*
 			if(!isset($_FILES['image_file']) || !is_uploaded_file($_FILES['image_file']['tmp_name']))
 			{
 			    die('Something went wrong with Upload, May be File too Big?'); //output error
+			}
+*/
+
+			//If image size > max size echo error 
+			if ((int) $_FILES['image_file']['size'] > (int) $_POST['MAX_FILE_SIZE'] or (int) $_FILES['image_file']['size'] == 0) {
+				return json_encode(
+					array(
+						"error"	  => 'size',
+						"message" => Locale::languageEng('add_new_record', "error_image_size")
+					)
+				);
 			}
 
 			$RandomNumber   = rand(0, 9999999999); // We need same random name for both files.
@@ -172,7 +187,11 @@ class AddNewRecord extends Templating {
 			    $CreatedImage = imagecreatefromjpeg($_FILES['image_file']['tmp_name']);
 			    break;
 			default:
-			    die('Unsupported File!'); //output error
+			    return json_encode(
+					array(
+						"error"		=> 'expansion'
+					)
+				);
 			}
 
 			//get Image Size
@@ -197,38 +216,23 @@ class AddNewRecord extends Templating {
 
 				$uploads_client_path = Config::dataArray('server', 'dot').Config::dataArray('server', 'slash').Config::dataArray('paths', 'public').Config::dataArray('paths', 'images').Config::dataArray('paths', 'uploads_client');
 
-				$data_array = array(
-
-					"image_name"	=> $uploads_client_path.$ThumbPrefix.$RandomNumber.'.'.$ImageExt,
-					"image_width"	=> $this -> NewWidth,
-					"image_height"	=> $this -> NewHeight,
-					"image_alt"	=> Locale::languageEng('add_new_record', 'thumbnail_photo'
-
-				);
-
-				//return json_encode('{ "image_name":	"'.$ThumbPrefix.$RandomNumber.'.'.$ImageExt.'" }');
-				return json_encode($data_array);
-
-				//return json_encode(array('image_name' => $ThumbPrefix.$RandomNumber.'.'.$ImageExt, "image_width"	=> $this -> NewWidth, "image_height"	=> $this -> NewHeight));
-
-
-/*
-				echo '<table width="100%" border="0" cellpadding="4" cellspacing="0">
-				    <tr><td align="center"><img src="uploads/'.$ThumbPrefix.$RandomNumber.'.'.$ImageExt.'" alt="Thumbnail"><br />'.$ThumbPrefix.$RandomNumber.'.'.$ImageExt.'</td></tr><tr>
-				    <td align="center"><img src="uploads/'.$RandomNumber.'.'.$ImageExt.'" alt="Resized Image"><br />'.$RandomNumber.'.'.$ImageExt.'</td></tr></table>';
-
-				if(isset($_POST))
-				{
-				    echo '<div style="text-align:left;">Other Post Variables: <pre>';
-				    print_r($_POST);
-				    echo '</pre></div>';
-				}
-*/
 				/*
 				    // Insert info into database table.. do w.e!
 				    mysql_query("INSERT INTO myImageTable (ImageName, ThumbName, ImgPath)
 				    VALUES ($DestRandImageName, $thumb_DestRandImageName, 'uploads/')");
 				*/
+
+				$data_array = array(
+					"image_name"	=> $uploads_client_path.$ThumbPrefix.$RandomNumber.'.'.$ImageExt,
+					"image_height"	=> $this -> NewHeight,
+					"image_width"	=> $this -> NewWidth,					
+					"image_alt"	=> Locale::languageEng('add_new_record', 'thumbnail_photo'),
+					"image_id"	=> AddNewRecordModel::insertPhotoNameInDb($RandomNumber.'.'.$ImageExt, $this -> NewHeight, $this -> NewWidth, Locale::languageEng('add_new_record', 'thumbnail_photo'))
+
+				);
+
+				return json_encode($data_array);
+				
 			} else{
 				die('Resize Error'); //output error
 			}
@@ -242,7 +246,7 @@ class AddNewRecord extends Templating {
 	 *
 	 * @return string $tempalate	This is source add new record tempalate
 	 */
-	function resizeImage($CurWidth,$CurHeight,$MaxWidth,$MaxHeight,$DestFolder,$SrcImage,$quality) {
+	private function resizeImage($CurWidth,$CurHeight,$MaxWidth,$MaxHeight,$DestFolder,$SrcImage,$quality) {
 
 		$ImageScale         = min($MaxWidth/$CurWidth, $MaxHeight/$CurHeight);
 		$this -> NewWidth           = ceil($ImageScale*$CurWidth);
@@ -259,6 +263,22 @@ class AddNewRecord extends Templating {
 			    return true;
 			}
 		}
+	}
+
+	/**
+	 * addNewClient
+	 *
+	 * This function make form which add new client to DB
+	 *
+	 * @return string $tempalate	This is source add new record tempalate
+	 */
+	public function addNewClient($first_name, $last_name, $email, $country, $city, $photo_id = '', $notes = '') {
+
+		return json_encode(
+			array(
+				"flag" => AddNewRecordModel::insertNewClientInDb($first_name, $last_name, $email, $country, $city, $photo_id, $notes)
+			)
+		);
 	}
 }
 ?>

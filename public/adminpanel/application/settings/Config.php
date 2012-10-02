@@ -80,7 +80,8 @@ class Config {
 				"administrators"=> 'administrators',
 				"phrases"	=> 'phrases',
 				"countries"	=> 'countries',
-				"cities"	=> 'cities'
+				"cities"	=> 'cities',
+				"photos"	=> 'photos'
 
 			),
 

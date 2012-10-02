@@ -85,11 +85,6 @@ class BookList extends Templating {
 		);
 
 		$template .= Indexes::scriptsContent($flag, $path);
-		
-		/**
-		 * Get clients data from DB
-		 */
-		//$get_clients_data = BookListModel::getClientsData();
 
 		/**
 		 * Create authorization content
@@ -102,7 +97,7 @@ class BookList extends Templating {
 			"city_word"		=> Locale::languageEng('book_list', 'city_word'),
 			"empty_option"		=> Locale::languageEng('book_list', 'empty_option'),
 			"add_new_record"	=> Locale::languageEng('book_list', 'add_new_record'),
-			"clients_data"		=> BookListModel::getClientsData(),
+			"clients_data"		=> BookListModel::getClientsDataFromDB(),
 			"back_to_page_layout"	=> Locale::languageEng('book_list', 'back_to_page_layout'),
 			"phrase"		=> BookListModel::getRandomPhrase(),
 			"image_path"		=> Config::dataArray('errors', 'image'),
@@ -138,7 +133,7 @@ class BookList extends Templating {
 	 */
 	public function getCities($country_id = '') {
 
-		$cities = BookListModel::getCitiesFromDb($country_id);
+		$cities = BookListModel::getCitiesFromDB($country_id);
 
 		return ($cities) ? json_encode(array("flag" => true, "cities" => $cities)) : json_encode(array("flag" => false));
 	}
@@ -152,7 +147,7 @@ class BookList extends Templating {
 	 */
 	public function getClientsDataJSON() {
 
-		return json_encode(BookListModel::getClientsData());
+		return json_encode(BookListModel::getClientsDataFromDB());
 	}
 
 	/**

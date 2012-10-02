@@ -42,6 +42,13 @@ class BookListModel extends PDOMysqlConnect {
 	static private $_DB_table_name_cities;
 
 	/**
+	 * _DB_table_name_photos
+	 * 
+	 * @var string	This is name of Database
+	 */
+	static private $_DB_table_name_photos;
+
+	/**
 	 * _DB_table_name_countries_phrases
 	 * 
 	 * @var string	This is name of Database
@@ -55,7 +62,7 @@ class BookListModel extends PDOMysqlConnect {
 	 *
 	 * @return array $data	This is authorization data from Database
 	 */
-	static public function getClientsData() {
+	static public function getClientsDataFromDB() {
 
 		/**
 		 * Set adminisrator variable
@@ -77,28 +84,30 @@ class BookListModel extends PDOMysqlConnect {
 				AND " . self::$_DB_table_name_clients .".city = " . self::$_DB_table_name_cities . ".city_id
 		");
 
-		//ORDER BY `id` asc
-
-		//LIMIT 0," . self::$_DB_limit . "
-
-		$clients_array = array();
-
 		/**
 		 * Create array in cycle
-		 */ 
+		 */
+		//$clients_array = array();
+
 		while ($row = $select_clients -> fetch(PDO::FETCH_ASSOC)) {
 
-			$data[] = $row;
+			
+
+			$data_array[] = $row;
 
 			//$clients_array_new = array($row['id'], $row['first_name'] . " " . $row['last_name'], $row['countryname_en'], $row['cityname_en']);
 
 			//array_push($clients_array, $clients_array_new);
 		}
+/*
+		echo '<pre>';
 
+		print_r($data_array);
+*/
 		/**
 		 * Return array from DB
 		 */
-		return (isset($data)) ? $data : false;
+		return (isset($data_array)) ? $data_array : false;
 
 //		return (isset($clients_array)) ? $clients_array : false;
 
@@ -128,7 +137,7 @@ class BookListModel extends PDOMysqlConnect {
 	 *
 	 * @return array $countries This is countries id and name
 	 */
-	static public function getAllCountries() {
+	static public function getAllCountriesFromDB() {
 
 		/**
 		 * Set adminisrator variable
@@ -162,7 +171,7 @@ class BookListModel extends PDOMysqlConnect {
 	 *
 	 * @return array $countries This is countries id and name
 	 */
-	static public function getCitiesFromDb($country_id = '') {
+	static public function getCitiesFromDB($country_id = '') {
 
 		/**
 		 * Set adminisrator variable
@@ -233,7 +242,7 @@ class BookListModel extends PDOMysqlConnect {
 	 *
 	 * @return array $phrase_text	This is phrase from Database
 	 */
-	static public function getRandomPhrase() {
+	static public function getRandomPhraseFromDB() {
 
 		/**
 		 * Set adminisrator variable

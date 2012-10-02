@@ -7,24 +7,17 @@
  */
 $(document).ready(function() {
 
+	//Set width for select country element
+	$("#country").css("width", "235");
 
-/*
-var object_options = {
-			module:		'create_cities',
-			file_name:	'cities_formed.php',
-};
-
-console.log(object_options);
-*/
-
-
+	//Create select list for our cities when page loaded
 	var option_selected = $("#country option:selected").val();
 
 	if (option_selected != "") {
 
 		//Set object with our options (country id)
 		var object_options = {
-			module:		'create_cities',
+			module:		'cities_formed',
 			file_name:	'cities_formed.php',
 			data:		{ country_id: option_selected }
 		};
@@ -38,7 +31,7 @@ console.log(object_options);
 
 		//Set object with our options (country id)
 		var object_options = {
-			module:		'create_cities',
+			module:		'cities_formed',
 			file_name:	'cities_formed.php',
 			data:		{ country_id: this.value }
 		};
@@ -47,6 +40,12 @@ console.log(object_options);
 		$.ajaxes(object_options);
 	});
 
+	//Clear our forms
+	$("#reset_forms").click(function() {
+
+		$("#InformationForm, #NotesForm").clearForm();
+
+	});
 
 	//Set errors variables
 	var error_empty_first_name = $("#error_empty_f_n").html();
@@ -75,34 +74,7 @@ console.log(object_options);
 
 	var error_upload_photo = $("#error_upload_photo").html();
 
-
-	$("#ImagesForm").validate({
-
-		rules: {
-				image_file: {
-					required: true
-				}
-
-			},
-
-		messages: {
-
-				image_file: {
-					required: error_upload_photo
-				}
-		},
-
-		errorElement: "div",
-
-		submitHandler: function() {
-
-			alert('Submited~');
-		}
-	});
-
-
-
-	//Validate our form
+	//Validate form with informatons
 	$("#InformationForm").validate({
 
 		rules: {
@@ -180,7 +152,26 @@ console.log(object_options);
 
 			alert('Submited~');
 
-			
+			//Set object with our options (country id)
+			var object_options = {
+				module:		'add_new_record',
+				file_name:	'add_new_record.php',
+				data: 
+				{
+					first_name:	$("#first_name").val(),
+					last_name:	$("#last_name").val(),
+					email: 		$("#email").val(),
+					country:	$("#country").val(),
+					city:		$("#city").val(),
+					photo_id:	($("#preview_photo img").attr('id')) ? $("#preview_photo img").attr('id') : '',
+					notes:		$("#notes").val()	
+				}
+			};
+
+			//Get cities from DB
+			$.ajaxes(object_options);
+
+			return false;
 
 		}
 
@@ -189,21 +180,13 @@ console.log(object_options);
 	//Action or disabled input file button Upload
 	$.InputFileButton();
 
-	//Upload and preview photo
-	$("#upload_photo").click(function() {
+	//Upload image and preview if form (#ImagesForm) submited
+	$.uploadPhoto();
 
-		//alert(':-)');
-
-		//Upload photo
-		//$.uploadPhoto();
-		
-		
-
-	});
-
+	//Submit all forms
 	$("#save").click(function() {
 
-		$("#InformationForm, #ImagesForm").submit();
+		$("#InformationForm").submit();
 
 		return false;
 
@@ -223,26 +206,50 @@ console.log(object_options);
 			url: "./application/ajax/"+object_options.file_name+"",
 			cache: false,
 			data: object_options.data,
+/*
 			complete: function() {
 				//Hide preloader image
-				$('#preloader').fadeOut('slow', function() {});
+				//$('#preloader').fadeOut('slow', function() {});
 			},
+*/
 			success: function(object) {
 
-				//Set select element width
-				$("#city").css("width", "242");
+				//console.log(object_options.module);
 
-				//Delete all options element, but not first
-				$("#city option").remove();
+				switch(object_options.module) {
 
-				$("#city").append(new Option('::ALL::', ''));
+					case 'cities_formed':
 
-				//Create options element for sity list
-				$.each(object.cities, function(index, value) {
+						//Set select element width
+						$("#city").css("width", "235");
 
-					$("#city").append(new Option(value, index));
-				});
+						//Delete all options element, but not first
+						$("#city option").remove();
 
+						$("#city").append(new Option('::ALL::', ''));
+
+						//Create options element for sity list
+						$.each(object.cities, function(index, value) {
+
+							$("#city").append(new Option(value, index));
+						});
+
+					break;
+
+					case 'add_new_record':
+
+						//Clear our forms
+						$("#InformationForm, #NotesForm").clearForm();
+
+						//Hide our forms
+						$('#forms_content').addClass("hide");
+
+						//Show success message
+						$('#add_good_message').removeClass("hide").addClass("success");
+
+					break;
+
+				}
 			}
 		});
 	}
@@ -254,46 +261,83 @@ console.log(object_options);
 (function($) {
 	$.uploadPhoto = function() {
 
-		console.log('777');
-
 		$("#ImagesForm").ajaxForm({
 			method : "POST",
 			dataType: "json",
 			url: "./application/ajax/resize_photo.php",
 			beforeSend: function() {
-				//Before sending form
-
 				//Disable upload button
-				$("#save").attr('disabled', '');
-				//statustxt.empty();
-				//show progressbar
-				//$("#preloader").slideDown();
-				$("#preloader").removeClass('hide');
-			},
-			complete: function(object) {
-				//On complete request
-				
-				//Reset form
-				//myform.resetForm();
+				$("#save").attr("disabled", "disabled");
 
-				 //Enable submit button
-				$("#save").removeAttr('disabled');
+				//show progressbar
+				$("#preloader").removeClass('hide');
+
+				//Hide error message
+				$("#error_image_size").addClass('hide');
+
+				$("#error_image_extension").addClass('hide');
+
+				
+			},
+			complete: function() {
+
+				//Disable "Upload" button
+				$("#upload_photo").attr("disabled", "disabled");
 
 				//Hide progressbar
-				//$("#preloader").slideUp();
-				$("#preloader").addClass('hide');
+				$("#preloader").slideUp();
+			},
+			success: function(object) {
 
-				//Convert string to object
-				var obj = jQuery.parseJSON(object.responseText);
-/*
-				$("#preview_photo img")
-					.attr("width", obj.image_width)
-					.attr("height", obj.image_height)
-					.attr("src", obj.image_name)
-					.attr("alt", obj.image_alt)
-					.parent()
-					.removeClass("hide");
-*/
+				console.log(object.error);
+
+				switch (object.error) {
+
+					case 'size':
+
+						//Hide downloaded image from preview
+						$("#preview_photo").css('display', 'none');
+
+						//Show error message
+						$("#error_image_size")
+							.removeClass('hide')
+							.addClass('error');
+
+					break;
+
+					case 'expansion':
+
+						//Hide downloaded image from preview
+						$("#preview_photo").addClass('hide');
+
+						//Show error message
+						$("#error_image_extension")
+							.removeClass('hide')
+							.addClass('error');
+
+					break;
+
+					default:
+
+						//Enable submit button
+						$("#save").removeAttr("disabled");
+
+						//Preview client photo
+						$("#preview_photo")
+							.html('')
+							.append('<img>');
+
+						$("#preview_photo img")					
+							.attr("width", object.image_width)
+							.attr("height", object.image_height)
+							.attr("src", object.image_name)
+							.attr("alt", object.image_alt)
+							.attr("id", object.image_id.photo_id)
+							.parent()
+							.slideDown();
+				}
+
+				
 			}
 		});
 
@@ -313,7 +357,7 @@ console.log(object_options);
 
 		}
 
-		$("#image_file").change(function(img_path){
+		$("#image_file").change(function(img_path) {
 
 			if (img_path != "") {
 				$("#upload_photo").removeAttr("disabled");

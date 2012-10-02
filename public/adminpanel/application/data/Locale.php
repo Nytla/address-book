@@ -205,7 +205,11 @@ class Locale {
 				"error_incorect_email"	=> 'Please enter a valid email address!',
 				"error_empty_country"	=> 'Country is required!',
 				"error_empty_city"	=> 'City is required!',
-				"error_upload_photo"	=> 'Please upload your photo!'
+				"error_upload_photo"	=> 'Please upload your photo!',
+				"error_image_size"	=> 'File is larger than 1 Mb!',
+				"error_image_extension"	=> 'The downloaded image is not supported!',
+				"add_good_message"	=> 'The new client has been added to the database.',
+				
 
 			)
 

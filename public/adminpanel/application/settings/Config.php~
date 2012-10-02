@@ -56,7 +56,7 @@ class Config {
 
 				"protocol"	=> 'http',
 				"name"		=> $_SERVER['SERVER_NAME'],
-				"dot"		=> '.'
+				"dot"		=> '.',
 				"separator"	=> ':',
 				"slash"		=> '/',
 				"backslash"	=> "\\"

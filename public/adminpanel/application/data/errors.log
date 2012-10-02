@@ -712,3 +712,122 @@
 	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
 	<linenum>308</linenum>
 </error>
+<error>
+	<date>2012-09-28 12:53:07 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>require_once(/var/www/address_book.loc/public/adminpanel/application/views/address_book/cache/47/54/f457358b9fd8be3423f0105cf6c0.php): failed to open stream: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>308</linenum>
+</error>
+<error>
+	<date>2012-09-28 15:01:46 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: data</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/BookListModel.php</filename>
+	<linenum>96</linenum>
+</error>
+<error>
+	<date>2012-09-28 15:11:16 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>require_once(/var/www/address_book.loc/public/adminpanel/application/views/address_book/cache/81/56/2e02c8ae5d713af83551c4470a45.php): failed to open stream: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>308</linenum>
+</error>
+<error>
+	<date>2012-10-01 13:52:11 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>PDO::lastInsertId() expects parameter 1 to be string, object given</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/BookListModel.php</filename>
+	<linenum>228</linenum>
+</error>
+<error>
+	<date>2012-10-01 14:04:49 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>mysql_insert_id(): Access denied for user 'www-data'@'localhost' (using password: NO)</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/BookListModel.php</filename>
+	<linenum>230</linenum>
+</error>
+<error>
+	<date>2012-10-01 14:05:45 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>mysql_insert_id(): Access denied for user 'www-data'@'localhost' (using password: NO)</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/BookListModel.php</filename>
+	<linenum>230</linenum>
+</error>
+<error>
+	<date>2012-10-01 16:44:42 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: photo</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/ajax/add_new_record.php</filename>
+	<linenum>37</linenum>
+</error>
+<error>
+	<date>2012-10-01 16:46:49 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: photo</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/AddNewRecordModel.php</filename>
+	<linenum>95</linenum>
+</error>
+<error>
+	<date>2012-10-01 16:48:43 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: photo</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/ajax/add_new_record.php</filename>
+	<linenum>37</linenum>
+</error>
+<error>
+	<date>2012-10-01 16:52:07 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: photo</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/ajax/add_new_record.php</filename>
+	<linenum>37</linenum>
+</error>
+<error>
+	<date>2012-10-01 16:52:41 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: photo_id</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/ajax/add_new_record.php</filename>
+	<linenum>37</linenum>
+</error>
+<error>
+	<date>2012-10-01 17:37:57 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: size</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/AddNewRecord.php</filename>
+	<linenum>155</linenum>
+</error>
+<error>
+	<date>2012-10-01 18:16:50 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: error_image_expansion</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/data/Locale.php</filename>
+	<linenum>224</linenum>
+</error>
+<error>
+	<date>2012-10-01 18:17:23 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: error_image_expansion</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/data/Locale.php</filename>
+	<linenum>224</linenum>
+</error>
+<error>
+	<date>2012-10-01 18:17:49 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: error_image_expansion</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/data/Locale.php</filename>
+	<linenum>224</linenum>
+</error>
+<error>
+	<date>2012-10-01 18:18:28 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: error_image_expansion</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/data/Locale.php</filename>
+	<linenum>224</linenum>
+</error>
+<error>
+	<date>2012-10-02 10:53:59 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: error_image_expansion</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/data/Locale.php</filename>
+	<linenum>224</linenum>
+</error>
