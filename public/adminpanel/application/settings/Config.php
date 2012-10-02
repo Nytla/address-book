@@ -143,7 +143,8 @@ class Config {
 				"add_admin"	=> 'add_admin.js',
 				"book_list"	=> 'book_list.js',
 				"data_table"	=> 'jQuery_dataTables_1.9.3_min.js',
-				"add_new_record"=> 'add_new_record.js'
+				"add_new_record"=> 'add_new_record.js',
+				"edit_record"	=> 'edit_record.js'
 
 			),
 
@@ -167,8 +168,8 @@ class Config {
 				"layout"	=> 'layout.html',
 				"add_admin"	=> 'add_admin.html',
 				"book_list"	=> 'book_list.html',
-				"add_new_record"=> 'add_new_record.html'
-
+				"add_new_record"=> 'add_new_record.html',
+				"edit_record"	=> 'edit_record.html'
 			)
 
 		);

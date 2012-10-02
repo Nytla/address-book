@@ -32,7 +32,7 @@
 								<th>Action</th>
 							</tr>
 						</thead>
-<!--
+
 						<tbody>
 	{% for id, value in clients_data %}
 							<tr class="gradeA">
@@ -41,14 +41,14 @@
 								<td>{{ clients_data[id]['countryname_en'] }}</td>
 								<td>{{ clients_data[id]['cityname_en'] }}</td>
 								<td>
-									<a href="#edit={{ clients_data[id]['id'] }}" id="edit" name="{{ clients_data[id]['id'] }}">{{ record_edit }}</a>
+									<a href="/edit_record.php?edit_id={{ clients_data[id]['id'] }}" id="edit" name="{{ clients_data[id]['id'] }}">{{ record_edit }}</a>
 									|
 									<a href="#delete={{ clients_data[id]['id'] }}" id="delete" name="{{ clients_data[id]['id'] }}">{{ record_delete }}</a>
 								</td>
 							</tr>
 	{% endfor %}
 						</tbody>
--->
+
 					</table>
 				</div>
 			</div>

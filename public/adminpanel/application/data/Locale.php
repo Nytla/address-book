@@ -208,12 +208,15 @@ class Locale {
 				"error_upload_photo"	=> 'Please upload your photo!',
 				"error_image_size"	=> 'File is larger than 1 Mb!',
 				"error_image_extension"	=> 'The downloaded image is not supported!',
-				"add_good_message"	=> 'The new client has been added to the database.',
-				
+				"add_good_message"	=> 'The new client has been added to the database.'
+
+			),
+
+			"edit_record"	=> array(
+
+				'title'			=> 'Admin: Edit Record'
 
 			)
-
-
 
 
 

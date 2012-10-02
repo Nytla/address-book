@@ -164,7 +164,5 @@ class BookList extends Templating {
 
 
 
-
-
 }
 ?>

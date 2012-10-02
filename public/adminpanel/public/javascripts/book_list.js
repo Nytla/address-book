@@ -220,6 +220,14 @@ $(document).ready(function() {
 
 		var delete_id = $(this).attr('name');
 
+		$("#example tbody tr").each(function(key, value){
+
+			console.log(value);
+
+		});
+
+		return;
+
 		if (confirm("Are you sure you wish to delete the record "+delete_id+"?")) {
 
 			//oTable.fnDraw();

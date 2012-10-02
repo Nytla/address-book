@@ -150,8 +150,6 @@ $(document).ready(function() {
 
 		submitHandler: function() {
 
-			alert('Submited~');
-
 			//Set object with our options (country id)
 			var object_options = {
 				module:		'add_new_record',
@@ -206,12 +204,6 @@ $(document).ready(function() {
 			url: "./application/ajax/"+object_options.file_name+"",
 			cache: false,
 			data: object_options.data,
-/*
-			complete: function() {
-				//Hide preloader image
-				//$('#preloader').fadeOut('slow', function() {});
-			},
-*/
 			success: function(object) {
 
 				//console.log(object_options.module);
@@ -248,7 +240,6 @@ $(document).ready(function() {
 						$('#add_good_message').removeClass("hide").addClass("success");
 
 					break;
-
 				}
 			}
 		});
@@ -276,8 +267,6 @@ $(document).ready(function() {
 				$("#error_image_size").addClass('hide');
 
 				$("#error_image_extension").addClass('hide');
-
-				
 			},
 			complete: function() {
 
@@ -308,7 +297,7 @@ $(document).ready(function() {
 					case 'expansion':
 
 						//Hide downloaded image from preview
-						$("#preview_photo").addClass('hide');
+						$("#preview_photo").css('display', 'none');
 
 						//Show error message
 						$("#error_image_extension")
@@ -336,11 +325,8 @@ $(document).ready(function() {
 							.parent()
 							.slideDown();
 				}
-
-				
 			}
 		});
-
 	}
 })(jQuery);
 
