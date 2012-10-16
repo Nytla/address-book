@@ -214,7 +214,9 @@ class Locale {
 
 			"edit_record"	=> array(
 
-				'title'			=> 'Admin: Edit Record'
+				"title"			=> 'Admin: Edit Record',
+				"edit_good_message"	=> 'Client data successfully changed.',
+				"edit_bad_message"	=> 'Customer data were not recorded due to technical reasons.'
 
 			)
 

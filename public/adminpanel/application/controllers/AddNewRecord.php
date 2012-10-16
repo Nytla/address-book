@@ -139,7 +139,7 @@ class AddNewRecord extends Templating {
 		if(isset($_POST)) {
 
 			//Some Settings
-			$ThumbMaxWidth          = 400; //Thumbnail width
+			$ThumbMaxWidth          = 300; //Thumbnail width
 			$ThumbMaxHeight         = 300; //Thumbnail Height
 			$BigImageMaxWidth       = 500; //Resize Image width to
 			$BigImageMaxHeight      = 500; //Resize Image height to

@@ -34,5 +34,5 @@ $EditRecordController = new EditRecord();
 /**
  * Take client data from DB 
  */
-print $EditRecordController -> getClientData($_REQUEST['edit_id']);
+print $EditRecordController -> destributorData($_REQUEST);
 ?>

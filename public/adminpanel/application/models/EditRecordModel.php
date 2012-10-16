@@ -83,7 +83,7 @@ class EditRecordModel extends PDOMysqlConnect {
 				" . self::$_DB_table_name_clients .".id = '$id'
 				AND " . self::$_DB_table_name_clients .".country = " . self::$_DB_table_name_countries . ".country_id
 				AND " . self::$_DB_table_name_clients .".city = " . self::$_DB_table_name_cities . ".city_id
-				AND " . self::$_DB_table_name_clients .".photo = " . self::$_DB_table_name_photos . ".photo_id
+				AND IF (" . self::$_DB_table_name_clients .".photo = '0', " . self::$_DB_table_name_photos . ".photo_id = '1', " . self::$_DB_table_name_clients .".photo = " . self::$_DB_table_name_photos . ".photo_id)
 		");
 
 		/**
@@ -94,8 +94,50 @@ class EditRecordModel extends PDOMysqlConnect {
 		/**
 		 * Return data array
 		 */
-		return ($data_array) ? $data_array : false;
+		return ($data_array) ? $data_array : array("flag" => false);
+	}
 
+	/**
+	 * updateClientDataInDB
+	 *
+	 * This function make address book list
+	 *
+	 * @return string $tempalate	This is source address book tempalate
+	 */
+	public function updateClientDataInDB($client_data_array) {
+
+		/**
+		 * Clean client id
+		 */
+		$client_id = preg_replace("/([^\d])/", "", $client_data_array['edit_id']);
+
+		/**
+		 * Set adminisrator variable
+		 */
+		self::$_DB_table_name_clients	= Config::dataArray('table_name', 'clients');
+
+		/**
+		 * Update client data in DB
+		 */
+		//$update_data = self::dbConnect() -> exec("UPDATE " . self::$_DB_table_name . "  SET `admin_hash` = '" . mysql_escape_string($hash) . "' WHERE `admin_id` = '" . $admin_id . "' ");
+
+		//return ($update) ? true : false;
+
+		$update_data = self::dbConnect() -> exec("
+			UPDATE " . self::$_DB_table_name_clients . "
+			SET
+				`first_name`	= '" . mysql_escape_string($client_data_array['first_name']) . "',
+				`last_name`	= '" . mysql_escape_string($client_data_array['last_name']) . "',
+				`email`		= '" . mysql_escape_string($client_data_array['email']) . "',
+				`country`	= '" . mysql_escape_string($client_data_array['country']) . "',
+				`city`		= '" . mysql_escape_string($client_data_array['city']) . "',
+				`photo`		= '" . mysql_escape_string($client_data_array['photo_id']) . "',
+				`notes`		= '" . mysql_escape_string($client_data_array['notes']) . "'
+			WHERE 
+				`id` = '$client_id'
+		");
+
+		return ($update_data) ? true : false;
 	}
 }
 ?>

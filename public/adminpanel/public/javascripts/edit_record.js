@@ -9,29 +9,18 @@ $(document).ready(function() {
 	//Create select list for our cities when country changed
 	$.formedCitiesList('change_country');
 
-
-
-
-
 	//Set client information in our forms
 	var object_options = {
 		module:		'set_information',
 		file_name:	'edit_record.php',
-		data:		{ edit_id: $.parseHash().edit_id}
+		data:		{
+			edit_id: $.parseHash().edit_id,
+			flag: 	'edit',
+		}
 	};
 
 	//Get cities from DB
 	$.ajaxes(object_options);
-
-	//console.log($.parseHash().edit_id);
-
-
-
-
-
-
-
-	
 
 	//Clear our forms
 	$("#reset_forms").click(function() {
@@ -144,10 +133,12 @@ $(document).ready(function() {
 
 			//Set object with our options (country id)
 			var object_options = {
-				module:		'add_new_record',
-				file_name:	'add_new_record.php',
+				module:		'edit_record',
+				file_name:	'edit_record.php',
 				data: 
 				{
+					flag: 		'update',
+					edit_id: 	$.parseHash().edit_id,
 					first_name:	$("#first_name").val(),
 					last_name:	$("#last_name").val(),
 					email: 		$("#email").val(),
@@ -188,7 +179,7 @@ $(document).ready(function() {
  * Formed cities select list
  */
 (function($) {
-	$.formedCitiesList = function(module) {
+	$.formedCitiesList = function(module, city_id) {
 
 		switch (module) {
 
@@ -239,6 +230,7 @@ $(document).ready(function() {
 				var object_options = {
 					module:		'cities_formed',
 					file_name:	'cities_formed.php',
+					city_id:	city_id,
 					data:		{ country_id: $("#country").val() }
 				};
 
@@ -273,7 +265,7 @@ $(document).ready(function() {
 				switch(object_options.module) {
 
 					case 'set_information':
-//#############
+//##############################
 						$("#first_name").val(object.first_name);
 
 						$("#last_name").val(object.last_name);
@@ -282,17 +274,21 @@ $(document).ready(function() {
 
 						$("#country").val(object.country);
 
-						$.formedCitiesList('load_cities');
+						$.formedCitiesList('load_cities', object.city);
 
-						$("#city").val(object.city);
-						/*
-						$("#testing, #city option").each(function(key, value) {
+						$("#preview_photo")
+							.html('')
+							.append('<img>');
 
-							console.log(value);
-
-						});
-						*/
-						//$(document).on("", $("#city"), function() { $("#city").val(object.city) }); 
+						$("#preview_photo img")					
+							.attr("width", object.photo_width)
+							.attr("height", object.photo_height)
+							.attr("src", object.photo_name)
+							.attr("alt", object.photo_description)
+							.attr("id", object.photo_id)
+							.parent()
+							.slideDown();
+						$("#notes").val(object.notes);
 
 					break;
 
@@ -309,12 +305,21 @@ $(document).ready(function() {
 						//Create options element for sity list
 						$.each(object.cities, function(index, value) {
 
-							$("#city").append(new Option(value, index));
+							if (index == object_options.city_id) {
+
+								var default_selected = true;
+							} else { 
+								var default_selected = false;
+							}
+
+							$("#city").append(new Option(value, index, default_selected));
+
+							
 						});
 
 					break;
 
-					case 'add_new_record':
+					case 'edit_record':
 
 						//Clear our forms
 						$("#InformationForm, #NotesForm").clearForm();
@@ -323,8 +328,11 @@ $(document).ready(function() {
 						$('#forms_content').addClass("hide");
 
 						//Show success message
-						$('#add_good_message').removeClass("hide").addClass("success");
-
+						if (object.flag == true) {
+							$('#edit_good_message').removeClass("hide").addClass("success");
+						} else {
+							$('#edit_bad_message').removeClass("hide").addClass("success");
+						}
 					break;
 
 				}

@@ -92,13 +92,14 @@ class EditRecord extends Templating {
 			"error_upload_photo"	=> Locale::languageEng('add_new_record', 'error_upload_photo'),
 			"error_image_size"	=> Locale::languageEng('add_new_record', 'error_image_size'),
 			"error_image_extension"	=> Locale::languageEng('add_new_record', 'error_image_extension'),
-			"add_good_message"	=> Locale::languageEng('add_new_record', 'add_good_message'),
+			"edit_good_message"	=> Locale::languageEng('edit_record', 'edit_good_message'),
+			"edit_bad_message"	=> Locale::languageEng('edit_record', 'edit_bad_message')
 		);
 
 		/**
 		 * Set template name
 		 */
-		$template_name = Config::dataArray('templates', 'add_new_record');
+		$template_name = Config::dataArray('templates', 'edit_record');
 
 		/**
 		 * Rendering our tempalate
@@ -114,15 +115,60 @@ class EditRecord extends Templating {
 	}
 
 	/**
+	 * destributorData
+	 *
+	 * This function 
+	 *
+	 * @return string $tempalate
+	 */
+	public function destributorData($client_data_array) {
+
+		switch ($client_data_array['flag']) {
+
+			case 'edit':
+
+				return $this -> getClientData($client_data_array['edit_id']);
+
+			break;
+
+			case 'update':
+
+				return $this -> updateClientData($client_data_array);
+
+			break;
+		}
+
+		return false;
+
+	}
+
+	/**
 	 * getClientData
 	 *
-	 * This function make address book list
+	 * This function get client data
 	 *
 	 * @return string $tempalate	This is source address book tempalate
 	 */
-	public function getClientData($edit_id) {
+	private function getClientData($client_id) {
 
-		return json_encode(EditRecordModel::getClientDataFromDB($edit_id));
+		$data_array = EditRecordModel::getClientDataFromDB($client_id);
+
+		$data_array['photo_name'] = Config::dataArray('server', 'dot').Config::dataArray('server', 'slash').Config::dataArray('paths', 'public').Config::dataArray('paths', 'images').Config::dataArray('paths', 'uploads_client').$data_array['photo_name'];
+
+
+		return json_encode($data_array);
+	}
+
+	/**
+	 * updateClientData
+	 *
+	 * This function update client data
+	 *
+	 * @return string $tempalate	This is source address book tempalate
+	 */
+	private function updateClientData($client_data_array) {
+
+		return json_encode(array("flag" => EditRecordModel::updateClientDataInDB($client_data_array)));
 	}
 }
 ?>

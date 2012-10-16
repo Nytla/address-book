@@ -144,7 +144,7 @@ class Config {
 				"book_list"	=> 'book_list.js',
 				"data_table"	=> 'jQuery_dataTables_1.9.3_min.js',
 				"add_new_record"=> 'add_new_record.js',
-				"edit_record"=> 'edit_record.js'
+				"edit_record"	=> 'edit_record.js'
 
 			),
 

@@ -28,12 +28,6 @@ class AddNewRecord extends Templating {
 	 */
 	private static $_path_to_template;
 
-
-
-
-
-
-
 	/**
 	 * makeAddForm
 	 *
@@ -139,7 +133,7 @@ class AddNewRecord extends Templating {
 		if(isset($_POST)) {
 
 			//Some Settings
-			$ThumbMaxWidth          = 400; //Thumbnail width
+			$ThumbMaxWidth          = 300; //Thumbnail width
 			$ThumbMaxHeight         = 300; //Thumbnail Height
 			$BigImageMaxWidth       = 500; //Resize Image width to
 			$BigImageMaxHeight      = 500; //Resize Image height to
@@ -159,8 +153,7 @@ class AddNewRecord extends Templating {
 			if ((int) $_FILES['image_file']['size'] > (int) $_POST['MAX_FILE_SIZE'] or (int) $_FILES['image_file']['size'] == 0) {
 				return json_encode(
 					array(
-						"error"	  => 'size',
-						"message" => Locale::languageEng('add_new_record', "error_image_size")
+						"error"	  => 'size'
 					)
 				);
 			}
