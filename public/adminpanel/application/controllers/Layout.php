@@ -32,7 +32,7 @@ class Layout extends Templating {
 		/**
 		 * Create header content
 		 */
-		$tempalate = Indexes::headerContent(Locale::languageEng('layout', 'title'));
+		$tempalate = Indexes::headerContent(Locale::languageEng('layout', 'title'), 1);
 
 		/**
 		 * Create css or/and javascript content

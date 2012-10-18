@@ -129,11 +129,13 @@ class Config {
 
 			),
 
-			"jquery"	=> array(
+			"jquery_lib"	=> array(
 
 				"path"		=> '/adminpanel/libraries/jquery/',
+				"jquery"	=> 'jQuery_v1.8.2.js',
 				"valid_plugin"	=> 'jQuery_validation_1.9.0.js',
-				"form_plugin"	=> 'jQuery_form_3.14.js'
+				"form_plugin"	=> 'jQuery_form_3.14.js',
+				"data_table"	=> 'jQuery_dataTables_1.9.3_min.js'
 			),
 
 			"javascript"	=> array(
@@ -142,16 +144,8 @@ class Config {
 				"authorization"	=> 'authorization.js',
 				"add_admin"	=> 'add_admin.js',
 				"book_list"	=> 'book_list.js',
-				"data_table"	=> 'jQuery_dataTables_1.9.3_min.js',
 				"add_new_record"=> 'add_new_record.js',
 				"edit_record"	=> 'edit_record.js'
-
-			),
-
-			"flags"		=> array(
-
-				"css"		=> 'css',
-				"js"		=> 'js'
 
 			),
 

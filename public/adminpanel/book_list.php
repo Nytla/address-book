@@ -35,9 +35,4 @@ $BookListController = new BookList();
  * Print our address book
  */
 print $BookListController -> makeAB();
-
-
-
-//////////////////
-print_r($_COOKIE);
 ?>

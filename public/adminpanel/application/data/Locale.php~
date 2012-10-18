@@ -88,6 +88,7 @@ class Locale {
 			),
 
 			"errors"	=> array(
+				"title"			=> 'Address Book Error Page',
 				"page_error"		=> 'This is page error.',
 				"unknown_error"		=> 'Error occurred reasons unknown to us.',
 				"bad_connect"		=> 'Could connect to the Data Base.',
@@ -215,7 +216,8 @@ class Locale {
 			"edit_record"	=> array(
 
 				"title"			=> 'Admin: Edit Record',
-				"add_good_message"	=> 'Client data successfully changed.'
+				"edit_good_message"	=> 'Client data successfully changed.',
+				"edit_bad_message"	=> 'Customer data were not recorded due to technical reasons.'
 
 			)
 

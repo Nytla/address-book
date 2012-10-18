@@ -60,20 +60,18 @@ class Authorization extends Templating {
 		/**
 		 * Create header content
 		 */
-		$template = Indexes::headerContent(Locale::languageEng('authorization', 'title'));
+		$template = Indexes::headerContent(Locale::languageEng('authorization', 'title'), 1);
 
 		/**
 		 * Create css or/and javascript content
 		 */
-		$name = Config::dataArray('flags', 'js');
+		$jquery = Config::dataArray('jquery_lib', 'path').Config::dataArray('jquery_lib', 'jquery');
 
-		$flag = array("$name");
+		$auth = Config::dataArray('javascript', 'path').Config::dataArray('javascript', 'authorization');
 
-		$file = Config::dataArray('javascript', 'path').Config::dataArray('javascript', 'authorization');
+		$js = array("$jquery", "$auth");
 
-		$path = array("$file");
-
-		$template .= Indexes::scriptsContent($flag, $path);
+		$template .= Indexes::scriptsContent('', $js);
 
 		/**
 		 * Create authorization content

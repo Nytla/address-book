@@ -1069,3 +1069,206 @@
 	<filename>/var/www/address_book.loc/public/adminpanel/application/models/EditRecordModel.php</filename>
 	<linenum>130</linenum>
 </error>
+<error>
+	<date>2012-10-16 12:24:10 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>require_once(/var/www/address_book.loc/public/adminpanel/application/views/address_book/cache/81/56/2e02c8ae5d713af83551c4470a45.php): failed to open stream: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>308</linenum>
+</error>
+<error>
+	<date>2012-10-16 17:30:13 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: data_array</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/models/BookListModel.php</filename>
+	<linenum>100</linenum>
+</error>
+<error>
+	<date>2012-10-17 12:19:46 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index:  SERVER_NAME</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/settings/Config.php</filename>
+	<linenum>58</linenum>
+</error>
+<error>
+	<date>2012-10-17 15:49:24 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>require_once(./application/views/address_book/cache/81/56/2e02c8ae5d713af83551c4470a45.php): failed to open stream: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>308</linenum>
+</error>
+<error>
+	<date>2012-10-17 15:51:43 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>require_once(/var/www/address_book.loc/public/adminpanel/application/views/address_book/cache/71/00/f85e28c4bf885231bcd81e98fc18.php): failed to open stream: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>308</linenum>
+</error>
+<error>
+	<date>2012-10-17 16:01:53 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>require_once(/var/www/address_book.loc/public/adminpanel/application/views/address_book/cache/47/54/f457358b9fd8be3423f0105cf6c0.php): failed to open stream: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>308</linenum>
+</error>
+<error>
+	<date>2012-10-17 16:11:10 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>require_once(./application/views/address_book/cache/71/00/f85e28c4bf885231bcd81e98fc18.php): failed to open stream: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>308</linenum>
+</error>
+<error>
+	<date>2012-10-17 16:33:57 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>require_once(./application/views/address_book/cache/81/56/2e02c8ae5d713af83551c4470a45.php): failed to open stream: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>308</linenum>
+</error>
+<error>
+	<date>2012-10-17 16:36:16 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>require_once(/var/www/address_book.loc/public/adminpanel/application/views/address_book/cache/81/56/2e02c8ae5d713af83551c4470a45.php): failed to open stream: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>308</linenum>
+</error>
+<error>
+	<date>2012-10-17 17:58:49 (EEST10800)</date>
+	<errcode>2</errcode>
+	<errmsg>require_once(/var/www/address_book.loc/public/adminpanel/application/views/address_book/cache/81/56/2e02c8ae5d713af83551c4470a45.php): failed to open stream: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>308</linenum>
+</error>
+<error>
+	<date>2012-10-18 13:10:50 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: jquery</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/settings/Config.php</filename>
+	<linenum>178</linenum>
+</error>
+<error>
+	<date>2012-10-18 13:12:45 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: jquery</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/settings/Config.php</filename>
+	<linenum>178</linenum>
+</error>
+<error>
+	<date>2012-10-18 13:12:46 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: jquery</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/settings/Config.php</filename>
+	<linenum>178</linenum>
+</error>
+<error>
+	<date>2012-10-18 13:14:29 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: file</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
+	<linenum>76</linenum>
+</error>
+<error>
+	<date>2012-10-18 13:14:53 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: file</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
+	<linenum>76</linenum>
+</error>
+<error>
+	<date>2012-10-18 13:14:54 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: file</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
+	<linenum>76</linenum>
+</error>
+<error>
+	<date>2012-10-18 14:06:35 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: javascript</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Authorization.php</filename>
+	<linenum>78</linenum>
+</error>
+<error>
+	<date>2012-10-18 15:12:23 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: flags</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/settings/Config.php</filename>
+	<linenum>171</linenum>
+</error>
+<error>
+	<date>2012-10-18 15:12:39 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: flags</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/settings/Config.php</filename>
+	<linenum>171</linenum>
+</error>
+<error>
+	<date>2012-10-18 15:13:50 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: flags</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/settings/Config.php</filename>
+	<linenum>171</linenum>
+</error>
+<error>
+	<date>2012-10-18 15:16:34 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: jquery</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/settings/Config.php</filename>
+	<linenum>171</linenum>
+</error>
+<error>
+	<date>2012-10-18 15:16:53 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: jquery</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/settings/Config.php</filename>
+	<linenum>171</linenum>
+</error>
+<error>
+	<date>2012-10-18 15:16:54 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: jquery</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/settings/Config.php</filename>
+	<linenum>171</linenum>
+</error>
+<error>
+	<date>2012-10-18 15:18:55 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: flags</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/settings/Config.php</filename>
+	<linenum>171</linenum>
+</error>
+<error>
+	<date>2012-10-18 15:26:45 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined variable: c_css</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/BookList.php</filename>
+	<linenum>74</linenum>
+</error>
+<error>
+	<date>2012-10-18 15:26:59 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: jquery</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/settings/Config.php</filename>
+	<linenum>171</linenum>
+</error>
+<error>
+	<date>2012-10-18 15:32:47 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: flags</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/settings/Config.php</filename>
+	<linenum>172</linenum>
+</error>
+<error>
+	<date>2012-10-18 15:38:22 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: flags</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/settings/Config.php</filename>
+	<linenum>172</linenum>
+</error>
+<error>
+	<date>2012-10-18 15:45:15 (EEST10800)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: error</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/data/Locale.php</filename>
+	<linenum>230</linenum>
+</error>

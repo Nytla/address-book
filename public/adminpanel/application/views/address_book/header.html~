@@ -1,12 +1,13 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
-     "http://www.w3.org/TR/html4/strict.dtd">
+	"http://www.w3.org/TR/html4/strict.dtd">
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html;charset={{ charset }}">
 		<title>{{ title }}</title>
 		<!-- Favicon START -->
 		<link rel="icon" href="{{ image_path }}favicon.ico" type="image/x-icon">
-		<!-- FFINISH -->
+		<!-- Favicon FINISH -->
+{% if flag_blue_print > 0 %}
 		<!-- Framework CSS BLUEPRINT START -->
 		<link rel="stylesheet" type="text/css" href="{{ screen }}screen.css" media="screen, projection">
 		<link rel="stylesheet" type="text/css" href="{{ print }}print.css" media="print">
@@ -14,6 +15,4 @@
 		<link rel="stylesheet" href="{{ ie }}ie.css" type="text/css" media="screen, projection">
 		<![endif]-->
 		<!-- Framework CSS BLUEPRINT FINISH -->
-		<!-- JavaScript library START -->
-		<script type="text/javascript" src="{{ jquery }}jQuery_v1.7.2.js"></script>
-		<!-- JavaScript library FINISH -->
+{% endif %}

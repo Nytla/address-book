@@ -28,6 +28,12 @@ class AddNewRecord extends Templating {
 	 */
 	private static $_path_to_template;
 
+
+
+
+
+
+
 	/**
 	 * makeAddForm
 	 *
@@ -40,11 +46,12 @@ class AddNewRecord extends Templating {
 		/**
 		 * Create header content
 		 */
-		$template = Indexes::headerContent(Locale::languageEng('add_new_record', 'title'));
+		$template = Indexes::headerContent(Locale::languageEng('add_new_record', 'title'), 1);
 
 		/**
 		 * Create css or/and javascript content
 		 */
+/*
 		$js = Config::dataArray('flags', 'js');
 
 		$flag = array(
@@ -52,20 +59,23 @@ class AddNewRecord extends Templating {
 			"$js",
 			"$js"
 		);
+*/
+		$jquery = Config::dataArray('jquery_lib', 'path').Config::dataArray('jquery_lib', 'jquery');
 
-		$valid_plugin = Config::dataArray('jquery', 'path').Config::dataArray('jquery', 'valid_plugin');
+		$valid_plugin = Config::dataArray('jquery_lib', 'path').Config::dataArray('jquery_lib', 'valid_plugin');
 
-		$form_plugin = Config::dataArray('jquery', 'path').Config::dataArray('jquery', 'form_plugin');
+		$form_plugin = Config::dataArray('jquery_lib', 'path').Config::dataArray('jquery_lib', 'form_plugin');
 
 		$add_new_record = Config::dataArray('javascript', 'path').Config::dataArray('javascript', 'add_new_record');
 
-		$path = array(
+		$js = array(
+			"$jquery",
 			"$valid_plugin",
 			"$form_plugin",
 			"$add_new_record",
 		);
 
-		$template .= Indexes::scriptsContent($flag, $path);
+		$template .= Indexes::scriptsContent('', $js);
 
 		/**
 		 * Create authorization content

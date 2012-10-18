@@ -32,22 +32,20 @@ class AddAdmin extends Templating {
 		/**
 		 * Create header content
 		 */
-		$template = Indexes::headerContent(Locale::languageEng('add_admin', 'title'));
+		$template = Indexes::headerContent(Locale::languageEng('add_admin', 'title'), 1);
 
 		/**
 		 * Create css or/and javascript content
 		 */
-		$name = Config::dataArray('flags', 'js');
+		$jquery = Config::dataArray('jquery_lib', 'path').Config::dataArray('jquery_lib', 'jquery');
 
-		$flag = array("$name", "$name");
-
-		$validation = Config::dataArray('jquery', 'path').Config::dataArray('jquery', 'validation');
+		$validation = Config::dataArray('jquery_lib', 'path').Config::dataArray('jquery_lib', 'valid_plugin');
 
 		$add_admin = Config::dataArray('javascript', 'path').Config::dataArray('javascript', 'add_admin');
 
-		$path = array("$validation", "$add_admin");
+		$js = array("$validation", "$add_admin");
 
-		$template .= Indexes::scriptsContent($flag, $path);
+		$template .= Indexes::scriptsContent('', $js);
 
 		/**
 		 * Create authorization content

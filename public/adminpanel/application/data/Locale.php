@@ -88,6 +88,7 @@ class Locale {
 			),
 
 			"errors"	=> array(
+				"title"			=> 'Address Book Error Page',
 				"page_error"		=> 'This is page error.',
 				"unknown_error"		=> 'Error occurred reasons unknown to us.',
 				"bad_connect"		=> 'Could connect to the Data Base.',
@@ -98,6 +99,7 @@ class Locale {
 				"404"			=> 'Error 404 Page Not Found.',
 				"500"			=> 'Error 500 Internal Server Error.',
 				"502"			=> 'Error 502 Bad Gateway.'
+
 			),
 
 			"script"	=> array(

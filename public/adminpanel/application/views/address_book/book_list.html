@@ -15,10 +15,8 @@
 			</div>
 			<!-- Url Add New Record FINISH -->
 		</div>
+
 		<!-- View clients START -->
-
-
-
 		<div class="container">
 			<div class="full_width">
 				<div id="example_wrapper" class="dataTables_wrapper" role="grid">
@@ -32,8 +30,15 @@
 								<th>Action</th>
 							</tr>
 						</thead>
-
 						<tbody>
+						<!-- Icon for view client information START -->
+						<div id="details_open" class="hide">
+							<img src="{{ image_path }}details_open.png" height="20" widht="20">
+						</div>
+						<div id="details_close" class="hide">
+							<img src="{{ image_path }}details_close.png" height="20" widht="20">
+						</div>
+						<!-- Icon for view client information FINISH -->
 	{% for id, value in clients_data %}
 							<tr class="gradeA">
 								<td>{{ clients_data[id]['id'] }}</td>
@@ -45,27 +50,22 @@
 									|
 									<a href="#delete={{ clients_data[id]['id'] }}" id="delete" name="{{ clients_data[id]['id'] }}">{{ record_delete }}</a>
 								</td>
+								<div id="view_content_{{ clients_data[id]['id'] }}" class="hide">
+									<div>
+										<img src="{{ clients_data[id]['photo_name'] }}" height="{{ clients_data[id]['photo_height'] }}" width="{{ clients_data[id]['photo_width'] }}" class="left" style="padding: 10px;" alt="{{ clients_data[id]['photo_description'] }}">
+										<p style="padding: 10px;">{{ clients_data[id]['notes'] }}</p>
+									</div>
+								</div>
 							</tr>
 	{% endfor %}
 						</tbody>
-
 					</table>
 				</div>
 			</div>
 		</div>
-
-
-
 		<!-- View clients FINISH -->
 
-
-
-
-
-
-
-
-<div class="container showgrid">
+			<div class="container showgrid">
 			<br>
 			<br>
 			<div class="span-10 prepend-10 append-0 last">

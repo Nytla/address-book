@@ -41,11 +41,4 @@ $AuthorizationController -> checkAuthIndex();
  * Print authorization form
  */
 print $AuthorizationController -> makeAuth();
-
-
-
-/**
- * Testing
- */
-print_r($_COOKIE);
 ?>

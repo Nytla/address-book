@@ -73,43 +73,42 @@ class BookListModel extends PDOMysqlConnect {
 
 		self::$_DB_table_name_cities	= Config::dataArray('table_name', 'cities');
 
+		self::$_DB_table_name_photos	= Config::dataArray('table_name', 'photos');
+
 		/**
 		 * Select clients in DB
 		 */
 		$select_clients = self::dbConnect() -> query("
 			SELECT * 
-			FROM " . self::$_DB_table_name_clients . ", " . self::$_DB_table_name_countries . ", " . self::$_DB_table_name_cities . "
+			FROM 
+				" . self::$_DB_table_name_clients . ", 
+				" . self::$_DB_table_name_countries . ", 
+				" . self::$_DB_table_name_cities . ",
+				" . self::$_DB_table_name_photos . " 
 			WHERE 
 				" . self::$_DB_table_name_clients .".country = " . self::$_DB_table_name_countries . ".country_id
 				AND " . self::$_DB_table_name_clients .".city = " . self::$_DB_table_name_cities . ".city_id
+				AND 
+					IF (" . self::$_DB_table_name_clients .".photo = '0', " . self::$_DB_table_name_photos . ".photo_id = '1', " . self::$_DB_table_name_clients .".photo = " . self::$_DB_table_name_photos . ".photo_id)
 		");
 
 		/**
 		 * Create array in cycle
 		 */
-		//$clients_array = array();
-
 		while ($row = $select_clients -> fetch(PDO::FETCH_ASSOC)) {
 
-			
+			/**
+			 * Set photo path
+			 */
+			$row['photo_name'] = Config::dataArray('server', 'dot').Config::dataArray('server', 'slash').Config::dataArray('paths', 'public').Config::dataArray('paths', 'images').Config::dataArray('paths', 'uploads_client').$row['photo_name'];
 
 			$data_array[] = $row;
-
-			//$clients_array_new = array($row['id'], $row['first_name'] . " " . $row['last_name'], $row['countryname_en'], $row['cityname_en']);
-
-			//array_push($clients_array, $clients_array_new);
 		}
-/*
-		echo '<pre>';
 
-		print_r($data_array);
-*/
 		/**
 		 * Return array from DB
 		 */
 		return (isset($data_array)) ? $data_array : false;
-
-//		return (isset($clients_array)) ? $clients_array : false;
 
 /*
 		try {

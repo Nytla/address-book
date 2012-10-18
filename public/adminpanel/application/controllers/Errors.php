@@ -32,7 +32,7 @@ class Errors extends Templating {
 		/**
 		 * Create header content
 		 */
-		$template = Indexes::headerContent();
+		$template = Indexes::headerContent(Locale::languageEng('errors', 'title'), 1);
 
 		/**
 		 * Create css or/and javascript content

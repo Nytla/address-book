@@ -35,9 +35,4 @@ $EditRecordController = new EditRecord();
  * Print our address book
  */
 print $EditRecordController -> makeFromEditRecord();
-
-
-
-//////////////////
-//print_r($_COOKIE);
 ?>

@@ -44,47 +44,36 @@ class BookList extends Templating {
 		/**
 		 * Create header content
 		 */
-		$template = Indexes::headerContent(Locale::languageEng('book_list', 'title'));
+		$template = Indexes::headerContent(Locale::languageEng('book_list', 'title'), 1);
 
 		/**
-		 * Create css or/and javascript content
-		 */		
-		$css = Config::dataArray('flags', 'css');
-
-		$js = Config::dataArray('flags', 'js');
-
-		$flag = array(
-//			"$css",
-			"$css",
-			"$css",
-			"$js",
-			"$js"
-		);
-
-		/**
-		 * CSS
+		 * Create css content
 		 */
-		$c_css = Config::dataArray('css', 'path_style').Config::dataArray('css', 'c_css');
-
 		$demo_table = Config::dataArray('css', 'path_style').Config::dataArray('css', 'demo_table');
 
 		$jquery_ui = Config::dataArray('css', 'path_style').Config::dataArray('css', 'jquery_ui');
+
+		$css = array(
+			"$demo_table",
+			"$jquery_ui"
+		);
+
 		/**
-		 * Java Script
+		 * Create javascript content
 		 */
-		$data_table = Config::dataArray('jquery', 'path').Config::dataArray('javascript', 'data_table');
+		$jquery = Config::dataArray('jquery_lib', 'path').Config::dataArray('jquery_lib', 'jquery');
+
+		$data_table = Config::dataArray('jquery_lib', 'path').Config::dataArray('jquery_lib', 'data_table');
 
 		$book_list = Config::dataArray('javascript', 'path').Config::dataArray('javascript', 'book_list');
 
-		$path = array(
-//			"$c_css",
-			"$demo_table",
-			"$jquery_ui",
+		$js = array(
+			"$jquery",
 			"$data_table",
 			"$book_list"
 		);
 
-		$template .= Indexes::scriptsContent($flag, $path);
+		$template .= Indexes::scriptsContent($css, $js);
 
 		/**
 		 * Create authorization content
@@ -161,8 +150,5 @@ class BookList extends Templating {
 
 		return json_encode(array("flag" => BookListModel::deleteClientFromDB($id)));
 	}
-
-
-
 }
 ?>

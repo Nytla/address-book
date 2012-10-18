@@ -32,7 +32,7 @@ $AuthorizationController -> checkAuthAdminPermission();
 $AddAdminController = new AddAdmin();
 
 /**
- * Print form
+ * Print form which add new administrator
  */
 print $AddAdminController -> makeAddForm();
 ?>

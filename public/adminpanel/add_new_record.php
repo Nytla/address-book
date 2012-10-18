@@ -35,17 +35,4 @@ $AddNewRecordController = new AddNewRecord();
  * Print add new record form 
  */
 print $AddNewRecordController -> makeAddForm();
-
-
-
-//////////////////
-print_r($_COOKIE);
-/*
-echo '
-<h1>This is Add new ewcord<h1>
-<br>
-<a href="./index.php">Back</a>
-</h1>
-';
-*/
 ?>

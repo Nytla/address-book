@@ -92,6 +92,11 @@ class EditRecordModel extends PDOMysqlConnect {
 		$data_array = $select_client -> fetch(PDO::FETCH_ASSOC);
 
 		/**
+		 * Set photo path
+		 */
+		$data_array['photo_name'] = Config::dataArray('server', 'dot').Config::dataArray('server', 'slash').Config::dataArray('paths', 'public').Config::dataArray('paths', 'images').Config::dataArray('paths', 'uploads_client').$data_array['photo_name'];
+
+		/**
 		 * Return data array
 		 */
 		return ($data_array) ? $data_array : array("flag" => false);

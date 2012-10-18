@@ -32,7 +32,7 @@ class Errors extends Templating {
 		/**
 		 * Create header content
 		 */
-		$template = Indexes::headerContent();
+		$template = Indexes::headerContent(Locale::languageEng('error', 'title'), 1);
 
 		/**
 		 * Create css or/and javascript content
@@ -153,7 +153,6 @@ class Errors extends Templating {
 					"error_description"	=> Locale::languageEng('errors', 'unknown_error'),
 					"image"			=> Config::dataArray('errors', 'image')
 				);
-
 		}
 
 		$template .= Templating::renderingTemplate($template_name, $params);

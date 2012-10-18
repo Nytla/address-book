@@ -32,32 +32,27 @@ class EditRecord extends Templating {
 		/**
 		 * Create header content
 		 */
-		$template = Indexes::headerContent(Locale::languageEng('edit_record', 'title'));
+		$template = Indexes::headerContent(Locale::languageEng('edit_record', 'title'), 1);
 
 		/**
 		 * Create css or/and javascript content
 		 */
-		$js = Config::dataArray('flags', 'js');
+		$jquery = Config::dataArray('jquery_lib', 'path').Config::dataArray('jquery_lib', 'jquery');
 
-		$flag = array(
-			"$js", 
-			"$js",
-			"$js"
-		);
+		$valid_plugin = Config::dataArray('jquery_lib', 'path').Config::dataArray('jquery_lib', 'valid_plugin');
 
-		$valid_plugin = Config::dataArray('jquery', 'path').Config::dataArray('jquery', 'valid_plugin');
-
-		$form_plugin = Config::dataArray('jquery', 'path').Config::dataArray('jquery', 'form_plugin');
+		$form_plugin = Config::dataArray('jquery_lib', 'path').Config::dataArray('jquery_lib', 'form_plugin');
 
 		$add_new_record = Config::dataArray('javascript', 'path').Config::dataArray('javascript', 'edit_record');
 
-		$path = array(
+		$js = array(
+			"$jquery",
 			"$valid_plugin",
 			"$form_plugin",
 			"$add_new_record",
 		);
 
-		$template .= Indexes::scriptsContent($flag, $path);
+		$template .= Indexes::scriptsContent('', $js);
 
 		/**
 		 * Create authorization content
@@ -150,13 +145,7 @@ class EditRecord extends Templating {
 	 * @return string $tempalate	This is source address book tempalate
 	 */
 	private function getClientData($client_id) {
-
-		$data_array = EditRecordModel::getClientDataFromDB($client_id);
-
-		$data_array['photo_name'] = Config::dataArray('server', 'dot').Config::dataArray('server', 'slash').Config::dataArray('paths', 'public').Config::dataArray('paths', 'images').Config::dataArray('paths', 'uploads_client').$data_array['photo_name'];
-
-
-		return json_encode($data_array);
+		return json_encode(EditRecordModel::getClientDataFromDB($client_id));
 	}
 
 	/**
@@ -172,4 +161,3 @@ class EditRecord extends Templating {
 	}
 }
 ?>
-

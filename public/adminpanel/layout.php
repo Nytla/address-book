@@ -35,6 +35,4 @@ $LayoutController = new Layout();
  * Print layout page
  */
 print $LayoutController -> makeLayout();
-
-print_r($_COOKIE);
 ?>
