@@ -85,7 +85,7 @@ class BookList extends Templating {
 			"country_word"		=> Locale::languageEng('book_list', 'country_word'),
 			"city_word"		=> Locale::languageEng('book_list', 'city_word'),
 			"empty_option"		=> Locale::languageEng('book_list', 'empty_option'),
-			"add_new_record"	=> Locale::languageEng('book_list', 'add_new_record'),
+			"add_new_client"	=> Locale::languageEng('book_list', 'add_new_client'),
 			"clients_data"		=> BookListModel::getClientsDataFromDB(),
 			"back_to_page_layout"	=> Locale::languageEng('book_list', 'back_to_page_layout'),
 			"phrase"		=> BookListModel::getRandomPhraseFromDB(),

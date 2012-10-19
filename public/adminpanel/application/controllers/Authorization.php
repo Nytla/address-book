@@ -111,14 +111,12 @@ class Authorization extends Templating {
 	 */
 	public function validateAuth($admin_login = '', $admin_password = '') {
 
+		/**
+		 * Get adminisrator information from DB
+		 */
 		$admin_data_array = AuthorizationModel::getAuthDataByLogin($admin_login);
 
 		if (is_array($admin_data_array)) {
-
-			/**
-			 * Get adminisrator information from DB
-			 */
-			$admin_data_array = AuthorizationModel::getAuthDataByLogin($admin_login);
 
 			/**
 			 * Set adminisrator variables
@@ -347,13 +345,6 @@ class Authorization extends Templating {
 		 * Return code or false
 		 */
 		return (isset($code)) ? $code : false;
-/*
-		if ($code) {
-			return $code;
-		} else {
-			return false;
-		}
-*/
 	}
 }
 ?>

@@ -2,7 +2,7 @@
 /**
  * Address Book
  * 
- * page_layout.php
+ * layout.php
  *
  * This is administrator page layout
  * 

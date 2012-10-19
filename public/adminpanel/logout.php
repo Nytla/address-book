@@ -2,7 +2,7 @@
 /**
  * Adress Book
  *
- * log_out.php
+ * logout.php
  *
  * This is administrator login out
  *

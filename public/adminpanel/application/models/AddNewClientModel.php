@@ -1,8 +1,8 @@
 <?php
 /**
- * Add New Record Model
+ * Add New Client Model
  * 
- * AddNewRecordModel.php
+ * AddNewClientModel.php
  *
  * This file is add new clients record to DB 
  * 
@@ -18,7 +18,7 @@
  * 
  * @version 0.1
  */
-class AddNewRecordModel extends PDOMysqlConnect {
+class AddNewClientModel extends PDOMysqlConnect {
 
 	/**
 	 * _DB_table_name_clients
@@ -84,6 +84,8 @@ class AddNewRecordModel extends PDOMysqlConnect {
 		 * Set adminisrator variable
 		 */
 		self::$_DB_table_name_clients = Config::dataArray('table_name', 'clients');
+
+		$photo_id = ($photo_id) ? $photo_id : 1;
 
 		/**
 		 * Add new client to DB

@@ -145,8 +145,8 @@ class Config {
 				"authorization"	=> 'authorization.js',
 				"add_admin"	=> 'add_admin.js',
 				"book_list"	=> 'book_list.js',
-				"add_new_record"=> 'add_new_record.js',
-				"edit_record"	=> 'edit_record.js'
+				"add_new_client"=> 'add_new_client.js',
+				"edit_client"	=> 'edit_client.js'
 
 			),
 
@@ -163,8 +163,8 @@ class Config {
 				"layout"	=> 'layout.html',
 				"add_admin"	=> 'add_admin.html',
 				"book_list"	=> 'book_list.html',
-				"add_new_record"=> 'add_new_record.html',
-				"edit_record"	=> 'edit_record.html'
+				"add_new_record"=> 'add_new_client.html',
+				"edit_client"	=> 'edit_client.html'
 			)
 
 		);

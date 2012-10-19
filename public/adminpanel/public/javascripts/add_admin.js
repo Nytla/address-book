@@ -128,7 +128,7 @@ $(document).ready(function() {
  * Validate login
  */
 function isValidLogin(login){
-	var pattern = new RegExp(/^[a-z_-]+$/i);
+	var pattern = new RegExp(/^[A-Za-z]+$/i);
 
 	return pattern.test(login);
 }
@@ -137,7 +137,7 @@ function isValidLogin(login){
  * Validate password
  */
 function isValidPassword(password){
-	var pattern = new RegExp(/^[a-z0-9_-]+$/i);
+	var pattern = new RegExp(/^[A-Za-z0-9_-]+$/i);
 
 	return pattern.test(password);
 }

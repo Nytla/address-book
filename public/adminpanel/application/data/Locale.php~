@@ -99,6 +99,7 @@ class Locale {
 				"404"			=> 'Error 404 Page Not Found.',
 				"500"			=> 'Error 500 Internal Server Error.',
 				"502"			=> 'Error 502 Bad Gateway.'
+
 			),
 
 			"script"	=> array(
@@ -164,9 +165,11 @@ class Locale {
 				"country_word"		=> "Country",
 				"city_word"		=> "City",
 				"empty_option"		=> '::ALL::',
-				"add_new_record"	=> 'Add New Record',
+				"add_new_client"	=> 'Add New Client',
 				"back_to_page_layout"	=> 'Back to the Page Layout',
 				"preloader_alt_text"	=> 'Loading...',
+				"details_open"		=> 'Details open',
+				"details_close"		=> 'Details close',
 				"record_edit"		=> 'Edit',
 				"record_delete"		=> 'Delete'
 
@@ -179,9 +182,9 @@ class Locale {
 
 			),
 
-			"add_new_record"=> array(
+			"add_new_client"=> array(
 
-				"title"			=> 'Admin: Add New Record',
+				"title"			=> 'Admin: Add New Client',
 				"page_name"		=> 'Add New Record',
 				"first_name"		=> 'First Name:',
 				"last_name"		=> 'Last Name:',
@@ -213,7 +216,7 @@ class Locale {
 
 			),
 
-			"edit_record"	=> array(
+			"edit_client"	=> array(
 
 				"title"			=> 'Admin: Edit Record',
 				"edit_good_message"	=> 'Client data successfully changed.',

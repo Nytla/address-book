@@ -61,21 +61,28 @@ class AuthorizationModel extends PDOMysqlConnect {
 		 */
 		self::$_admin_id = intval(Cookie::get('admin_id'));
 
-		self::$_DB_table_name = Config::dataArray('table_name', 'administrators');
-
 		/**
-		 * Select administrator information from DB
+		 * Validate administrator id
 		 */
-		$select = self::dbConnect() -> query("
-			SELECT * 
-			FROM " . self::$_DB_table_name . " 
-			WHERE `admin_id` = '" . self::$_admin_id . "' 
-			LIMIT 1");
+		if (ValidateData::filterValidate(self::$_admin_id, ValidateData::DATA_INT)) {
 
-		/**
-		 * Get administrator information from array
-		 */
-		$data_array = $select -> fetch(PDO::FETCH_ASSOC);
+			self::$_DB_table_name = Config::dataArray('table_name', 'administrators');
+
+			/**
+			 * Select administrator information from DB
+			 */
+			$select = self::dbConnect() -> query("
+				SELECT * 
+				FROM " . self::$_DB_table_name . " 
+				WHERE `admin_id` = '" . self::$_admin_id . "' 
+				LIMIT 1
+			");
+
+			/**
+			 * Get administrator information from array
+			 */
+			$data_array = $select -> fetch(PDO::FETCH_ASSOC);
+		}
 
 		return ($data_array) ? $data_array : false;
 	}
@@ -92,32 +99,32 @@ class AuthorizationModel extends PDOMysqlConnect {
 		/**
 		 * Set adminisrator variables
 		 */
-		self::$_DB_table_name = Config::dataArray('table_name', 'administrators');
-
 		self::$_admin_login = $admin_login;
 
 		/**
-		 * Get information from DB
+		 * Validate administrator login
 		 */
-		$select = self::dbConnect() -> query("
-			SELECT `admin_id`, `admin_password` 
-			FROM " . self::$_DB_table_name . " 
-			WHERE `admin_login` = '" . mysql_escape_string(self::$_admin_login) . "' 
-			LIMIT 1");
+		if (ValidateData::filterValidate(self::$_admin_login, ValidateData::DATA_REGEXP, ValidateData::$_regex_login)) {
 
-		/**
-		 * Get administrator information from array
-		 */
-		$data_array = $select -> fetch(PDO::FETCH_ASSOC);
+			self::$_DB_table_name = Config::dataArray('table_name', 'administrators');
+
+			/**
+			 * Get information from DB
+			 */
+			$select = self::dbConnect() -> query("
+				SELECT `admin_id`, `admin_password` 
+				FROM " . self::$_DB_table_name . " 
+				WHERE `admin_login` = '" . mysql_escape_string(self::$_admin_login) . "' 
+				LIMIT 1
+			");
+
+			/**
+			 * Get administrator information from array
+			 */
+			$data_array = $select -> fetch(PDO::FETCH_ASSOC);
+		}
 
 		return ($data_array) ? $data_array : false;
-/*
-		if ($data_array) {
-			return $data_array;
-		} else {
-			return false;
-		}
-*/
 	}
 
 	/**
@@ -130,18 +137,21 @@ class AuthorizationModel extends PDOMysqlConnect {
 	static public function updateHash($admin_id = '', $hash = '') {
 
 		/**
-		 * Update our hash in DB
+		 * Validate administrator id
 		 */
-		$update = self::dbConnect() -> exec("UPDATE " . self::$_DB_table_name . "  SET `admin_hash` = '" . mysql_escape_string($hash) . "' WHERE `admin_id` = '" . $admin_id . "' ");
+		if (ValidateData::filterValidate($admin_id, ValidateData::DATA_INT)) {
+
+			/**
+			 * Update our hash in DB
+			 */
+			$update = self::dbConnect() -> exec("
+				UPDATE " . self::$_DB_table_name . " 
+				SET `admin_hash` = '" . mysql_escape_string($hash) . "' 
+				WHERE `admin_id` = '" . $admin_id . "' 
+			");
+		}
 
 		return ($update) ? true : false;
-/*
-		if ($update) {
-			return true;
-		} else {
-			return false;
-		}
-*/
 	}
 }
 ?>

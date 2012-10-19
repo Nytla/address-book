@@ -29,10 +29,10 @@ $AccessController -> httpRequested();
 /**
  * Create copy AddNewRecordController object
  */
-$AddNewRecordController = new AddNewRecord();
+$AddNewRecordController = new AddNewClient();
 
 /**
  * Add new client to DB
  */
-print $AddNewRecordController -> addNewClient($_REQUEST['first_name'], $_REQUEST['last_name'], $_REQUEST['email'], $_REQUEST['country'], $_REQUEST['city'], $_REQUEST['photo_id'], $_REQUEST['notes']);
+print $AddNewRecordController -> addClient($_REQUEST['first_name'], $_REQUEST['last_name'], $_REQUEST['email'], $_REQUEST['country'], $_REQUEST['city'], $_REQUEST['photo_id'], $_REQUEST['notes']);
 ?>

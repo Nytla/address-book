@@ -29,16 +29,10 @@ $AccessController -> httpRequested();
 /**
  * Create copy of AddNewRecord class
  */
-$AddNewRecordController = new AddNewRecord();
+$AddNewRecordController = new AddNewClient();
 
 /**
  * Get resized image
  */
 print $AddNewRecordController -> getImageClients($_FILES);
-
-//print_r($_POST);
-
-//print_r($_FILES);
-
-//print_r($_REQUEST);
 ?>

@@ -150,8 +150,5 @@ class BookList extends Templating {
 
 		return json_encode(array("flag" => BookListModel::deleteClientFromDB($id)));
 	}
-
-
-
 }
 ?>

@@ -2,9 +2,9 @@
 /**
  * Address Book
  * 
- * add_new_record.php
+ * edit_record.php
  *
- * This is page which add new administrator
+ * This is administrator edit client record
  * 
  * @category	Main
  * @copyright	2012
@@ -27,12 +27,12 @@ $AuthorizationController = new Authorization();
 $AuthorizationController -> checkAuthNotIndex();
 
 /**
- * Create copy of AddNewRecord object
+ * Create copy of edit client record object
  */
-$AddNewRecordController = new AddNewRecord();
+$EditClientController = new EditClient();
 
 /**
- * Print add new record form 
+ * Print our address book
  */
-print $AddNewRecordController -> makeAddForm();
+print $EditClientController -> makeFromEditRecord();
 ?>

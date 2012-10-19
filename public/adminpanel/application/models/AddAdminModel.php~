@@ -60,34 +60,32 @@ class AddAdminModel extends PDOMysqlConnect {
 		/**
 		 * Set adminisrator variable
 		 */
-		self::$_DB_table_name = Config::dataArray('table_name', 'administrators');
-
 		self::$_admin_id = intval(Cookie::get('admin_id'));
 
 		/**
-		 * Select administrator information
+		 * Validate administrator id
 		 */
-		$select_permission = self::dbConnect() -> query("
-			SELECT `admin_permission` 
-			FROM " . self::$_DB_table_name . " 
-			WHERE `admin_id` = '" . self::$_admin_id . "' 
-			LIMIT 1");
+		if (ValidateData::filterValidate(self::$_admin_id, ValidateData::DATA_INT)) {
 
-		/**
-		 * Get administrator permission from DB
-		 */
-		$admin_permission = $select_permission -> fetch(PDO::FETCH_ASSOC);
+			self::$_DB_table_name = Config::dataArray('table_name', 'administrators');
+
+			/**
+			 * Select administrator information
+			 */
+			$select_permission = self::dbConnect() -> query("
+				SELECT `admin_permission` 
+				FROM " . self::$_DB_table_name . " 
+				WHERE `admin_id` = '" . self::$_admin_id . "' 
+				LIMIT 1
+			");
+
+			/**
+			 * Get administrator permission from DB
+			 */
+			$admin_permission = $select_permission -> fetch(PDO::FETCH_ASSOC);
+		}
 
 		return ($admin_permission) ? $admin_permission['admin_permission'] : false;
-/*
-		if ($admin_permission) {
-
-			return $admin_permission['admin_permission'];
-
-		} else {
-			return false;
-		}
-*/
 	}
 
 	/**
@@ -102,27 +100,29 @@ class AddAdminModel extends PDOMysqlConnect {
 		/**
 		 * Set adminisrator variable
 		 */
-		self::$_DB_table_name = Config::dataArray('table_name', 'administrators');
-
 		self::$_admin_login = $login;
 
-		$select_login = self::dbConnect() -> query("SELECT `admin_id` FROM " . self::$_DB_table_name . "  WHERE `admin_login` = '" . mysql_escape_string(self::$_admin_login) . "' LIMIT 1");
-
 		/**
-		 * Get administrator id from DB
+		 * Validate administrator login
 		 */
-		$admin_id = $select_login -> fetch(PDO::FETCH_ASSOC);
+		if (ValidateData::filterValidate(self::$_admin_login, ValidateData::DATA_REGEXP, ValidateData::$_regex_login)) {
+
+			self::$_DB_table_name = Config::dataArray('table_name', 'administrators');		
+
+			$select_login = self::dbConnect() -> query("
+				SELECT `admin_id` 
+				FROM " . self::$_DB_table_name . "  
+				WHERE `admin_login` = '" . mysql_escape_string(self::$_admin_login) . "' LIMIT 1
+			");
+
+			/**
+			 * Get administrator id from DB
+			 */
+			$admin_id = $select_login -> fetch(PDO::FETCH_ASSOC);
+		}
 
 		return ($admin_id) ? true : false;
-/*
-		if ($admin_id) {
 
-			return true;
-
-		} else {
-			return false;
-		}
-*/
 /*
 		try {
 
@@ -147,13 +147,26 @@ class AddAdminModel extends PDOMysqlConnect {
 	 *
 	 * @return boolean
 	 */
-	static public function addAdminToDB($password = '') {
+	static public function addAdminToDB($login, $password) {
 
 		/**
 		 * Set adminisrator variable
 		 */
 		self::$_admin_password = md5(md5($password));
 
+		self::$_admin_login = $login;
+
+		self::$_DB_table_name = Config::dataArray('table_name', 'administrators');
+
+
+/*
+		return "INSERT INTO " . self::$_DB_table_name . " 
+			(`admin_id`, `admin_login`, `admin_password`, `admin_hash`, `admin_permission`) 
+			VALUES 
+			('', '" . mysql_escape_string(self::$_admin_login) . "', '" . mysql_escape_string(self::$_admin_password) . "', '', 0)";
+
+
+*/
 		/**
 		 * Add new administrator to DB
 		 */
@@ -161,7 +174,8 @@ class AddAdminModel extends PDOMysqlConnect {
 			INSERT INTO " . self::$_DB_table_name . " 
 			(`admin_id`, `admin_login`, `admin_password`, `admin_hash`, `admin_permission`) 
 			VALUES 
-			('', '" . mysql_escape_string(self::$_admin_login) . "', '" . mysql_escape_string(self::$_admin_password) . "', '', 0)");
+			('', '" . mysql_escape_string(self::$_admin_login) . "', '" . mysql_escape_string(self::$_admin_password) . "', '', 0)
+		");
 
 		return ($insert_admin) ? true : false;
 

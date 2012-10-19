@@ -115,8 +115,11 @@ $(document).ready(function() {
 	 * Note that the indicator for showing which row is open is not controlled by DataTables,
 	 * rather it is done here
 	 */
-	$('#example tbody td img').live('click', function () {
+	$(document).on("click", "#example tbody td img", function() {
 		var nTr = $(this).parents("tr")[0];
+
+
+		
 
 		if ( oTable.fnIsOpen(nTr) ) {
 			/**
@@ -125,19 +128,23 @@ $(document).ready(function() {
 			this.src = img_details_open.attr("src");
 
 			oTable.fnClose( nTr );
+
+			
 		} else {
 			/**
 			 * Open this row 
 			 */
 			this.src = img_details_close.attr("src");
 			
-			var view_id = $(this)
+			var href_content = $(this)
 				.parent()
 				.parent()
 				.children("td:eq(5)")
 				.children("a:eq(1)")
-				.attr("name");
+				.attr("href");
 
+			var view_id = $.parseHash(href_content).delete_id;
+			
 			oTable.fnOpen( nTr, fnFormatDetails(oTable, nTr, view_id), 'details' );
 		}
 	});
@@ -171,7 +178,7 @@ $(document).ready(function() {
 	//Create Country and City selected elements search
 	$("#example_filter label").each( function ( i ) {
 
-		if (i == 0 ) {
+		if (i == 0) {
 			return;
 		}
 
@@ -190,10 +197,12 @@ $(document).ready(function() {
 	} );
 
 	//Delete client from DB and from DOM (dynamicaly)
-	$(document).on("click", "#example tbody tr td #delete", function() {
-
+	$(document).on("click", "#example tbody tr td a[name='delete']", function() {
+		
 		//Get row which clicked
-		var delete_id = $(this).attr('name');
+		var href_content = $(this).attr('href');		
+
+		var delete_id = $.parseHash(href_content).delete_id;
 
 		if (confirm("Are you sure you wish to delete the record "+delete_id+"?")) {
 			//Create object for ajax request
@@ -203,8 +212,6 @@ $(document).ready(function() {
 
 			//Delete client from DB
 			$.ajaxes(object_options, $(this).parent().parent());
-
-			console.log(window.ajax_value);
 
 			if (window.ajax_value == true) {
 
@@ -228,7 +235,7 @@ $(document).ready(function() {
  * Ajaxes function for our book
  */
 (function($) {
-	$.ajaxes = function(object_options, dom_elements) {
+	$.ajaxes = function(object_options) {
 
 		$.ajax({
 			type: "POST",
@@ -245,9 +252,6 @@ $(document).ready(function() {
 	
 				if (object.flag == true) {
 
-					//Delete row from DOM
-					dom_elements.addClass("hide");
-
 					window.ajax_value = true;
 				} else {
 					alert("For technical reasons, no record has been deleted.");
@@ -257,21 +261,21 @@ $(document).ready(function() {
 			}
 		});
 	}
-
-
 })(jQuery);
 
 /**
  * Parse hash from url
  */
 (function($){
-	$.parseHash = function() {
+	$.parseHash = function(hash) {
 
 		//Get the URI and remove the hash
-		var uri = $(location).attr('hash').substring(1);
+		if (!hash) {
+			var hash = $(location).attr('hash').substring(1);
+		} 
 
 		//Parse the data
-		var elements = uri.split('&');
+		var elements = hash.split('#');
 
 		//The Object that will have the data
 		var data = new Object();

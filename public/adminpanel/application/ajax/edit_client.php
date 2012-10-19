@@ -29,10 +29,10 @@ $AccessController -> httpRequested();
 /**
  * Create copy EditRecordController object
  */
-$EditRecordController = new EditRecord();
+$EditClientController = new EditClient();
 
 /**
  * Take client data from DB 
  */
-print $EditRecordController -> destributorData($_REQUEST);
+print $EditClientController -> destributorData($_REQUEST);
 ?>

@@ -55,7 +55,7 @@ $(document).ready(function() {
 					$('#error').removeClass().addClass("error");
 				} else {
 
-					var url = json_object.redirect_file;
+					var url = object.redirect_file;
 
 					$(location).attr('href',url);
 				}

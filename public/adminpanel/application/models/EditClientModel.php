@@ -2,7 +2,7 @@
 /**
  * Adress Book Model
  * 
- * EditRecordModel.php
+ * EditClientModel.php
  *
  * This is administrator edit client record
  * 
@@ -12,13 +12,13 @@
  */
 
 /**
- * BookListModel
+ * EditClientModel
  * 
  * This is administrator address book list class
  * 
  * @version 0.1
  */
-class EditRecordModel extends PDOMysqlConnect {
+class EditClientModel extends PDOMysqlConnect {
 
 	/**
 	 * _DB_table_name_clients

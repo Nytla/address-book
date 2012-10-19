@@ -23,7 +23,7 @@ $(document).ready(function() {
 	$("#authForm").submit(function() {
 
 		//Validate login
-		var reg_login = /([^А-Яа-яA-Za-z0-9])/gi;
+		var reg_login = /([^А-Яа-яA-Za-z])/gi;
 		
 		var login = $("#login").val().replace(reg_login, "");
 

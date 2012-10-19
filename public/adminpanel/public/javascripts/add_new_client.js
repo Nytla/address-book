@@ -1,31 +1,59 @@
+//Ajax Image Upload with Progressbar with jQuery and PHP - http://www.saaraan.com/2012/05/ajax-image-upload-with-progressbar-with-jquery-and-php
+//Demo - http://www.saaraan.com/assets/ajax-image-upload-progressbar/
+//ajaxForm - http://www.malsup.com/jquery/form/#options-object
+//http://www.datatables.net/release-datatables/examples/server_side/server_side.html
+
+
+/**
+ * Add new rule (function) in jQuery validade plugin for login
+ */
+jQuery.validator.addMethod("lettersonly", function(value, element) {
+	return this.optional(element) || /^[a-z]+$/i.test(value);
+}, "English letters only please.");
+
 /**
  * Validate add new administrator form
  */
 $(document).ready(function() {
 
+	//Set width for select country element
+	$("#country").css("width", "235");
+
 	//Create select list for our cities when page loaded
-	$.formedCitiesList('load_page');
+	var option_selected = $("#country option:selected").val();
 
-	//Create select list for our cities when country changed
-	$.formedCitiesList('change_country');
+	if (option_selected != "") {
 
-	//Set client information in our forms
-	var object_options = {
-		module:		'set_information',
-		file_name:	'edit_record.php',
-		data:		{
-			edit_id: $.parseHash().edit_id,
-			flag: 	'edit',
-		}
-	};
+		//Set object with our options (country id)
+		var object_options = {
+			module:		'cities_formed',
+			file_name:	'cities_formed.php',
+			data:		{ country_id: option_selected }
+		};
 
-	//Get cities from DB
-	$.ajaxes(object_options);
+		//Get cities from DB
+		$.ajaxes(object_options);
+	}
+
+	//Create select list for our cities
+	$("#country").change(function() {
+
+		//Set object with our options (country id)
+		var object_options = {
+			module:		'cities_formed',
+			file_name:	'cities_formed.php',
+			data:		{ country_id: this.value }
+		};
+
+		//Get cities from DB
+		$.ajaxes(object_options);
+	});
 
 	//Clear our forms
 	$("#reset_forms").click(function() {
 
 		$("#InformationForm, #NotesForm").clearForm();
+
 	});
 
 	//Set errors variables
@@ -62,6 +90,7 @@ $(document).ready(function() {
 
 			first_name: {
 				required: true,
+				lettersonly: true,
 				minlength: 5,
 				maxlength: 16
 			},
@@ -74,7 +103,6 @@ $(document).ready(function() {
 
 			email: {
 				required: true,
-				minlength: 5,
 				maxlength: 16,
 				email: true
 			},
@@ -133,12 +161,10 @@ $(document).ready(function() {
 
 			//Set object with our options (country id)
 			var object_options = {
-				module:		'edit_record',
-				file_name:	'edit_record.php',
+				module:		'add_new_record',
+				file_name:	'add_new_client.php',
 				data: 
 				{
-					flag: 		'update',
-					edit_id: 	$.parseHash().edit_id,
 					first_name:	$("#first_name").val(),
 					last_name:	$("#last_name").val(),
 					email: 		$("#email").val(),
@@ -176,77 +202,6 @@ $(document).ready(function() {
 });
 
 /**
- * Formed cities select list
- */
-(function($) {
-	$.formedCitiesList = function(module, city_id) {
-
-		switch (module) {
-
-			case 'load_page':
-
-				//Set width for select country element
-				$("#country").css("width", "235");
-
-				//Create select list for our cities when page loaded
-				var option_selected = $("#country option:selected").val();
-
-				if (option_selected != "") {
-
-					//Set object with our options (country id)
-					var object_options = {
-						module:		'cities_formed',
-						file_name:	'cities_formed.php',
-						data:		{ country_id: option_selected }
-					};
-
-					//Get cities from DB
-					$.ajaxes(object_options);
-				}
-
-			break;
-
-			case 'change_country':
-
-				//Create select list for our cities when country changed
-				$("#country").change(function() {
-
-					//Set object with our options (country id)
-					var object_options = {
-						module:		'cities_formed',
-						file_name:	'cities_formed.php',
-						data:		{ country_id: this.value }
-					};
-
-					//Get cities from DB
-					$.ajaxes(object_options);
-				});
-
-			break;
-
-			case 'load_cities':
-
-				//Set object with our options (country id)
-				var object_options = {
-					module:		'cities_formed',
-					file_name:	'cities_formed.php',
-					city_id:	city_id,
-					data:		{ country_id: $("#country").val() }
-				};
-
-				//Get cities from DB
-				$.ajaxes(object_options);
-
-			break;
-		}
-
-		
-	}
-})(jQuery);
-
-
-
-/**
  * Ajaxes function for our book
  */
 (function($) {
@@ -264,34 +219,6 @@ $(document).ready(function() {
 
 				switch(object_options.module) {
 
-					case 'set_information':
-//##############################
-						$("#first_name").val(object.first_name);
-
-						$("#last_name").val(object.last_name);
-
-						$("#email").val(object.email);
-
-						$("#country").val(object.country);
-
-						$.formedCitiesList('load_cities', object.city);
-
-						$("#preview_photo")
-							.html('')
-							.append('<img>');
-
-						$("#preview_photo img")					
-							.attr("width", object.photo_width)
-							.attr("height", object.photo_height)
-							.attr("src", object.photo_name)
-							.attr("alt", object.photo_description)
-							.attr("id", object.photo_id)
-							.parent()
-							.slideDown();
-						$("#notes").val(object.notes);
-
-					break;
-
 					case 'cities_formed':
 
 						//Set select element width
@@ -305,21 +232,12 @@ $(document).ready(function() {
 						//Create options element for sity list
 						$.each(object.cities, function(index, value) {
 
-							if (index == object_options.city_id) {
-
-								var default_selected = true;
-							} else { 
-								var default_selected = false;
-							}
-
-							$("#city").append(new Option(value, index, default_selected));
-
-							
+							$("#city").append(new Option(value, index));
 						});
 
 					break;
 
-					case 'edit_record':
+					case 'add_new_record':
 
 						//Clear our forms
 						$("#InformationForm, #NotesForm").clearForm();
@@ -328,13 +246,9 @@ $(document).ready(function() {
 						$('#forms_content').addClass("hide");
 
 						//Show success message
-						if (object.flag == true) {
-							$('#edit_good_message').removeClass("hide").addClass("success");
-						} else {
-							$('#edit_bad_message').removeClass("hide").addClass("success");
-						}
-					break;
+						$('#add_good_message').removeClass("hide").addClass("success");
 
+					break;
 				}
 			}
 		});
@@ -362,8 +276,6 @@ $(document).ready(function() {
 				$("#error_image_size").addClass('hide');
 
 				$("#error_image_extension").addClass('hide');
-
-				
 			},
 			complete: function() {
 
@@ -422,11 +334,8 @@ $(document).ready(function() {
 							.parent()
 							.slideDown();
 				}
-
-				
 			}
 		});
-
 	}
 })(jQuery);
 
@@ -450,35 +359,5 @@ $(document).ready(function() {
 
 			}
 		});
-	}
-})(jQuery);
-
-/**
- * Parse hash from url
- */
-(function($){
-	$.parseHash = function() {
-
-		//Get the URI and remove the hash
-		var uri = $(location).attr('search').substring(1);
-
-		//Parse the data
-		var elements = uri.split('&');
-
-		//The Object that will have the data
-		var data = new Object();
-
-		//Do a for loop
-		for(i = 0; i < elements.length; i++) {
-
-			//Split the element to item -> value format
-			var cur = elements[i].split('=');
-
-			//Append the element to the list
-			data[cur[0]] = cur[1]; 
-		}
-
-		//Return the result
-		return data;
 	}
 })(jQuery);

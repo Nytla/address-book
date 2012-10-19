@@ -2,7 +2,7 @@
 /**
  * Adress Book Controller
  * 
- * AddNewRecord.php
+ * AddNewClient.php
  *
  * This is add new clients for administrator
  * 
@@ -12,13 +12,13 @@
  */
 
 /**
- * AddNewRecord
+ * AddNewClient
  * 
  * This class is add new client to DB
  * 
  * @version 0.1
  */
-class AddNewRecord extends Templating {
+class AddNewClient extends Templating {
 
 
 	/**
@@ -46,7 +46,7 @@ class AddNewRecord extends Templating {
 		/**
 		 * Create header content
 		 */
-		$template = Indexes::headerContent(Locale::languageEng('add_new_record', 'title'), 1);
+		$template = Indexes::headerContent(Locale::languageEng('add_new_client', 'title'), 1);
 
 		/**
 		 * Create css or/and javascript content
@@ -57,7 +57,7 @@ class AddNewRecord extends Templating {
 
 		$form_plugin = Config::dataArray('jquery_lib', 'path').Config::dataArray('jquery_lib', 'form_plugin');
 
-		$add_new_record = Config::dataArray('javascript', 'path').Config::dataArray('javascript', 'add_new_record');
+		$add_new_record = Config::dataArray('javascript', 'path').Config::dataArray('javascript', 'add_new_client');
 
 		$js = array(
 			"$jquery",
@@ -72,36 +72,36 @@ class AddNewRecord extends Templating {
 		 * Create authorization content
 		 */
 		$params = array(
-			"page_name"		=> Locale::languageEng('add_new_record', 'page_name'),
-			"first_name"		=> Locale::languageEng('add_new_record', 'first_name'),
-			"last_name"		=> Locale::languageEng('add_new_record', 'last_name'),
-			"email"			=> Locale::languageEng('add_new_record', 'email'),
-			"country"		=> Locale::languageEng('add_new_record', 'country'),
+			"page_name"		=> Locale::languageEng('add_new_client', 'page_name'),
+			"first_name"		=> Locale::languageEng('add_new_client', 'first_name'),
+			"last_name"		=> Locale::languageEng('add_new_client', 'last_name'),
+			"email"			=> Locale::languageEng('add_new_client', 'email'),
+			"country"		=> Locale::languageEng('add_new_client', 'country'),
 			"country_array"		=> BookListModel::getAllCountriesFromDB(),
-			"city"			=> Locale::languageEng('add_new_record', 'city'),
+			"city"			=> Locale::languageEng('add_new_client', 'city'),
 			"empty_option"		=> Locale::languageEng('book_list', 'empty_option'),
-			"photo"			=> Locale::languageEng('add_new_record', 'photo'),
+			"photo"			=> Locale::languageEng('add_new_client', 'photo'),
 			"image_path"		=> Config::dataArray('errors', 'image'),
-			"notes"			=> Locale::languageEng('add_new_record', 'notes'),
+			"notes"			=> Locale::languageEng('add_new_client', 'notes'),
 			"save"			=> Locale::languageEng('add_admin', 'save'),
-			"reset"			=> Locale::languageEng('add_new_record', 'reset'),
-			"back_to_book_list"	=> Locale::languageEng('add_new_record', 'back_to_book_list'),
-			"error_empty_f_n"	=> Locale::languageEng('add_new_record', 'error_required_f_n'),
-			"error_min_length_f_n"	=> Locale::languageEng('add_new_record', 'error_min_length_f_n'),
-			"error_max_length_f_n"	=> Locale::languageEng('add_new_record', 'error_max_length_f_n'),
-			"error_empty_l_n"	=> Locale::languageEng('add_new_record', 'error_required_l_n'),
-			"error_min_length_l_n"	=> Locale::languageEng('add_new_record', 'error_min_length_l_n'),
-			"error_max_length_l_n"	=> Locale::languageEng('add_new_record', 'error_max_length_l_n'),
-			"error_empty_email"	=> Locale::languageEng('add_new_record', 'error_required_email'),
-			"error_min_length_email"=> Locale::languageEng('add_new_record', 'error_min_length_email'),
-			"error_max_length_email"=> Locale::languageEng('add_new_record', 'error_max_length_email'),
-			"error_incorect_email"	=> Locale::languageEng('add_new_record', 'error_incorect_email'),
-			"error_empty_country"	=> Locale::languageEng('add_new_record', 'error_empty_country'),
-			"error_empty_city"	=> Locale::languageEng('add_new_record', 'error_empty_city'),
-			"error_upload_photo"	=> Locale::languageEng('add_new_record', 'error_upload_photo'),
-			"error_image_size"	=> Locale::languageEng('add_new_record', 'error_image_size'),
-			"error_image_extension"	=> Locale::languageEng('add_new_record', 'error_image_extension'),
-			"add_good_message"	=> Locale::languageEng('add_new_record', 'add_good_message'),
+			"reset"			=> Locale::languageEng('add_new_client', 'reset'),
+			"back_to_book_list"	=> Locale::languageEng('add_new_client', 'back_to_book_list'),
+			"error_empty_f_n"	=> Locale::languageEng('add_new_client', 'error_required_f_n'),
+			"error_min_length_f_n"	=> Locale::languageEng('add_new_client', 'error_min_length_f_n'),
+			"error_max_length_f_n"	=> Locale::languageEng('add_new_client', 'error_max_length_f_n'),
+			"error_empty_l_n"	=> Locale::languageEng('add_new_client', 'error_required_l_n'),
+			"error_min_length_l_n"	=> Locale::languageEng('add_new_client', 'error_min_length_l_n'),
+			"error_max_length_l_n"	=> Locale::languageEng('add_new_client', 'error_max_length_l_n'),
+			"error_empty_email"	=> Locale::languageEng('add_new_client', 'error_required_email'),
+			"error_min_length_email"=> Locale::languageEng('add_new_client', 'error_min_length_email'),
+			"error_max_length_email"=> Locale::languageEng('add_new_client', 'error_max_length_email'),
+			"error_incorect_email"	=> Locale::languageEng('add_new_client', 'error_incorect_email'),
+			"error_empty_country"	=> Locale::languageEng('add_new_client', 'error_empty_country'),
+			"error_empty_city"	=> Locale::languageEng('add_new_client', 'error_empty_city'),
+			"error_upload_photo"	=> Locale::languageEng('add_new_client', 'error_upload_photo'),
+			"error_image_size"	=> Locale::languageEng('add_new_client', 'error_image_size'),
+			"error_image_extension"	=> Locale::languageEng('add_new_client', 'error_image_extension'),
+			"add_good_message"	=> Locale::languageEng('add_new_client', 'add_good_message'),
 		);
 
 		/**
@@ -221,7 +221,7 @@ class AddNewRecord extends Templating {
 					"image_height"	=> $this -> NewHeight,
 					"image_width"	=> $this -> NewWidth,					
 					"image_alt"	=> Locale::languageEng('add_new_record', 'thumbnail_photo'),
-					"image_id"	=> AddNewRecordModel::insertPhotoNameInDb($RandomNumber.'.'.$ImageExt, $this -> NewHeight, $this -> NewWidth, Locale::languageEng('add_new_record', 'thumbnail_photo'))
+					"image_id"	=> AddNewClientModel::insertPhotoNameInDb($RandomNumber.'.'.$ImageExt, $this -> NewHeight, $this -> NewWidth, Locale::languageEng('add_new_record', 'thumbnail_photo'))
 
 				);
 
@@ -266,11 +266,11 @@ class AddNewRecord extends Templating {
 	 *
 	 * @return string $tempalate	This is source add new record tempalate
 	 */
-	public function addNewClient($first_name, $last_name, $email, $country, $city, $photo_id = '', $notes = '') {
+	public function addClient($first_name, $last_name, $email, $country, $city, $photo_id = '', $notes = '') {
 
 		return json_encode(
 			array(
-				"flag" => AddNewRecordModel::insertNewClientInDb($first_name, $last_name, $email, $country, $city, $photo_id, $notes)
+				"flag" => AddNewClientModel::insertNewClientInDb($first_name, $last_name, $email, $country, $city, $photo_id, $notes)
 			)
 		);
 	}

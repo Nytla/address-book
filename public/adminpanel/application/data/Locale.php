@@ -165,9 +165,11 @@ class Locale {
 				"country_word"		=> "Country",
 				"city_word"		=> "City",
 				"empty_option"		=> '::ALL::',
-				"add_new_record"	=> 'Add New Record',
+				"add_new_client"	=> 'Add New Client',
 				"back_to_page_layout"	=> 'Back to the Page Layout',
 				"preloader_alt_text"	=> 'Loading...',
+				"details_open"		=> 'Details open',
+				"details_close"		=> 'Details close',
 				"record_edit"		=> 'Edit',
 				"record_delete"		=> 'Delete'
 
@@ -180,10 +182,10 @@ class Locale {
 
 			),
 
-			"add_new_record"=> array(
+			"add_new_client"=> array(
 
-				"title"			=> 'Admin: Add New Record',
-				"page_name"		=> 'Add New Record',
+				"title"			=> 'Admin: Add New Client',
+				"page_name"		=> 'Add New Client',
 				"first_name"		=> 'First Name:',
 				"last_name"		=> 'Last Name:',
 				"email"			=> 'Email:',
@@ -214,7 +216,7 @@ class Locale {
 
 			),
 
-			"edit_record"	=> array(
+			"edit_client"	=> array(
 
 				"title"			=> 'Admin: Edit Record',
 				"edit_good_message"	=> 'Client data successfully changed.',

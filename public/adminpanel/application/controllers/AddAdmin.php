@@ -98,18 +98,16 @@ class AddAdmin extends Templating {
 	 */
 	public function adminRegister($login = '', $password = '') {
 
-		if(!preg_match("/^[a-zA-Z0-9_-]+$/", $login) or !preg_match("/^[a-zA-Z0-9_-]+$/", $password)) {
+		/**
+		 * Validate administrator login
+		 */
+		if (ValidateData::filterValidate($login, ValidateData::DATA_REGEXP, ValidateData::$_regex_login) or ValidateData::filterValidate($password, ValidateData::DATA_REGEXP, ValidateData::$_regex_password)) {
 
+			return json_encode(array('validate' => AddAdminModel::addAdminToDB($login, $password)));
+
+		} else {
 			return json_encode(array('validate' => false));
 		}
-
-		if (AddAdminModel::checkAdminExist($login)) {
-
-			return json_encode(array('validate' => false));
-		} else {
-
-			return json_encode(array('validate' => AddAdminModel::addAdminToDB($password)));
-		}	
 	}
 }
 ?>
