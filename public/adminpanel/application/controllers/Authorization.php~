@@ -87,6 +87,7 @@ class Authorization extends Templating {
 			'login_button'		=> Locale::languageEng('authorization', 'login_button'),
 			"error_incorect"	=> Locale::languageEng('authorization', 'error_incorect'),
 			"error_empty"		=> Locale::languageEng('authorization', 'error_empty'),
+			"error_capcha"		=> Locale::languageEng('authorization', 'error_capcha')
 		);
 
 		/**
@@ -157,6 +158,17 @@ class Authorization extends Templating {
 				return json_encode(array('validate' => true, 'redirect_file' => Config::dataArray('redirect_page', 'layout')));
 
 			} else {
+
+				/**
+				 * Write access log
+				 */
+				$parameters = array(
+
+					"login"		=> $admin_login,
+					"password"	=> $admin_password
+				);
+
+				Access::writeAccessLog($parameters);
 
 				return json_encode(array('validate' => false, 'redirect_file' => Config::dataArray('redirect_page', 'index')));
 			}
@@ -345,13 +357,6 @@ class Authorization extends Templating {
 		 * Return code or false
 		 */
 		return (isset($code)) ? $code : false;
-/*
-		if ($code) {
-			return $code;
-		} else {
-			return false;
-		}
-*/
 	}
 }
 ?>

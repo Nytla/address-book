@@ -107,10 +107,11 @@ class Config {
 
 			"errors"	=> array(
 
-				"path"		=> $root_path.'/application/data/errors.log',
+				"path_error"	=> $root_path.'/application/data/errors.log',
+				"path_access"	=> $root_path.'/application/data/access.log'
 				"image"		=> '/adminpanel/public/images/',
 				"page_error"	=> 'error.php'
-
+				
 			),
 
 			"redirect_page"	=> array(
@@ -164,7 +165,7 @@ class Config {
 				"add_admin"	=> 'add_admin.html',
 				"book_list"	=> 'book_list.html',
 				"add_new_record"=> 'add_new_client.html',
-				"edit_record"	=> 'edit_record.html'
+				"edit_client"	=> 'edit_client.html'
 			)
 
 		);

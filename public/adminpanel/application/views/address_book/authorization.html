@@ -10,14 +10,18 @@
 					<form method="post" name="authForm" id="authForm" action="">
 						<p>
 							<label for="login">{{ login }}</label><br>
-							<input id="login" type="text" name="valueLogin" class="text" maxlength="16" />
+							<input id="login" type="text" name="valueLogin" value="" class="text" maxlength="16">
 						</p>
 						<p>
 							<label for="pass">{{ password }}</label><br>
-							<input id="pass" type="password" name="valuePass" class="text" maxlength="16" />
+							<input id="pass" type="password" name="valuePass" value="" class="text" maxlength="16">
 						</p>
-							<div id="error" class="hide">{{ error_incorect }}</div>
+						<p>
+							<input id="hide" type="hidden" name="valueHide" value="" class="text" maxlength="16">
+						</p>
 							<div id="error_empty" class="hide">{{ error_empty }}</div>
+							<div id="error_incorect" class="hide">{{ error_incorect }}</div>		
+							<div id="error_capcha" class="hide">{{ error_capcha }}</div>							
 						<p>
 							<input id="loginButton" type="submit" value="{{ login_button }}">
 						</p>

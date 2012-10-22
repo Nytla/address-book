@@ -141,9 +141,18 @@ class PHP_Exceptionizer_Catcher {
 	 * Get text type of error
 	 */
 	$types = array(
-		"E_ERROR", "E_WARNING", "E_PARSE", "E_NOTICE", "E_CORE_ERROR",
-		"E_CORE_WARNING", "E_COMPILE_ERROR", "E_COMPILE_WARNING",
-		"E_USER_ERROR", "E_USER_WARNING", "E_USER_NOTICE", "E_STRICT",
+		"E_ERROR", 
+		"E_WARNING", 
+		"E_PARSE", 
+		"E_NOTICE", 
+		"E_CORE_ERROR",
+		"E_CORE_WARNING", 
+		"E_COMPILE_ERROR", 
+		"E_COMPILE_WARNING",
+		"E_USER_ERROR", 
+		"E_USER_WARNING", 
+		"E_USER_NOTICE", 
+		"E_STRICT",
 	);
 	
 	/**
@@ -178,7 +187,7 @@ abstract class PHP_Exceptionizer_Exception extends Exception {
 	/**
 	 * _path_error_log
 	 * 
-	 * @var string This is path to errors log
+	 * @var string	This is path to errors log
 	 */
 	private $_path_error_log;
 
@@ -187,7 +196,7 @@ abstract class PHP_Exceptionizer_Exception extends Exception {
 	 *
 	 * This constructor initialize parent constructor from Exception class
 	 */
-	public function __construct($no=0, $str=null, $file=null, $line=0) {
+	public function __construct($no = 0, $str = null, $file = null, $line = 0) {
 
 		parent::__construct($str, $no);
 		
@@ -213,11 +222,11 @@ abstract class PHP_Exceptionizer_Exception extends Exception {
 			
 			$date = date("Y-m-d H:i:s (TZ)");
 			
-			$this -> _path_error_log = Config::dataArray('errors', 'path');
+			$this -> _path_error_log = Config::dataArray('errors', 'path_error');
 
-			$f = fopen($this -> _path_error_log, 'a');
+			$open = fopen($this -> _path_error_log, 'a');
 
-			if (!empty($f) and $this -> code) {
+			if (!empty($open) and $this -> code) {
 
 				$err = "<error>\r\n";
 				$err .= "	<date>$date</date>\r\n";
@@ -227,11 +236,11 @@ abstract class PHP_Exceptionizer_Exception extends Exception {
 				$err .= "	<linenum>".$this -> line."</linenum>\r\n";
 				$err .= "</error>\r\n";
 
-				flock($f, LOCK_EX);
+				flock($open, LOCK_EX);
 
-				fwrite($f, $err);
+				fwrite($open, $err);
 
-				flock($f, LOCK_UN);
+				flock($open, LOCK_UN);
 			}
 		}
 	}

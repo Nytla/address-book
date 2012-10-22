@@ -40,4 +40,3 @@ $AuthorizationController = new Authorization();
  */
 print $AuthorizationController -> validateAuth($_REQUEST['login'], $_REQUEST['password']);
 ?>
-

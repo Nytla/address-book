@@ -107,10 +107,11 @@ class Config {
 
 			"errors"	=> array(
 
-				"path"		=> $root_path.'/application/data/errors.log',
+				"path_error"	=> $root_path.'/application/data/errors.log',
+				"path_access"	=> $root_path.'/application/data/access.log',
 				"image"		=> '/adminpanel/public/images/',
 				"page_error"	=> 'error.php'
-
+				
 			),
 
 			"redirect_page"	=> array(

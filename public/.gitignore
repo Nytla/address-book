@@ -17,6 +17,10 @@
 *.sql
 *.sqlite
 
+# Icons and images #
+######################
+adminpanel/public/images/*/*
+
 # OS generated files #
 ######################
 .DS_Store

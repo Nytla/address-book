@@ -60,6 +60,19 @@ class Errors extends Templating {
 
 				break;
 
+			case ValidateData::filterValidate($error, ValidateData::DATA_INT):
+
+				$params = array(
+					"site_url"		=> Config::dataArray('server', 'slash').Config::dataArray('paths', 'adminpanel'),
+					"site_name"		=> Locale::languageEng('site', 'name'),			
+					"page_error"		=> Locale::languageEng('errors', 'page_error'),
+					"error_description"	=> Locale::languageEng('errors', $error),
+					"image"			=> Config::dataArray('errors', 'image')
+				);
+
+				break;
+
+/*
 			case '400':
 
 				$params = array(
@@ -143,7 +156,7 @@ class Errors extends Templating {
 				);
 				
 				break;
-
+*/
 			default:
 
 				$params = array(

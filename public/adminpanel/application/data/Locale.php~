@@ -122,7 +122,8 @@ class Locale {
 				"password"		=> 'Password:',
 				"login_button"		=> 'Login',
 				"error_incorect"	=> 'Login or password is incorrect!',
-				"error_empty"		=> 'Login or password is empty!'
+				"error_empty"		=> 'Login or password is empty!',
+				"error_capcha"		=> 'You did not validate captcha.'
 
 			),
 
@@ -185,7 +186,7 @@ class Locale {
 			"add_new_client"=> array(
 
 				"title"			=> 'Admin: Add New Client',
-				"page_name"		=> 'Add New Record',
+				"page_name"		=> 'Add New Client',
 				"first_name"		=> 'First Name:',
 				"last_name"		=> 'Last Name:',
 				"email"			=> 'Email:',

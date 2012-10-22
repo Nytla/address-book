@@ -7,38 +7,53 @@
  */
 $(document).ready(function() {
 
-	/**
-	 * Hide errors messages
-	 */
+	//Hide errors messages
 	$("[name ^= 'value']").keypress(function() {
-	
-		$('#error').removeClass().addClass("hide");
 		
 		$('#error_empty').removeClass().addClass("hide");
+
+		$('#error_incorect').removeClass().addClass("hide");
+
+		$('#error_capcha').removeClass().addClass("hide");
 	});
 
-	/**
-	 * Submit authorization form on Ajax
-	 */
+	//Submit authorization form on Ajax
 	$("#authForm").submit(function() {
 
-		//Validate login
-		var reg_login = /([^А-Яа-яA-Za-z0-9])/gi;
-		
-		var login = $("#login").val().replace(reg_login, "");
+		//Set variables
+		var login = $("#login").val();
 
-		//Validate password
-		var reg_pass = /([^А-Яа-яA-Za-z0-9_-])/gi;
-		
-		var password = $("#pass").val().replace(reg_pass, "");
+		var password = $("#pass").val();
 
 		//If login or password is empty than return error message
 		if(login == '' || password == '') {
+
 			$('#error_empty').removeClass().addClass("error");
 			
 			return false;
 		}
 
+		//Validate login
+		var reg_login = /([^А-Яа-яA-Za-z])/gi;
+		
+		var login = login.replace(reg_login, "");
+
+		var hidden = $("#hide").val();
+
+		//Validate password
+		var reg_pass = /([^А-Яа-яA-Za-z0-9_-])/gi;
+		
+		var password = password.replace(reg_pass, "");
+
+		//If input hidden was introduced then view error 
+		if (hidden != '') {
+
+			$('#error_capcha').removeClass().addClass("error");
+
+			return false;
+		}
+
+		//Ajax request
 		$.ajax({  
 			type: "POST",
 			dataType: "json",
@@ -52,7 +67,7 @@ $(document).ready(function() {
 
 				if(object.validate == false) {
 
-					$('#error').removeClass().addClass("error");
+					$('#error_incorect').removeClass().addClass("error");
 				} else {
 
 					var url = object.redirect_file;
