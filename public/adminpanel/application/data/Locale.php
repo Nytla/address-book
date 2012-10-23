@@ -32,6 +32,9 @@ class Locale {
 	 */
 	static public function languageEng($option, $flag) {
 
+		/**
+		 * Create array with our data
+		 */
 		$data = array(
 			"site"		=> array(
 
@@ -171,8 +174,8 @@ class Locale {
 				"preloader_alt_text"	=> 'Loading...',
 				"details_open"		=> 'Details open',
 				"details_close"		=> 'Details close',
-				"record_edit"		=> 'Edit',
-				"record_delete"		=> 'Delete'
+				"client_edit"		=> 'Edit',
+				"client_delete"		=> 'Delete'
 
 			),
 
@@ -199,10 +202,10 @@ class Locale {
 				"reset"			=> 'Reset',
 				"back_to_book_list"	=> 'Back to the Address Book',
 				"error_required_f_n"	=> 'First Name is required!',
-				"error_min_length_f_n"	=> 'First Name must be at least 5 characters long!',
+				"error_min_length_f_n"	=> 'First Name must be at least 2 characters long!',
 				"error_max_length_f_n"	=> 'First Name should contain no more than 16 characters!',
 				"error_required_l_n"	=> "Last Name is required!",
-				"error_min_length_l_n"	=> 'Last Name must be at least 5 characters long!',
+				"error_min_length_l_n"	=> 'Last Name must be at least 2 characters long!',
 				"error_max_length_l_n"	=> 'Last Name should contain no more than 16 characters!',
 				"error_required_email"	=> 'Email address is required!',
 				"error_min_length_email"=> 'Email address must be at least 5 characters long!',
@@ -213,24 +216,24 @@ class Locale {
 				"error_upload_photo"	=> 'Please upload your photo!',
 				"error_image_size"	=> 'File is larger than 1 Mb!',
 				"error_image_extension"	=> 'The downloaded image is not supported!',
+				"error_image_resize"	=> 'Image resize error (maybe file is small).',
+				"mess_max_length_notes" => '(1500 characters max.)',
 				"add_good_message"	=> 'The new client has been added to the database.'
 
 			),
 
 			"edit_client"	=> array(
 
-				"title"			=> 'Admin: Edit Record',
+				"title"			=> 'Admin: Edit Client',
 				"edit_good_message"	=> 'Client data successfully changed.',
 				"edit_bad_message"	=> 'Customer data were not recorded due to technical reasons.'
 
 			)
-
-
-
-
-
 		);
 
+		/**
+		 * Return our data
+		 */
 		return $data[$option][$flag];
 	}
 }

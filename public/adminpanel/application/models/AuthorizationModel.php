@@ -1,10 +1,4 @@
 <?php
-//http://www.pcre.ru/docs/apache/text/modrewrite-1/
-//http://i-novice.net/oop-nasledovanie-klassov-v-php/
-//http://ru.wikibooks.org/wiki/%D0%9E%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%BD%D0%BE-%D0%BE%D1%80%D0%B8%D0%B5%D0%BD%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D0%BE%D0%B5_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5
-
-
-
 /**
  * Adress Book Model
  * 
@@ -52,7 +46,7 @@ class AuthorizationModel extends PDOMysqlConnect {
 	 *
 	 * This function get authorization data from Database
 	 *
-	 * @return array $data	This is authorization data from Database
+	 * @return array $data_array	This is authorization data from Database
 	 */
 	static public function getAuthDataById() {
 
@@ -92,7 +86,8 @@ class AuthorizationModel extends PDOMysqlConnect {
 	 *
 	 * This function get authorization data from Database
 	 *
-	 * @return array $data	This is authorization data from Database
+	 * @param string $admin_login
+	 * @return array / boolean
 	 */
 	static public function getAuthDataByLogin($admin_login = '') {
 
@@ -132,7 +127,9 @@ class AuthorizationModel extends PDOMysqlConnect {
 	 *
 	 * This function update administrator hash from Database
 	 *
-	 * @return array $data	This is authorization data from Database
+	 * @param string $admin_id
+	 * @param string $hash
+	 * @return boolean
 	 */
 	static public function updateHash($admin_id = '', $hash = '') {
 

@@ -1,11 +1,4 @@
 <?php
-//http://habrahabr.ru/post/13726/
-//http://programmer-weekdays.ru/archives/125
-//http://docstore.mik.ua/orelly/webprog/pcook/ch08_11.htm
-//http://raza.narfum.org/post/1/user-authentication-with-a-secure-cookie-protocol-in-php/
-		
-
-
 /**
  * Adress Book Controller
  * 
@@ -51,7 +44,7 @@ class Authorization extends Templating {
 	/**
 	 * makeAuth
 	 *
-	 * This function make authorization
+	 * This function make authorization form
 	 *
 	 * @return string $tempalate	This is source authorization tempalate
 	 */
@@ -108,7 +101,9 @@ class Authorization extends Templating {
 	 *
 	 * This function check authorization
 	 *
-	 * @return string $tempalate	This is source authorization tempalate
+	 * param string $admin_login
+	 * param string $admin_password
+	 * @return object
 	 */
 	public function validateAuth($admin_login = '', $admin_password = '') {
 
@@ -194,7 +189,7 @@ class Authorization extends Templating {
 	 *
 	 * This function check authorization
 	 *
-	 * @return string $tempalate	This is source authorization tempalate
+	 * @return boolean
 	 */
 	private function checkAuth() {
 
@@ -345,10 +340,14 @@ class Authorization extends Templating {
 	 *
 	 * This function generate hash
 	 *
-	 * @return string $tempalate	This is source authorization tempalate
+	 * param integer $length
+	 * @return string / boolean
 	 */
 	private function hashGenerator($length = 6) {
 
+		/**
+		 * Create variable with characters
+		 */
 		$chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRQSTUVWXYZ0123456789';
 		
 		$chars_length = strlen($chars);

@@ -34,5 +34,5 @@ $EditClientController = new EditClient();
 /**
  * Print our address book
  */
-print $EditClientController -> makeFromEditRecord();
+print $EditClientController -> makeFromEditClient();
 ?>

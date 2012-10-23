@@ -4,11 +4,11 @@
  * 
  * resize_photo.php
  *
- * This is ajax file which resize client's photo
+ * This is ajax file which resize client photo
  * 
  * @category	ajax
  * @copyright	2012
- * @author	Igor Zhabskiy  <Zhabskiy.Igor@googlemail.com>
+ * @author	Igor Zhabskiy <Zhabskiy.Igor@googlemail.com>
  */
 
 /**
@@ -27,12 +27,12 @@ $AccessController = new Access();
 $AccessController -> httpRequested();
 
 /**
- * Create copy of AddNewRecord class
+ * Create copy of AddNewClient class
  */
-$AddNewRecordController = new AddNewClient();
+$AddNewClientController = new AddNewClient();
 
 /**
  * Get resized image
  */
-print $AddNewRecordController -> getImageClients($_FILES);
+print $AddNewClientController -> getImageClients($_FILES);
 ?>

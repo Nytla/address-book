@@ -8,7 +8,7 @@
  * 
  * @category	ajax
  * @copyright	2012
- * @author	Igor Zhabskiy  <Zhabskiy.Igor@googlemail.com>
+ * @author	Igor Zhabskiy <Zhabskiy.Igor@googlemail.com>
  */
 
 /**
@@ -35,3 +35,4 @@ $BookListController = new BookList();
  * Get cities from DB
  */
 print $BookListController -> getCities($_REQUEST['country_id']);
+?>

@@ -1,7 +1,3 @@
-//Regexp - http://seoromin.com.ua/topic/109_regulyarnye-vyrazheniya-v-jquery/
-
-
-
 /**
  * Validate authorization form
  */

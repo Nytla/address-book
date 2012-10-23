@@ -14,7 +14,7 @@
 /**
  * EditClientModel
  * 
- * This is administrator address book list class
+ * This is administrator address book edit client record class
  * 
  * @version 0.1
  */
@@ -51,9 +51,10 @@ class EditClientModel extends PDOMysqlConnect {
 	/**
 	 * getClientDataFromDB
 	 *
-	 * This function make address book list
+	 * This function get client data from DB
 	 *
-	 * @return string $tempalate	This is source address book tempalate
+	 * @param string $edit_id
+	 * @return array 
 	 */
 	public function getClientDataFromDB($edit_id) {
 
@@ -105,9 +106,10 @@ class EditClientModel extends PDOMysqlConnect {
 	/**
 	 * updateClientDataInDB
 	 *
-	 * This function make address book list
+	 * This function update client data in DB
 	 *
-	 * @return string $tempalate	This is source address book tempalate
+	 * @param array $client_data_array
+	 * @return boolean
 	 */
 	public function updateClientDataInDB($client_data_array) {
 
@@ -124,10 +126,6 @@ class EditClientModel extends PDOMysqlConnect {
 		/**
 		 * Update client data in DB
 		 */
-		//$update_data = self::dbConnect() -> exec("UPDATE " . self::$_DB_table_name . "  SET `admin_hash` = '" . mysql_escape_string($hash) . "' WHERE `admin_id` = '" . $admin_id . "' ");
-
-		//return ($update) ? true : false;
-
 		$update_data = self::dbConnect() -> exec("
 			UPDATE " . self::$_DB_table_name_clients . "
 			SET

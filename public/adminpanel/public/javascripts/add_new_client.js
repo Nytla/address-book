@@ -1,9 +1,3 @@
-//Ajax Image Upload with Progressbar with jQuery and PHP - http://www.saaraan.com/2012/05/ajax-image-upload-with-progressbar-with-jquery-and-php
-//Demo - http://www.saaraan.com/assets/ajax-image-upload-progressbar/
-//ajaxForm - http://www.malsup.com/jquery/form/#options-object
-//http://www.datatables.net/release-datatables/examples/server_side/server_side.html
-
-
 /**
  * Add new rule (function) in jQuery validade plugin for login
  */
@@ -91,13 +85,14 @@ $(document).ready(function() {
 			first_name: {
 				required: true,
 				lettersonly: true,
-				minlength: 5,
+				minlength: 2,
 				maxlength: 16
 			},
 
 			last_name: {
 				required: true,
-				minlength: 5,
+				lettersonly: true,
+				minlength: 2,
 				maxlength: 16
 			},
 
@@ -118,7 +113,6 @@ $(document).ready(function() {
 			image_file: {
 				required: true
 			}
-
 		},
 
 		messages: {
@@ -179,7 +173,6 @@ $(document).ready(function() {
 			$.ajaxes(object_options);
 
 			return false;
-
 		}
 
 	});
@@ -214,8 +207,6 @@ $(document).ready(function() {
 			cache: false,
 			data: object_options.data,
 			success: function(object) {
-
-				//console.log(object_options.module);
 
 				switch(object_options.module) {
 
@@ -276,6 +267,9 @@ $(document).ready(function() {
 				$("#error_image_size").addClass('hide');
 
 				$("#error_image_extension").addClass('hide');
+
+				$("#error_image_resize").addClass('hide');
+
 			},
 			complete: function() {
 
@@ -286,8 +280,6 @@ $(document).ready(function() {
 				$("#preloader").slideUp();
 			},
 			success: function(object) {
-
-				console.log(object.error);
 
 				switch (object.error) {
 
@@ -310,6 +302,18 @@ $(document).ready(function() {
 
 						//Show error message
 						$("#error_image_extension")
+							.removeClass('hide')
+							.addClass('error');
+
+					break;
+
+					case 'resize':
+
+						//Hide downloaded image from preview
+						$("#preview_photo").css('display', 'none');
+
+						//Show error message
+						$("#error_image_resize")
 							.removeClass('hide')
 							.addClass('error');
 

@@ -1,24 +1,4 @@
 <?php
-////////////////////////////////////////////////////
-/*
-	//Example
-	try {
-
-		fopen("spoon", "r");	
-
-	} catch(E_WARNING $object) {
-	} catch(E_NOTICE $object) {
-
-		echo "<div><b>Перехвачена ошибка!</b>\n", $e, "</div>";
-
-		//Redirect::uriRedirect(404);
-
-	}
-*/
-////////////////////////////////////////////////////
-
-
-
 /**
  * Adress Book Controller
  * 
@@ -244,6 +224,13 @@ abstract class PHP_Exceptionizer_Exception extends Exception {
 			}
 		}
 	}
+
+	/**
+	 * Destructor
+	 *
+	 * This is destructor close open .log file
+	 */
+	public function __destruct() {}
 }
 
 /**
@@ -270,4 +257,23 @@ class AboveE_USER_WARNING extends AboveE_USER_NOTICE {}
 class E_USER_WARNING extends AboveE_USER_WARNING {}
 class AboveE_USER_ERROR extends AboveE_USER_WARNING {}
 class E_USER_ERROR extends AboveE_USER_ERROR {}
+
+/**
+ * Example Start
+
+	try {
+
+		fopen("spoon", "r");	
+
+	} catch(E_WARNING $object) {
+	} catch(E_NOTICE $object) {
+
+		echo "<div><b>Перехвачена ошибка!</b>\n", $e, "</div>";
+
+		//Redirect::uriRedirect(404);
+
+	}
+
+ * Example FINISH
+ */
 ?>

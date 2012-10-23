@@ -1,14 +1,10 @@
 <?php
-//http://net.tutsplus.com/tutorials/php/why-you-should-be-using-phps-pdo-for-database-access/
-
-
-
 /**
  * Adress Book Model
  * 
  * PDOMysqlConnect.php
  *
- * This is administrator authorization file
+ * This is administrator PDO MYSQL file
  * 
  * @category	models
  * @copyright	2012
@@ -18,7 +14,7 @@
 /**
  * PDOMysqlConnect
  * 
- * This is administrator authorization class
+ * This is administrator PDO MYSQL Connect class
  * 
  * @version 0.1
  */

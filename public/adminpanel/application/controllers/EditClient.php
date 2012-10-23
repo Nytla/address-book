@@ -21,13 +21,13 @@
 class EditClient extends Templating {
 
 	/**
-	 * makeFromEditRecord
+	 * makeFromEditClient
 	 *
 	 * This function make address book list
 	 *
-	 * @return string $tempalate	This is source address book tempalate
+	 * @return string $tempalate	This is source of edit client form tempalate
 	 */
-	public function makeFromEditRecord() {
+	public function makeFromEditClient() {
 
 		/**
 		 * Create header content
@@ -87,6 +87,7 @@ class EditClient extends Templating {
 			"error_upload_photo"	=> Locale::languageEng('add_new_client', 'error_upload_photo'),
 			"error_image_size"	=> Locale::languageEng('add_new_client', 'error_image_size'),
 			"error_image_extension"	=> Locale::languageEng('add_new_client', 'error_image_extension'),
+			"mess_max_length_notes" => Locale::languageEng('add_new_client', 'mess_max_length_notes'),
 			"edit_good_message"	=> Locale::languageEng('edit_client', 'edit_good_message'),
 			"edit_bad_message"	=> Locale::languageEng('edit_client', 'edit_bad_message')
 		);
@@ -112,9 +113,10 @@ class EditClient extends Templating {
 	/**
 	 * destributorData
 	 *
-	 * This function 
+	 * This function is destributor for clients data
 	 *
-	 * @return string $tempalate
+	 * @param array $client_data_array
+	 * @return array / object
 	 */
 	public function destributorData($client_data_array) {
 
@@ -142,7 +144,7 @@ class EditClient extends Templating {
 	 *
 	 * This function get client data
 	 *
-	 * @return string $tempalate	This is source address book tempalate
+	 * @return json
 	 */
 	private function getClientData($client_id) {
 		return json_encode(EditClientModel::getClientDataFromDB($client_id));
@@ -153,7 +155,7 @@ class EditClient extends Templating {
 	 *
 	 * This function update client data
 	 *
-	 * @return string $tempalate	This is source address book tempalate
+	 * @return json
 	 */
 	private function updateClientData($client_data_array) {
 

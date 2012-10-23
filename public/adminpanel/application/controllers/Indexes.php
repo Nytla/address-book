@@ -25,6 +25,8 @@ class Indexes extends Templating {
 	 * 
 	 * This function print header template
 	 * 
+	 * @param string $title
+	 * @param integer $flag
 	 * @return string $tempalate	This is source header tempalate
 	 */
 	static public function headerContent($title = '', $flag_blue_print = 0) {

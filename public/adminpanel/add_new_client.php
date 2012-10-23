@@ -4,7 +4,7 @@
  * 
  * add_new_record.php
  *
- * This is page which add new administrator
+ * This is page which add new client record
  * 
  * @category	Main
  * @copyright	2012

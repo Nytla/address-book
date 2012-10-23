@@ -3,21 +3,23 @@
 				<h2>{{ page_name }}</h2>
 			</div>
 			<br>
+			<!-- Add New Client Record Forms START -->
 			<div id="auth_content" class="span-16 prepend-4 append-0">
 				<fieldset>
+					
 					<div id="forms_content" class="prepend-2">
 						<form action="" method="post" id="InformationForm">
 							<div>
 								<label for="first_name">{{ first_name }}</label>
-								<input type="text" name="first_name" id="first_name" class="text" minlength="5" maxlength="16">
+								<input type="text" name="first_name" id="first_name" class="text" maxlength="16">
 							</div>
 							<div>
 								<label for="last_name">{{ last_name }}</label>
-								<input type="text" name="last_name" id="last_name" class="text" minlength="5" maxlength="16">
+								<input type="text" name="last_name" id="last_name" class="text" maxlength="16">
 							</div>
 							<div>
 								<label for="email">{{ email }}</label>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="email" id="email" class="text" minlength="5" maxlength="16">
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="email" id="email" class="text" maxlength="16">
 							</div>
 							<div>
 								<label for="country">{{ country }}</label>
@@ -49,17 +51,14 @@
 							</div>
 							<div id="error_image_size" class="hide">{{ error_image_size }}</div>
 							<div id="error_image_extension" class="hide">{{ error_image_extension }}</div>
+							<div id="error_image_resize" class="hide">{{ error_image_resize }}</div>
 							<div id="preview_photo" class="prepend-2 hide"></div>
 						</form>
-
-
-
-
 						<form action="" method="post" id="NotesForm">	
 							<p>
-								<label for="notes">{{ notes }}</label>
+								<label for="notes">{{ notes }} {{ mess_max_length_notes }}</label>
 								<br>
-								<textarea cols="20" rows="5" name="notes" id="notes" class="text"></textarea>
+								<textarea cols="20" rows="5" name="notes" id="notes" class="text" maxlength="1500"></textarea>
 							</p>
 							
 							<div class="span-8 prepend-3">
@@ -80,13 +79,13 @@
 							<div id="error_empty_country" class="hide">{{ error_empty_country }}</div>
 							<div id="error_empty_city" class="hide">{{ error_empty_city }}</div>
 							<div id="error_upload_photo" class="hide">{{ error_upload_photo }}</div>
-							
 						</form>
 
 					</div>
 					<div id="add_good_message" class="hide">{{ add_good_message }}</div>
 				</fieldset>
 			</div>
+			<!-- Add New Client Record Forms FINISH -->
 			<br>
 			<div class="span-10 prepend-9 append-0 last">
 				<h3><a href="{{ site_url }}book_list.php">{{ back_to_book_list }}</a></h3>

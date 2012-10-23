@@ -20,19 +20,68 @@
  */
 class AddNewClient extends Templating {
 
+	/**
+	 * _thumb_max_width
+	 * 
+	 * @var integer	This is max width for thumbnail image
+	 */
+	private $_thumb_max_width = 300;
 
 	/**
-	 * _path_to_template
+	 * _thumb_max_height
 	 * 
-	 * @var string This is path to template file
+	 * @var integer	This is max height for thumbnail image
 	 */
-	private static $_path_to_template;
+	private $_thumb_max_height = 300;
 
+	/**
+	 * _big_image_max_width
+	 * 
+	 * @var integer	This is max width for big image
+	 */
+	private $_big_image_max_width = 500;
 
+	/**
+	 * _big_image_max_height
+	 * 
+	 * @var integer	This is max height for big image
+	 */
+	private $_big_image_max_height = 500;
 
+	/**
+	 * _thumbnail_prefix
+	 * 
+	 * @var string	This is thumbnail prefix
+	 */
+	private $_thumbnail_prefix = 'thumb_';
+	
+	/**
+	 * _thumbnail_prefix
+	 * 
+	 * @var string	This is destination image path
+	 */
+	private $_destination_image_path = './../../public/images/uploads_client/';
 
+	/**
+	 * _image_quality
+	 * 
+	 * @var integer	This is image quality (%)
+	 */
+	private $_image_quality = 90;
 
+	/**
+	 * _new_image_width
+	 * 
+	 * @var integer	This is new image width
+	 */
+	private $_new_image_width;
 
+	/**
+	 * _new_image_height
+	 * 
+	 * @var integer	This is new image height
+	 */
+	private $_new_image_height;
 
 	/**
 	 * makeAddForm
@@ -101,6 +150,8 @@ class AddNewClient extends Templating {
 			"error_upload_photo"	=> Locale::languageEng('add_new_client', 'error_upload_photo'),
 			"error_image_size"	=> Locale::languageEng('add_new_client', 'error_image_size'),
 			"error_image_extension"	=> Locale::languageEng('add_new_client', 'error_image_extension'),
+			"error_image_resize"	=> Locale::languageEng('add_new_client', 'error_image_resize'),
+			"mess_max_length_notes" => Locale::languageEng('add_new_client', 'mess_max_length_notes'),
 			"add_good_message"	=> Locale::languageEng('add_new_client', 'add_good_message'),
 		);
 
@@ -123,112 +174,151 @@ class AddNewClient extends Templating {
 	}
 
 	/**
-	 * resizePhotoClients
+	 * getImageClients
 	 *
-	 * This function make form which add new client to DB
+	 * This function add new image in DB 
 	 *
-	 * @return string $tempalate	This is source add new record tempalate
+	 * @param array
+	 * @return json
 	 */
 	public function getImageClients($_FILES) {
 
 		if(isset($_POST)) {
 
-			//Some Settings
-			$ThumbMaxWidth          = 300; //Thumbnail width
-			$ThumbMaxHeight         = 300; //Thumbnail Height
-			$BigImageMaxWidth       = 500; //Resize Image width to
-			$BigImageMaxHeight      = 500; //Resize Image height to
-			$ThumbPrefix            = "thumb_"; //Normal thumb Prefix
-			$DestinationDirectory   = "./../../public/images/uploads_client/";//Upload Directory
-			$jpg_quality            = 90; //Image quality
+			/**
+			 * Set some variables
+			 */
+			$this -> _thumbnail_prefix = Config::dataArray('image_settings', 'thumb_prefix');
+	
+			$this -> _destination_image_path = Config::dataArray('image_settings', 'upload_path');
 
-			// check if file upload went ok
-/*
-			if(!isset($_FILES['image_file']) || !is_uploaded_file($_FILES['image_file']['tmp_name']))
-			{
-			    die('Something went wrong with Upload, May be File too Big?'); //output error
-			}
-*/
-
-			//If image size > max size echo error 
+			/**
+			 * If image size > max size echo error
+			 */
 			if ((int) $_FILES['image_file']['size'] > (int) $_POST['MAX_FILE_SIZE'] or (int) $_FILES['image_file']['size'] == 0) {
+
+				/**
+				 * Return error image size
+				 */
 				return json_encode(
 					array(
-						"error"	  => 'size'
+						"error" => 'size'
 					)
 				);
 			}
 
-			$RandomNumber   = rand(0, 9999999999); // We need same random name for both files.
+			/**
+			 * We need same random name for both files
+			 */
+			$random_number   = rand(0, 9999999999);
 
-			// some information about image we need later.
-			$ImageName      = strtolower($_FILES['image_file']['name']);
-			$ImageSize      = $_FILES['image_file']['size'];
-			$TempSrc        = $_FILES['image_file']['tmp_name'];
-			$ImageType      = $_FILES['image_file']['type'];
-			$process        = true;
+			/**
+			 * Some information about image we need later
+			 */
+			$image_name	= strtolower($_FILES['image_file']['name']);
+			$image_size	= $_FILES['image_file']['size'];
+			$temp_src	= $_FILES['image_file']['tmp_name'];
+			$image_type	= $_FILES['image_file']['type'];
+			$process	= true;
 
-			//Validate file + create image from uploaded file.
-			switch(strtolower($ImageType))
-			{
-			case 'image/png':
-			    $CreatedImage = imagecreatefrompng($_FILES['image_file']['tmp_name']);
-			    break;
-			case 'image/gif':
-			    $CreatedImage = imagecreatefromgif($_FILES['image_file']['tmp_name']);
-			    break;
-			case 'image/jpeg':
-			    $CreatedImage = imagecreatefromjpeg($_FILES['image_file']['tmp_name']);
-			    break;
-			default:
-			    return json_encode(
-					array(
-						"error"		=> 'expansion'
-					)
-				);
+			/**
+			 * Validate file + create image from uploaded file
+			 */
+			switch(strtolower($image_type)) {
+
+				case 'image/png':
+
+					$created_image = imagecreatefrompng($_FILES['image_file']['tmp_name']);
+
+					break;
+
+				case 'image/gif':
+
+					$created_image = imagecreatefromgif($_FILES['image_file']['tmp_name']);
+
+					break;
+
+				case 'image/jpeg':
+
+					$created_image = imagecreatefromjpeg($_FILES['image_file']['tmp_name']);
+
+					break;
+
+				default:
+
+					/**
+					 * Return error image expansion
+					 */
+					return json_encode(
+						array(
+							"error"	=> 'expansion'
+						)
+					);
 			}
 
-			//get Image Size
-			list($CurWidth,$CurHeight)=getimagesize($TempSrc);
+			/**
+			 * Get Image Size
+			 */
+			list ($curent_width, $curent_height) = getimagesize($temp_src);
 
-			//get file extension, this will be added after random name
-			$ImageExt = substr($ImageName, strrpos($ImageName, '.'));
-			$ImageExt = str_replace('.','',$ImageExt);
+			/**
+			 * Set image size summa
+			 */
+			$size_summa = (int) ($curent_width / $this -> _thumb_max_width) + ($curent_height / $this -> _thumb_max_height);
 
-			//Set the Destination Image path with Random Name
-			$thumb_DestRandImageName    = $DestinationDirectory.$ThumbPrefix.$RandomNumber.'.'.$ImageExt; //Thumb name
-			$DestRandImageName          = $DestinationDirectory.$RandomNumber.'.'.$ImageExt; //Name for Big Image
+			/**
+			 * Get file extension, this will be added after random name
+			 */
+			$image_ext = substr($image_name, strrpos($image_name, '.'));
 
-			//Resize image to our Specified Size by calling our resizeImage function.
-			if($this -> resizeImage($CurWidth,$CurHeight,$BigImageMaxWidth,$BigImageMaxHeight,$DestRandImageName,$CreatedImage,$jpg_quality))
-			{
-				//Create Thumbnail for the Image
-				$this -> resizeImage($CurWidth,$CurHeight,$ThumbMaxWidth,$ThumbMaxHeight,$thumb_DestRandImageName,$CreatedImage,$jpg_quality);
+			$image_ext = str_replace('.', '', $image_ext);
 
-				//respond with our images
-//				return $ThumbPrefix.$RandomNumber.'.'.$ImageExt;
+			/**
+			 * Set the Destination Image path with Random Name
+			 */
+			$thumb_dest_rand_image_name	= $this -> _destination_image_path . $this -> _thumbnail_prefix . $random_number . '.' . $image_ext;
 
+			$dest_rand_image_name		= $this -> _destination_image_path . $random_number . '.' . $image_ext;
+
+			/**
+			 * Resize image to our Specified Size by calling our resizeImage function
+			 */
+			if ($size_summa > 1 and $this -> resizeImage($curent_width, $curent_height, $this -> _big_image_max_width, $this -> _big_image_max_height, $dest_rand_image_name, $created_image, $this -> _image_quality)) {
+
+				/** 
+				 * Create Thumbnail for the Image
+				 */
+				$this -> resizeImage($curent_width, $curent_height, $this -> _thumb_max_width, $this -> _thumb_max_height, $thumb_dest_rand_image_name, $created_image, $this -> _image_quality);
+
+				/**
+				 * Respond with our images
+				 */
 				$uploads_client_path = Config::dataArray('server', 'dot').Config::dataArray('server', 'slash').Config::dataArray('paths', 'public').Config::dataArray('paths', 'images').Config::dataArray('paths', 'uploads_client');
 
-				/*
-				    // Insert info into database table.. do w.e!
-				    mysql_query("INSERT INTO myImageTable (ImageName, ThumbName, ImgPath)
-				    VALUES ($DestRandImageName, $thumb_DestRandImageName, 'uploads/')");
-				*/
-
+				/**
+				 * Insert info into database table.. do w.e!
+				 */
 				$data_array = array(
-					"image_name"	=> $uploads_client_path.$ThumbPrefix.$RandomNumber.'.'.$ImageExt,
-					"image_height"	=> $this -> NewHeight,
-					"image_width"	=> $this -> NewWidth,					
-					"image_alt"	=> Locale::languageEng('add_new_record', 'thumbnail_photo'),
-					"image_id"	=> AddNewClientModel::insertPhotoNameInDb($RandomNumber.'.'.$ImageExt, $this -> NewHeight, $this -> NewWidth, Locale::languageEng('add_new_record', 'thumbnail_photo'))
+					"image_name"	=> $uploads_client_path . $this -> _thumbnail_prefix . $random_number . '.' . $image_ext,
+					"image_height"	=> $this -> _new_image_height,
+					"image_width"	=> $this -> _new_image_width,					
+					"image_alt"	=> Locale::languageEng('add_new_client', 'thumbnail_photo'),
+					"image_id"	=> AddNewClientModel::insertPhotoNameInDb($random_number.'.'.$image_ext, $this -> _new_image_height, $this -> _new_image_width, Locale::languageEng('add_new_client', 'thumbnail_photo'))
 
 				);
 
 				return json_encode($data_array);
 				
-			} else{
-				die('Resize Error'); //output error
+			} else {
+
+				/**
+				 * Return error image resize
+				 */
+				return json_encode(
+					array(
+						"error"	=> 'resize'
+					)
+				);
 			}
 		}
 	}
@@ -236,35 +326,49 @@ class AddNewClient extends Templating {
 	/**
 	 * resizeImage
 	 *
-	 * This function make form which add new client to DB
+	 * This function resize image
 	 *
-	 * @return string $tempalate	This is source add new record tempalate
+	 * @param integer $curent_width
+	 * @param integer $curent_height
+	 * @param integer $max_width
+	 * @param integer $max_height
+	 * @param integer $dest_folder
+	 * @param integer $src_image
+	 * @return boolean
 	 */
-	private function resizeImage($CurWidth,$CurHeight,$MaxWidth,$MaxHeight,$DestFolder,$SrcImage,$quality) {
+	private function resizeImage($curent_width, $curent_height, $max_width, $max_height, $dest_folder, $src_image, $quality) {
 
-		$ImageScale         = min($MaxWidth/$CurWidth, $MaxHeight/$CurHeight);
-		$this -> NewWidth           = ceil($ImageScale*$CurWidth);
-		$this -> NewHeight          = ceil($ImageScale*$CurHeight);
-		$NewCanves          = imagecreatetruecolor($this -> NewWidth, $this -> NewHeight);
+		/**
+		 * Set some variables
+		 */
+		$ImageScale			= min($max_width / $curent_width, $max_height / $curent_height);
+		$this -> _new_image_width	= ceil($ImageScale * $curent_width);
+		$this -> _new_image_height	= ceil($ImageScale * $curent_height);
+		$NewCanves			= imagecreatetruecolor($this -> _new_image_width, $this -> _new_image_height);
 
-		// Resize Image
-		if(imagecopyresampled($NewCanves, $SrcImage,0, 0, 0, 0, $this -> NewWidth, $this -> NewHeight, $CurWidth, $CurHeight))
-		{
-			// copy file
-			if(imagejpeg($NewCanves,$DestFolder,$quality))
-			{
+		/**
+		 * Resize Image
+		 */
+		if (imagecopyresampled($NewCanves, $src_image,0, 0, 0, 0, $this -> _new_image_width, $this -> _new_image_height, $curent_width, $curent_height)) {
+
+			/**
+			 * Copy file
+			 */
+			if(imagejpeg($NewCanves, $dest_folder, $quality)) {
+
 			    imagedestroy($NewCanves);
+
 			    return true;
 			}
 		}
 	}
 
 	/**
-	 * addNewClient
+	 * addClient
 	 *
 	 * This function make form which add new client to DB
 	 *
-	 * @return string $tempalate	This is source add new record tempalate
+	 * @return object
 	 */
 	public function addClient($first_name, $last_name, $email, $country, $city, $photo_id = '', $notes = '') {
 

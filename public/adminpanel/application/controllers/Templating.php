@@ -1,9 +1,4 @@
 <?php
-//abstract class Twig_Template implements Twig_TemplateInterface - http://twig.sensiolabs.org/api/master/Twig_Template.html
-//Twig Documentation - http://twig.sensiolabs.org/documentation
-
-
-
 /**
  * Adress Book Controller
  * 
@@ -17,19 +12,12 @@
  */
 
 /**
- * The simplest way to configure Twig to load templates for our application
-**/
-require_once(dirname(__FILE__)."/../../libraries/templating/twig-v1.2.3/lib/Twig/Autoloader.php");
-
-/**
  * Templating
  * 
  * This is template class
  * 
  * @version 0.1
  */
-//class Templating extends Exceptions {
-
 class Templating extends Exceptionizer {
 	/**
 	 * _path_to_template
@@ -44,6 +32,21 @@ class Templating extends Exceptionizer {
 	 * @var string This is path to cache folder
 	 */
 	private static $_path_to_cache;
+
+	/**
+	 * Constructor
+	 *
+	 * This is constructor which include autoloader for our Twig template 
+	 */
+	public function __construct() {
+
+		$root_path = dirname(__FILE__);
+
+		/**
+		 * The simplest way to configure Twig to load templates for our application
+		 */
+		require_once($root_path . "/../../libraries/templating/twig-v1.2.3/lib/Twig/Autoloader.php");
+	}
 
 	/**
 	 * renderingTemplate
@@ -84,7 +87,7 @@ class Templating extends Exceptionizer {
 		###########################################
 		# Cache clear is not for working server
 		###########################################
-		$twig -> clearCacheFiles();
+		//$twig -> clearCacheFiles();
 	
 		/**
 		 * Render template
@@ -93,5 +96,12 @@ class Templating extends Exceptionizer {
 	
 		return $template;
 	}
+
+	/**
+	 * Destructor
+	 *
+	 * This is destructor
+	 */
+	public function __destruct() {}
 }
 ?>

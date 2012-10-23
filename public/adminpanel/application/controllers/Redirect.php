@@ -1,13 +1,4 @@
 <?php
-//http://www.cyberciti.biz/faq/php-redirect/
-//http://edoceo.com/creo/php-redirect
-//http://www.seomoz.org/learn-seo/redirection
-//http://www.codenet.ru/webmast/php/HTTP-POST.php
-//http://developers.sun.com/mobility/midp/ttips/HTTPPost/
-//http://habrahabr.ru/post/17256/
-
-
-
 /**
  * Adress Book Controller
  * 
@@ -23,7 +14,7 @@
 /**
  * Redirect
  * 
- * This is administrator authorization class
+ * This is administrator redirect class
  * 
  * @version 0.1
  */
@@ -34,8 +25,8 @@ class Redirect {
 	 *
 	 * This function to redirect our user on page error
 	 *
-	 * @param	string $code	This is http status code
-	 * @param	string $url	This is url where script redirect our user
+	 * @param integer $code	This is http status code
+	 * @param string $url	This is url where script redirect our user
 	 */
 	static public function uriRedirect($code = 301, $url = 'error.php') {
 

@@ -8,7 +8,7 @@
  * 
  * @category	autoload
  * @copyright	2012
- * @author	Igor Zhabskiy  <Zhabskiy.Igor@googlemail.com>
+ * @author	Igor Zhabskiy <Zhabskiy.Igor@googlemail.com>
  */
 
 /**
@@ -34,20 +34,26 @@ class ClassAutoloader {
 	 * 
 	 * This function load class
 	 *
-	 * @param sring $class_name	This is class name
+	 * @param string $class_name
 	 */
 	private function classLoader($class_name) {
 
+		/**
+		 * Create variables with folders path
+		 */
 		$root = dirname(__FILE__);
 
-		$path_controllers = $root.'/../../application/controllers/' . $class_name . '.php';
+		$path_controllers = $root . '/../../application/controllers/' . $class_name . '.php';
 
-		$path_models = $root.'/../../application/models/' . $class_name . '.php';
+		$path_models = $root . '/../../application/models/' . $class_name . '.php';
 
-		$path_settings = $root.'/../../application/settings/' . $class_name . '.php';
+		$path_settings = $root . '/../../application/settings/' . $class_name . '.php';
 
-		$path_data = $root.'/../../application/data/' . $class_name . '.php';
+		$path_data = $root . '/../../application/data/' . $class_name . '.php';
 
+		/**
+		 * Check path, if file exists then include file
+		 */
 		if (file_exists($path_controllers)) {
 			include_once($path_controllers);
 		} elseif (file_exists($path_models)) {

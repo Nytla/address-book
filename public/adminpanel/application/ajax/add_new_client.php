@@ -2,13 +2,13 @@
 /**
  * Adress Book Ajax
  * 
- * add_new_record.php
+ * add_new_client.php
  *
  * This is ajax file for added client to DB
  * 
  * @category	ajax
  * @copyright	2012
- * @author	Igor Zhabskiy  <Zhabskiy.Igor@googlemail.com>
+ * @author	Igor Zhabskiy <Zhabskiy.Igor@googlemail.com>
  */
 
 /**
@@ -27,12 +27,12 @@ $AccessController = new Access();
 $AccessController -> httpRequested();
 
 /**
- * Create copy AddNewRecordController object
+ * Create copy AddNewClientController object
  */
-$AddNewRecordController = new AddNewClient();
+$AddNewClientController = new AddNewClient();
 
 /**
  * Add new client to DB
  */
-print $AddNewRecordController -> addClient($_REQUEST['first_name'], $_REQUEST['last_name'], $_REQUEST['email'], $_REQUEST['country'], $_REQUEST['city'], $_REQUEST['photo_id'], $_REQUEST['notes']);
+print $AddNewClientController -> addClient($_REQUEST['first_name'], $_REQUEST['last_name'], $_REQUEST['email'], $_REQUEST['country'], $_REQUEST['city'], $_REQUEST['photo_id'], $_REQUEST['notes']);
 ?>

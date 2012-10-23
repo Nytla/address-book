@@ -8,7 +8,7 @@
  * 
  * @category	controllers
  * @copyright	2012
- * @author	Igor Zhabskiy  <Zhabskiy.Igor@googlemail.com>
+ * @author	Igor Zhabskiy <Zhabskiy.Igor@googlemail.com>
  */
 
 /**
@@ -25,7 +25,7 @@ class Errors extends Templating {
 	 *
 	 * This function get errors
 	 *
-	 * @return string $template	This is error template 
+	 * @return string $template	This is error source template 
 	 */
 	public function getErrors() {
 
@@ -72,91 +72,7 @@ class Errors extends Templating {
 
 				break;
 
-/*
-			case '400':
 
-				$params = array(
-					"site_url"		=> Config::dataArray('server', 'slash').Config::dataArray('paths', 'adminpanel'),
-					"site_name"		=> Locale::languageEng('site', 'name'),			
-					"page_error"		=> Locale::languageEng('errors', 'page_error'),
-					"error_description"	=> Locale::languageEng('errors', '400'),
-					"image"			=> Config::dataArray('errors', 'image')
-				);
-				
-				break;
-
-			case '401':
-
-				$params = array(
-					"site_url"		=> Config::dataArray('server', 'slash').Config::dataArray('paths', 'adminpanel'),
-					"site_name"		=> Locale::languageEng('site', 'name'),			
-					"page_error"		=> Locale::languageEng('errors', 'page_error'),
-					"error_description"	=> Locale::languageEng('errors', '401'),
-					"image"			=> Config::dataArray('errors', 'image')
-				);
-				
-				break;
-				
-			case '402':
-
-				$params = array(
-					"site_url"		=> Config::dataArray('server', 'slash').Config::dataArray('paths', 'adminpanel'),
-					"site_name"		=> Locale::languageEng('site', 'name'),			
-					"page_error"		=> Locale::languageEng('errors', 'page_error'),
-					"error_description"	=> Locale::languageEng('errors', '402'),
-					"image"			=> Config::dataArray('errors', 'image')
-				);
-				
-				break;
-
-			case '403':
-				
-				$params = array(
-					"site_url"		=> Config::dataArray('server', 'slash').Config::dataArray('paths', 'adminpanel'),
-					"site_name"		=> Locale::languageEng('site', 'name'),			
-					"page_error"		=> Locale::languageEng('errors', 'page_error'),
-					"error_description"	=> Locale::languageEng('errors', '403'),
-					"image"			=> Config::dataArray('errors', 'image')
-				);
-				
-				break;
-				
-			case '404':
-				
-				$params = array(
-					"site_url"		=> Config::dataArray('server', 'slash').Config::dataArray('paths', 'adminpanel'),
-					"site_name"		=> Locale::languageEng('site', 'name'),			
-					"page_error"		=> Locale::languageEng('errors', 'page_error'),
-					"error_description"	=> Locale::languageEng('errors', '404'),
-					"image"			=> Config::dataArray('errors', 'image')
-				);
-				
-				break;
-				
-			case '500':
-				
-				$params = array(
-					"site_url"		=> Config::dataArray('server', 'slash').Config::dataArray('paths', 'adminpanel'),
-					"site_name"		=> Locale::languageEng('site', 'name'),			
-					"page_error"		=> Locale::languageEng('errors', 'page_error'),
-					"error_description"	=> Locale::languageEng('errors', '500'),
-					"image"			=> Config::dataArray('errors', 'image')
-				);
-				
-				break;
-
-			case '502':
-
-				$params = array(
-					"site_url"		=> Config::dataArray('server', 'slash').Config::dataArray('paths', 'adminpanel'),
-					"site_name"		=> Locale::languageEng('site', 'name'),			
-					"page_error"		=> Locale::languageEng('errors', 'page_error'),
-					"error_description"	=> Locale::languageEng('errors', '502'),
-					"image"			=> Config::dataArray('errors', 'image')
-				);
-				
-				break;
-*/
 			default:
 
 				$params = array(

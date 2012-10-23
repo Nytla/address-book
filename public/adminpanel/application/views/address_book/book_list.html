@@ -46,16 +46,16 @@
 								<td>{{ clients_data[id]['countryname_en'] }}</td>
 								<td>{{ clients_data[id]['cityname_en'] }}</td>
 								<td>
-									<a href="/adminpanel/edit_client.php?edit_id={{ clients_data[id]['id'] }}" name="edit">{{ record_edit }}</a>
+									<a href="/adminpanel/edit_client.php?edit_id={{ clients_data[id]['id'] }}" name="edit">{{ client_edit }}</a>
 									|
-									<a href="#delete_id={{ clients_data[id]['id'] }}" name="delete">{{ record_delete }}</a>
-								</td>
-								<div id="view_content_{{ clients_data[id]['id'] }}" class="hide">
-									<div>
-										<img src="{{ clients_data[id]['photo_name'] }}" height="{{ clients_data[id]['photo_height'] }}" width="{{ clients_data[id]['photo_width'] }}" class="left" style="padding: 10px;" alt="{{ clients_data[id]['photo_description'] }}">
-										<p style="padding: 10px;">{{ clients_data[id]['notes'] }}</p>
+									<a href="#delete_id={{ clients_data[id]['id'] }}" name="delete">{{ client_delete }}</a>
+									<div id="view_content_{{ clients_data[id]['id'] }}" class="hide">
+										<div>
+											<img src="{{ clients_data[id]['photo_name'] }}" height="{{ clients_data[id]['photo_height'] }}" width="{{ clients_data[id]['photo_width'] }}" class="left" style="padding: 10px;" alt="{{ clients_data[id]['photo_description'] }}">
+											<p style="padding: 10px;">{{ clients_data[id]['notes'] }}</p>
+										</div>
 									</div>
-								</div>
+								</td>
 							</tr>
 	{% endfor %}
 						</tbody>

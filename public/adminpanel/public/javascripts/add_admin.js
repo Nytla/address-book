@@ -1,9 +1,3 @@
-//Validate signup form on keyup and submit
-//http://jquery.bassistance.de/validate/demo/
-//http://www.linkexchanger.su/2008/46.html
-
-
-
 /**
  * Validate add new administrator form
  */

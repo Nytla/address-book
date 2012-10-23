@@ -1,23 +1,23 @@
 <?php
 /**
-* Adress Book Controller
-*
-* Access.php
-*
-* This is administrator acces file
-*
-* @category	controllers
-* @copyright	2012
-* @author	Igor Zhabskiy <Zhabskiy.Igor@googlemail.com>
-*/
+ * Adress Book Controller
+ *
+ * Access.php
+ *
+ * This is administrator access file
+ *
+ * @category	controllers
+ * @copyright	2012
+ * @author	Igor Zhabskiy <Zhabskiy.Igor@googlemail.com>
+ */
 
 /**
-* Adress
-*
-* This is administrator acces class
-*
-* @version 0.1
-*/
+ * Access
+ *
+ * This is administrator access class
+ *
+ * @version 0.1
+ */
 class Access extends Templating {
 
 	/**
@@ -32,7 +32,7 @@ class Access extends Templating {
 	 *
 	 * This function 
 	 *
-	 * @return string $tempalate This is source authorization tempalate
+	 * @return boolean
 	 */
 	public function httpRequested() {
 
@@ -54,7 +54,7 @@ class Access extends Templating {
 	 *
 	 * This function write access data in log
 	 *
-	 * @return string $tempalate	This is source authorization tempalate
+	 * @param array $parameters
 	 */
 	static public function writeAccessLog($parameters = '') {
 
@@ -98,5 +98,12 @@ class Access extends Templating {
 			}
 		}
 	}
+
+	/**
+	 * Destructor
+	 *
+	 * This is destructor close open .log file
+	 */
+	public function __destruct() {}
 }
 ?>

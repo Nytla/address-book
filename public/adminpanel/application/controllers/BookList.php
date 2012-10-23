@@ -1,16 +1,4 @@
 <?php
-//Pagination - http://www.tonymarston.net/php-mysql/pagination.html
-//Table sort and navigation on jQuery UI - http://tablesorter.com/docs/example-pager.html
-//DataTable (sort, search and navigation) - http://www.datatables.net/
-//Table search, pagination, and sort - http://flexigrid.info/
-
-
-//Task managers
-//http://todoist.com/
-//http://asana.com/
-//http://web.appstorm.net/roundups/task-management/top-10-apps-web-based-task-managers/
-
-
 /**
  * Adress Book Controller
  * 
@@ -37,7 +25,7 @@ class BookList extends Templating {
 	 *
 	 * This function make address book list
 	 *
-	 * @return string $tempalate	This is source address book tempalate
+	 * @return string $tempalate	This is source address book list tempalate
 	 */
 	public function makeAB() {
 
@@ -91,8 +79,8 @@ class BookList extends Templating {
 			"phrase"		=> BookListModel::getRandomPhraseFromDB(),
 			"image_path"		=> Config::dataArray('errors', 'image'),
 			"preloader_alt_text"	=> Locale::languageEng('book_list', 'preloader_alt_text'),
-			"record_edit"		=> Locale::languageEng('book_list', 'record_edit'),
-			"record_delete"		=> Locale::languageEng('book_list', 'record_delete'),
+			"client_edit"		=> Locale::languageEng('book_list', 'client_edit'),
+			"client_delete"		=> Locale::languageEng('book_list', 'client_delete'),
 		);
 
 		/**
@@ -118,7 +106,8 @@ class BookList extends Templating {
 	 *
 	 * This function get cities from our nodel
 	 *
-	 * @return string $tempalate This is source address book tempalate
+	 * @param integer $country_id
+	 * @return json
 	 */
 	public function getCities($country_id = '') {
 
@@ -132,7 +121,7 @@ class BookList extends Templating {
 	 *
 	 * This function get clients information from DB in JSON format
 	 *
-	 * @return object	This is JSON object from DB
+	 * @return json
 	 */
 	public function getClientsDataJSON() {
 
@@ -142,13 +131,13 @@ class BookList extends Templating {
 	/**
 	 * deleteClient
 	 *
-	 * This function get clients information from DB in JSON format
+	 * This function delete client from DB
 	 *
-	 * @return object	This is JSON object from DB
+	 * @return json
 	 */
-	public function deleteClient($id) {
+	public function deleteClient($client_id) {
 
-		return json_encode(array("flag" => BookListModel::deleteClientFromDB($id)));
+		return json_encode(array("flag" => BookListModel::deleteClientFromDB($client_id)));
 	}
 }
 ?>

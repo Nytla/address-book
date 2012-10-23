@@ -94,7 +94,9 @@ class AddAdmin extends Templating {
 	 *
 	 * This function register new administrator our DB
 	 *
-	 * @return boolean
+	 * @param string $login
+	 * @param string $password
+	 * @return json
 	 */
 	public function adminRegister($login = '', $password = '') {
 

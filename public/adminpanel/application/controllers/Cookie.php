@@ -1,22 +1,4 @@
 <?php
-//http://stut.net/2008/10/16/snippet-cookie-class-for-php/
-//http://www.phpclasses.org/browse/file/11554.html
-
-/*
-My example
-Cookie::set('remember_me', 'true', Cookie::SEVEN_DAYS, '/php/cookie/', '.testing.loc');
-
-Cookie::delete('remember_me', '/php/cookie/', '.testing.loc');
-
-#############
-
-Cookie::set('admin_id', '334', Cookie::SESSION_EXPIRE);
-
-Cookie::delete('admin_id');
-*/
-
-
-
 /**
  * Adress Book Controller
  * 
@@ -48,46 +30,48 @@ class Cookie {
 	/**
 	 * ONE_DAY
 	 * 
-	 * @constant number  This is one day expire
+	 * @constant integer  This is one day expire
 	 */
 	const ONE_DAY = 86400;
 	
 	/**
 	 * SEVEN_DAYS
 	 * 
-	 * @constant number  This is seven days expire
+	 * @constant integer  This is seven days expire
 	 */
 	const SEVEN_DAYS = 604800;
 
 	/**
 	 * THIRTY_DAYS
 	 * 
-	 * @constant number  This is thirty days expire
+	 * @constant integer  This is thirty days expire
 	 */
 	const THIRTY_DAYS = 2592000;
 	
 	/**
 	 * SIX_MONTHS
 	 * 
-	 * @constant number  This is six months expire
+	 * @constant integer  This is six months expire
 	 */
 	const SIX_MONTHS = 15811200;
 
 	/**
 	 * ONE_YEAR
 	 * 
-	 * @constant number  This is one year expire
+	 * @constant integer  This is one year expire
 	 */
 	const ONE_YEAR = 31536000;
 	
 	/**
 	 * SIX_MONTHS
 	 * 
-	 * @constant number  This is six 2030-01-01 00:00:00 expire
+	 * @constant integer  This is six 2030-01-01 00:00:00 expire
 	 */
 	const LIFETIME = -1;
 
 	/**
+	 * exists
+	 *
 	 * Returns true if there is a cookie with this name.
 	 *
 	 * @param string $name
@@ -98,6 +82,8 @@ class Cookie {
 	}
 
 	/**
+	 * isEmpty
+	 *
 	 * Returns true if there no cookie with this name or it's empty, or 0,
 	 * or a few other things. Check http://php.net/empty for a full list.
 	 *
@@ -109,6 +95,8 @@ class Cookie {
 	}
 
 	/**
+	 * get
+	 *
 	 * Get the value of the given cookie. If the cookie does not exist the value
 	 * of $default will be returned.
 	 *
@@ -121,6 +109,8 @@ class Cookie {
 	}
 
 	/**
+	 * set
+	 *
 	 * Set a cookie. Silently does nothing if headers have already been sent.
 	 *
 	 * @param string $name
@@ -159,6 +149,8 @@ class Cookie {
 	}
 
 	/**
+	 * delete
+	 *
 	 * Delete a cookie.
 	 *
 	 * @param string $name

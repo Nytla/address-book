@@ -62,20 +62,18 @@ $(document).ready(function() {
 
 			first_name: {
 				required: true,
-				minlength: 5,
+				minlength: 2,
 				maxlength: 16
 			},
 
 			last_name: {
 				required: true,
-				minlength: 5,
+				minlength: 2,
 				maxlength: 16
 			},
 
 			email: {
 				required: true,
-				minlength: 5,
-				maxlength: 16,
 				email: true
 			},
 
@@ -90,7 +88,6 @@ $(document).ready(function() {
 			image_file: {
 				required: true
 			}
-
 		},
 
 		messages: {
@@ -109,8 +106,6 @@ $(document).ready(function() {
 
 			email: {
 				required: error_empty_email,
-				minlength: error_min_length_email,
-				maxlength: error_max_length_email,
 				email: error_incorect_email
 			},
 
@@ -243,8 +238,6 @@ $(document).ready(function() {
 		
 	}
 })(jQuery);
-
-
 
 /**
  * Ajaxes function for our book

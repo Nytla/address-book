@@ -1,15 +1,4 @@
 <?php
-ini_set('display_errors', 'on');
-
-error_reporting(E_ALL | E_STRICT);
-
-//http://ru.wikipedia.org/wiki/%D0%A7%D0%9F%D0%A3_%28%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B5%D1%82%29
-//http://php.name/php/krasivye-ssylki-chpu/
-//http://framework.zend.com/manual/ru/ and http://www.dizballanze.com/?cat=72
-//Перехват выходного потока
-//Static - http://www.sql.ru/forum/actualthread.aspx?tid=674596
-//Pattetn - http://dron.by/post/patterny-shablony-proektirovanie-v-php-vvedenie/
-
 /**
  * Address Book 
  * 
@@ -19,7 +8,7 @@ error_reporting(E_ALL | E_STRICT);
  * 
  * @category	Main
  * @copyright	2012
- * @author	Igor Zhabskiy  <Zhabskiy.Igor@googlemail.com>
+ * @author	Igor Zhabskiy <Zhabskiy.Igor@googlemail.com>
  */
 
 /**

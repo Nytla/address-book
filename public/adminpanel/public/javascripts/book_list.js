@@ -1,6 +1,4 @@
-//DataTables is a plug-in for the jQuery Javascript library. - http://datatables.net/
-
-/*
+/**
  * Function: fnGetColumnData
  * Purpose:  Return an array of table values from a particular column.
  * Returns:  array string: 1d data array 
@@ -9,7 +7,7 @@
  *           bool:bUnique - optional - if set to false duplicated values are not filtered out
  *           bool:bFiltered - optional - if set to false all the table data is used (not only the filtered)
  *           bool:bIgnoreEmpty - optional - if set to false empty values are not filtered from the result array
- * Author:   Benedikt Forchhammer <b.forchhammer /AT\ mind2.de>
+ * Author:   Benedikt Forchhammer <b.forchhammer /AT\ mind2.de> (http://datatables.net/)
  */
 (function($) {
 	$.fn.dataTableExt.oApi.fnGetColumnData = function ( oSettings, iColumn, bUnique, bFiltered, bIgnoreEmpty ) {
@@ -110,30 +108,22 @@ $(document).ready(function() {
 		this.insertBefore(  nCloneTd.cloneNode( true ), this.childNodes[0] );
 	});
 
-	/**
-	 * Add event listener for opening and closing details
-	 * Note that the indicator for showing which row is open is not controlled by DataTables,
-	 * rather it is done here
-	 */
+	//Add event listener for opening and closing details and note that the indicator for showing which row is open is not controlled by DataTables, rather it is done here
 	$(document).on("click", "#example tbody td img", function() {
+
 		var nTr = $(this).parents("tr")[0];
 
-
-		
-
 		if ( oTable.fnIsOpen(nTr) ) {
-			/**
-			 * This row is already open - close it 
-			 */
+
+			//This row is already open - close it 
 			this.src = img_details_open.attr("src");
 
 			oTable.fnClose( nTr );
 
 			
 		} else {
-			/**
-			 * Open this row 
-			 */
+
+			//Open this row
 			this.src = img_details_close.attr("src");
 			
 			var href_content = $(this)
@@ -149,24 +139,20 @@ $(document).ready(function() {
 		}
 	});
 
-	/**
-	 * Create Book list table
-	 */
+	//Create Book list table
 	var oTable = $('#example').dataTable({
 		"sDom": '<"top"if<"clear">>rt<"bottom"lp<"clear">>',
 		"bJQueryUI": true,
 		"sPaginationType": "full_numbers",
 		"aaSorting": [[ 1, "asc" ]],
 		"aoColumnDefs": [
-			{ "bSortable": false, "aTargets": [ 0,5 ] }
+			{ "bSortable": false, "aTargets": [ 0,5 ] },
 		],
 		"aLengthMenu": [[10, 20, 50, -1], [10, 20, 50, "All"]],
 
 	});
 
-	/**
-	 * Create Country and City container search
-	 */
+	//Create Country and City container search
 	$("#example_filter").append('<label id="Country"></label>');
 	
 	$("#example_filter").append('<label id="city"></label>');

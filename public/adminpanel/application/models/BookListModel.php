@@ -4,7 +4,7 @@
  * 
  * BookListModel.php
  *
- * This is administrator address book file
+ * This is administrator address book list file
  * 
  * @category	models
  * @copyright	2012
@@ -58,9 +58,9 @@ class BookListModel extends PDOMysqlConnect {
 	/**
 	 * getAuthData
 	 *
-	 * This function get authorization data from Database
+	 * This function get client data from Database
 	 *
-	 * @return array $data	This is authorization data from Database
+	 * @return array / boolean
 	 */
 	static public function getClientsDataFromDB() {
 
@@ -109,24 +109,6 @@ class BookListModel extends PDOMysqlConnect {
 		 * Return array from DB
 		 */
 		return (isset($data_array)) ? $data_array : false;
-
-/*
-		try {
-
-			while ($row = $select_clients -> fetch(PDO::FETCH_ASSOC)) {
-
-				$data[] = $row;
-			}
-
-			if ($data) {
-				return $data;
-			}
-
-		} catch (E_NOTICE $object) {
-			
-			return false;
-		}
-*/
 	}
 
 	/**
@@ -134,7 +116,7 @@ class BookListModel extends PDOMysqlConnect {
 	 *
 	 * This function get all countries from Database
 	 *
-	 * @return array $countries This is countries id and name
+	 * @return array / boolean
 	 */
 	static public function getAllCountriesFromDB() {
 
@@ -166,9 +148,10 @@ class BookListModel extends PDOMysqlConnect {
 	/**
 	 * getAllCountries
 	 *
-	 * This function get all countries from Database
+	 * This function get cities from Database depending on selected country
 	 *
-	 * @return array $countries This is countries id and name
+	 * @param string $country_id
+	 * @return array / boolean
 	 */
 	static public function getCitiesFromDB($country_id = '') {
 
@@ -202,14 +185,15 @@ class BookListModel extends PDOMysqlConnect {
 	 *
 	 * This function delete client from Database
 	 *
-	 * @return array $phrase_text	This is phrase from Database
+	 * @param string $client_id
+	 * @return boolean
 	 */
-	static public function deleteClientFromDB($id) {
+	static public function deleteClientFromDB($client_id) {
 
 		/**
 		 * Validate administrator id
 		 */
-		if (ValidateData::filterValidate($id, ValidateData::DATA_INT)) {
+		if (ValidateData::filterValidate($client_id, ValidateData::DATA_INT)) {
 
 			/**
 			 * Set adminisrator variable
@@ -222,7 +206,7 @@ class BookListModel extends PDOMysqlConnect {
 			$delete_client = self::dbConnect() -> exec("
 				DELETE 
 				FROM " . self::$_DB_table_name_clients . "
-				WHERE `id` = '$id'
+				WHERE `id` = '$client_id'
 			");
 		}
 
@@ -237,7 +221,7 @@ class BookListModel extends PDOMysqlConnect {
 	 *
 	 * This function get random phrase from Database
 	 *
-	 * @return array $phrase_text	This is phrase from Database
+	 * @return array / boolean
 	 */
 	static public function getRandomPhraseFromDB() {
 

@@ -12,7 +12,7 @@
  */
 
 /**
- * Authorization
+ * Layout
  * 
  * This is administrator layout class
  * 

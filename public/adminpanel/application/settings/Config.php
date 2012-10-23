@@ -4,7 +4,7 @@
  * 
  * Config.php
  *
- * This is config for admin panel
+ * This is config file for administrator panel
  * 
  * @category	Settings
  * @copyright	2012
@@ -151,6 +151,13 @@ class Config {
 
 			),
 
+			"image_settings"=> array(
+
+				"thumb_prefix"	=> 'thumb_',
+				"upload_path"	=> './../../public/images/uploads_client/'
+
+			),
+
 			"templates"	=> array(
 
 				"path"		=> './application/views',
@@ -167,9 +174,11 @@ class Config {
 				"add_new_record"=> 'add_new_client.html',
 				"edit_client"	=> 'edit_client.html'
 			)
-
 		);
 
+		/**
+		 * Return config data
+		 */
 		return $config[$option][$flag];
 	}
 }

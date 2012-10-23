@@ -1,8 +1,4 @@
 <?php
-ini_set('display_errors', 'on');
-
-error_reporting(E_ALL | E_STRICT);
-
 /**
  * Adress Book Ajax
  * 
@@ -12,7 +8,7 @@ error_reporting(E_ALL | E_STRICT);
  * 
  * @category	ajax
  * @copyright	2012
- * @author	Igor Zhabskiy  <Zhabskiy.Igor@googlemail.com>
+ * @author	Igor Zhabskiy <Zhabskiy.Igor@googlemail.com>
  */
 
 /**

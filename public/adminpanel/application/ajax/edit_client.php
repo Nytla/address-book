@@ -2,13 +2,13 @@
 /**
  * Adress Book Ajax
  * 
- * edit_record.php
+ * edit_client.php
  *
  * This is ajax file which edit client record in DB
  * 
  * @category	ajax
  * @copyright	2012
- * @author	Igor Zhabskiy  <Zhabskiy.Igor@googlemail.com>
+ * @author	Igor Zhabskiy <Zhabskiy.Igor@googlemail.com>
  */
 
 /**
@@ -27,7 +27,7 @@ $AccessController = new Access();
 $AccessController -> httpRequested();
 
 /**
- * Create copy EditRecordController object
+ * Create copy EditClientController object
  */
 $EditClientController = new EditClient();
 

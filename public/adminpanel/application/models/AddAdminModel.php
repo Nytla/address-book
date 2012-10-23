@@ -53,7 +53,7 @@ class AddAdminModel extends PDOMysqlConnect {
 	 *
 	 * This function get permission for administrator from Database
 	 *
-	 * @return array $data	This is authorization data from Database
+	 * @return array $admin_permission	This is authorization data from Database
 	 */
 	static public function adminPermission() {
 
@@ -93,6 +93,7 @@ class AddAdminModel extends PDOMysqlConnect {
 	 *
 	 * This function check exist administrator in DB
 	 *
+	 * @param string $login
 	 * @return boolean
 	 */
 	static public function checkAdminExist($login = '') {
@@ -122,22 +123,6 @@ class AddAdminModel extends PDOMysqlConnect {
 		}
 
 		return ($admin_id) ? true : false;
-
-/*
-		try {
-
-			while ($row = $select_login -> fetch(PDO::FETCH_ASSOC)) {
-
-				if ($row['admin_id']) {
-					return true; 
-				}
-			}
-
-		} catch (E_NOTICE $object) {
-
-			return false;
-		}
-*/
 	}
 
 	/**
@@ -145,6 +130,8 @@ class AddAdminModel extends PDOMysqlConnect {
 	 *
 	 * This function add new administrator to DB
 	 *
+	 * @param string $login
+	 * @param string $password
 	 * @return boolean
 	 */
 	static public function addAdminToDB($login, $password) {
@@ -169,18 +156,6 @@ class AddAdminModel extends PDOMysqlConnect {
 		");
 
 		return ($insert_admin) ? true : false;
-
-/*
-		try {
-			if ($insert_admin) {
-				return true; 
-			}
-
-		} catch (E_NOTICE $object) {
-
-			return false;
-		}
-*/
 	}
 }
 ?>

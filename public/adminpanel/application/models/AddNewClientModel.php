@@ -12,7 +12,7 @@
  */
 
 /**
- * AddNewRecordModel
+ * AddNewClientModel
  * 
  * This is class add new clients record in DB
  * 
@@ -39,7 +39,11 @@ class AddNewClientModel extends PDOMysqlConnect {
 	 *
 	 * This function insert image name in Database
 	 *
-	 * @return array $countries This is countries id and name
+	 * @param string $photo_name
+	 * @param string $photo_height
+	 * @param string $photo_width
+	 * @param string $photo_description
+	 * @return integer / boolean
 	 */
 	static public function insertPhotoNameInDb($photo_name = '', $photo_height = '', $photo_width = '', $photo_description = '') {
 
@@ -74,9 +78,16 @@ class AddNewClientModel extends PDOMysqlConnect {
 	/**
 	 * insertNewClientInDb
 	 *
-	 * This function insert image name in Database
+	 * This function insert image new client in Database
 	 *
-	 * @return array $countries This is countries id and name
+	 * @param string $first_name
+	 * @param string $last_name
+	 * @param string $email
+	 * @param string $country
+	 * @param string $city
+	 * @param string $photo_id
+	 * @param string $notes
+	 * @return boolean
 	 */
 	static public function insertNewClientInDb($first_name, $last_name, $email, $country, $city, $photo_id = '', $notes = '') {
 
