@@ -1,7 +1,3 @@
-#mod_rewrite documentation - http://httpd.apache.org/docs/2.0/mod/mod_rewrite.html#rewritecond
-#http://htmlweb.ru/php/htaccess.php
-#http://www.askapache.com/htaccess/ultimate-htaccess-file-sample.html
-
 ##Encoding for our site
 AddDefaultCharset utf-8
 

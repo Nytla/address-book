@@ -3,13 +3,7 @@
 				<h2>{{ site_name }}</h2>
 			</div>
 			<br>
-			<!-- Url Add New Record START -->
-			<div class="span-10 prepend-10 append-0 last">
-				<h3><a href="{{ site_url }}add_new_client.php">{{ add_new_client }}</a></h3>
-			</div>
-			<!-- Url Add New Record FINISH -->
 		</div>
-
 		<!-- View clients START -->
 		<div class="container">
 			<div class="full_width">
@@ -25,25 +19,19 @@
 					<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
 						<thead>
 							<tr>
-								<th>ID</th>
 								<th>Name</th>
 								<th>Country</th>
 								<th>City</th>
-								<th>Action</th>
 							</tr>
 						</thead>
 						<tbody>
 	{% for id, value in clients_data %}
 							<tr class="gradeA">
-								<td>{{ clients_data[id]['id'] }}</td>
 								<td>{{ clients_data[id]['first_name'] }} {{ clients_data[id]['last_name'] }}</td>
 								<td>{{ clients_data[id]['countryname_en'] }}</td>
-								<td>{{ clients_data[id]['cityname_en'] }}</td>
 								<td>
-									<a href="/adminpanel/edit_client.php?edit_id={{ clients_data[id]['id'] }}" name="edit">{{ client_edit }}</a>
-									|
-									<a href="#delete_id={{ clients_data[id]['id'] }}" name="delete">{{ client_delete }}</a>
-									<div id="view_content_{{ clients_data[id]['id'] }}" class="hide">
+									{{ clients_data[id]['cityname_en'] }}
+									<div id="view_content_{{ clients_data[id]['id'] }}" title="{{ clients_data[id]['id'] }}" class="hide">
 										<div>
 											<img src="{{ clients_data[id]['photo_name'] }}" height="{{ clients_data[id]['photo_height'] }}" width="{{ clients_data[id]['photo_width'] }}" class="left" style="padding: 10px;" alt="{{ clients_data[id]['photo_description'] }}">
 											<p style="padding: 10px;">{{ clients_data[id]['notes'] }}</p>
@@ -60,11 +48,6 @@
 		<!-- View clients FINISH -->
 
 			<div class="container showgrid">
-			<br>
-			<br>
-			<div class="span-10 prepend-10 append-0 last">
-				<h3><a href="{{ site_url }}layout.php">{{ back_to_page_layout }}</a></h3>
-			</div>
 			<br>
 			<br>
 			<!-- View phrase START -->

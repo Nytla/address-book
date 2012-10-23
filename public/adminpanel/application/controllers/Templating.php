@@ -66,7 +66,7 @@ class Templating extends Exceptionizer {
 		Twig_Autoloader::register();
 
 		/**
-		 * Twig also comes with a filesystem loader::
+		 * Twig also comes with a filesystem loader
 		**/
 		self::$_path_to_template = Config::dataArray('templates', 'path').Config::dataArray('templates', 'name');
 

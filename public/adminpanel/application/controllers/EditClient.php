@@ -68,6 +68,7 @@ class EditClient extends Templating {
 			"empty_option"		=> Locale::languageEng('book_list', 'empty_option'),
 			"photo"			=> Locale::languageEng('add_new_client', 'photo'),
 			"image_path"		=> Config::dataArray('errors', 'image'),
+			"preloader_alt_text"	=> Locale::languageEng('add_new_client', 'preloader_alt_text'),
 			"notes"			=> Locale::languageEng('add_new_client', 'notes'),
 			"save"			=> Locale::languageEng('add_admin', 'save'),
 			"reset"			=> Locale::languageEng('add_new_client', 'reset'),

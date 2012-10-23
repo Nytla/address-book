@@ -2,9 +2,9 @@
 /**
  * Adress Book Controller
  * 
- * BookList.php
+ * UserBookList.php
  *
- * This is administrator address book list
+ * This is user address book list
  * 
  * @category	controllers
  * @copyright	2012
@@ -12,27 +12,27 @@
  */
 
 /**
- * BookList
+ * UserBookList
  * 
  * This is administrator address book list
  * 
  * @version 0.1
  */
-class BookList extends Templating {
+class UserBookList extends Templating {
 
 	/**
-	 * makeAB
+	 * makeUserAB
 	 *
 	 * This function make address book list
 	 *
 	 * @return string $tempalate	This is source address book list tempalate
 	 */
-	public function makeAB() {
+	public function makeUserAB() {
 
 		/**
 		 * Create header content
 		 */
-		$template = Indexes::headerContent(Locale::languageEng('book_list', 'title'), 1);
+		$template = Indexes::headerContent(Locale::languageEng('user_book_list', 'title'), 1);
 
 		/**
 		 * Create css content
@@ -53,7 +53,7 @@ class BookList extends Templating {
 
 		$data_table = Config::dataArray('jquery_lib', 'path').Config::dataArray('jquery_lib', 'data_table');
 
-		$book_list = Config::dataArray('javascript', 'path').Config::dataArray('javascript', 'book_list');
+		$book_list = Config::dataArray('javascript', 'path').Config::dataArray('javascript', 'user_book_list');
 
 		$js = array(
 			"$jquery",
@@ -73,19 +73,16 @@ class BookList extends Templating {
 			"country_word"		=> Locale::languageEng('book_list', 'country_word'),
 			"city_word"		=> Locale::languageEng('book_list', 'city_word'),
 			"empty_option"		=> Locale::languageEng('book_list', 'empty_option'),
-			"add_new_client"	=> Locale::languageEng('book_list', 'add_new_client'),
 			"clients_data"		=> BookListModel::getClientsDataFromDB(),
-			"back_to_page_layout"	=> Locale::languageEng('book_list', 'back_to_page_layout'),
 			"phrase"		=> BookListModel::getRandomPhraseFromDB(),
 			"image_path"		=> Config::dataArray('errors', 'image'),
-			"client_edit"		=> Locale::languageEng('book_list', 'client_edit'),
-			"client_delete"		=> Locale::languageEng('book_list', 'client_delete')
+			"preloader_alt_text"	=> Locale::languageEng('book_list', 'preloader_alt_text')
 		);
 
 		/**
 		 * Set template name
 		 */
-		$template_name = Config::dataArray('templates', 'book_list');
+		$template_name = Config::dataArray('templates', 'user_book_list');
 
 		/**
 		 * Rendering our tempalate
@@ -98,33 +95,6 @@ class BookList extends Templating {
 		$template .= Indexes::footerContent();
 
 		return $template;
-	}
-
-	/**
-	 * getCities
-	 *
-	 * This function get cities from our nodel
-	 *
-	 * @param integer $country_id
-	 * @return json
-	 */
-	public function getCities($country_id = '') {
-
-		$cities = BookListModel::getCitiesFromDB($country_id);
-
-		return ($cities) ? json_encode(array("flag" => true, "cities" => $cities)) : json_encode(array("flag" => false));
-	}
-
-	/**
-	 * deleteClient
-	 *
-	 * This function delete client from DB
-	 *
-	 * @return json
-	 */
-	public function deleteClient($client_id) {
-
-		return json_encode(array("flag" => BookListModel::deleteClientFromDB($client_id)));
 	}
 }
 ?>

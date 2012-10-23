@@ -107,8 +107,8 @@ class Config {
 
 			"errors"	=> array(
 
-				"path_error"	=> $root_path.'/application/data/errors.log',
-				"path_access"	=> $root_path.'/application/data/access.log',
+				"path_error"	=> $root_path . '/application/data/errors.log',
+				"path_access"	=> $root_path . '/application/data/access.log',
 				"image"		=> '/adminpanel/public/images/',
 				"page_error"	=> 'error.php'
 				
@@ -146,6 +146,7 @@ class Config {
 				"authorization"	=> 'authorization.js',
 				"add_admin"	=> 'add_admin.js',
 				"book_list"	=> 'book_list.js',
+				"user_book_list"=> 'user_book_list.js',
 				"add_new_client"=> 'add_new_client.js',
 				"edit_client"	=> 'edit_client.js'
 
@@ -160,7 +161,7 @@ class Config {
 
 			"templates"	=> array(
 
-				"path"		=> './application/views',
+				"path"		=> $root_path . '/application/views',			
 				"name"		=> '/address_book',
 				"cache"		=> '/cache',
 				"header"	=> 'header.html',
@@ -172,7 +173,8 @@ class Config {
 				"add_admin"	=> 'add_admin.html',
 				"book_list"	=> 'book_list.html',
 				"add_new_record"=> 'add_new_client.html',
-				"edit_client"	=> 'edit_client.html'
+				"edit_client"	=> 'edit_client.html',
+				"user_book_list"=> 'user_book_list.html'
 			)
 		);
 

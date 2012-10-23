@@ -1,1 +1,0 @@
-<span class="bold_text">@pageNum@</span> | 

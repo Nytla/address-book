@@ -1,2 +1,0 @@
- per page
-				</td>

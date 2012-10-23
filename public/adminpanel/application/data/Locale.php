@@ -171,11 +171,16 @@ class Locale {
 				"empty_option"		=> '::ALL::',
 				"add_new_client"	=> 'Add New Client',
 				"back_to_page_layout"	=> 'Back to the Page Layout',
-				"preloader_alt_text"	=> 'Loading...',
 				"details_open"		=> 'Details open',
 				"details_close"		=> 'Details close',
 				"client_edit"		=> 'Edit',
 				"client_delete"		=> 'Delete'
+
+			),
+
+			"user_book_list"=> array(
+
+				"title"			=> 'Adress Book List',
 
 			),
 
@@ -196,6 +201,7 @@ class Locale {
 				"country"		=> 'Country:',
 				"city"			=> 'City:',
 				"photo"			=> 'Photo:',
+				"preloader_alt_text"	=> 'Loading...',
 				"thumbnail_photo"	=> 'Thumbnail photo',
 				"preview"		=> 'Preview',
 				"notes"			=> 'Notes:',

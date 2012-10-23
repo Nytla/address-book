@@ -1,1 +1,0 @@
-<a href="./index.php?page=@pageRight@&amp;limit=@numGetRight@&amp;field=@fieldRight@&amp;order=@orderGetRight@&amp;poisk=@poiskGetRight@&amp;country=@countryGetRight@&amp;city=@cityGetRight@">@prevOrNext@</a> | 

@@ -6,7 +6,7 @@
  *
  * This is administrator address book list page
  * 
- * @category	Main
+ * @category	adminpanel
  * @copyright	2012
  * @author	Igor Zhabskiy <Zhabskiy.Igor@googlemail.com>
  */

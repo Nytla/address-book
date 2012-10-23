@@ -100,7 +100,7 @@ class BookListModel extends PDOMysqlConnect {
 			/**
 			 * Set photo path
 			 */
-			$row['photo_name'] = Config::dataArray('server', 'dot').Config::dataArray('server', 'slash').Config::dataArray('paths', 'public').Config::dataArray('paths', 'images').Config::dataArray('paths', 'uploads_client').$row['photo_name'];
+			$row['photo_name'] = Config::dataArray('server', 'slash') . Config::dataArray('paths', 'adminpanel') . Config::dataArray('paths', 'public') . Config::dataArray('paths', 'images') . Config::dataArray('paths', 'uploads_client') . $row['photo_name'];
 
 			$data_array[] = $row;
 		}
