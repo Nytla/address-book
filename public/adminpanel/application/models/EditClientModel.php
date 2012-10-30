@@ -95,7 +95,9 @@ class EditClientModel extends PDOMysqlConnect {
 		/**
 		 * Set photo path
 		 */
-		$data_array['photo_name'] = Config::dataArray('server', 'dot').Config::dataArray('server', 'slash').Config::dataArray('paths', 'public').Config::dataArray('paths', 'images').Config::dataArray('paths', 'uploads_client').$data_array['photo_name'];
+		if (is_array($data_array)) {
+			$data_array['photo_name'] = Config::dataArray('image_settings', 'image_path') . $data_array['photo_name'];
+		}
 
 		/**
 		 * Return data array

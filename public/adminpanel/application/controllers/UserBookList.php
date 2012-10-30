@@ -37,9 +37,9 @@ class UserBookList extends Templating {
 		/**
 		 * Create css content
 		 */
-		$demo_table = Config::dataArray('css', 'path_style').Config::dataArray('css', 'demo_table');
+		$demo_table = Config::dataArray('css', 'path_style') . Config::dataArray('css', 'demo_table');
 
-		$jquery_ui = Config::dataArray('css', 'path_style').Config::dataArray('css', 'jquery_ui');
+		$jquery_ui = Config::dataArray('css', 'path_style') . Config::dataArray('css', 'jquery_ui');
 
 		$css = array(
 			"$demo_table",
@@ -49,11 +49,11 @@ class UserBookList extends Templating {
 		/**
 		 * Create javascript content
 		 */
-		$jquery = Config::dataArray('jquery_lib', 'path').Config::dataArray('jquery_lib', 'jquery');
+		$jquery = Config::dataArray('jquery_lib', 'path') . Config::dataArray('jquery_lib', 'jquery');
 
-		$data_table = Config::dataArray('jquery_lib', 'path').Config::dataArray('jquery_lib', 'data_table');
+		$data_table = Config::dataArray('jquery_lib', 'path') . Config::dataArray('jquery_lib', 'data_table');
 
-		$book_list = Config::dataArray('javascript', 'path').Config::dataArray('javascript', 'user_book_list');
+		$book_list = Config::dataArray('javascript', 'path') . Config::dataArray('javascript', 'user_book_list');
 
 		$js = array(
 			"$jquery",

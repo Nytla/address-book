@@ -26,14 +26,14 @@ class Exceptionizer {
 	 * This is main constructor which run our main Exceptionizer class 
 	 *
 	 * @param strung $mask		code-level errors
-	 * @param boolean $ignoreOther	This is variable ignore or not error
+	 * @param boolean $ignore_other	This is variable ignore or not error
 	 */
-	public function __construct($mask=E_ALL, $ignoreOther=false) {
+	public function __construct($mask = E_ALL, $ignore_other = false) {
 
 		$catcher = new PHP_Exceptionizer_Catcher();
 		$catcher -> _mask = $mask;
-		$catcher -> _ignoreOther = $ignoreOther;
-		$catcher -> _divvHdl = set_error_handler(array($catcher, "handler"));
+		$catcher -> _ignore_other = $ignore_other;
+		$catcher -> _divv_hdl = set_error_handler(array($catcher, "handler"));
 	}
 
 	/**
@@ -42,7 +42,7 @@ class Exceptionizer {
 	 * This is destructor which delete object exception
 	 *
 	 * @param strung $mask		code-level errors
-	 * @param boolean $ignoreOther	This is variable ignore or not error
+	 * @param boolean $ignore_other	This is variable ignore or not error
 	 */
 	public function __destruct() {
 		restore_error_handler();
@@ -63,21 +63,21 @@ class PHP_Exceptionizer_Catcher {
 	 * 
 	 * @var string	This is type of our error
 	 */
-	public $_mask = E_ALL;
+	protected $_mask = E_ALL;
 
 	/**
-	 * _ignoreOther
+	 * _ignore_other
 	 * 
 	 * @var boolean	This variable determines the was idnore error or not ignore
 	 */
-	public $_ignoreOther = false;
+	protected $_ignore_other = false;
 
 	/**
 	 * _DB_password
 	 * 
 	 * @var string	This is previous handler of errors 
 	 */
-	public $_divvHdl = null;
+	protected $_divv_hdl = null;
 
 	/**
 	 * handler
@@ -101,14 +101,14 @@ class PHP_Exceptionizer_Catcher {
 		/**
 		 * if error not ignore
 		 */
-		if (!$this -> _ignoreOther) {
-			if ($this -> _divvHdl) {
+		if (!$this -> _ignore_other) {
+			if ($this -> _divv_hdl) {
 
 				/**
 				 * If isset previous handler call his
 				 */
 				$args = func_get_args();
-				call_user_func_array($this -> _divvHdl, $args);
+				call_user_func_array($this -> _divv_hdl, $args);
 			} else {
 				return false;
 			}

@@ -30,18 +30,20 @@ class Indexes extends Templating {
 	 * @return string $tempalate	This is source header tempalate
 	 */
 	static public function headerContent($title = '', $flag_blue_print = 0) {
-	
+
+		/**
+		 * Create variable with header tempalate name
+		 */
 		$template_name = Config::dataArray('templates', 'header');
 
-		if (!$title) {
-			$title = Locale::languageEng('site', 'name');
-		}
-
+		/**
+		 * Create array with variables for header tempalate
+		 */
 		$params = array(
 			"charset"		=> Config::dataArray('common', 'charset'),
 			"site_name"		=> Locale::languageEng('site', 'title'),
 			"title"			=> $title,
-			"image_path"		=> Config::dataArray('server', 'slash').Config::dataArray('paths', 'adminpanel').Config::dataArray('paths', 'public').Config::dataArray('paths', 'images'),
+			"image_path"		=> Config::dataArray('image_settings', 'images_path'),
 			"screen"		=> Config::dataArray('css', 'path'),
 			"print"			=> Config::dataArray('css', 'path'),
 			"ie"			=> Config::dataArray('css', 'path'),
@@ -66,6 +68,9 @@ class Indexes extends Templating {
 		 */
 		$template_name = Config::dataArray('templates', 'scripts');
 
+		/**
+		 * Create array with variables for scripts tempalate
+		 */
 		$params = array(
 			"css_path"	=> $css_path,
 			"js_path"	=> $js_path,
@@ -84,8 +89,14 @@ class Indexes extends Templating {
 	 */
 	static public function footerContent() {
 
+		/**
+		 * Create variable with footer tempalate name
+		 */
 		$template_name = Config::dataArray('templates', 'footer');
 
+		/**
+		 * Create array with variable for footer tempalate
+		 */
 		$params = array(
 			'year' => date("Y"),
 		);

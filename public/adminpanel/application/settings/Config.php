@@ -155,7 +155,10 @@ class Config {
 			"image_settings"=> array(
 
 				"thumb_prefix"	=> 'thumb_',
-				"upload_path"	=> './../../public/images/uploads_client/'
+				"upload_path"	=> './../../public/images/uploads_client/',
+				"image_path"	=> '/adminpanel/public/images/uploads_client/',
+				"images_path"	=> '/adminpanel/public/images/',
+				"no_photo"	=> 'no_photo.gif'
 
 			),
 
@@ -175,6 +178,7 @@ class Config {
 				"add_new_record"=> 'add_new_client.html',
 				"edit_client"	=> 'edit_client.html',
 				"user_book_list"=> 'user_book_list.html'
+
 			)
 		);
 

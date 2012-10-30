@@ -14,7 +14,7 @@
 /**
  * Include autoload file
  */
-require_once(dirname(__FILE__).'/application/autoload/autoload.php');
+require_once(dirname(__FILE__) . '/application/autoload/autoload.php');
 
 /**
  * Create authorization object
@@ -32,7 +32,7 @@ $AuthorizationController -> checkAuthNotIndex();
 $EditClientController = new EditClient();
 
 /**
- * Print our address book
+ * Print edit client record page
  */
 print $EditClientController -> makeFromEditClient();
 ?>

@@ -37,11 +37,11 @@ class AddAdmin extends Templating {
 		/**
 		 * Create css or/and javascript content
 		 */
-		$jquery = Config::dataArray('jquery_lib', 'path').Config::dataArray('jquery_lib', 'jquery');
+		$jquery = Config::dataArray('jquery_lib', 'path') . Config::dataArray('jquery_lib', 'jquery');
 
-		$validation = Config::dataArray('jquery_lib', 'path').Config::dataArray('jquery_lib', 'valid_plugin');
+		$validation = Config::dataArray('jquery_lib', 'path') . Config::dataArray('jquery_lib', 'valid_plugin');
 
-		$add_admin = Config::dataArray('javascript', 'path').Config::dataArray('javascript', 'add_admin');
+		$add_admin = Config::dataArray('javascript', 'path') . Config::dataArray('javascript', 'add_admin');
 
 		$js = array("$jquery", "$validation", "$add_admin");
 

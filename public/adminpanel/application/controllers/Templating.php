@@ -68,14 +68,14 @@ class Templating extends Exceptionizer {
 		/**
 		 * Twig also comes with a filesystem loader
 		**/
-		self::$_path_to_template = Config::dataArray('templates', 'path').Config::dataArray('templates', 'name');
+		self::$_path_to_template = Config::dataArray('templates', 'path') . Config::dataArray('templates', 'name');
 
 		$loader = new Twig_Loader_Filesystem(self::$_path_to_template);
 
 		/**
 		 * Templates cache
 		**/
-		self::$_path_to_cache = Config::dataArray('templates', 'path').Config::dataArray('templates', 'name').Config::dataArray('templates', 'cache');
+		self::$_path_to_cache = Config::dataArray('templates', 'path') . Config::dataArray('templates', 'name') . Config::dataArray('templates', 'cache');
 
 		$twig = new Twig_Environment($loader, array(
 			'cache' => self::$_path_to_cache,
@@ -87,7 +87,7 @@ class Templating extends Exceptionizer {
 		###########################################
 		# Cache clear is not for working server
 		###########################################
-		//$twig -> clearCacheFiles();
+		$twig -> clearCacheFiles();
 	
 		/**
 		 * Render template

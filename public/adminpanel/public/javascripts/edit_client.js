@@ -1,5 +1,7 @@
-/**
- * Validate add new administrator form
+/** 
+ * @fileoverview This file edit record of client
+ * @author Igor Zhabskiy Zhabskiy.Igor@googlemail.com
+ * @version 0.1
  */
 $(document).ready(function() {
 
@@ -148,7 +150,6 @@ $(document).ready(function() {
 			$.ajaxes(object_options);
 
 			return false;
-
 		}
 
 	});
@@ -165,13 +166,17 @@ $(document).ready(function() {
 		$("#InformationForm").submit();
 
 		return false;
-
 	});
 
 });
 
 /**
- * Formed cities select list
+ * formedCitiesList This is jQuery plugin which formed cities select list.
+ *
+ * @class formedCitiesList
+ * @param {string} module	This is name of active module
+ * @param {int} city_id 	This is id of selected city
+ * @memberOf jQuery.fn
  */
 (function($) {
 	$.formedCitiesList = function(module, city_id) {
@@ -240,7 +245,11 @@ $(document).ready(function() {
 })(jQuery);
 
 /**
- * Ajaxes function for our book
+ * ajaxes This is awesome jQuery plugin.
+ *
+ * @class ajaxes
+ * @param {object} object_options This is options for ajax query
+ * @memberOf jQuery.fn
  */
 (function($) {
 	$.ajaxes = function(object_options) {
@@ -257,29 +266,50 @@ $(document).ready(function() {
 
 					case 'set_information':
 
-						$("#first_name").val(object.first_name);
+						if (object.flag == false) {
 
-						$("#last_name").val(object.last_name);
+							//Hide our forms
+							$('#forms_content').addClass("hide");
 
-						$("#email").val(object.email);
+							//Show success message
+							$('#edit_bad_client').removeClass("hide").addClass("error");
+						} else {
 
-						$("#country").val(object.country);
+							$("#first_name").val(object.first_name);
 
-						$.formedCitiesList('load_cities', object.city);
+							$("#last_name").val(object.last_name);
 
-						$("#preview_photo")
-							.html('')
-							.append('<img>');
+							$("#email").val(object.email);
 
-						$("#preview_photo img")					
-							.attr("width", object.photo_width)
-							.attr("height", object.photo_height)
-							.attr("src", object.photo_name)
-							.attr("alt", object.photo_description)
-							.attr("id", object.photo_id)
-							.parent()
-							.slideDown();
-						$("#notes").val(object.notes);
+							$("#country").val(object.country);
+
+							$.formedCitiesList('load_cities', object.city);
+
+							$("#preview_photo")
+								.html('')
+								.append('<img>');
+
+							$("#preview_photo img")					
+								.attr("width", object.photo_width)
+								.attr("height", object.photo_height)
+								.attr("src", object.photo_name)
+								.attr("alt", object.photo_description)
+								.attr("id", object.photo_id)
+								.parent()
+								.slideDown();
+							$("#notes").val(object.notes);
+
+							//Image not available
+							$("#preview_photo img").error(function() {
+
+								$(this).attr({
+									'height':	'300',
+									'width':	'300',
+									'alt':		'No photo available',
+									'src':		'/adminpanel/public/images/uploads_client/no_photo.gif'
+								});
+							});
+						}
 
 					break;
 
@@ -304,8 +334,6 @@ $(document).ready(function() {
 							}
 
 							$("#city").append(new Option(value, index, default_selected));
-
-							
 						});
 
 					break;
@@ -325,7 +353,6 @@ $(document).ready(function() {
 							$('#edit_bad_message').removeClass("hide").addClass("success");
 						}
 					break;
-
 				}
 			}
 		});
@@ -333,7 +360,10 @@ $(document).ready(function() {
 })(jQuery);
 
 /**
- * Form submit by jQuery Form Plugin
+ * uploadPhoto This is awesome jQuery plugin which upload client photo
+ *
+ * @class uploadPhoto
+ * @memberOf jQuery.fn
  */
 (function($) {
 	$.uploadPhoto = function() {
@@ -412,17 +442,17 @@ $(document).ready(function() {
 							.attr("id", object.image_id.photo_id)
 							.parent()
 							.slideDown();
-				}
-
-				
+				}		
 			}
 		});
-
 	}
 })(jQuery);
 
 /**
- * Input file button action or disabled
+ * InputFileButton This is jQuery plugin which enabled or disabled upload photo button
+ *
+ * @class InputFileButton
+ * @memberOf jQuery.fn
  */
 (function($) {
 	$.InputFileButton = function() {
@@ -445,7 +475,11 @@ $(document).ready(function() {
 })(jQuery);
 
 /**
- * Parse hash from url
+ * parseHash This is jQuery ajax plugin.
+ *
+ * @class parseHash
+ * @param {string} hash This is hash from our url
+ * @memberOf jQuery.fn
  */
 (function($){
 	$.parseHash = function() {

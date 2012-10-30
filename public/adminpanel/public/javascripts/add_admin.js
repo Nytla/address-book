@@ -1,3 +1,17 @@
+/*
+Объектно-ориентированное программирование в PHP. Первое знакомство  - http://biznesguide.ru/coding/135.html
+Что нового в php 5.4 - www.skillz.ru/dev/php/article-PHP54-whats-new.html
+*/
+//Documenting jQuery plugins with jsdoc-toolkit - http://pulkitgoyal.in/2012/06/04/documenting-jquery-plugins-jsdoc-toolkit/
+
+//JSDoc - http://www.seangw.com/examples/js_docs_out/index.html
+
+/** 
+ * @fileoverview This file add new record of administrator
+ * @author Igor Zhabskiy Zhabskiy.Igor@googlemail.com
+ * @version 0.1
+ */
+
 /**
  * Validate add new administrator form
  */
@@ -119,7 +133,9 @@ $(document).ready(function() {
 });
 
 /**
- * Validate login
+ * isValidLogin	This function validate login
+ *
+ * @memberOf JavaScript function
  */
 function isValidLogin(login){
 	var pattern = new RegExp(/^[A-Za-z]+$/i);
@@ -128,7 +144,10 @@ function isValidLogin(login){
 }
 
 /**
- * Validate password
+ * isValidPassword This function validate password
+ *
+ * @param {string} password This is password of new administrator
+ * @memberOf JavaScript function
  */
 function isValidPassword(password){
 	var pattern = new RegExp(/^[A-Za-z0-9_-]+$/i);
@@ -137,7 +156,11 @@ function isValidPassword(password){
 }
 
 /**
- * Ajaxes function for our form
+ * ajaxes This is awesome jQuery plugin.
+ *
+ * @class ajaxes
+ * @param {object} object_options This is options for ajax query
+ * @memberOf jQuery.fn
  */
 (function($) {
 	$.ajaxes = function(object_options) {

@@ -39,29 +39,32 @@ class ClassAutoloader {
 	private function classLoader($class_name) {
 
 		/**
-		 * Create variables with folders path
+		 * Create variable with root path
 		 */
 		$root = dirname(__FILE__);
 
-		$path_controllers = $root . '/../../application/controllers/' . $class_name . '.php';
+		/**
+		 * Create array with folder paths
+		 */
+		$paths = array(
 
-		$path_models = $root . '/../../application/models/' . $class_name . '.php';
-
-		$path_settings = $root . '/../../application/settings/' . $class_name . '.php';
-
-		$path_data = $root . '/../../application/data/' . $class_name . '.php';
+			$root . '/../../application/controllers/' . $class_name . '.php',
+			$root . '/../../application/models/' . $class_name . '.php',
+			$root . '/../../application/settings/' . $class_name . '.php',
+			$root . '/../../application/data/' . $class_name . '.php'
+		);
 
 		/**
-		 * Check path, if file exists then include file
+		 * Loop through an array and if file exists include him
 		 */
-		if (file_exists($path_controllers)) {
-			include_once($path_controllers);
-		} elseif (file_exists($path_models)) {
-			include_once($path_models);
-		} elseif (file_exists($path_settings)) {
-			include_once($path_settings);
-		} elseif (file_exists($path_data)) {
-			include_once($path_data);
+		foreach ($paths as $path) {
+
+			if (file_exists($path)) {
+				
+				include_once($path);
+
+				break;
+			}
 		}
 	}
 }

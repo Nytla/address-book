@@ -51,7 +51,7 @@ class Errors extends Templating {
 			case '99':
 
 				$params = array(
-					"site_url"		=> Config::dataArray('server', 'slash').Config::dataArray('paths', 'adminpanel'),
+					"site_url"		=> Config::dataArray('server', 'slash') . Config::dataArray('paths', 'adminpanel'),
 					"site_name"		=> Locale::languageEng('site', 'name'),			
 					"page_error"		=> Locale::languageEng('errors', 'page_error'),
 					"error_description"	=> Locale::languageEng('errors', (isset($_GET['error'])) ? $_GET['error'] : 'unknown_error'),
@@ -63,7 +63,7 @@ class Errors extends Templating {
 			case ValidateData::filterValidate($error, ValidateData::DATA_INT):
 
 				$params = array(
-					"site_url"		=> Config::dataArray('server', 'slash').Config::dataArray('paths', 'adminpanel'),
+					"site_url"		=> Config::dataArray('server', 'slash') . Config::dataArray('paths', 'adminpanel'),
 					"site_name"		=> Locale::languageEng('site', 'name'),			
 					"page_error"		=> Locale::languageEng('errors', 'page_error'),
 					"error_description"	=> Locale::languageEng('errors', $error),
@@ -76,7 +76,7 @@ class Errors extends Templating {
 			default:
 
 				$params = array(
-					"site_url"		=> Config::dataArray('server', 'slash').Config::dataArray('paths', 'adminpanel'),
+					"site_url"		=> Config::dataArray('server', 'slash') . Config::dataArray('paths', 'adminpanel'),
 					"site_name"		=> Locale::languageEng('site', 'name'),			
 					"page_error"		=> Locale::languageEng('errors', 'page_error'),
 					"error_description"	=> Locale::languageEng('errors', 'unknown_error'),

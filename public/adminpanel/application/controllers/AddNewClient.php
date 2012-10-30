@@ -100,13 +100,13 @@ class AddNewClient extends Templating {
 		/**
 		 * Create css or/and javascript content
 		 */
-		$jquery = Config::dataArray('jquery_lib', 'path').Config::dataArray('jquery_lib', 'jquery');
+		$jquery = Config::dataArray('jquery_lib', 'path') . Config::dataArray('jquery_lib', 'jquery');
 
-		$valid_plugin = Config::dataArray('jquery_lib', 'path').Config::dataArray('jquery_lib', 'valid_plugin');
+		$valid_plugin = Config::dataArray('jquery_lib', 'path') . Config::dataArray('jquery_lib', 'valid_plugin');
 
-		$form_plugin = Config::dataArray('jquery_lib', 'path').Config::dataArray('jquery_lib', 'form_plugin');
+		$form_plugin = Config::dataArray('jquery_lib', 'path') . Config::dataArray('jquery_lib', 'form_plugin');
 
-		$add_new_record = Config::dataArray('javascript', 'path').Config::dataArray('javascript', 'add_new_client');
+		$add_new_record = Config::dataArray('javascript', 'path') . Config::dataArray('javascript', 'add_new_client');
 
 		$js = array(
 			"$jquery",
@@ -184,143 +184,140 @@ class AddNewClient extends Templating {
 	 */
 	public function getImageClients($_FILES) {
 
-		if(isset($_POST)) {
+		/**
+		 * Set some variables
+		 */
+		$this -> _thumbnail_prefix = Config::dataArray('image_settings', 'thumb_prefix');
+
+		$this -> _destination_image_path = Config::dataArray('image_settings', 'upload_path');
+
+		/**
+		 * If image size > max size echo error
+		 */
+		if ((int) $_FILES['image_file']['size'] > (int) $_POST['MAX_FILE_SIZE'] or (int) $_FILES['image_file']['size'] == 0) {
 
 			/**
-			 * Set some variables
+			 * Return error image size
 			 */
-			$this -> _thumbnail_prefix = Config::dataArray('image_settings', 'thumb_prefix');
-	
-			$this -> _destination_image_path = Config::dataArray('image_settings', 'upload_path');
+			return json_encode(
+				array(
+					"error" => 'size'
+				)
+			);
+		}
 
-			/**
-			 * If image size > max size echo error
-			 */
-			if ((int) $_FILES['image_file']['size'] > (int) $_POST['MAX_FILE_SIZE'] or (int) $_FILES['image_file']['size'] == 0) {
+		/**
+		 * We need same random name for both files
+		 */
+		$random_number   = rand(0, 9999999999);
+
+		/**
+		 * Some information about image we need later
+		 */
+		$image_name	= strtolower($_FILES['image_file']['name']);
+		$image_size	= $_FILES['image_file']['size'];
+		$temp_src	= $_FILES['image_file']['tmp_name'];
+		$image_type	= $_FILES['image_file']['type'];
+		$process	= true;
+
+		/**
+		 * Validate file + create image from uploaded file
+		 */
+		switch(strtolower($image_type)) {
+
+			case 'image/png':
+
+				$created_image = imagecreatefrompng($_FILES['image_file']['tmp_name']);
+
+				break;
+
+			case 'image/gif':
+
+				$created_image = imagecreatefromgif($_FILES['image_file']['tmp_name']);
+
+				break;
+
+			case 'image/jpeg':
+
+				$created_image = imagecreatefromjpeg($_FILES['image_file']['tmp_name']);
+
+				break;
+
+			default:
 
 				/**
-				 * Return error image size
+				 * Return error image expansion
 				 */
 				return json_encode(
 					array(
-						"error" => 'size'
+						"error"	=> 'expansion'
 					)
 				);
-			}
+		}
+
+		/**
+		 * Get Image Size
+		 */
+		list ($curent_width, $curent_height) = getimagesize($temp_src);
+
+		/**
+		 * Set image size summa
+		 */
+		$size_summa = (int) ($curent_width / $this -> _thumb_max_width) + ($curent_height / $this -> _thumb_max_height);
+
+		/**
+		 * Get file extension, this will be added after random name
+		 */
+		$image_ext = substr($image_name, strrpos($image_name, '.'));
+
+		$image_ext = str_replace('.', '', $image_ext);
+
+		/**
+		 * Set the Destination Image path with Random Name
+		 */
+		$thumb_dest_rand_image_name	= $this -> _destination_image_path . $this -> _thumbnail_prefix . $random_number . '.' . $image_ext;
+
+		$dest_rand_image_name		= $this -> _destination_image_path . $random_number . '.' . $image_ext;
+
+		/**
+		 * Resize image to our Specified Size by calling our resizeImage function
+		 */
+		if ($size_summa > 1 and $this -> resizeImage($curent_width, $curent_height, $this -> _big_image_max_width, $this -> _big_image_max_height, $dest_rand_image_name, $created_image, $this -> _image_quality)) {
+
+			/** 
+			 * Create Thumbnail for the Image
+			 */
+			$this -> resizeImage($curent_width, $curent_height, $this -> _thumb_max_width, $this -> _thumb_max_height, $thumb_dest_rand_image_name, $created_image, $this -> _image_quality);
 
 			/**
-			 * We need same random name for both files
+			 * Respond with our images
 			 */
-			$random_number   = rand(0, 9999999999);
+			$uploads_client_path = Config::dataArray('image_settings', 'image_path');
 
 			/**
-			 * Some information about image we need later
+			 * Insert info into database table.. do w.e!
 			 */
-			$image_name	= strtolower($_FILES['image_file']['name']);
-			$image_size	= $_FILES['image_file']['size'];
-			$temp_src	= $_FILES['image_file']['tmp_name'];
-			$image_type	= $_FILES['image_file']['type'];
-			$process	= true;
+			$data_array = array(
+				"image_name"	=> $uploads_client_path . $this -> _thumbnail_prefix . $random_number . '.' . $image_ext,
+				"image_height"	=> $this -> _new_image_height,
+				"image_width"	=> $this -> _new_image_width,					
+				"image_alt"	=> Locale::languageEng('add_new_client', 'thumbnail_photo'),
+				"image_id"	=> AddNewClientModel::insertPhotoNameInDb($random_number.'.'.$image_ext, $this -> _new_image_height, $this -> _new_image_width, Locale::languageEng('add_new_client', 'thumbnail_photo'))
+
+			);
+
+			return json_encode($data_array);
+			
+		} else {
 
 			/**
-			 * Validate file + create image from uploaded file
+			 * Return error image resize
 			 */
-			switch(strtolower($image_type)) {
-
-				case 'image/png':
-
-					$created_image = imagecreatefrompng($_FILES['image_file']['tmp_name']);
-
-					break;
-
-				case 'image/gif':
-
-					$created_image = imagecreatefromgif($_FILES['image_file']['tmp_name']);
-
-					break;
-
-				case 'image/jpeg':
-
-					$created_image = imagecreatefromjpeg($_FILES['image_file']['tmp_name']);
-
-					break;
-
-				default:
-
-					/**
-					 * Return error image expansion
-					 */
-					return json_encode(
-						array(
-							"error"	=> 'expansion'
-						)
-					);
-			}
-
-			/**
-			 * Get Image Size
-			 */
-			list ($curent_width, $curent_height) = getimagesize($temp_src);
-
-			/**
-			 * Set image size summa
-			 */
-			$size_summa = (int) ($curent_width / $this -> _thumb_max_width) + ($curent_height / $this -> _thumb_max_height);
-
-			/**
-			 * Get file extension, this will be added after random name
-			 */
-			$image_ext = substr($image_name, strrpos($image_name, '.'));
-
-			$image_ext = str_replace('.', '', $image_ext);
-
-			/**
-			 * Set the Destination Image path with Random Name
-			 */
-			$thumb_dest_rand_image_name	= $this -> _destination_image_path . $this -> _thumbnail_prefix . $random_number . '.' . $image_ext;
-
-			$dest_rand_image_name		= $this -> _destination_image_path . $random_number . '.' . $image_ext;
-
-			/**
-			 * Resize image to our Specified Size by calling our resizeImage function
-			 */
-			if ($size_summa > 1 and $this -> resizeImage($curent_width, $curent_height, $this -> _big_image_max_width, $this -> _big_image_max_height, $dest_rand_image_name, $created_image, $this -> _image_quality)) {
-
-				/** 
-				 * Create Thumbnail for the Image
-				 */
-				$this -> resizeImage($curent_width, $curent_height, $this -> _thumb_max_width, $this -> _thumb_max_height, $thumb_dest_rand_image_name, $created_image, $this -> _image_quality);
-
-				/**
-				 * Respond with our images
-				 */
-				$uploads_client_path = Config::dataArray('server', 'dot').Config::dataArray('server', 'slash').Config::dataArray('paths', 'public').Config::dataArray('paths', 'images').Config::dataArray('paths', 'uploads_client');
-
-				/**
-				 * Insert info into database table.. do w.e!
-				 */
-				$data_array = array(
-					"image_name"	=> $uploads_client_path . $this -> _thumbnail_prefix . $random_number . '.' . $image_ext,
-					"image_height"	=> $this -> _new_image_height,
-					"image_width"	=> $this -> _new_image_width,					
-					"image_alt"	=> Locale::languageEng('add_new_client', 'thumbnail_photo'),
-					"image_id"	=> AddNewClientModel::insertPhotoNameInDb($random_number.'.'.$image_ext, $this -> _new_image_height, $this -> _new_image_width, Locale::languageEng('add_new_client', 'thumbnail_photo'))
-
-				);
-
-				return json_encode($data_array);
-				
-			} else {
-
-				/**
-				 * Return error image resize
-				 */
-				return json_encode(
-					array(
-						"error"	=> 'resize'
-					)
-				);
-			}
+			return json_encode(
+				array(
+					"error"	=> 'resize'
+				)
+			);
 		}
 	}
 

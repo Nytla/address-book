@@ -174,7 +174,8 @@ class Locale {
 				"details_open"		=> 'Details open',
 				"details_close"		=> 'Details close',
 				"client_edit"		=> 'Edit',
-				"client_delete"		=> 'Delete'
+				"client_delete"		=> 'Delete',
+				"no_photo"		=> 'No photo available',
 
 			),
 
@@ -210,9 +211,11 @@ class Locale {
 				"error_required_f_n"	=> 'First Name is required!',
 				"error_min_length_f_n"	=> 'First Name must be at least 2 characters long!',
 				"error_max_length_f_n"	=> 'First Name should contain no more than 16 characters!',
+				"error_eng_letters_f_n" => 'First Name must consist of English letters!',
 				"error_required_l_n"	=> "Last Name is required!",
 				"error_min_length_l_n"	=> 'Last Name must be at least 2 characters long!',
 				"error_max_length_l_n"	=> 'Last Name should contain no more than 16 characters!',
+				"error_eng_letters_l_n" => 'Last Name must consist of English letters!',
 				"error_required_email"	=> 'Email address is required!',
 				"error_min_length_email"=> 'Email address must be at least 5 characters long!',
 				"error_max_length_email"=> 'Email address should contain no more than 16 characters!',
@@ -232,7 +235,8 @@ class Locale {
 
 				"title"			=> 'Admin: Edit Client',
 				"edit_good_message"	=> 'Client data successfully changed.',
-				"edit_bad_message"	=> 'Customer data were not recorded due to technical reasons.'
+				"edit_bad_message"	=> 'Customer data were not recorded due to technical reasons.',
+				"edit_bad_client"	=> 'These clients can not be found.'
 
 			)
 		);

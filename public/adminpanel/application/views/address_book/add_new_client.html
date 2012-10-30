@@ -23,12 +23,13 @@
 							</div>
 							<div>
 								<label for="country">{{ country }}</label>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select name="country" id="country">
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<select name="country" id="country">
 									<option value="">{{ empty_option }}</option>
 									{% for id, country in country_array %}
 	<option value="{{ id }}">{{ country }}</option>
 									{% endfor %}
-								</select>
+</select>
 							</div>
 							<div>
 								<label for="city">{{ city }}</label>
@@ -60,12 +61,10 @@
 								<br>
 								<textarea cols="20" rows="5" name="notes" id="notes" class="text" maxlength="1500"></textarea>
 							</p>
-							
 							<div class="span-8 prepend-3">
 								<input type="submit" name="save" id="save" value="{{ save }}">
 								<input type="reset" name="reset_forms" id="reset_forms" value="{{ reset }}">
 							</div>
-
 							<div id="error_empty_f_n" class="hide">{{ error_empty_f_n }}</div>
 							<div id="error_min_length_f_n" class="hide">{{ error_min_length_f_n }}</div>
 							<div id="error_max_length_f_n" class="hide">{{ error_max_length_f_n }}</div>
@@ -80,7 +79,6 @@
 							<div id="error_empty_city" class="hide">{{ error_empty_city }}</div>
 							<div id="error_upload_photo" class="hide">{{ error_upload_photo }}</div>
 						</form>
-
 					</div>
 					<div id="add_good_message" class="hide">{{ add_good_message }}</div>
 				</fieldset>

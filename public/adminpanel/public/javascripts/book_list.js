@@ -1,93 +1,25 @@
 /**
- * Function: fnGetColumnData
- * Purpose:  Return an array of table values from a particular column.
- * Returns:  array string: 1d data array 
- * Inputs:   object:oSettings - dataTable settings object. This is always the last argument past to the function
- *           int:iColumn - the id of the column to extract the data from
- *           bool:bUnique - optional - if set to false duplicated values are not filtered out
- *           bool:bFiltered - optional - if set to false all the table data is used (not only the filtered)
- *           bool:bIgnoreEmpty - optional - if set to false empty values are not filtered from the result array
- * Author:   Benedikt Forchhammer <b.forchhammer /AT\ mind2.de> (http://datatables.net/)
- */
-(function($) {
-	$.fn.dataTableExt.oApi.fnGetColumnData = function ( oSettings, iColumn, bUnique, bFiltered, bIgnoreEmpty ) {
-		// check that we have a column id
-		if ( typeof iColumn == "undefined" ) return new Array();
-	
-		// by default we only wany unique data
-		if ( typeof bUnique == "undefined" ) bUnique = true;
-	
-		// by default we do want to only look at filtered data
-		if ( typeof bFiltered == "undefined" ) bFiltered = true;
-	
-		// by default we do not wany to include empty values
-		if ( typeof bIgnoreEmpty == "undefined" ) bIgnoreEmpty = true;
-	
-		// list of rows which we're going to loop through
-		var aiRows;
-	
-		// use only filtered rows
-		if (bFiltered == true) aiRows = oSettings.aiDisplay; 
-		// use all rows
-		else aiRows = oSettings.aiDisplayMaster; // all row numbers
-
-		// set up data array	
-		var asResultData = new Array();
-	
-		for (var i=0,c=aiRows.length; i<c; i++) {
-			iRow = aiRows[i];
-			var aData = this.fnGetData(iRow);
-			var sValue = aData[iColumn];
-		
-			// ignore empty values?
-			if (bIgnoreEmpty == true && sValue.length == 0) continue;
-
-			// ignore unique values?
-			else if (bUnique == true && jQuery.inArray(sValue, asResultData) > -1) continue;
-		
-			// else push the value onto the result data array
-			else asResultData.push(sValue);
-		}
-	
-		return asResultData;
-}}(jQuery));
-
-/**
- * Create selected element Country and City 
- */
-function fnCreateSelect(aData, num) {
-
-	var option_name = (num == 3) ? 'Country' : 'City';
-
-	var r = '<select><option value="">'+option_name+'</option>', i, iLen=aData.length;
-	
-	for ( i = 0 ; i < iLen ; i++ ) {
-		r += '<option value="'+aData[i]+'">'+aData[i]+'</option>';
-	}
-
-	return r+'</select>';
-}
-
-/**
- * Formating function for row details
- */
-function fnFormatDetails( oTable, nTr, view_id ) {
-
-	var aData = oTable.fnGetData( nTr );
-
-	var sOut = $("#view_content_"+view_id).html();
-
-	return sOut;
-}
-
-/**
- * Formed Book list page 
+ * @fileoverview This file formed book list for administrator
+ * @author Igor Zhabskiy Zhabskiy.Igor@googlemail.com
+ * @version 0.1
  */
 $(document).ready(function() {
 
-	/**
-	 * Insert a 'details' column to the table
-	 */
+	//Image not available
+	$("#example tbody tr td div img").each(function(i, k) {
+
+		$(this).error(function() {
+
+			$(this).attr({
+				'height':	'300',
+				'width':	'300',
+				'alt':		'No photo available',
+				'src':		'/adminpanel/public/images/uploads_client/no_photo.gif'
+			});
+		});
+	});
+
+	//Insert a 'details' column to the table
 	var img_details_open = $("#details_open img");
 	
 	var img_details_close = $("#details_close img");
@@ -109,7 +41,7 @@ $(document).ready(function() {
 	});
 
 	//Add event listener for opening and closing details and note that the indicator for showing which row is open is not controlled by DataTables, rather it is done here
-	$(document).on("click", "#example tbody td img", function() {
+	$(document).on("click", "#example tbody td.center img", function() {
 
 		var nTr = $(this).parents("tr")[0];
 
@@ -119,7 +51,6 @@ $(document).ready(function() {
 			this.src = img_details_open.attr("src");
 
 			oTable.fnClose( nTr );
-
 			
 		} else {
 
@@ -134,7 +65,7 @@ $(document).ready(function() {
 				.attr("href");
 
 			var view_id = $.parseHash(href_content).delete_id;
-			
+
 			oTable.fnOpen( nTr, fnFormatDetails(oTable, nTr, view_id), 'details' );
 		}
 	});
@@ -218,7 +149,11 @@ $(document).ready(function() {
 });
 
 /**
- * Ajaxes function for our book
+ * ajaxes This is jQuery ajax plugin.
+ *
+ * @class ajaxes
+ * @param {object} object_options This is options for ajax query
+ * @memberOf jQuery.fn
  */
 (function($) {
 	$.ajaxes = function(object_options) {
@@ -250,7 +185,11 @@ $(document).ready(function() {
 })(jQuery);
 
 /**
- * Parse hash from url
+ * parseHash This is jQuery ajax plugin.
+ *
+ * @class parseHash
+ * @param {string} hash This is hash from our url
+ * @memberOf jQuery.fn
  */
 (function($){
 	$.parseHash = function(hash) {
@@ -280,3 +219,98 @@ $(document).ready(function() {
 		return data;
 	}
 })(jQuery);
+
+/**
+ * fnGetColumnData This is jQuery plugin which return an array of table values from a particular column
+ *
+ * @class fnGetColumnData
+ * @param {object} oSettings	This is always the last argument past to the function
+ * @param {int} iColumn		This is id of the column to extract the data from
+ * @param {bool} bUnique	(optional) If set to false duplicated values are not filtered out
+ * @param {bool} bFiltered	(optional) If set to false all the table data is used (not only the filtered)
+ * @param {bool} bIgnoreEmpty	(optional) If set to false empty values are not filtered from the result array
+ * @memberOf jQuery.fn
+ * @author Benedikt Forchhammer <b.forchhammer /AT\ mind2.de> (http://datatables.net/)
+ */
+(function($) {
+	$.fn.dataTableExt.oApi.fnGetColumnData = function ( oSettings, iColumn, bUnique, bFiltered, bIgnoreEmpty ) {
+		// check that we have a column id
+		if ( typeof iColumn == "undefined" ) return new Array();
+	
+		// by default we only wany unique data
+		if ( typeof bUnique == "undefined" ) bUnique = true;
+	
+		// by default we do want to only look at filtered data
+		if ( typeof bFiltered == "undefined" ) bFiltered = true;
+	
+		// by default we do not wany to include empty values
+		if ( typeof bIgnoreEmpty == "undefined" ) bIgnoreEmpty = true;
+	
+		// list of rows which we're going to loop through
+		var aiRows;
+	
+		// use only filtered rows
+		if (bFiltered == true) aiRows = oSettings.aiDisplay; 
+		// use all rows
+		else aiRows = oSettings.aiDisplayMaster; // all row numbers
+
+		// set up data array	
+		var asResultData = new Array();
+	
+		for (var i=0,c=aiRows.length; i<c; i++) {
+			iRow = aiRows[i];
+			var aData = this.fnGetData(iRow);
+			var sValue = aData[iColumn];
+		
+			// ignore empty values?
+			if (bIgnoreEmpty == true && sValue.length == 0) continue;
+
+			// ignore unique values?
+			else if (bUnique == true && jQuery.inArray(sValue, asResultData) > -1) continue;
+		
+			// else push the value onto the result data array
+			else asResultData.push(sValue);
+		}
+	
+		return asResultData;
+}}(jQuery));
+
+/**
+ * fnCreateSelect This function create selected element Country and City for search
+ *
+ * @param {object} aData	This is our option elements
+ * @param {string} num		This is number of search element
+ * @memberOf JavaScript function
+ */
+function fnCreateSelect(aData, num) {
+
+	var option_name = (num == 3) ? 'Country' : 'City';
+
+	var r = '<select><option value="">'+option_name+'</option>', i, iLen=aData.length;
+	
+	for ( i = 0 ; i < iLen ; i++ ) {
+		r += '<option value="'+aData[i]+'">'+aData[i]+'</option>';
+	}
+
+	return r+'</select>';
+}
+
+/**
+ * Formating function for row details
+ */
+/**
+ * fnFormatDetails This function formating function for row details
+ *
+ * @param {object} oTable	This is clients table object
+ * @param {object} nTr		This is view object
+ * @param {int} view_id		This is id of view client
+ * @memberOf JavaScript function
+ */
+function fnFormatDetails( oTable, nTr, view_id ) {
+
+	var aData = oTable.fnGetData( nTr );
+
+	var sOut = $("#view_content_"+view_id).html();
+
+	return sOut;
+}

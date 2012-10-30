@@ -48,7 +48,7 @@ class Authorization extends Templating {
 	 *
 	 * @return string $tempalate	This is source authorization tempalate
 	 */
-	public function makeAuth() {
+	public function makeAuthForm() {
 
 		/**
 		 * Create header content
@@ -58,9 +58,9 @@ class Authorization extends Templating {
 		/**
 		 * Create css or/and javascript content
 		 */
-		$jquery = Config::dataArray('jquery_lib', 'path').Config::dataArray('jquery_lib', 'jquery');
+		$jquery = Config::dataArray('jquery_lib', 'path') . Config::dataArray('jquery_lib', 'jquery');
 
-		$auth = Config::dataArray('javascript', 'path').Config::dataArray('javascript', 'authorization');
+		$auth = Config::dataArray('javascript', 'path') . Config::dataArray('javascript', 'authorization');
 
 		$js = array("$jquery", "$auth");
 
@@ -72,7 +72,7 @@ class Authorization extends Templating {
 		$template_name = Config::dataArray('templates', 'authorization');
 
 		$params = array(
-			"site_url"		=> Config::dataArray('server', 'slash').Config::dataArray('paths', 'adminpanel'),
+			"site_url"		=> Config::dataArray('server', 'slash') . Config::dataArray('paths', 'adminpanel'),
 			"site_name"		=> Locale::languageEng('site', 'name'),
 			"auth"			=> Locale::languageEng('authorization', 'auth'),
 			'login'			=> Locale::languageEng('authorization', 'login'),			

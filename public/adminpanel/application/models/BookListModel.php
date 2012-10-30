@@ -100,7 +100,7 @@ class BookListModel extends PDOMysqlConnect {
 			/**
 			 * Set photo path
 			 */
-			$row['photo_name'] = Config::dataArray('server', 'slash') . Config::dataArray('paths', 'adminpanel') . Config::dataArray('paths', 'public') . Config::dataArray('paths', 'images') . Config::dataArray('paths', 'uploads_client') . $row['photo_name'];
+			$row['photo_name'] = Config::dataArray('image_settings', 'image_path') . $row['photo_name'];
 
 			$data_array[] = $row;
 		}
@@ -167,7 +167,8 @@ class BookListModel extends PDOMysqlConnect {
 			SELECT `city_id`, `cityname_en`
 			FROM " . self::$_DB_table_name_cities . "
 			WHERE `country_id` = '$country_id'
-			ORDER BY `cityname_en`");
+			ORDER BY `cityname_en`
+		");
 
 		/**
 		 * Get our countries
@@ -233,7 +234,12 @@ class BookListModel extends PDOMysqlConnect {
 		/**
 		 * Select administrator information
 		 */
-		$select_chrase = self::dbConnect() -> query("SELECT `phrase_text` FROM " . self::$_DB_table_name_phrases . " ORDER BY RAND() LIMIT 1");
+		$select_chrase = self::dbConnect() -> query("
+			SELECT `phrase_text` 
+			FROM " . self::$_DB_table_name_phrases . " 
+			ORDER BY RAND() 
+			LIMIT 1
+		");
 
 		/**
 		 * Get our phrase

@@ -37,13 +37,13 @@ class EditClient extends Templating {
 		/**
 		 * Create css or/and javascript content
 		 */
-		$jquery = Config::dataArray('jquery_lib', 'path').Config::dataArray('jquery_lib', 'jquery');
+		$jquery = Config::dataArray('jquery_lib', 'path') . Config::dataArray('jquery_lib', 'jquery');
 
-		$valid_plugin = Config::dataArray('jquery_lib', 'path').Config::dataArray('jquery_lib', 'valid_plugin');
+		$valid_plugin = Config::dataArray('jquery_lib', 'path') . Config::dataArray('jquery_lib', 'valid_plugin');
 
-		$form_plugin = Config::dataArray('jquery_lib', 'path').Config::dataArray('jquery_lib', 'form_plugin');
+		$form_plugin = Config::dataArray('jquery_lib', 'path') . Config::dataArray('jquery_lib', 'form_plugin');
 
-		$add_new_client = Config::dataArray('javascript', 'path').Config::dataArray('javascript', 'edit_client');
+		$add_new_client = Config::dataArray('javascript', 'path') . Config::dataArray('javascript', 'edit_client');
 
 		$js = array(
 			"$jquery",
@@ -90,7 +90,8 @@ class EditClient extends Templating {
 			"error_image_extension"	=> Locale::languageEng('add_new_client', 'error_image_extension'),
 			"mess_max_length_notes" => Locale::languageEng('add_new_client', 'mess_max_length_notes'),
 			"edit_good_message"	=> Locale::languageEng('edit_client', 'edit_good_message'),
-			"edit_bad_message"	=> Locale::languageEng('edit_client', 'edit_bad_message')
+			"edit_bad_message"	=> Locale::languageEng('edit_client', 'edit_bad_message'),
+			"edit_bad_client"	=> Locale::languageEng('edit_client', 'edit_bad_client')
 		);
 
 		/**

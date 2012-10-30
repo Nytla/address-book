@@ -37,9 +37,9 @@ class BookList extends Templating {
 		/**
 		 * Create css content
 		 */
-		$demo_table = Config::dataArray('css', 'path_style').Config::dataArray('css', 'demo_table');
+		$demo_table = Config::dataArray('css', 'path_style') . Config::dataArray('css', 'demo_table');
 
-		$jquery_ui = Config::dataArray('css', 'path_style').Config::dataArray('css', 'jquery_ui');
+		$jquery_ui = Config::dataArray('css', 'path_style') . Config::dataArray('css', 'jquery_ui');
 
 		$css = array(
 			"$demo_table",

@@ -150,9 +150,9 @@ class AddAdminModel extends PDOMysqlConnect {
 		 */
 		$insert_admin = self::dbConnect() -> exec("
 			INSERT INTO " . self::$_DB_table_name . " 
-			(`admin_id`, `admin_login`, `admin_password`, `admin_hash`, `admin_permission`) 
+				(`admin_id`, `admin_login`, `admin_password`, `admin_hash`, `admin_permission`) 
 			VALUES 
-			('', '" . mysql_escape_string(self::$_admin_login) . "', '" . mysql_escape_string(self::$_admin_password) . "', '', 0)
+				('', '" . mysql_escape_string(self::$_admin_login) . "', '" . mysql_escape_string(self::$_admin_password) . "', '', 0)
 		");
 
 		return ($insert_admin) ? true : false;

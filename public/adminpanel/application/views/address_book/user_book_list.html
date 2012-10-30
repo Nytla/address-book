@@ -34,7 +34,10 @@
 									<div id="view_content_{{ clients_data[id]['id'] }}" title="{{ clients_data[id]['id'] }}" class="hide">
 										<div>
 											<img src="{{ clients_data[id]['photo_name'] }}" height="{{ clients_data[id]['photo_height'] }}" width="{{ clients_data[id]['photo_width'] }}" class="left" style="padding: 10px;" alt="{{ clients_data[id]['photo_description'] }}">
-											<p style="padding: 10px;">{{ clients_data[id]['notes'] }}</p>
+											<p style="padding: 10px;">
+												<b>Email:</b> {{ clients_data[id]['email'] }}<br>
+												<b>Notes:</b> {{ clients_data[id]['notes'] }}
+											</p>
 										</div>
 									</div>
 								</td>

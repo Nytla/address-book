@@ -1,5 +1,7 @@
-/**
- * Validate authorization form
+/** 
+ * @fileoverview This file validate authorization data
+ * @author Igor Zhabskiy Zhabskiy.Igor@googlemail.com
+ * @version 0.1
  */
 $(document).ready(function() {
 

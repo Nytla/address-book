@@ -1,12 +1,7 @@
-/**
- * Add new rule (function) in jQuery validade plugin for login
- */
-jQuery.validator.addMethod("lettersonly", function(value, element) {
-	return this.optional(element) || /^[a-z]+$/i.test(value);
-}, "English letters only please.");
-
-/**
- * Validate add new administrator form
+/** 
+ * @fileoverview This file add new record of client
+ * @author Igor Zhabskiy Zhabskiy.Igor@googlemail.com
+ * @version 0.1
  */
 $(document).ready(function() {
 
@@ -195,7 +190,18 @@ $(document).ready(function() {
 });
 
 /**
- * Ajaxes function for our book
+ * Add new rule (function) in jQuery validade plugin for login
+ */
+jQuery.validator.addMethod("lettersonly", function(value, element) {
+	return this.optional(element) || /^[a-z]+$/i.test(value);
+}, "English letters only please.");
+
+/**
+ * ajaxes This is awesome jQuery plugin.
+ *
+ * @class ajaxes
+ * @param {object} object_options This is options for ajax query
+ * @memberOf jQuery.fn
  */
 (function($) {
 	$.ajaxes = function(object_options) {
@@ -247,7 +253,10 @@ $(document).ready(function() {
 })(jQuery);
 
 /**
- * Form submit by jQuery Form Plugin
+ * uploadPhoto This is awesome jQuery plugin which upload client photo
+ *
+ * @class uploadPhoto
+ * @memberOf jQuery.fn
  */
 (function($) {
 	$.uploadPhoto = function() {
@@ -344,7 +353,10 @@ $(document).ready(function() {
 })(jQuery);
 
 /**
- * Input file button action or disabled
+ * InputFileButton This is jQuery plugin which enabled or disabled upload photo button
+ *
+ * @class InputFileButton
+ * @memberOf jQuery.fn
  */
 (function($) {
 	$.InputFileButton = function() {

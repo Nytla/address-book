@@ -57,9 +57,9 @@ class AddNewClientModel extends PDOMysqlConnect {
 		 */
 		$insert_photo = self::dbConnect() -> exec("
 			INSERT INTO " . self::$_DB_table_name_photos . " 
-			(`photo_id`, `photo_name`, `photo_height`, `photo_width`, `photo_description`) 
+				(`photo_id`, `photo_name`, `photo_height`, `photo_width`, `photo_description`) 
 			VALUES 
-			('', '" . mysql_escape_string($photo_name) . "', '" . mysql_escape_string($photo_height) . "', '" . mysql_escape_string($photo_width) . "', '" . mysql_escape_string($photo_description) . "')");
+				('', '" . mysql_escape_string($photo_name) . "', '" . mysql_escape_string($photo_height) . "', '" . mysql_escape_string($photo_width) . "', '" . mysql_escape_string($photo_description) . "')");
 
 		if ($insert_photo) {
 
@@ -103,9 +103,9 @@ class AddNewClientModel extends PDOMysqlConnect {
 		 */
 		$insert_client = self::dbConnect() -> exec("
 			INSERT INTO " . self::$_DB_table_name_clients . " 
-			(`id`, `first_name`, `last_name`, `email`, `country`, `city`, `photo`, `notes`) 
+				(`id`, `first_name`, `last_name`, `email`, `country`, `city`, `photo`, `notes`) 
 			VALUES 
-			('', '" . mysql_escape_string($first_name) . "', '" . mysql_escape_string($last_name) . "', '" . mysql_escape_string($email) . "', '" . mysql_escape_string($country) . "', '" . mysql_escape_string($city) . "', '" . mysql_escape_string($photo_id) . "', '" . mysql_escape_string($notes) . "')");
+				('', '" . mysql_escape_string($first_name) . "', '" . mysql_escape_string($last_name) . "', '" . mysql_escape_string($email) . "', '" . mysql_escape_string($country) . "', '" . mysql_escape_string($city) . "', '" . mysql_escape_string($photo_id) . "', '" . mysql_escape_string($notes) . "')");
 
 		return ($insert_client) ? true : false;
 	}
