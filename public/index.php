@@ -45,4 +45,5 @@ $diff = sprintf('%.5f', $finish - $begin);
 $peak = memory_get_peak_usage();
 $mem = memory_get_usage();
 echo "\r\nGeneration: $diff. Memory: $mem. Peak: $peak";
+
 ?>
