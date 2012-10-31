@@ -1,0 +1,16 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+	"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset={{ charset }}">
+		<title>{{ title }}</title>
+		<link rel="icon" href="{{ image_path }}favicon.ico" type="image/x-icon">
+{% if flag_blue_print == 1 %}
+		<!-- Framework CSS BLUEPRINT START -->
+		<link rel="stylesheet" type="text/css" href="{{ screen }}screen.css" media="screen, projection">
+		<link rel="stylesheet" type="text/css" href="{{ print }}print.css" media="print">
+		<!--[if lt IE 8]>	
+		<link rel="stylesheet" href="{{ ie }}ie.css" type="text/css" media="screen, projection">
+		<![endif]-->
+		<!-- Framework CSS BLUEPRINT FINISH -->
+{% endif %}
