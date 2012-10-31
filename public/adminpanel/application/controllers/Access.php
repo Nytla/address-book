@@ -81,7 +81,7 @@ class Access extends Exceptionizer {
 				/**
 				 * Formed message
 				 */
-				$access = "<error acces>\r\n";
+				$access = "<error access>\r\n";
 				$access .= "	<date>$date</date>\r\n";
 				$access .= "	<parameters>\r\n";
 				$access .= $params;
