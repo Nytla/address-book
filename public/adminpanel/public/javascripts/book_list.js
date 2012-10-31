@@ -6,7 +6,7 @@
 $(document).ready(function() {
 
 	//Image not available
-	$("#example tbody tr td div img").each(function(i, k) {
+	$("#example tbody tr td div img").each(function(i, v) {
 
 		$(this).error(function() {
 
@@ -80,7 +80,6 @@ $(document).ready(function() {
 			{ "bSortable": false, "aTargets": [ 0,5 ] },
 		],
 		"aLengthMenu": [[10, 20, 50, -1], [10, 20, 50, "All"]],
-
 	});
 
 	//Create Country and City container search
@@ -165,10 +164,6 @@ $(document).ready(function() {
 			cache: true,
 			async: false,
 			data: object_options,
-			complete: function() {
-				//Hide preloader image
-				//$('#preloader').fadeOut('slow', function() {});
-			},
 			success: function(object) {
 	
 				if (object.flag == true) {

@@ -63,21 +63,21 @@ class PHP_Exceptionizer_Catcher {
 	 * 
 	 * @var string	This is type of our error
 	 */
-	protected $_mask = E_ALL;
+	public $_mask = E_ALL;
 
 	/**
 	 * _ignore_other
 	 * 
 	 * @var boolean	This variable determines the was idnore error or not ignore
 	 */
-	protected $_ignore_other = false;
+	public $_ignore_other = false;
 
 	/**
 	 * _DB_password
 	 * 
 	 * @var string	This is previous handler of errors 
 	 */
-	protected $_divv_hdl = null;
+	public $_divv_hdl = null;
 
 	/**
 	 * handler

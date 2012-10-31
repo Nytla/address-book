@@ -1,6 +1,4 @@
 <?php
-//26 client in DB - 	Generation: 0.04112. Memory: 4873136. Peak: 5260432
-//1026 client in DB -	Generation: 0.18907. Memory: 6167552. Peak: 15499096
 /**
  * Test load time, Memory and Peak START
  */
@@ -13,7 +11,7 @@ $begin = microtime(TRUE);
  * 
  * index.php
  *
- * This is index file for user
+ * This is index file
  * 
  * @category	public
  * @copyright	2012
@@ -26,14 +24,14 @@ $begin = microtime(TRUE);
 require_once(dirname(__FILE__).'/adminpanel/application/autoload/autoload.php');
 
 /**
- * Create copy of book list object
+ * Create copy of testing object
  */
-$UserBookListController = new UserBookList();
+$TestingController = new Testing();
 
 /**
- * Print our address book for user
+ * Print our test
  */
-print $UserBookListController -> makeUserAB();
+print $TestingController -> test();
 
 
 

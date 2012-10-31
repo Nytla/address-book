@@ -1,0 +1,28 @@
+<error>
+	<date>2012-10-31 14:43:03 (EET7200)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: HTTP_X_REQUESTED_WITH</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Access.php</filename>
+	<linenum>42</linenum>
+</error>
+<error>
+	<date>2012-10-31 14:43:11 (EET7200)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: HTTP_X_REQUESTED_WITH</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Access.php</filename>
+	<linenum>42</linenum>
+</error>
+<error>
+	<date>2012-10-31 14:46:38 (EET7200)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: HTTP_X_REQUESTED_WITH</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Access.php</filename>
+	<linenum>40</linenum>
+</error>
+<error>
+	<date>2012-10-31 14:48:02 (EET7200)</date>
+	<errcode>8</errcode>
+	<errmsg>Undefined index: HTTP_X_REQUESTED_WITH</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/application/controllers/Access.php</filename>
+	<linenum>40</linenum>
+</error>

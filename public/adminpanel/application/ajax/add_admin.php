@@ -24,7 +24,7 @@ $AccessController = new Access();
 /**
  * Run method
  */
-$AccessController -> httpRequested();
+print $AccessController -> httpRequested();
 
 /**
  * Create AddAdminController object

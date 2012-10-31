@@ -18,7 +18,7 @@
  *
  * @version 0.1
  */
-class Access extends Templating {
+class Access extends Exceptionizer {
 
 	/**
 	 * _path_access_log
@@ -37,10 +37,8 @@ class Access extends Templating {
 	public function httpRequested() {
 
 		try {
-			$flag = $_SERVER['HTTP_X_REQUESTED_WITH'];
-
-			if($flag) {
-				return true;
+			if($_SERVER['HTTP_X_REQUESTED_WITH']) {
+				return 'true';
 			}
 
 		} catch (E_NOTICE $object) {

@@ -25,7 +25,7 @@
 							</tr>
 						</thead>
 						<tbody>
-	{% for id, value in clients_data %}
+{% for id, value in clients_data %}
 							<tr class="gradeA">
 								<td>{{ clients_data[id]['first_name'] }} {{ clients_data[id]['last_name'] }}</td>
 								<td>{{ clients_data[id]['countryname_en'] }}</td>
@@ -42,14 +42,13 @@
 									</div>
 								</td>
 							</tr>
-	{% endfor %}
+{% endfor %}
 						</tbody>
 					</table>
 				</div>
 			</div>
 		</div>
 		<!-- View clients FINISH -->
-
 			<div class="container showgrid">
 			<br>
 			<br>

@@ -84,9 +84,9 @@ class Templating extends Exceptionizer {
 		/**
 		 * Clear cache files
 		 */
-		###########################################
-		# Cache clear is not for working server
-		###########################################
+		#########################################################################
+		# Cache clear is testing server, but not for working (production) server
+		#########################################################################
 		$twig -> clearCacheFiles();
 	
 		/**

@@ -9,7 +9,6 @@
 			</div>
 			<!-- Url Add New Record FINISH -->
 		</div>
-
 		<!-- View clients START -->
 		<div class="container">
 			<div class="full_width">
@@ -33,7 +32,7 @@
 							</tr>
 						</thead>
 						<tbody>
-	{% for id, value in clients_data %}
+{% for id, value in clients_data %}
 							<tr class="gradeA">
 								<td>{{ clients_data[id]['id'] }}</td>
 								<td>{{ clients_data[id]['first_name'] }} {{ clients_data[id]['last_name'] }}</td>
@@ -55,14 +54,13 @@
 									</div>
 								</td>
 							</tr>
-	{% endfor %}
+{% endfor %}
 						</tbody>
 					</table>
 				</div>
 			</div>
 		</div>
 		<!-- View clients FINISH -->
-
 			<div class="container showgrid">
 			<br>
 			<br>
