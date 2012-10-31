@@ -25,5 +25,4 @@ $UserBookListController = new UserBookList();
  * Print our address book for user
  */
 print $UserBookListController -> makeUserAB();
-
 ?>
