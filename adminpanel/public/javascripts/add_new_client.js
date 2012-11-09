@@ -228,7 +228,6 @@ jQuery.validator.addMethod("lettersonly", function(value, element) {
 
 						//Create options element for sity list
 						$.each(object.cities, function(index, value) {
-
 							$("#city").append(new Option(value, index));
 						});
 
@@ -243,7 +242,9 @@ jQuery.validator.addMethod("lettersonly", function(value, element) {
 						$('#forms_content').addClass("hide");
 
 						//Show success message
-						$('#add_good_message').removeClass("hide").addClass("success");
+						$('#add_good_message')
+							.removeClass("hide")
+							.addClass("success");
 
 					break;
 				}

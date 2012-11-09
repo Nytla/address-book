@@ -18,7 +18,7 @@
  * 
  * @version 0.1
  */
-class Cookie {
+final class Cookie {
 
 	/**
 	 * SESSION_EXPIRE
@@ -170,6 +170,7 @@ class Cookie {
 
 			$retval = setcookie($name, '', time() - 3600, $path, $domain);
 		}
+
 		return $retval;
 	}
 }

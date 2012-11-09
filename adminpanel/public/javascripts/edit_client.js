@@ -272,7 +272,9 @@ $(document).ready(function() {
 							$('#forms_content').addClass("hide");
 
 							//Show success message
-							$('#edit_bad_client').removeClass("hide").addClass("error");
+							$('#edit_bad_client')
+								.removeClass("hide")
+								.addClass("error");
 						} else {
 
 							$("#first_name").val(object.first_name);

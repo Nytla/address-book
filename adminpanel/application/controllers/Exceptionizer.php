@@ -198,8 +198,6 @@ abstract class PHP_Exceptionizer_Exception extends Exception {
 
 		if (isset($this -> code)) {
 
-			date_default_timezone_set("Europe/Kiev");
-			
 			$date = date("Y-m-d H:i:s (TZ)");
 			
 			$this -> _path_error_log = Config::dataArray('errors', 'path_error');

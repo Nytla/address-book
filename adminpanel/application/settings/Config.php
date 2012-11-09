@@ -18,7 +18,7 @@
  * 
  * @version 0.1
  */
-class Config {
+final class Config {
 
 	/**
 	 * dataArray

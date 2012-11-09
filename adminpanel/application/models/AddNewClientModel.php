@@ -18,7 +18,7 @@
  * 
  * @version 0.1
  */
-class AddNewClientModel extends PDOMysqlConnect {
+final class AddNewClientModel extends PDOMysqlConnect {
 
 	/**
 	 * _DB_table_name_clients

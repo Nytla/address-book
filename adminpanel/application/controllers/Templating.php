@@ -12,6 +12,11 @@
  */
 
 /**
+ * The simplest way to configure Twig to load templates for our application
+ */
+require_once(dirname(__FILE__) . "/../../libraries/templating/twig-v1.2.3/lib/Twig/Autoloader.php");
+
+/**
  * Templating
  * 
  * This is template class
@@ -34,21 +39,6 @@ class Templating extends Exceptionizer {
 	private static $_path_to_cache;
 
 	/**
-	 * Constructor
-	 *
-	 * This is constructor which include autoloader for our Twig template 
-	 */
-	public function __construct() {
-
-		$root_path = dirname(__FILE__);
-
-		/**
-		 * The simplest way to configure Twig to load templates for our application
-		 */
-		require_once($root_path . "/../../libraries/templating/twig-v1.2.3/lib/Twig/Autoloader.php");
-	}
-
-	/**
 	 * renderingTemplate
 	 * 
 	 * This is function render admin template
@@ -58,7 +48,7 @@ class Templating extends Exceptionizer {
 	 *
 	 * @return string $tempalate	This is source our tempalate
 	 */
-	public static function renderingTemplate($template_name, $params) {
+	protected static function renderingTemplate($template_name, $params) {
 
 		/**
 		 * The first step to use Twig is to register its autoloader::
@@ -87,7 +77,7 @@ class Templating extends Exceptionizer {
 		#######################################################################################
 		# Cache clear enabled for testing server, but disabled for working (production) server
 		#######################################################################################
-		//$twig -> clearCacheFiles();
+		$twig -> clearCacheFiles();
 	
 		/**
 		 * Render template

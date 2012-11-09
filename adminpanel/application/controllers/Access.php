@@ -18,7 +18,7 @@
  *
  * @version 0.1
  */
-class Access extends Exceptionizer {
+final class Access extends Exceptionizer {
 
 	/**
 	 * _path_access_log
@@ -37,9 +37,7 @@ class Access extends Exceptionizer {
 	public function httpRequested() {
 
 		try {
-			if($_SERVER['HTTP_X_REQUESTED_WITH']) {
-				return 'true';
-			}
+			$_SERVER['HTTP_X_REQUESTED_WITH'];
 
 		} catch (E_NOTICE $object) {
 
@@ -57,8 +55,6 @@ class Access extends Exceptionizer {
 	static public function writeAccessLog($parameters = '') {
 
 		if (is_array($parameters)) {
-
-			date_default_timezone_set("Europe/Kiev");
 			
 			$date = date("Y-m-d H:i:s (TZ)");
 			

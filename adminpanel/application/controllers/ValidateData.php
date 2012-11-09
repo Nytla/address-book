@@ -18,7 +18,7 @@
  * 
  * @version 0.1
  */
-class ValidateData {
+final class ValidateData {
 
 	/**
 	 * DATA_BOOLEAN

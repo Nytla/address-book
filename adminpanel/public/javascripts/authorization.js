@@ -8,11 +8,17 @@ $(document).ready(function() {
 	//Hide errors messages
 	$("[name ^= 'value']").keypress(function() {
 		
-		$('#error_empty').removeClass().addClass("hide");
+		$('#error_empty')
+			.removeClass()
+			.addClass("hide");
 
-		$('#error_incorect').removeClass().addClass("hide");
+		$('#error_incorect')
+			.removeClass()
+			.addClass("hide");
 
-		$('#error_capcha').removeClass().addClass("hide");
+		$('#error_capcha')
+			.removeClass()
+			.addClass("hide");
 	});
 
 	//Submit authorization form on Ajax
@@ -26,7 +32,9 @@ $(document).ready(function() {
 		//If login or password is empty than return error message
 		if(login == '' || password == '') {
 
-			$('#error_empty').removeClass().addClass("error");
+			$('#error_empty')
+				.removeClass()
+				.addClass("error");
 			
 			return false;
 		}
@@ -46,7 +54,9 @@ $(document).ready(function() {
 		//If input hidden was introduced then view error 
 		if (hidden != '') {
 
-			$('#error_capcha').removeClass().addClass("error");
+			$('#error_capcha')
+				.removeClass()
+				.addClass("error");
 
 			return false;
 		}
@@ -65,7 +75,9 @@ $(document).ready(function() {
 
 				if(object.validate == false) {
 
-					$('#error_incorect').removeClass().addClass("error");
+					$('#error_incorect')
+						.removeClass()
+						.addClass("error");
 				} else {
 
 					var url = object.redirect_file;

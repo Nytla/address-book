@@ -18,7 +18,7 @@
  * 
  * @version 0.1
  */
-class AddAdmin extends Templating {	
+final class AddAdmin extends Templating {	
 
 	/**
 	 * makeAddForm
@@ -103,7 +103,8 @@ class AddAdmin extends Templating {
 		/**
 		 * Validate administrator login
 		 */
-		if (ValidateData::filterValidate($login, ValidateData::DATA_REGEXP, ValidateData::$_regex_login) or ValidateData::filterValidate($password, ValidateData::DATA_REGEXP, ValidateData::$_regex_password)) {
+
+		if (ValidateData::filterValidate($login, ValidateData::DATA_REGEXP, ValidateData::$_regex_login) and ValidateData::filterValidate($password, ValidateData::DATA_REGEXP, ValidateData::$_regex_password)) {
 
 			return json_encode(array('validate' => AddAdminModel::addAdminToDB($login, $password)));
 

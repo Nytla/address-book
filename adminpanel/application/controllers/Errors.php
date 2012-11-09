@@ -18,7 +18,7 @@
  * 
  * @version 0.1
  */
-class Errors extends Templating {
+final class Errors extends Templating {
 
 	/**
 	 * getErrors
@@ -32,7 +32,7 @@ class Errors extends Templating {
 		/**
 		 * Create header content
 		 */
-		$template = Indexes::headerContent(Locale::languageEng('errors', 'title'), 1);
+		$template = Indexes::headerContent(Locale::languageEng('http_status', 'title'), 1);
 
 		/**
 		 * Create css or/and javascript content
@@ -48,38 +48,25 @@ class Errors extends Templating {
 
 		switch ($error) {
 
-			case '99':
-
-				$params = array(
-					"site_url"		=> Config::dataArray('server', 'slash') . Config::dataArray('paths', 'adminpanel'),
-					"site_name"		=> Locale::languageEng('site', 'name'),			
-					"page_error"		=> Locale::languageEng('errors', 'page_error'),
-					"error_description"	=> Locale::languageEng('errors', (isset($_GET['error'])) ? $_GET['error'] : 'unknown_error'),
-					"image"			=> Config::dataArray('errors', 'image')
-				);
-
-				break;
-
 			case ValidateData::filterValidate($error, ValidateData::DATA_INT):
 
 				$params = array(
 					"site_url"		=> Config::dataArray('server', 'slash') . Config::dataArray('paths', 'adminpanel'),
 					"site_name"		=> Locale::languageEng('site', 'name'),			
-					"page_error"		=> Locale::languageEng('errors', 'page_error'),
-					"error_description"	=> Locale::languageEng('errors', $error),
+					"page_error"		=> Locale::languageEng('http_status', 'page_error'),
+					"error_description"	=> Locale::languageEng('http_status', $error),
 					"image"			=> Config::dataArray('errors', 'image')
 				);
 
 				break;
-
 
 			default:
 
 				$params = array(
 					"site_url"		=> Config::dataArray('server', 'slash') . Config::dataArray('paths', 'adminpanel'),
 					"site_name"		=> Locale::languageEng('site', 'name'),			
-					"page_error"		=> Locale::languageEng('errors', 'page_error'),
-					"error_description"	=> Locale::languageEng('errors', 'unknown_error'),
+					"page_error"		=> Locale::languageEng('http_status', 'page_error'),
+					"error_description"	=> Locale::languageEng('http_status', 'unknown_error'),
 					"image"			=> Config::dataArray('errors', 'image')
 				);
 		}

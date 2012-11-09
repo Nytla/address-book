@@ -18,7 +18,7 @@
  * 
  * @version 0.1
  */
-class AddNewClient extends Templating {
+final class AddNewClient extends Templating {
 
 	/**
 	 * _thumb_max_width

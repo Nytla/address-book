@@ -18,7 +18,7 @@
  * 
  * @version 0.1
  */
-class Authorization extends Templating {
+final class Authorization extends Templating {
 
 	/**
 	 * _admin_id
@@ -185,36 +185,6 @@ class Authorization extends Templating {
 	}
 
 	/**
-	 * checkAuth
-	 *
-	 * This function check authorization
-	 *
-	 * @return boolean
-	 */
-	private function checkAuth() {
-
-		//Check cookie from administrator
-		if (Cookie::exists('admin_id') or Cookie::exists('admin_hash')) {
-
-			/**
-			 * Get adminisrator information from DB
-			 */
-			$admin_data_array = AuthorizationModel::getAuthDataById();
-
-			if ($admin_data_array['admin_hash'] !== $_COOKIE['admin_hash'] or $admin_data_array['admin_id'] !== $_COOKIE['admin_id']) {
-
-				Cookie::delete('admin_id');
-
-				Cookie::delete('admin_hash');
-
-				return false;
-			} else {
-				return true;
-			}
-		}
-	}
-
-	/**
 	 * checkAuthIndex
 	 *
 	 * This function check authorization on index page
@@ -332,6 +302,38 @@ class Authorization extends Templating {
 
 		} else {
 			Redirect::uriRedirect(301, Config::dataArray('redirect_page', 'index'));
+		}
+	}
+
+	/**
+	 * checkAuth
+	 *
+	 * This function check authorization
+	 *
+	 * @return boolean
+	 */
+	private function checkAuth() {
+
+		/**
+		 * Check cookie from administrator
+		 */
+		if (Cookie::exists('admin_id') or Cookie::exists('admin_hash')) {
+
+			/**
+			 * Get adminisrator information from DB
+			 */
+			$admin_data_array = AuthorizationModel::getAuthDataById();
+
+			if ($admin_data_array['admin_hash'] !== $_COOKIE['admin_hash'] or $admin_data_array['admin_id'] !== $_COOKIE['admin_id']) {
+
+				Cookie::delete('admin_id');
+
+				Cookie::delete('admin_hash');
+
+				return false;
+			} else {
+				return true;
+			}
 		}
 	}
 

@@ -18,7 +18,7 @@
  * 
  * @version 0.1
  */
-class Layout extends Templating {
+final class Layout extends Templating {
 
 	/**
 	 * makeLayout

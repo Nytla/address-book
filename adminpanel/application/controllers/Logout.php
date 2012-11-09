@@ -18,7 +18,7 @@
  * 
  * @version 0.1
  */
-class Logout {
+final class Logout {
 
 	/**
 	 * Logout
@@ -28,7 +28,7 @@ class Logout {
 	public function deleteAuth() {
 
 		/**
-		 * if cookie is not empty then delete it
+		 * If cookie is not empty then delete it
 		 */
 		if (!Cookie::isEmpty('admin_id') and !Cookie::isEmpty('admin_hash')) {
 

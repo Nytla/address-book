@@ -11,8 +11,9 @@
 			</div>
 			<!-- Add administrator form START -->
 			<div id="auth_content" class="span-10 prepend-8 append-0">
-				<fieldset>
-					<form method="post" name="addAdminForm" id="addAdminForm" action="">
+				<form method="post" name="addAdminForm" id="addAdminForm" action="">
+					<fieldset>
+						<legend></legend>
 						<p>
 							<label for="login">{{ login }}</label><br>
 							<input id="login" type="text" name="login" class="text" minlength="5" maxlength="16">
@@ -39,9 +40,9 @@
 						<p>
 							<input id="loginButton" type="submit" class="submit" value="{{ save }}">
 						</p>
-					</form>
-					<div id="add_good_message" class="hide">{{ add_good_message }}</div>
-				</fieldset>
+					</fieldset>
+				</form>
+				<div id="add_good_message" class="hide">{{ add_good_message }}</div>
 			</div>
 			<!-- Add administrator form FINISH -->
 			<br>

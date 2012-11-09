@@ -18,7 +18,7 @@
  * 
  * @version 0.1
  */
-class UserBookList extends Templating {
+final class UserBookList extends Templating {
 
 	/**
 	 * makeUserAB
@@ -73,10 +73,9 @@ class UserBookList extends Templating {
 			"country_word"		=> Locale::languageEng('book_list', 'country_word'),
 			"city_word"		=> Locale::languageEng('book_list', 'city_word'),
 			"empty_option"		=> Locale::languageEng('book_list', 'empty_option'),
-			"clients_data"		=> BookListModel::getClientsDataFromDB(),
-			"phrase"		=> BookListModel::getRandomPhraseFromDB(),
-			"image_path"		=> Config::dataArray('errors', 'image'),
-			"preloader_alt_text"	=> Locale::languageEng('book_list', 'preloader_alt_text')
+			"clients_data"		=> UserBookListModel::getUserClientsDataFromDB(),
+			"phrase"		=> UserBookListModel::getUserRandomPhraseFromDB(),
+			"image_path"		=> Config::dataArray('errors', 'image')
 		);
 
 		/**

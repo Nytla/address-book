@@ -18,7 +18,7 @@
  * 
  * @version 0.1
  */
-class EditClientModel extends PDOMysqlConnect {
+final class EditClientModel extends PDOMysqlConnect {
 
 	/**
 	 * _DB_table_name_clients
@@ -56,7 +56,7 @@ class EditClientModel extends PDOMysqlConnect {
 	 * @param string $edit_id
 	 * @return array 
 	 */
-	public function getClientDataFromDB($edit_id) {
+	static public function getClientDataFromDB($edit_id) {
 
 		/**
 		 * Clean client id
@@ -78,8 +78,21 @@ class EditClientModel extends PDOMysqlConnect {
 		 * Select clients in DB
 		 */
 		$select_client = self::dbConnect() -> query("
-			SELECT * 
-			FROM " . self::$_DB_table_name_clients . ", " . self::$_DB_table_name_countries . ", " . self::$_DB_table_name_cities . ", " . self::$_DB_table_name_photos . "
+			SELECT
+				`first_name`,
+				`last_name`,
+				`email`,
+				`country`,
+				`city`,
+				`notes`,
+				`city_id`,
+				`cityname_en`,
+				`photo_name`
+			FROM 
+				" . self::$_DB_table_name_clients . ", 
+				" . self::$_DB_table_name_countries . ", 
+				" . self::$_DB_table_name_cities . ", 
+				" . self::$_DB_table_name_photos . "
 			WHERE 
 				" . self::$_DB_table_name_clients .".id = '$id'
 				AND " . self::$_DB_table_name_clients .".country = " . self::$_DB_table_name_countries . ".country_id
@@ -113,7 +126,7 @@ class EditClientModel extends PDOMysqlConnect {
 	 * @param array $client_data_array
 	 * @return boolean
 	 */
-	public function updateClientDataInDB($client_data_array) {
+	static public function updateClientDataInDB($client_data_array) {
 
 		/**
 		 * Clean client id

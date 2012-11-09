@@ -14,7 +14,7 @@
 /**
  * Include autoload file
  */
-require_once(dirname(__FILE__).'/adminpanel/application/autoload/autoload.php');
+require_once(dirname(__FILE__) . '/adminpanel/application/autoload/autoload.php');
 
 /**
  * Create copy of book list object
@@ -22,7 +22,7 @@ require_once(dirname(__FILE__).'/adminpanel/application/autoload/autoload.php');
 $UserBookListController = new UserBookList();
 
 /**
- * Print our address book for user
+ * Print address book list for user
  */
 print $UserBookListController -> makeUserAB();
 ?>

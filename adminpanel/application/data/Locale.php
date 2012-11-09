@@ -18,7 +18,7 @@
  * 
  * @version 0.1
  */
-class Locale {
+final class Locale {
 
 	/**
 	 * languageEng
@@ -45,6 +45,8 @@ class Locale {
 
 			"http_status"	=> array(
 
+				"title"			=> 'Address Book Error Page',
+				"page_error"		=> 'This is page error.',
 				"100"			=> "HTTP/1.1 100 Continue",
 				"101"			=> "HTTP/1.1 101 Switching Protocols",
 				"200"			=> "HTTP/1.1 200 OK",
@@ -85,23 +87,7 @@ class Locale {
 				"503"			=> "HTTP/1.1 503 Service Unavailable",
 				"504"			=> "HTTP/1.1 504 Gateway Time-out",
 				"bad_connect"		=> 'Could connect to the Data Base.',
-				"unknown_error"		=> 'Error occurred reasons unknown to us.',
-				"bad_connect"		=> 'Could connect to the Data Base.'
-
-			),
-
-			"errors"	=> array(
-				"title"			=> 'Address Book Error Page',
-				"page_error"		=> 'This is page error.',
-				"unknown_error"		=> 'Error occurred reasons unknown to us.',
-				"bad_connect"		=> 'Could connect to the Data Base.',
-				"400"			=> 'Error 400 Bad Request.',
-				"401"			=> 'Error 401 Authorization Required.',
-				"402"			=> 'Error 402 Payment Required.',
-				"403"			=> 'Error 403 Forbidden.',
-				"404"			=> 'Error 404 Page Not Found.',
-				"500"			=> 'Error 500 Internal Server Error.',
-				"502"			=> 'Error 502 Bad Gateway.'
+				"unknown_error"		=> 'Error occurred reasons unknown to us.'
 
 			),
 

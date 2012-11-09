@@ -18,7 +18,7 @@
  * 
  * @version 0.1
  */
-class ClassAutoloader {
+final class ClassAutoloader {
 
 	/**
 	 * Constructor

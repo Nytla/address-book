@@ -7,15 +7,23 @@ $(document).ready(function() {
 
 	//Hide errors
 	$("#login").keypress(function() {
-		$('#error_incorect_login').removeClass().addClass("hide");
+		$('#error_incorect_login')
+			.removeClass()
+			.addClass("hide");
 
-		$('#error_exists').removeClass().addClass("hide");
+		$('#error_exists')
+			.removeClass()
+			.addClass("hide");
 
-		$('#add_good_message').removeClass().addClass("hide");
+		$('#add_good_message')
+			.removeClass()
+			.addClass("hide");
 	});
 
 	$("#pass").keypress(function() {
-		$('#error_incorect_pass').removeClass().addClass("hide");
+		$('#error_incorect_pass')
+			.removeClass()
+			.addClass("hide");
 	});
 
 	//Set errors variables
@@ -96,7 +104,9 @@ $(document).ready(function() {
 			//Validate login
 			if (!isValidLogin(login)) {
 
-				$('#error_incorect_login').removeClass().addClass("error");
+				$('#error_incorect_login')
+					.removeClass()
+					.addClass("error");
 
 				return false;
 			}
@@ -104,7 +114,9 @@ $(document).ready(function() {
 			//Validate password
 			if (!isValidPassword(password)) {
 
-				$('#error_incorect_pass').removeClass().addClass("error");
+				$('#error_incorect_pass')
+					.removeClass()
+					.addClass("error");
 
 				return false;
 			}
@@ -160,12 +172,14 @@ function isValidPassword(password){
 			url: "./application/ajax/add_admin.php",
 			cache: false,
 			data: object_options,
-			success: function(object) {				
+			success: function(object) {
 
-				if (object.validate == false) {				
+				if (object.validate == false) {			
 
 					//Show error message
-					$('#error_exists').removeClass().addClass("error");
+					$('#error_exists')
+						.removeClass()
+						.addClass("error");
 				} else {
 
 					//Hide form
@@ -179,7 +193,9 @@ function isValidPassword(password){
 					$("#confirm_pass").val('');
 
 					//Show success message
-					$('#add_good_message').removeClass("hide").addClass("success");
+					$('#add_good_message')
+						.removeClass("hide")
+						.addClass("success");
 				}
 			}
 		});

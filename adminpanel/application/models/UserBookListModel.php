@@ -2,9 +2,9 @@
 /**
  * Adress Book Model
  * 
- * BookListModel.php
+ * UserBookListModel.php
  *
- * This is administrator address book list file
+ * This is user address book list file
  * 
  * @category	models
  * @copyright	2012
@@ -12,13 +12,13 @@
  */
 
 /**
- * BookListModel
+ * UserBookListModel
  * 
  * This is administrator address book list class
  * 
  * @version 0.1
  */
-final class BookListModel extends PDOMysqlConnect {
+final class UserBookListModel extends PDOMysqlConnect {
 
 	/**
 	 * _DB_table_name_clients
@@ -62,7 +62,7 @@ final class BookListModel extends PDOMysqlConnect {
 	 *
 	 * @return array / boolean
 	 */
-	static public function getClientsDataFromDB() {
+	static public function getUserClientsDataFromDB() {
 
 		/**
 		 * Set adminisrator variable
@@ -120,123 +120,13 @@ final class BookListModel extends PDOMysqlConnect {
 	}
 
 	/**
-	 * getAllCountries
-	 *
-	 * This function get all countries from Database
-	 *
-	 * @return array / boolean
-	 */
-	static public function getAllCountriesFromDB() {
-
-		/**
-		 * Set adminisrator variable
-		 */
-		self::$_DB_table_name_countries = Config::dataArray('table_name', 'countries');
-
-		/**
-		 * Select administrator information
-		 */
-		$select_countries = self::dbConnect() -> query("
-			SELECT 
-				`country_id`,
-				`countryname_en`
-			FROM " . self::$_DB_table_name_countries . "
-			ORDER BY `countryname_en`
-		");
-
-		/**
-		 * Get our countries
-		 */
-		while ($row = $select_countries -> fetch(PDO::FETCH_ASSOC)) {
-
-			$data_array[$row['country_id']] = $row['countryname_en'];
-		}
-
-		return (isset($data_array) and is_array($data_array)) ? $data_array : false;
-	}
-
-	/**
-	 * getAllCountries
-	 *
-	 * This function get cities from Database depending on selected country
-	 *
-	 * @param string $country_id
-	 * @return array / boolean
-	 */
-	static public function getCitiesFromDB($country_id = '') {
-
-		/**
-		 * Set adminisrator variable
-		 */
-		self::$_DB_table_name_cities = Config::dataArray('table_name', 'cities');
-
-		/**
-		 * Select administrator information
-		 */
-		$select_cities = self::dbConnect() -> query("
-			SELECT 
-				`city_id`, 
-				`cityname_en`
-			FROM " . self::$_DB_table_name_cities . "
-			WHERE `country_id` = '" . mysql_escape_string($country_id) ."'
-			ORDER BY `cityname_en`
-		");
-
-		/**
-		 * Get our countries
-		 */
-		while ($row = $select_cities -> fetch(PDO::FETCH_ASSOC)) {
-
-			$data_array[$row['city_id']] = $row['cityname_en'];
-		}
-
-		return (isset($data_array) and is_array($data_array)) ? $data_array : false;
-	}
-
-	/**
-	 * deleteClientFromDB
-	 *
-	 * This function delete client from Database
-	 *
-	 * @param string $client_id
-	 * @return boolean
-	 */
-	static public function deleteClientFromDB($client_id) {
-
-		/**
-		 * Validate administrator id
-		 */
-		if (ValidateData::filterValidate($client_id, ValidateData::DATA_INT)) {
-
-			/**
-			 * Set adminisrator variable
-			 */
-			self::$_DB_table_name_clients = Config::dataArray('table_name', 'clients');
-
-			/**
-			 * Delete client from DB
-			 */
-			$delete_client = self::dbConnect() -> exec("
-				DELETE 
-				FROM " . self::$_DB_table_name_clients . "
-				WHERE `id` = '$client_id'
-			");
-		}
-
-		/**
-		 * If client deleted return true else false
-		 */
-		return ($delete_client) ? true : false;
-	}
-
-	/**
 	 * getRandomPhrase
 	 *
 	 * This function get random phrase from Database
 	 *
 	 * @return array / boolean
 	 */
-	static public function getRandomPhraseFromDB() {
+	static public function getUserRandomPhraseFromDB() {
 
 		/**
 		 * Set adminisrator variable

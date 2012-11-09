@@ -1,11 +1,17 @@
 ##Encoding for our site
 AddDefaultCharset utf-8
 
-##Set timezone
-php_value date.timezone 'Europe/Kiev'
-
 ##Register globals flas
 php_flag register_globals off
+
+##Magic quotes for incoming GET/POST/Cookie data.
+php_flag magic_quotes_gpc off
+
+##Magic quotes for runtime-generated data, e.g. data from SQL, from exec(), etc.
+php_flag magic_quotes_runtime off
+
+##Set timezone
+php_value date.timezone 'Europe/Kiev'
 
 ##Start page
 DirectoryIndex index.php
@@ -13,7 +19,7 @@ DirectoryIndex index.php
 ##Lock file if in foler not index file
 Options -Indexes
 
-##Redirect when errors code
+##Redirect when http error code
 ##1xx
 ErrorDocument 100 /adminpanel/error.php?error=100
 ErrorDocument 101 /adminpanel/error.php?error=101

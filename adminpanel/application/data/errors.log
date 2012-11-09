@@ -1,0 +1,14 @@
+<error>
+	<date>2012-11-09 18:16:04 (EET7200)</date>
+	<errcode>2</errcode>
+	<errmsg>require_once(/var/www/address_book.loc/public/adminpanel/application/settings/../..//application/views/address_book/cache/20/12/65ba1aac6ec8b4c9a5b5220fe0fe.php): failed to open stream: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>308</linenum>
+</error>
+<error>
+	<date>2012-11-09 18:16:24 (EET7200)</date>
+	<errcode>2</errcode>
+	<errmsg>require_once(/var/www/address_book.loc/public/adminpanel/application/views/address_book/cache/d2/a9/bbdce35a91f849389395084c6920.php): failed to open stream: No such file or directory</errmsg>
+	<filename>/var/www/address_book.loc/public/adminpanel/libraries/templating/twig-v1.2.3/lib/Twig/Environment.php</filename>
+	<linenum>308</linenum>
+</error>

@@ -18,7 +18,7 @@
  * 
  * @version 0.1
  */
-class Redirect {
+final class Redirect {
 
 	/**
 	 * uriRedirect

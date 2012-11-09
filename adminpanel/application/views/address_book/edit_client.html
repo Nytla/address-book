@@ -6,6 +6,7 @@
 			<!-- Edit Client Record Forms START -->
 			<div id="auth_content" class="span-16 prepend-4 append-0">
 				<fieldset>
+					<legend></legend>
 					<div id="forms_content" class="prepend-2">
 						<form action="" method="post" id="InformationForm">
 							<div>
@@ -39,7 +40,7 @@
 						<form action="" method="post" enctype="multipart/form-data" id="ImagesForm">
 							<div id="image_block">
 								<input type="hidden" name="MAX_FILE_SIZE" value="1024000">
-								<label for="photo">{{ photo }}</label>
+								<label for="image_file">{{ photo }}</label>
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="file" name="image_file" id="image_file" class="text">
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" name="upload_photo" id="upload_photo" value="Upload" disabled="disabled">
 								<img class="hide" width="32" height="32" alt="{{ preloader_alt_text }}" src="{{ image_path }}photo-loader.gif" id="preloader">

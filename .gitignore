@@ -18,7 +18,11 @@
 
 # Icons and images #
 ######################
-adminpanel/public/images/*/*
+adminpanel/public/images/uploads_client/**/*
+
+# Template cache #
+######################
+adminpanel/application/cache/**/*
 
 # OS generated files #
 ######################

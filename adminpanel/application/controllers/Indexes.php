@@ -18,7 +18,7 @@
  * 
  * @version 0.1
  */
-class Indexes extends Templating {
+final class Indexes extends Templating {
 
 	/**
 	 * headerContent

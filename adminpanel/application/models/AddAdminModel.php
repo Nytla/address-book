@@ -18,7 +18,7 @@
  * 
  * @version 0.1
  */
-class AddAdminModel extends PDOMysqlConnect {
+final class AddAdminModel extends PDOMysqlConnect {
 
 	/**
 	 * _DB_table_name
@@ -75,7 +75,7 @@ class AddAdminModel extends PDOMysqlConnect {
 			$select_permission = self::dbConnect() -> query("
 				SELECT `admin_permission` 
 				FROM " . self::$_DB_table_name . " 
-				WHERE `admin_id` = '" . self::$_admin_id . "' 
+				WHERE `admin_id` = '" . mysql_escape_string(self::$_admin_id) . "' 
 				LIMIT 1
 			");
 
@@ -148,14 +148,19 @@ class AddAdminModel extends PDOMysqlConnect {
 		/**
 		 * Add new administrator to DB
 		 */
-		$insert_admin = self::dbConnect() -> exec("
-			INSERT INTO " . self::$_DB_table_name . " 
-				(`admin_id`, `admin_login`, `admin_password`, `admin_hash`, `admin_permission`) 
-			VALUES 
-				('', '" . mysql_escape_string(self::$_admin_login) . "', '" . mysql_escape_string(self::$_admin_password) . "', '', 0)
-		");
+		try {
+			$insert_admin = self::dbConnect() -> exec("
+				INSERT INTO " . self::$_DB_table_name . " 
+					(`admin_id`, `admin_login`, `admin_password`, `admin_hash`, `admin_permission`) 
+				VALUES 
+					('', '" . mysql_escape_string(self::$_admin_login) . "', '" . mysql_escape_string(self::$_admin_password) . "', '', 0)
+			");
 
-		return ($insert_admin) ? true : false;
+			return true;
+		} catch (PDOException $object) {
+
+			return false;
+		}
 	}
 }
 ?>

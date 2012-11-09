@@ -18,7 +18,7 @@
  * 
  * @version 0.1
  */
-class EditClient extends Templating {
+final class EditClient extends Templating {
 
 	/**
 	 * makeFromEditClient
@@ -160,7 +160,6 @@ class EditClient extends Templating {
 	 * @return json
 	 */
 	private function updateClientData($client_data_array) {
-
 		return json_encode(array("flag" => EditClientModel::updateClientDataInDB($client_data_array)));
 	}
 }

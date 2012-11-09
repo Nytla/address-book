@@ -18,14 +18,14 @@
  * 
  * @version 0.1
  */
-class AuthorizationModel extends PDOMysqlConnect {
+final class AuthorizationModel extends PDOMysqlConnect {
 
 	/**
 	 * _DB_table_name
 	 * 
 	 * @var string	This is encoding of our Database
 	 */
-	static private $_DB_table_name;
+	static private $_DB_table_administrators;
 
 	/**
 	 * _admin_id
@@ -60,15 +60,18 @@ class AuthorizationModel extends PDOMysqlConnect {
 		 */
 		if (ValidateData::filterValidate(self::$_admin_id, ValidateData::DATA_INT)) {
 
-			self::$_DB_table_name = Config::dataArray('table_name', 'administrators');
+			self::$_DB_table_administrators = Config::dataArray('table_name', 'administrators');
 
 			/**
 			 * Select administrator information from DB
 			 */
 			$select = self::dbConnect() -> query("
-				SELECT * 
-				FROM " . self::$_DB_table_name . " 
-				WHERE `admin_id` = '" . self::$_admin_id . "' 
+				SELECT 
+					`admin_id`, 
+					`admin_hash`,
+					`admin_permission`
+				FROM " . self::$_DB_table_administrators . " 
+				WHERE `admin_id` = '" . mysql_escape_string(self::$_admin_id) . "' 
 				LIMIT 1
 			");
 
@@ -101,14 +104,16 @@ class AuthorizationModel extends PDOMysqlConnect {
 		 */
 		if (ValidateData::filterValidate(self::$_admin_login, ValidateData::DATA_REGEXP, ValidateData::$_regex_login)) {
 
-			self::$_DB_table_name = Config::dataArray('table_name', 'administrators');
+			self::$_DB_table_administrators = Config::dataArray('table_name', 'administrators');
 
 			/**
 			 * Get information from DB
 			 */
 			$select = self::dbConnect() -> query("
-				SELECT `admin_id`, `admin_password` 
-				FROM " . self::$_DB_table_name . " 
+				SELECT 
+					`admin_id`, 
+					`admin_password` 
+				FROM " . self::$_DB_table_administrators . " 
 				WHERE `admin_login` = '" . mysql_escape_string(self::$_admin_login) . "' 
 				LIMIT 1
 			");
@@ -142,9 +147,9 @@ class AuthorizationModel extends PDOMysqlConnect {
 			 * Update our hash in DB
 			 */
 			$update = self::dbConnect() -> exec("
-				UPDATE " . self::$_DB_table_name . " 
+				UPDATE " . self::$_DB_table_administrators . " 
 				SET `admin_hash` = '" . mysql_escape_string($hash) . "' 
-				WHERE `admin_id` = '" . $admin_id . "' 
+				WHERE `admin_id` = '" . mysql_escape_string($admin_id) . "' 
 			");
 		}
 
