@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Ноя 09 2012 г., 18:18
+-- Время создания: Ноя 13 2012 г., 17:34
 -- Версия сервера: 5.5.28-0ubuntu0.12.04.2
 -- Версия PHP: 5.3.10-1ubuntu3.4
 
@@ -41,8 +41,8 @@ CREATE TABLE IF NOT EXISTS `administrators` (
 --
 
 INSERT INTO `administrators` (`admin_id`, `admin_login`, `admin_password`, `admin_hash`, `admin_permission`) VALUES
-(1, 'admin', 'ad26ef5064cac638adc8cd63059d8631', '021007f0c002b3356b2239def40e1516', 1),
-(2, 'nytla', 'b537a06cf3bcb33206237d7149c27bc3', '76db8a18eb7ef6d1550f8010d869297f', 0),
+(1, 'admin', 'ad26ef5064cac638adc8cd63059d8631', '5fa691847724ea08bbd5b96526d66480', 1),
+(2, 'nytla', 'b537a06cf3bcb33206237d7149c27bc3', '7136eaf497de8ef7894e39e5fb55a441', 0),
 (69, 'administrator', 'ad26ef5064cac638adc8cd63059d8631', '0d0fff33868220c37ad98adb78546126', 0),
 (87, 'testAdmin', 'c1096b31a8eadeb135ad4517863e9288', '', 0),
 (88, 'test', 'asdret454552345565', '', 0),
@@ -17691,19 +17691,21 @@ CREATE TABLE IF NOT EXISTS `clients` (
   `photo` int(11) NOT NULL,
   `notes` varchar(1600) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2108 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13110 ;
 
 --
 -- Дамп данных таблицы `clients`
 --
 
 INSERT INTO `clients` (`id`, `first_name`, `last_name`, `email`, `country`, `city`, `photo`, `notes`) VALUES
+(2108, 'Jon', 'Doe', 'jon@mail.ru', 3, 3302, 0, ''),
+(2109, 'Valerie', 'Obrose', 'val@mail.com', 11, 3849, 1, ''),
 (59, 'Fred', 'Onielder', 'fred@mail.com', 69, 8708, 0, 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using ''Content here, content here'', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for ''lorem ipsum'' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).'),
 (60, 'Ven', 'Korcher', 'ven@mail.ru', 70, 8710, 0, 'It is information about Ven.'),
 (61, 'Acora', 'Donred', 'acor@mail.ru', 70, 8711, 1, 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using ''Content here, content here'', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for ''lorem ipsum'' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).'),
 (62, 'Suzi', 'Gobash', 'suzi@mail.com', 70, 8712, 0, 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using ''Content here, content here'', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for ''lorem ipsum'' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).'),
 (63, 'Grine', 'Kamelton', 'grin@mail.com', 70, 8713, 1, 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using ''Content here, content here'', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for ''lorem ipsum'' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like). Oops.'),
-(64, 'Etto', 'Rightom', 'etto@mail.ru', 50, 5874, 0, 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using ''Content here, content here'', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for ''lorem ipsum'' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).'),
+(64, 'Etto', 'Rightomd', 'etto@mail.ru', 50, 5874, 0, 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using ''Content here, content here'', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for ''lorem ipsum'' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).'),
 (65, 'Endry', 'Berimor', 'en@mail.ru', 70, 8716, 0, 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using ''Content here, content here'', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for ''lorem ipsum'' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).'),
 (67, 'Nikol', 'Kidman', 'nikol@mail.ru', 70, 8718, 0, 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using ''Content here, content here'', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for ''lorem ipsum'' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).'),
 (68, 'Viter', 'Oldin', 'viter@mail.ru', 70, 8719, 0, 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using ''Content here, content here'', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for ''lorem ipsum'' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).'),
@@ -17717,11 +17719,11 @@ INSERT INTO `clients` (`id`, `first_name`, `last_name`, `email`, `country`, `cit
 (91, 'Piter', 'Nelson', 'pit@mail.ru', 8, 3822, 0, ''),
 (93, 'Piter', 'Nelson', 'pit@mail.ru', 7, 3779, 0, 'Test description.'),
 (99, 'Perru', 'Clanton', 'parry@mail.ru', 17, 4304, 0, 'This is test information'),
-(96, 'Dorie', 'Morie', 'dori@mail.ru', 7, 3819, 41, 'This is test information!'),
+(96, 'Dorie', 'Morie', 'dori@mail.ru', 7, 3819, 81, 'This is test information!'),
 (97, 'Gary', 'Moor', 'gari@mail.ru', 7, 3819, 77, 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don''t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn''t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.'),
 (98, 'Bottor', 'Gazlina', 'varve@mail.ru', 5, 3586, 1, 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.'),
-(101, 'Testo', 'Ronto', 'test@mail.ru', 17, 4304, 47, 'test'),
-(102, 'Ivan', 'Ivanovish', 'ivan@gmail.con', 11, 3840, 52, 'Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC\n\n"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"\n1914 translation by H. Rackham\n\n"But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which '),
+(101, 'Testo', 'Ronto', 'test@mail.ru', 17, 4304, 83, 'test'),
+(102, 'Ivan', 'Ivanovish', 'ivan@gmail.con', 11, 3840, 82, 'Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC\n\n"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"\n1914 translation by H. Rackham\n\n"But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which '),
 (106, 'Viliam', 'Genirom', 'vill@mail.com', 15, 4212, 79, 'Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC\n\n"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"\n1914 translation by H. Rackham\n\n"But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which ');
 
 -- --------------------------------------------------------
@@ -17976,7 +17978,7 @@ CREATE TABLE IF NOT EXISTS `photos` (
   `photo_description` varchar(255) NOT NULL,
   `photo_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`photo_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=80 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=84 ;
 
 --
 -- Дамп данных таблицы `photos`
@@ -18061,7 +18063,11 @@ INSERT INTO `photos` (`photo_id`, `photo_name`, `photo_height`, `photo_width`, `
 (76, '1762858410.jpg', 150, 300, 'Thumbnail photo', '2012-10-29 09:48:01'),
 (77, '7434593960.jpg', 260, 300, 'Thumbnail photo', '2012-10-29 11:00:26'),
 (78, '6872104904.jpg', 300, 291, 'Thumbnail photo', '2012-10-30 09:09:43'),
-(79, '6912836730.png', 169, 300, 'Thumbnail photo', '2012-10-30 09:30:47');
+(79, '6912836730.png', 169, 300, 'Thumbnail photo', '2012-10-30 09:30:47'),
+(80, '4611292565.png', 169, 300, 'Thumbnail photo', '2012-11-12 12:57:59'),
+(81, '5674185650.jpg', 300, 291, 'Thumbnail photo', '2012-11-13 13:54:58'),
+(82, '9364031627.png', 297, 300, 'Thumbnail photo', '2012-11-13 13:56:40'),
+(83, '8655839692.jpg', 260, 300, 'Thumbnail photo', '2012-11-13 13:57:03');
 
 -- --------------------------------------------------------
 
@@ -18074,7 +18080,7 @@ CREATE TABLE IF NOT EXISTS `phrases` (
   `phrase_text` text NOT NULL,
   `phrase_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`phrase_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=52 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=60 ;
 
 --
 -- Дамп данных таблицы `phrases`
@@ -18130,7 +18136,15 @@ INSERT INTO `phrases` (`phrase_id`, `phrase_text`, `phrase_time`) VALUES
 (48, '“Сохраняй терпение и не забывай, что в этом мире все преходящее.” (с) Пауло Коэльо “Подобно реке...”', '2012-10-30 13:47:55'),
 (49, '“Если это никому не во вред, меняй свои взгляды время от времени и не стесняйся их противоречий.” (с) Пауло Коэльо “Подобно реке...”', '2012-10-30 13:48:22'),
 (50, '“Ты значишь больше, чем ты думаешь.” (с) Пауло Коэльо “Подобно реке...”', '2012-10-30 13:48:37'),
-(51, '“Все, что сейчас мы видим наяву, раньше казалось несбыточной мечтой.” (с) Уильям Блейк', '2012-10-30 13:48:56');
+(51, '“Все, что сейчас мы видим наяву, раньше казалось несбыточной мечтой.” (с) Уильям Блейк', '2012-10-30 13:48:56'),
+(52, '“Чему быть, того не миновать.” (с) Николай Васильевич Гоголь', '2012-11-12 11:27:41'),
+(53, '"Теория без практики мертва.” (с) Суворов Александр Васильевич', '2012-11-12 11:36:54'),
+(54, '“Возьми себе в образец героя древних времен. Наблюдай его. Иди за ним в след. Поравняйся. Обгони. Слава тебе! Я выбрал Цезаря.” (с) Суворов Александр Васильевич', '2012-11-12 11:30:34'),
+(55, '“Скорость нужна, а поспешность вредна.” (с) Суворов Александр Васильевич', '2012-11-12 11:52:35'),
+(56, '“Тяжело в ученьи, легко в бою.” (с) Суворов Александр Васильевич', '2012-11-12 11:52:47'),
+(57, '“Побеждают не числом, а уменьем.” (с) Суворов Александр Васильевич', '2012-11-12 11:53:07'),
+(58, '“Держи ноги в холоде, живот в голоде, а голову - в тепле.” (с) Суворов Александр Васильевич', '2012-11-12 11:53:20'),
+(59, '“На себя надежда - основа храбрости.” (с) Суворов Александр Васильевич', '2012-11-12 11:53:49');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

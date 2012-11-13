@@ -14,7 +14,7 @@
 /**
  * Include autoload file
  */
-require_once(dirname(__FILE__) . '/application/autoload/autoload.php');
+require_once(dirname(__FILE__) . '/../application/autoload/autoload.php');
 
 /**
  * Create logout object

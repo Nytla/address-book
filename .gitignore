@@ -16,13 +16,9 @@
 #*.log
 #*.sql
 
-# Icons and images #
-######################
-adminpanel/public/images/uploads_client/**/*
-
 # Template cache #
 ######################
-adminpanel/application/cache/**/*
+/application/cache/**/*
 
 # OS generated files #
 ######################

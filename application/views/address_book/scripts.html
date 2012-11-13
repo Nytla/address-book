@@ -1,0 +1,22 @@
+{# Include CSS files START #}
+{% if css_path == true %}
+		<!-- CSS file(s) START -->
+{% for id, value in css_path %}
+		<link rel="stylesheet" type="text/css" href="{{ css_path[id] }}">
+{% endfor %}
+		<!-- CSS file(s) FINISH -->
+{% endif %}
+{# Include CSS files FINISH #}
+{# Include JavaScript files START #}
+{% if js_path == true %}
+		<!-- JavaScript file(s) START -->
+{% for id, value in js_path %}
+		<script type="text/javascript" src="{{ js_path[id] }}"></script>
+{% endfor %}
+		<!-- JavaScript file(s) FINISH -->
+{% endif %}
+{# Include JavaScript files FINISH #}
+	</head>
+	<body>
+		<noscript><div class="span-20 prepend-17 append-0 last"><h3>{{ noscript }}</h3></div></noscript>
+		<div class="container showgrid">
