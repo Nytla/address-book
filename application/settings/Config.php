@@ -107,6 +107,7 @@ final class Config {
 
 			"errors"	=> array(
 
+				"full_path"	=> 'http://address_book.loc/adminpanel/',
 				"path_error"	=> $root_path . '/application/data/errors.log',
 				"path_access"	=> $root_path . '/application/data/access.log',
 				"image"		=> '/public/images/',

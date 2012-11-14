@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Ноя 13 2012 г., 17:34
+-- Время создания: Ноя 14 2012 г., 12:56
 -- Версия сервера: 5.5.28-0ubuntu0.12.04.2
 -- Версия PHP: 5.3.10-1ubuntu3.4
 
@@ -41,8 +41,8 @@ CREATE TABLE IF NOT EXISTS `administrators` (
 --
 
 INSERT INTO `administrators` (`admin_id`, `admin_login`, `admin_password`, `admin_hash`, `admin_permission`) VALUES
-(1, 'admin', 'ad26ef5064cac638adc8cd63059d8631', '5fa691847724ea08bbd5b96526d66480', 1),
-(2, 'nytla', 'b537a06cf3bcb33206237d7149c27bc3', '7136eaf497de8ef7894e39e5fb55a441', 0),
+(1, 'admin', 'ad26ef5064cac638adc8cd63059d8631', 'b6634fb9bf8159eb1cf7343046c1cd3b', 1),
+(2, 'nytla', 'b537a06cf3bcb33206237d7149c27bc3', '8df8360e23cb5f1d9f7b745009eca869', 0),
 (69, 'administrator', 'ad26ef5064cac638adc8cd63059d8631', '0d0fff33868220c37ad98adb78546126', 0),
 (87, 'testAdmin', 'c1096b31a8eadeb135ad4517863e9288', '', 0),
 (88, 'test', 'asdret454552345565', '', 0),
@@ -17691,7 +17691,7 @@ CREATE TABLE IF NOT EXISTS `clients` (
   `photo` int(11) NOT NULL,
   `notes` varchar(1600) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13110 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=24110 ;
 
 --
 -- Дамп данных таблицы `clients`
@@ -17699,7 +17699,6 @@ CREATE TABLE IF NOT EXISTS `clients` (
 
 INSERT INTO `clients` (`id`, `first_name`, `last_name`, `email`, `country`, `city`, `photo`, `notes`) VALUES
 (2108, 'Jon', 'Doe', 'jon@mail.ru', 3, 3302, 0, ''),
-(2109, 'Valerie', 'Obrose', 'val@mail.com', 11, 3849, 1, ''),
 (59, 'Fred', 'Onielder', 'fred@mail.com', 69, 8708, 0, 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using ''Content here, content here'', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for ''lorem ipsum'' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).'),
 (60, 'Ven', 'Korcher', 'ven@mail.ru', 70, 8710, 0, 'It is information about Ven.'),
 (61, 'Acora', 'Donred', 'acor@mail.ru', 70, 8711, 1, 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using ''Content here, content here'', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for ''lorem ipsum'' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).'),
@@ -17978,7 +17977,7 @@ CREATE TABLE IF NOT EXISTS `photos` (
   `photo_description` varchar(255) NOT NULL,
   `photo_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`photo_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=84 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=86 ;
 
 --
 -- Дамп данных таблицы `photos`
@@ -18067,7 +18066,9 @@ INSERT INTO `photos` (`photo_id`, `photo_name`, `photo_height`, `photo_width`, `
 (80, '4611292565.png', 169, 300, 'Thumbnail photo', '2012-11-12 12:57:59'),
 (81, '5674185650.jpg', 300, 291, 'Thumbnail photo', '2012-11-13 13:54:58'),
 (82, '9364031627.png', 297, 300, 'Thumbnail photo', '2012-11-13 13:56:40'),
-(83, '8655839692.jpg', 260, 300, 'Thumbnail photo', '2012-11-13 13:57:03');
+(83, '8655839692.jpg', 260, 300, 'Thumbnail photo', '2012-11-13 13:57:03'),
+(84, '1452169166.jpg', 300, 291, 'Thumbnail photo', '2012-11-14 10:21:19'),
+(85, '9384719212.png', 169, 300, 'Thumbnail photo', '2012-11-14 10:21:43');
 
 -- --------------------------------------------------------
 
@@ -18080,7 +18081,7 @@ CREATE TABLE IF NOT EXISTS `phrases` (
   `phrase_text` text NOT NULL,
   `phrase_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`phrase_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=60 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=63 ;
 
 --
 -- Дамп данных таблицы `phrases`
@@ -18144,7 +18145,10 @@ INSERT INTO `phrases` (`phrase_id`, `phrase_text`, `phrase_time`) VALUES
 (56, '“Тяжело в ученьи, легко в бою.” (с) Суворов Александр Васильевич', '2012-11-12 11:52:47'),
 (57, '“Побеждают не числом, а уменьем.” (с) Суворов Александр Васильевич', '2012-11-12 11:53:07'),
 (58, '“Держи ноги в холоде, живот в голоде, а голову - в тепле.” (с) Суворов Александр Васильевич', '2012-11-12 11:53:20'),
-(59, '“На себя надежда - основа храбрости.” (с) Суворов Александр Васильевич', '2012-11-12 11:53:49');
+(59, '“На себя надежда - основа храбрости.” (с) Суворов Александр Васильевич', '2012-11-12 11:53:49'),
+(60, '“Один опыт я ставлю выше, чем тысячу мнений, рожденных только воображением.” (с) Михаил Васильевич Ломоносов', '2012-11-14 08:42:07'),
+(61, '“Всё гениальное просто, и всё простое гениально. Маленькому человечку нравится скрывать свою ничтожность за сложными вещами.” (с) Йозеф Геббельс', '2012-11-14 08:42:35'),
+(62, '“Покой - родитель всех великих мыслей.” (с) Йозеф Геббельс', '2012-11-14 08:42:56');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

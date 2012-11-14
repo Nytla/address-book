@@ -225,6 +225,20 @@ function fnFormatDetails(oTable, nTr, view_id) {
 			cache: false,
 			async: false,
 			data: {},
+			beforeSend: function() {
+				//Show ajax preloader
+				$("#preloader").removeClass('hide');
+
+				//Hide book list table
+				$("#example").addClass('hide');
+			},
+			complete: function() {
+				//Hide ajax preloader
+				$("#preloader").slideUp('slow');
+
+				//Show book list table
+				$("#example").removeClass('hide');
+			},
 			success: function(object) {
 
 				//Create array with client data

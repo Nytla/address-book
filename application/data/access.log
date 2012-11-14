@@ -19,3 +19,10 @@
 		password: asdasd
 	</parameters>
 </error access>
+<error access>
+	<date>2012-11-14 12:23:39 (EET7200)</date>
+	<parameters>
+		login: nytla
+		password: 12321
+	</parameters>
+</error access>

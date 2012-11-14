@@ -80,6 +80,7 @@ final class BookList extends Templating {
 			"details_close"		=> Locale::languageEng('book_list', 'details_close'),
 			"client_edit"		=> Locale::languageEng('book_list', 'client_edit'),
 			"client_delete"		=> Locale::languageEng('book_list', 'client_delete'),
+			"preloader_alt_text"	=> Locale::languageEng('book_list', 'preloader_alt_text'),
 			"phrase"		=> BookListModel::getRandomPhraseFromDB(),
 		);
 

@@ -38,7 +38,7 @@ final class Redirect {
 		/**
 		 * Formed url where make our redirect
 		 */
-		$uri = ($code == 301) ? Config::dataArray('server', 'protocol').Config::dataArray('server', 'separator').Config::dataArray('server', 'slash').Config::dataArray('server', 'slash').Config::dataArray('server', 'name').Config::dataArray('server', 'slash').Config::dataArray('paths', 'adminpanel').$url : Config::dataArray('server', 'protocol').Config::dataArray('server', 'separator').Config::dataArray('server', 'slash').Config::dataArray('server', 'slash').Config::dataArray('server', 'name').Config::dataArray('server', 'slash').Config::dataArray('paths', 'adminpanel').$url.'?error='.$code;
+		$uri = ($code == 301) ? Config::dataArray('errors', 'full_path') . $url : Config::dataArray('errors', 'full_path') . $url . '?error=' . $code;
 
 		/**
 		 * Send http header

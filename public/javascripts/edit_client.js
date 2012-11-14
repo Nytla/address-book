@@ -291,7 +291,7 @@ $(document).ready(function() {
 								.html('')
 								.append('<img>');
 
-							$("#preview_photo img")					
+							$("#preview_photo img")				
 								.attr("width", object.photo_width)
 								.attr("height", object.photo_height)
 								.attr("src", object.photo_name)

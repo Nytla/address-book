@@ -24,15 +24,17 @@ Options -Indexes
 ErrorDocument 100 /adminpanel/error.php?error=100
 ErrorDocument 101 /adminpanel/error.php?error=101
 ErrorDocument 102 /adminpanel/error.php?error=102
+
 ##2xx
 ErrorDocument 200 /adminpanel/error.php?error=200
-ErrorDocument 201 /adminpanel/error.php?error=101
-ErrorDocument 202 /adminpanel/error.php?error=102
-ErrorDocument 203 /adminpanel/error.php?error=103
-ErrorDocument 204 /adminpanel/error.php?error=104
-ErrorDocument 205 /adminpanel/error.php?error=105
-ErrorDocument 206 /adminpanel/error.php?error=106
-ErrorDocument 207 /adminpanel/error.php?error=107
+ErrorDocument 201 /adminpanel/error.php?error=201
+ErrorDocument 202 /adminpanel/error.php?error=202
+ErrorDocument 203 /adminpanel/error.php?error=203
+ErrorDocument 204 /adminpanel/error.php?error=204
+ErrorDocument 205 /adminpanel/error.php?error=205
+ErrorDocument 206 /adminpanel/error.php?error=206
+ErrorDocument 207 /adminpanel/error.php?error=207
+
 ##4xx
 ErrorDocument 400 /adminpanel/error.php?error=400
 ErrorDocument 401 /adminpanel/error.php?error=401
@@ -52,15 +54,12 @@ ErrorDocument 414 /adminpanel/error.php?error=414
 ErrorDocument 415 /adminpanel/error.php?error=415
 ErrorDocument 416 /adminpanel/error.php?error=416
 ErrorDocument 417 /adminpanel/error.php?error=417
-ErrorDocument 418 /adminpanel/error.php?error=418
-ErrorDocument 419 /adminpanel/error.php?error=419
-ErrorDocument 420 /adminpanel/error.php?error=420
-ErrorDocument 421 /adminpanel/error.php?error=421
 ErrorDocument 422 /adminpanel/error.php?error=422
 ErrorDocument 423 /adminpanel/error.php?error=423
 ErrorDocument 424 /adminpanel/error.php?error=424
 ErrorDocument 425 /adminpanel/error.php?error=425
 ErrorDocument 426 /adminpanel/error.php?error=426
+
 ##5xx
 ErrorDocument 500 /adminpanel/error.php?error=500
 ErrorDocument 501 /adminpanel/error.php?error=501

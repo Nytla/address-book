@@ -21,7 +21,7 @@ $(document).ready(function() {
 
 	//Insert a 'details' column to the table
 	var img_details_open = $("#details_open img");
-	
+
 	var img_details_close = $("#details_close img");
 
 	var nCloneTh = document.createElement('th');
@@ -64,7 +64,7 @@ $(document).ready(function() {
 	});
 
 	//Set client data json
-	$.ajaxes(img_details_open);
+	$.ajaxesBookList(img_details_open);
 
 	//Create Book list table
 	var oTable = $('#example').dataTable({
@@ -124,7 +124,7 @@ $(document).ready(function() {
 			};
 
 			//Delete client from DB
-			$.ajaxes(object_options, $(this).parent().parent());
+			$.ajaxesDeleteClient(object_options, $(this).parent().parent());
 
 			if (window.ajax_value == true) {
 
@@ -152,7 +152,7 @@ $(document).ready(function() {
  * @memberOf jQuery.fn
  */
 (function($) {
-	$.ajaxes = function(object_options) {
+	$.ajaxesDeleteClient = function(object_options) {
 
 		$.ajax({
 			type: "POST",
@@ -315,7 +315,7 @@ function fnFormatDetails(oTable, nTr, view_id) {
  * @memberOf jQuery.fn
  */
 (function($) {
-	$.ajaxes = function(img_details_open) {
+	$.ajaxesBookList = function(img_details_open) {
 
 		$.ajax({  
 			type: "POST",
@@ -324,6 +324,20 @@ function fnFormatDetails(oTable, nTr, view_id) {
 			cache: false,
 			async: false,
 			data: {},
+			beforeSend: function() {
+				//Show ajax preloader
+				$("#preloader").removeClass('hide');
+
+				//Hide book list table
+				$("#example").addClass('hide');
+			},
+			complete: function() {
+				//Hide ajax preloader
+				$("#preloader").slideUp('slow');
+
+				//Show book list table
+				$("#example").removeClass('hide');
+			},
 			success: function(object) {
 
 				//Create array with client data

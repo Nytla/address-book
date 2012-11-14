@@ -73,6 +73,7 @@ final class UserBookList extends Templating {
 			"country_word"		=> Locale::languageEng('book_list', 'country_word'),
 			"city_word"		=> Locale::languageEng('book_list', 'city_word'),
 			"empty_option"		=> Locale::languageEng('book_list', 'empty_option'),
+			"preloader_alt_text"	=> Locale::languageEng('book_list', 'preloader_alt_text'),
 			"image_path"		=> Config::dataArray('errors', 'image'),
 			"phrase"		=> UserBookListModel::getUserRandomPhraseFromDB()
 		);

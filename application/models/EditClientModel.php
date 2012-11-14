@@ -87,7 +87,10 @@ final class EditClientModel extends PDOMysqlConnect {
 				`notes`,
 				`city_id`,
 				`cityname_en`,
-				`photo_name`
+				`photo_name`,
+				`photo_height`,
+				`photo_width`,
+				`photo_description`
 			FROM 
 				" . self::$_DB_table_name_clients . ", 
 				" . self::$_DB_table_name_countries . ", 
