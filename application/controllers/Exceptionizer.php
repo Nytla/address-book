@@ -132,7 +132,7 @@ class PHP_Exceptionizer_Catcher {
 		"E_USER_ERROR", 
 		"E_USER_WARNING", 
 		"E_USER_NOTICE", 
-		"E_STRICT",
+		"E_STRICT"
 	);
 	
 	/**

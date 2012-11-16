@@ -97,8 +97,12 @@ final class Indexes extends Templating {
 		/**
 		 * Create array with variable for footer tempalate
 		 */
+		$create_project_year = Locale::languageEng('site', 'year');
+
+		$dash = chr(45);
+
 		$params = array(
-			'year' => date("Y"),
+			"year" => (date("Y") == $create_project_year) ? date("Y") : $create_project_year . $dash . date("Y"),
 		);
 
 		return Templating::renderingTemplate($template_name, $params);

@@ -35,6 +35,16 @@ ErrorDocument 205 /adminpanel/error.php?error=205
 ErrorDocument 206 /adminpanel/error.php?error=206
 ErrorDocument 207 /adminpanel/error.php?error=207
 
+##3xx
+ErrorDocument 300 /adminpanel/error.php?error=300
+ErrorDocument 301 /adminpanel/error.php?error=301
+ErrorDocument 302 /adminpanel/error.php?error=302
+ErrorDocument 303 /adminpanel/error.php?error=303
+ErrorDocument 304 /adminpanel/error.php?error=304
+ErrorDocument 305 /adminpanel/error.php?error=305
+ErrorDocument 306 /adminpanel/error.php?error=306
+ErrorDocument 307 /adminpanel/error.php?error=307
+
 ##4xx
 ErrorDocument 400 /adminpanel/error.php?error=400
 ErrorDocument 401 /adminpanel/error.php?error=401

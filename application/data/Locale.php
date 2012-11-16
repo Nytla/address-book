@@ -39,7 +39,8 @@ final class Locale {
 			"site"		=> array(
 
 				"name"			=> 'Address Book',
-				"title"			=> 'Address Book'
+				"title"			=> 'Welcome to Address Book',
+				"year"			=> 2012
 
 			),
 

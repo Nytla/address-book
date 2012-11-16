@@ -228,6 +228,7 @@ final class BookListModel extends PDOMysqlConnect {
 				DELETE 
 				FROM " . self::$_DB_table_name_clients . "
 				WHERE `id` = '$client_id'
+				LIMIT 1
 			");
 		}
 

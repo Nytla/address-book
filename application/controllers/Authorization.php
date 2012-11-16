@@ -62,7 +62,10 @@ final class Authorization extends Templating {
 
 		$auth = Config::dataArray('javascript', 'path') . Config::dataArray('javascript', 'authorization');
 
-		$js = array("$jquery", "$auth");
+		$js = array(
+			"$jquery", 
+			"$auth"
+		);
 
 		$template .= Indexes::scriptsContent('', $js);
 
@@ -158,7 +161,6 @@ final class Authorization extends Templating {
 				 * Write access log
 				 */
 				$parameters = array(
-
 					"login"		=> $admin_login,
 					"password"	=> $admin_password
 				);
@@ -173,7 +175,6 @@ final class Authorization extends Templating {
 			 * Write access log
 			 */
 			$parameters = array(
-
 				"login"		=> $admin_login,
 				"password"	=> $admin_password
 			);

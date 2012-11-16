@@ -44,8 +44,25 @@ final class Errors extends Templating {
 		 */
 		$template_name = Config::dataArray('templates', 'errors');
 
-		$error = (isset($_GET['error']))  ? $_GET['error'] : 99;
+		/**
+		 * Create array with http error codes
+		 */
+		$http_status_codes = array(
+			"100", "101", "102", 
+			"200", "201", "202", "203", "204", "205", "206", "207", 
+			"300", "301", "302", "303", "304", "305", "307", 
+			"400", "401", "402", "403", "404", "405", "406", "407", "408", "409", "410", "411", "412", "413", "414", "415", "416", "417", "422", "423", "424","425", "426", 
+			"500", "501", "502", "503", "504", "505", "506", "507", "508", "509", "510"
+		);
 
+		/**
+		 * Set error variable
+		 */
+		$error = (isset($_GET['error'])) ? $_GET['error'] : 99;		
+
+		/**
+		 * Get error codes from locale
+		 */
 		switch ($error) {
 
 			case ValidateData::filterValidate($error, ValidateData::DATA_INT):
@@ -54,7 +71,7 @@ final class Errors extends Templating {
 					"site_url"		=> Config::dataArray('server', 'slash') . Config::dataArray('paths', 'adminpanel'),
 					"site_name"		=> Locale::languageEng('site', 'name'),			
 					"page_error"		=> Locale::languageEng('http_status', 'page_error'),
-					"error_description"	=> Locale::languageEng('http_status', $error),
+					"error_description"	=> Locale::languageEng('http_status', (array_search($error, $http_status_codes) === false) ? 99 : $error),
 					"image"			=> Config::dataArray('errors', 'image')
 				);
 
