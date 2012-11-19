@@ -68,8 +68,8 @@ final class Config {
 				"driver"	=> 'mysql',
 				"host"		=> 'localhost',
 				'name'		=> 'address_book', 
-				"login"		=> 'root',
-				"password"	=> '551514',
+				"login"		=> '',
+				"password"	=> '',
 				"charset"	=> 'UTF8'
 
 			),

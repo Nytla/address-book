@@ -48,6 +48,7 @@ final class Errors extends Templating {
 		 * Create array with http error codes
 		 */
 		$http_status_codes = array(
+			"bad_connect",
 			"100", "101", "102", 
 			"200", "201", "202", "203", "204", "205", "206", "207", 
 			"300", "301", "302", "303", "304", "305", "307", 
@@ -58,35 +59,18 @@ final class Errors extends Templating {
 		/**
 		 * Set error variable
 		 */
-		$error = (isset($_GET['error'])) ? $_GET['error'] : 99;		
+		$error = (empty($_GET['error']) or array_search($_GET['error'], $http_status_codes) === false) ? 99 : $_GET['error'];
 
 		/**
 		 * Get error codes from locale
 		 */
-		switch ($error) {
-
-			case ValidateData::filterValidate($error, ValidateData::DATA_INT):
-
-				$params = array(
-					"site_url"		=> Config::dataArray('server', 'slash') . Config::dataArray('paths', 'adminpanel'),
-					"site_name"		=> Locale::languageEng('site', 'name'),			
-					"page_error"		=> Locale::languageEng('http_status', 'page_error'),
-					"error_description"	=> Locale::languageEng('http_status', (array_search($error, $http_status_codes) === false) ? 99 : $error),
-					"image"			=> Config::dataArray('errors', 'image')
-				);
-
-				break;
-
-			default:
-
-				$params = array(
-					"site_url"		=> Config::dataArray('server', 'slash') . Config::dataArray('paths', 'adminpanel'),
-					"site_name"		=> Locale::languageEng('site', 'name'),			
-					"page_error"		=> Locale::languageEng('http_status', 'page_error'),
-					"error_description"	=> Locale::languageEng('http_status', ($error == 'bad_connect') ? 'bad_connect' : 99),
-					"image"			=> Config::dataArray('errors', 'image')
-				);
-		}
+		$params = array(
+			"site_url"		=> Config::dataArray('server', 'slash') . Config::dataArray('paths', 'adminpanel'),
+			"site_name"		=> Locale::languageEng('site', 'name'),			
+			"page_error"		=> Locale::languageEng('http_status', 'page_error'),
+			"error_description"	=> Locale::languageEng('http_status', $error),
+			"image"			=> Config::dataArray('errors', 'image')
+		);
 
 		$template .= Templating::renderingTemplate($template_name, $params);
 
