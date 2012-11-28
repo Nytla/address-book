@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Ноя 14 2012 г., 12:56
+-- Время создания: Ноя 28 2012 г., 16:30
 -- Версия сервера: 5.5.28-0ubuntu0.12.04.2
 -- Версия PHP: 5.3.10-1ubuntu3.4
 
@@ -41,8 +41,8 @@ CREATE TABLE IF NOT EXISTS `administrators` (
 --
 
 INSERT INTO `administrators` (`admin_id`, `admin_login`, `admin_password`, `admin_hash`, `admin_permission`) VALUES
-(1, 'admin', 'ad26ef5064cac638adc8cd63059d8631', 'b6634fb9bf8159eb1cf7343046c1cd3b', 1),
-(2, 'nytla', 'b537a06cf3bcb33206237d7149c27bc3', '8df8360e23cb5f1d9f7b745009eca869', 0),
+(1, 'admin', 'ad26ef5064cac638adc8cd63059d8631', 'd183360cb8e83fd74031339ff9ca4670', 1),
+(2, 'nytla', 'b537a06cf3bcb33206237d7149c27bc3', 'c2b4ae35a5e3dc626156d6bb17a6ccbe', 0),
 (69, 'administrator', 'ad26ef5064cac638adc8cd63059d8631', '0d0fff33868220c37ad98adb78546126', 0),
 (87, 'testAdmin', 'c1096b31a8eadeb135ad4517863e9288', '', 0),
 (88, 'test', 'asdret454552345565', '', 0),
@@ -17717,13 +17717,13 @@ INSERT INTO `clients` (`id`, `first_name`, `last_name`, `email`, `country`, `cit
 (90, 'Joner', 'Clowr', 'jon@mail.com', 7, 3797, 0, ''),
 (91, 'Piter', 'Nelson', 'pit@mail.ru', 8, 3822, 0, ''),
 (93, 'Piter', 'Nelson', 'pit@mail.ru', 7, 3779, 0, 'Test description.'),
-(99, 'Perru', 'Clanton', 'parry@mail.ru', 17, 4304, 0, 'This is test information'),
-(96, 'Dorie', 'Morie', 'dori@mail.ru', 7, 3819, 81, 'This is test information!'),
+(99, 'Perru', 'Clanton', 'parry@mail.ru', 17, 4304, 1, ''),
+(96, 'Dorie', 'Morie', 'dori@mail.ru', 7, 3819, 0, 'This is test information!'),
 (97, 'Gary', 'Moor', 'gari@mail.ru', 7, 3819, 77, 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don''t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn''t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.'),
 (98, 'Bottor', 'Gazlina', 'varve@mail.ru', 5, 3586, 1, 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.'),
-(101, 'Testo', 'Ronto', 'test@mail.ru', 17, 4304, 83, 'test'),
+(101, 'Testo', 'Ronto', 'test@mail.ru', 17, 4304, 1, ''),
 (102, 'Ivan', 'Ivanovish', 'ivan@gmail.con', 11, 3840, 82, 'Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC\n\n"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"\n1914 translation by H. Rackham\n\n"But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which '),
-(106, 'Viliam', 'Genirom', 'vill@mail.com', 15, 4212, 79, 'Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC\n\n"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"\n1914 translation by H. Rackham\n\n"But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which ');
+(106, 'Viliam', 'Genirom', 'vill@yahoo.com', 2, 2845, 88, 'Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC\n\n"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"\n1914 translation by H. Rackham.');
 
 -- --------------------------------------------------------
 
@@ -17977,7 +17977,7 @@ CREATE TABLE IF NOT EXISTS `photos` (
   `photo_description` varchar(255) NOT NULL,
   `photo_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`photo_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=86 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=89 ;
 
 --
 -- Дамп данных таблицы `photos`
@@ -18068,7 +18068,10 @@ INSERT INTO `photos` (`photo_id`, `photo_name`, `photo_height`, `photo_width`, `
 (82, '9364031627.png', 297, 300, 'Thumbnail photo', '2012-11-13 13:56:40'),
 (83, '8655839692.jpg', 260, 300, 'Thumbnail photo', '2012-11-13 13:57:03'),
 (84, '1452169166.jpg', 300, 291, 'Thumbnail photo', '2012-11-14 10:21:19'),
-(85, '9384719212.png', 169, 300, 'Thumbnail photo', '2012-11-14 10:21:43');
+(85, '9384719212.png', 169, 300, 'Thumbnail photo', '2012-11-14 10:21:43'),
+(86, '7603113716.jpg', 300, 213, 'Thumbnail photo', '2012-11-28 13:22:28'),
+(87, '8917860356.jpg', 300, 213, 'Thumbnail photo', '2012-11-28 13:34:37'),
+(88, '136275608.jpg', 225, 300, 'Thumbnail photo', '2012-11-28 13:46:40');
 
 -- --------------------------------------------------------
 
@@ -18081,7 +18084,7 @@ CREATE TABLE IF NOT EXISTS `phrases` (
   `phrase_text` text NOT NULL,
   `phrase_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`phrase_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=63 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=65 ;
 
 --
 -- Дамп данных таблицы `phrases`
@@ -18148,7 +18151,9 @@ INSERT INTO `phrases` (`phrase_id`, `phrase_text`, `phrase_time`) VALUES
 (59, '“На себя надежда - основа храбрости.” (с) Суворов Александр Васильевич', '2012-11-12 11:53:49'),
 (60, '“Один опыт я ставлю выше, чем тысячу мнений, рожденных только воображением.” (с) Михаил Васильевич Ломоносов', '2012-11-14 08:42:07'),
 (61, '“Всё гениальное просто, и всё простое гениально. Маленькому человечку нравится скрывать свою ничтожность за сложными вещами.” (с) Йозеф Геббельс', '2012-11-14 08:42:35'),
-(62, '“Покой - родитель всех великих мыслей.” (с) Йозеф Геббельс', '2012-11-14 08:42:56');
+(62, '“Покой - родитель всех великих мыслей.” (с) Йозеф Геббельс', '2012-11-14 08:42:56'),
+(63, '“Будьте мудрее других, если можете, только не говорите им об этом.” (с) Лорд Честерфилд', '2012-11-28 14:18:18'),
+(64, '“Голод - самый лучший соус в мире.” (с) Мигель де Сервантес', '2012-11-28 14:25:29');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

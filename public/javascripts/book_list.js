@@ -1,11 +1,13 @@
 /**
  * @fileoverview This file formed book list for administrator
- * @author Igor Zhabskiy Zhabskiy.Igor@googlemail.com
+ * @author Igor Zhabskiy Zhabskiy.Igor@gmail.com
  * @version 0.1
  */
 $(document).ready(function() {
 
-	//If image not available
+	/**
+	 * If image not available
+	 */
 	$("#example tbody tr td div img").each(function() {
 
 		$(this).error(function() {
@@ -19,7 +21,9 @@ $(document).ready(function() {
 		});
 	});
 
-	//Insert a 'details' column to the table
+	/**
+	 * Insert a 'details' column to the table
+	 */
 	var img_details_open = $("#details_open img");
 
 	var img_details_close = $("#details_close img");
@@ -40,21 +44,27 @@ $(document).ready(function() {
 		this.insertBefore(nCloneTd.cloneNode(true), this.childNodes[0]);
 	});
 
-	//Add event listener for opening and closing details and note that the indicator for showing which row is open is not controlled by DataTables, rather it is done here
+	/**
+	 * Add event listener for opening and closing details and note that the indicator for showing which row is open is not controlled by DataTables, rather it is done here
+	 */
 	$(document).on("click", "#example tbody tr td img[width='20']", function() {
 
 		var nTr = $(this).parents("tr")[0];
 
 		if (oTable.fnIsOpen(nTr)) {
 
-			//This row is already open - close it 
+			/**
+			 * This row is already open - close it 
+			 */
 			this.src = img_details_open.attr("src");
 
 			oTable.fnClose(nTr);
 			
 		} else {
 
-			//Open this row
+			/**
+			 * Open this row
+			 */
 			this.src = img_details_close.attr("src");
 
 			var view_id = $(this).attr('alt');
@@ -63,10 +73,14 @@ $(document).ready(function() {
 		}
 	});
 
-	//Set client data json
+	/**
+	 * Set client data json
+	 */
 	$.ajaxesBookList(img_details_open);
 
-	//Create Book list table
+	/**
+	 * Create Book list table
+	 */
 	var oTable = $('#example').dataTable({
 		"sDom": '<"top"if<"clear">>rt<"bottom"lp<"clear">>',
 		"bJQueryUI": true,
@@ -79,7 +93,9 @@ $(document).ready(function() {
 		"aLengthMenu": [[10, 20, 50, -1], [10, 20, 50, "All"]],
 	});
 
-	//Create Country and City container search
+	/**
+	 * Create Country and City container search
+	 */
 	$("#example_filter").append('<label id="Country"></label>');
 	
 	$("#example_filter").append('<label id="city"></label>');
@@ -88,7 +104,9 @@ $(document).ready(function() {
 
 	$("#example_filter label").css("float", "left");
 
-	//Create Country and City selected elements search
+	/**
+	 * Create Country and City selected elements search
+	 */
 	$("#example_filter label").each( function (i) {
 
 		if (i == 0) {
@@ -109,26 +127,37 @@ $(document).ready(function() {
 	    "sWrapper": "dataTables_wrapper form-inline"
 	} );
 
-	//Delete client from DB and from DOM (dynamicaly)
+	/**
+	 * Delete client from DB and from DOM (dynamicaly)
+	 */
 	$(document).on("click", "#example tbody tr td a[name='delete']", function() {
 		
-		//Get row which clicked
+		/**
+		 * Get row which clicked
+		 */
 		var href_content = $(this).attr('href');		
 
 		var delete_id = $.parseHash(href_content).delete_id;
 
 		if (confirm("Are you sure you wish to delete the record "+delete_id+"?")) {
-			//Create object for ajax request
+			
+			/**
+			 * Create object for ajax request
+			 */
 			var object_options = {
 				id: delete_id
 			};
 
-			//Delete client from DB
+			/**
+			 * Delete client from DB
+			 */
 			$.ajaxesDeleteClient(object_options, $(this).parent().parent());
 
 			if (window.ajax_value == true) {
 
-				//Delete row from DOM
+				/**
+				 * Delete row from DOM
+				 */
 				var tr = $(this).parent().parent().get(0);
 
 				$("#example tbody tr").each(function(key, value) {
@@ -186,28 +215,37 @@ $(document).ready(function() {
 (function($){
 	$.parseHash = function(hash) {
 
-		//Get the URI and remove the hash
+		/**
+		 * Get the URI and remove the hash
+		 */
 		if (!hash) {
 			var hash = $(location).attr('hash').substring(1);
 		} 
 
-		//Parse the data
+		/**
+		 * Parse the data
+		 */
 		var elements = hash.split('#');
 
 		//The Object that will have the data
 		var data = new Object();
 
-		//Do a for loop
+		/**
+		 * Do a for loop
+		 */
 		for(i = 0; i < elements.length; i++) {
 
-			//Split the element to item -> value format
+			/**
+			 * Split the element to item -> value format
+			 */
 			var cur = elements[i].split('=');
 
-			//Append the element to the list
+			/**
+			 * Append the element to the list
+			 */
 			data[cur[0]] = cur[1]; 
 		}
 
-		//Return the result
 		return data;
 	}
 })(jQuery);
@@ -226,41 +264,68 @@ $(document).ready(function() {
  */
 (function($) {
 	$.fn.dataTableExt.oApi.fnGetColumnData = function (oSettings, iColumn, bUnique, bFiltered, bIgnoreEmpty) {
-		// check that we have a column id
+
+		/**
+		 * Check that we have a column id
+		 */
 		if (typeof iColumn == "undefined") return new Array();
 	
-		// by default we only wany unique data
+		/**
+		 * By default we only wany unique data
+		 */
 		if (typeof bUnique == "undefined") bUnique = true;
 	
-		// by default we do want to only look at filtered data
+		/**
+		 * By default we do want to only look at filtered data
+		 */
 		if (typeof bFiltered == "undefined") bFiltered = true;
 	
-		// by default we do not wany to include empty values
+		/**
+		 * By default we do not wany to include empty values
+		 */
 		if (typeof bIgnoreEmpty == "undefined") bIgnoreEmpty = true;
 	
-		// list of rows which we're going to loop through
+		/**
+		 * List of rows which we're going to loop through
+		 */
 		var aiRows;
 	
-		// use only filtered rows
+		/**
+		 * Use only filtered rows
+		 */
 		if (bFiltered == true) aiRows = oSettings.aiDisplay; 
-		// use all rows
-		else aiRows = oSettings.aiDisplayMaster; // all row numbers
+		
+		/**
+		 * Use all rows (numbers)
+		 */
+		else aiRows = oSettings.aiDisplayMaster;
 
-		// set up data array	
+		/**
+		 * Set up data array
+		 */
 		var asResultData = new Array();
 	
-		for (var i=0,c=aiRows.length; i<c; i++) {
+		for (var i = 0,c = aiRows.length; i < c; i++) {
+			
 			iRow = aiRows[i];
+			
 			var aData = this.fnGetData(iRow);
+
 			var sValue = aData[iColumn];
 		
-			// ignore empty values?
+			/**
+			 * Ignore empty values?
+			 */
 			if (bIgnoreEmpty == true && sValue.length == 0) continue;
 
-			// ignore unique values?
+			/**
+			 * Ignore unique values?
+			 */
 			else if (bUnique == true && jQuery.inArray(sValue, asResultData) > -1) continue;
 		
-			// else push the value onto the result data array
+			/**
+			 * Else push the value onto the result data array
+			 */
 			else asResultData.push(sValue);
 		}
 	
@@ -287,9 +352,6 @@ function fnCreateSelect(aData, num) {
 	return r+'</select>';
 }
 
-/**
- * Formating function for row details
- */
 /**
  * fnFormatDetails This function formating function for row details
  *
@@ -325,22 +387,34 @@ function fnFormatDetails(oTable, nTr, view_id) {
 			async: false,
 			data: {},
 			beforeSend: function() {
-				//Show ajax preloader
+
+				/**
+				 * Show ajax preloader
+				 */
 				$("#preloader").removeClass('hide');
 
-				//Hide book list table
+				/**
+				 * Hide book list table
+				 */
 				$("#example").addClass('hide');
 			},
 			complete: function() {
-				//Hide ajax preloader
+
+				/**
+				 * Hide ajax preloader
+				 */
 				$("#preloader").slideUp('slow');
 
-				//Show book list table
+				/**
+				 * Show book list table
+				 */
 				$("#example").removeClass('hide');
 			},
 			success: function(object) {
 
-				//Create array with client data
+				/**
+				 * Create array with client data
+				 */
 				window.clients_data_array = new Array();
  
 				$(object).each(function(i, v) {

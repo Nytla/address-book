@@ -1,17 +1,23 @@
 /** 
  * @fileoverview This file edit record of client
- * @author Igor Zhabskiy Zhabskiy.Igor@googlemail.com
+ * @author Igor Zhabskiy Zhabskiy.Igor@gmail.com
  * @version 0.1
  */
 $(document).ready(function() {
 
-	//Create select list for our cities when page loaded
+	/**
+	 * Create select list for our cities when page loaded
+	 */
 	$.formedCitiesList('load_page');
 
-	//Create select list for our cities when country changed
+	/**
+	 * Create select list for our cities when country changed
+	 */
 	$.formedCitiesList('change_country');
 
-	//Set client information in our forms
+	/**
+	 * Set client information in our forms
+	 */
 	var object_options = {
 		module:		'set_information',
 		file_name:	'edit_client.php',
@@ -21,16 +27,22 @@ $(document).ready(function() {
 		}
 	};
 
-	//Get cities from DB
+	/**
+	 * Get cities from DB
+	 */
 	$.ajaxes(object_options);
 
-	//Clear our forms
+	/**
+	 * Clear our forms
+	 */
 	$("#reset_forms").click(function() {
 
 		$("#InformationForm, #NotesForm").clearForm();
 	});
 
-	//Set errors variables
+	/**
+	 * Set errors variables
+	 */
 	var error_empty_first_name = $("#error_empty_f_n").html();
 
 	var error_min_length_first_name = $("#error_min_length_f_n").html();
@@ -57,7 +69,9 @@ $(document).ready(function() {
 
 	var error_upload_photo = $("#error_upload_photo").html();
 
-	//Validate form with informatons
+	/**
+	 * Validate form with informatons
+	 */
 	$("#InformationForm").validate({
 
 		rules: {
@@ -128,7 +142,9 @@ $(document).ready(function() {
 
 		submitHandler: function() {
 
-			//Set object with our options (country id)
+			/**
+			 * Set object with our options (country id)
+			 */
 			var object_options = {
 				module:		'edit_record',
 				file_name:	'edit_client.php',
@@ -146,7 +162,9 @@ $(document).ready(function() {
 				}
 			};
 
-			//Get cities from DB
+			/**
+			 * Get cities from DB
+			 */
 			$.ajaxes(object_options);
 
 			return false;
@@ -154,13 +172,19 @@ $(document).ready(function() {
 
 	});
 
-	//Action or disabled input file button Upload
+	/**
+	 * Action or disabled input file button Upload
+	 */
 	$.InputFileButton();
 
-	//Upload image and preview if form (#ImagesForm) submited
+	/**
+	 * Upload image and preview if form (#ImagesForm) submited
+	 */
 	$.uploadPhoto();
 
-	//Submit all forms
+	/**
+	 * Submit all forms
+	 */
 	$("#save").click(function() {
 
 		$("#InformationForm").submit();
@@ -185,15 +209,21 @@ $(document).ready(function() {
 
 			case 'load_page':
 
-				//Set width for select country element
+				/**
+				 * Set width for select country element
+				 */
 				$("#country").css("width", "235");
 
-				//Create select list for our cities when page loaded
+				/**
+				 * Create select list for our cities when page loaded
+				 */
 				var option_selected = $("#country option:selected").val();
 
 				if (option_selected != "") {
 
-					//Set object with our options (country id)
+					/**
+					 * Set object with our options (country id)
+					 */
 					var object_options = {
 						module:		'cities_formed',
 						file_name:	'cities_formed.php',
@@ -208,17 +238,23 @@ $(document).ready(function() {
 
 			case 'change_country':
 
-				//Create select list for our cities when country changed
+				/**
+				 * Create select list for our cities when country changed
+				 */
 				$("#country").change(function() {
 
-					//Set object with our options (country id)
+					/**
+					 * Set object with our options (country id)
+					 */
 					var object_options = {
 						module:		'cities_formed',
 						file_name:	'cities_formed.php',
 						data:		{ country_id: this.value }
 					};
 
-					//Get cities from DB
+					/**
+					 * Get cities from DB
+					 */
 					$.ajaxes(object_options);
 				});
 
@@ -226,7 +262,9 @@ $(document).ready(function() {
 
 			case 'load_cities':
 
-				//Set object with our options (country id)
+				/**
+				 * Set object with our options (country id)
+				 */
 				var object_options = {
 					module:		'cities_formed',
 					file_name:	'cities_formed.php',
@@ -234,7 +272,9 @@ $(document).ready(function() {
 					data:		{ country_id: $("#country").val() }
 				};
 
-				//Get cities from DB
+				/**
+				 * Get cities from DB
+				 */
 				$.ajaxes(object_options);
 
 			break;
@@ -268,10 +308,14 @@ $(document).ready(function() {
 
 						if (object.flag == false) {
 
-							//Hide our forms
+							/**
+							 * Hide our forms
+							 */
 							$('#forms_content').addClass("hide");
 
-							//Show success message
+							/**
+							 * Show success message
+							 */
 							$('#edit_bad_client')
 								.removeClass("hide")
 								.addClass("error");
@@ -299,9 +343,12 @@ $(document).ready(function() {
 								.attr("id", object.photo_id)
 								.parent()
 								.slideDown();
+
 							$("#notes").val(object.notes);
 
-							//Image not available
+							/**
+							 * Image not available
+							 */
 							$("#preview_photo img").error(function() {
 
 								$(this).attr({
@@ -317,15 +364,21 @@ $(document).ready(function() {
 
 					case 'cities_formed':
 
-						//Set select element width
+						/**
+						 * Set select element width
+						 */
 						$("#city").css("width", "235");
 
-						//Delete all options element, but not first
+						/**
+						 * Delete all options element, but not first
+						 */
 						$("#city option").remove();
 
 						$("#city").append(new Option('::ALL::', ''));
 
-						//Create options element for sity list
+						/**
+						 * Create options element for sity list
+						 */
 						$.each(object.cities, function(index, value) {
 
 							if (index == object_options.city_id) {
@@ -342,13 +395,19 @@ $(document).ready(function() {
 
 					case 'edit_record':
 
-						//Clear our forms
+						/**
+						 * Clear our forms
+						 */
 						$("#InformationForm, #NotesForm").clearForm();
 
-						//Hide our forms
+						/**
+						 * Hide our forms
+						 */
 						$('#forms_content').addClass("hide");
 
-						//Show success message
+						/**
+						 * Show success message
+						 */
 						if (object.flag == true) {
 							$('#edit_good_message').removeClass("hide").addClass("success");
 						} else {
@@ -375,25 +434,34 @@ $(document).ready(function() {
 			dataType: "json",
 			url: "/application/ajax/resize_photo.php",
 			beforeSend: function() {
-				//Disable upload button
+
+				/**
+				 * Disable upload button
+				 */
 				$("#save").attr("disabled", "disabled");
 
-				//show progressbar
+				/**
+				 * Show progressbar
+				 */
 				$("#preloader").removeClass('hide');
 
-				//Hide error message
+				/**
+				 * Hide error message
+				 */
 				$("#error_image_size").addClass('hide');
 
 				$("#error_image_extension").addClass('hide');
-
-				
 			},
 			complete: function() {
 
-				//Disable "Upload" button
+				/**
+				 * Disable "Upload" button
+				 */
 				$("#upload_photo").attr("disabled", "disabled");
 
-				//Hide progressbar
+				/**
+				 * Hide progressbar
+				 */
 				$("#preloader").slideUp();
 			},
 			success: function(object) {
@@ -402,10 +470,14 @@ $(document).ready(function() {
 
 					case 'size':
 
-						//Hide downloaded image from preview
+						/**
+						 * Hide downloaded image from preview
+						 */
 						$("#preview_photo").css('display', 'none');
 
-						//Show error message
+						/**
+						 * Show error message
+						 */
 						$("#error_image_size")
 							.removeClass('hide')
 							.addClass('error');
@@ -414,10 +486,14 @@ $(document).ready(function() {
 
 					case 'expansion':
 
-						//Hide downloaded image from preview
+						/**
+						 * Hide downloaded image from preview
+						 */
 						$("#preview_photo").css('display', 'none');
 
-						//Show error message
+						/**
+						 * Show error message
+						 */
 						$("#error_image_extension")
 							.removeClass('hide')
 							.addClass('error');
@@ -426,10 +502,14 @@ $(document).ready(function() {
 
 					default:
 
-						//Enable submit button
+						/**
+						 * Enable submit button
+						 */
 						$("#save").removeAttr("disabled");
 
-						//Preview client photo
+						/**
+						 * Preview client photo
+						 */
 						$("#preview_photo")
 							.html('')
 							.append('<img>');
@@ -484,26 +564,37 @@ $(document).ready(function() {
 (function($){
 	$.parseHash = function() {
 
-		//Get the URI and remove the hash
+		/**
+		 * Get the URI and remove the hash
+		 */
 		var uri = $(location).attr('search').substring(1);
 
-		//Parse the data
+		/**
+		 * Parse the data
+		 */
 		var elements = uri.split('&');
 
-		//The Object that will have the data
+		/**
+		 * The Object that will have the data
+		 */
 		var data = new Object();
 
-		//Do a for loop
+		/**
+		 * Do a for loop
+		 */
 		for(i = 0; i < elements.length; i++) {
 
-			//Split the element to item -> value format
+			/**
+			 * Split the element to item -> value format
+			 */
 			var cur = elements[i].split('=');
 
-			//Append the element to the list
+			/**
+			 * Append the element to the list
+			 */
 			data[cur[0]] = cur[1]; 
 		}
 
-		//Return the result
 		return data;
 	}
 })(jQuery);

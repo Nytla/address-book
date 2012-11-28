@@ -1,11 +1,13 @@
 /** 
  * @fileoverview This file add new record of administrator
- * @author Igor Zhabskiy Zhabskiy.Igor@googlemail.com
+ * @author Igor Zhabskiy Zhabskiy.Igor@gmail.com
  * @version 0.1
  */
 $(document).ready(function() {
 
-	//Hide errors
+	/**
+	 * Hide errors
+	 */
 	$("#login").keypress(function() {
 		$('#error_incorect_login')
 			.removeClass()
@@ -26,7 +28,9 @@ $(document).ready(function() {
 			.addClass("hide");
 	});
 
-	//Set errors variables
+	/**
+	 * Set errors variables
+	 */
 	var error_empty_login = $("#error_empty_login").html();
 
 	var error_empty_pass = $("#error_empty_pass").html();
@@ -49,7 +53,9 @@ $(document).ready(function() {
 
 	var error_exists = $("#error_exists").html();
 
-	//Validate our form
+	/**
+	 * Validate our form
+	 */
 	$("#addAdminForm").validate({
 
 		rules: {
@@ -96,12 +102,16 @@ $(document).ready(function() {
 		
 		submitHandler: function() {
 
-			//Show error if login or password is incorrect
+			/**
+			 * Show error if login or password is incorrect
+			 */
 			var login = $("#login").val();
 
 			var password = $("#pass").val();
 
-			//Validate login
+			/**
+			 * Validate login
+			 */
 			if (!isValidLogin(login)) {
 
 				$('#error_incorect_login')
@@ -111,7 +121,9 @@ $(document).ready(function() {
 				return false;
 			}
 
-			//Validate password
+			/**
+			 * Validate password
+			 */
 			if (!isValidPassword(password)) {
 
 				$('#error_incorect_pass')
@@ -121,7 +133,9 @@ $(document).ready(function() {
 				return false;
 			}
 
-			//Set object with our login and password and submit form on ajax
+			/**
+			 * Set object with our login and password and submit form on ajax
+			 */
 			var options = { 
 				login: login,
 				password: password
@@ -176,23 +190,31 @@ function isValidPassword(password){
 
 				if (object.validate == false) {			
 
-					//Show error message
+					/**
+					 * Show error message
+					 */
 					$('#error_exists')
 						.removeClass()
 						.addClass("error");
 				} else {
 
-					//Hide form
+					/**
+					 * Hide form
+					 */
 					$('#addAdminForm').addClass("hide");
 					
-					//Clear form
+					/**
+					 * Clear form
+					 */
 					$("#login").val('');
 
 					$("#pass").val('');
 
 					$("#confirm_pass").val('');
 
-					//Show success message
+					/**
+					 * Show success message
+					 */
 					$('#add_good_message')
 						.removeClass("hide")
 						.addClass("success");

@@ -8,7 +8,7 @@
  * 
  * @category	models
  * @copyright	2012
- * @author	Igor Zhabskiy <Zhabskiy.Igor@googlemail.com>
+ * @author	Igor Zhabskiy <Zhabskiy.Igor@gmail.com>
  */
 
 /**
@@ -87,6 +87,7 @@ final class EditClientModel extends PDOMysqlConnect {
 				`notes`,
 				`city_id`,
 				`cityname_en`,
+				`photo_id`,
 				`photo_name`,
 				`photo_height`,
 				`photo_width`,

@@ -8,7 +8,7 @@
  * 
  * @category	Settings
  * @copyright	2012
- * @author	Igor Zhabskiy <Zhabskiy.Igor@googlemail.com>
+ * @author	Igor Zhabskiy <Zhabskiy.Igor@gmail.com>
  */
 
 /**
@@ -68,8 +68,8 @@ final class Config {
 				"driver"	=> 'mysql',
 				"host"		=> 'localhost',
 				'name'		=> 'address_book', 
-				"login"		=> '',
-				"password"	=> '',
+				"login"		=> 'root',
+				"password"	=> '551514',
 				"charset"	=> 'UTF8'
 
 			),

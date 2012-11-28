@@ -1,11 +1,13 @@
 /** 
  * @fileoverview This file validate authorization data
- * @author Igor Zhabskiy Zhabskiy.Igor@googlemail.com
+ * @author Igor Zhabskiy Zhabskiy.Igor@gmail.com
  * @version 0.1
  */
 $(document).ready(function() {
 
-	//Hide errors messages
+	/**
+	 * Hide errors messages
+	 */
 	$("[name ^= 'value']").keypress(function() {
 		
 		$('#error_empty')
@@ -21,15 +23,21 @@ $(document).ready(function() {
 			.addClass("hide");
 	});
 
-	//Submit authorization form on Ajax
+	/**
+	 * Submit authorization form on Ajax
+	 */
 	$("#authForm").submit(function() {
 
-		//Set variables
+		/**
+		 * Set variables
+		 */
 		var login = $("#login").val();
 
 		var password = $("#pass").val();
 
-		//If login or password is empty than return error message
+		/**
+		 * If login or password is empty than return error message
+		 */
 		if(login == '' || password == '') {
 
 			$('#error_empty')
@@ -39,19 +47,25 @@ $(document).ready(function() {
 			return false;
 		}
 
-		//Validate login
+		/**
+		 * Validate login
+		 */
 		var reg_login = /([^А-Яа-яA-Za-z])/gi;
 		
 		var login = login.replace(reg_login, "");
 
 		var hidden = $("#hide").val();
 
-		//Validate password
+		/**
+		 * Validate password
+		 */
 		var reg_pass = /([^А-Яа-яA-Za-z0-9_-])/gi;
 		
 		var password = password.replace(reg_pass, "");
 
-		//If input hidden was introduced then view error 
+		/**
+		 * If input hidden was introduced then view error 
+		 */
 		if (hidden != '') {
 
 			$('#error_capcha')
@@ -61,7 +75,9 @@ $(document).ready(function() {
 			return false;
 		}
 
-		//Ajax request
+		/**
+		 * Ajax request
+		 */
 		$.ajax({
 			type: "POST",
 			dataType: "json",

@@ -8,7 +8,7 @@
  * 
  * @category	controllers
  * @copyright	2012
- * @author	Igor Zhabskiy <Zhabskiy.Igor@googlemail.com>
+ * @author	Igor Zhabskiy <Zhabskiy.Igor@gmail.com>
  */
 
 /**
@@ -138,7 +138,6 @@ final class EditClient extends Templating {
 		}
 
 		return false;
-
 	}
 
 	/**
