@@ -122,7 +122,11 @@ class PDOMysqlConnect extends Exceptionizer {
 
 			return self::$_DB_connect;
 
-		} catch (E_ERROR $object) {
+		} catch (PDOException $object) {
+
+			/**
+			 * If bad connection to MYSQL then redirect
+			 */
 			Redirect::uriRedirect('bad_connect');
 		}
 	}

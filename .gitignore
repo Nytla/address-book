@@ -7,21 +7,20 @@
 *.o
 *.so
 
-# Generic files to ignore #
-###########################
-*.*~
-
-# Logs and databases #
-######################
-#*.log
-#*.sql
-
-# Template cache #
-######################
-/application/cache/**/*
+# Packages #
+############
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
 
 # OS generated files #
 ######################
+*.*~
 .DS_Store
 .DS_Store?
 ._*
@@ -30,3 +29,7 @@
 Icon?
 ehthumbs.db
 Thumbs.db
+
+# Template cache #
+##################
+/application/views/address_book/cache/**/*
