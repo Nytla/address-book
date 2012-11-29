@@ -76,7 +76,6 @@ $(document).ready(function() {
 				required: true,
 				equalTo: "#pass"
 			}
-
 		},
 
 		messages: {
@@ -97,7 +96,6 @@ $(document).ready(function() {
 				required: error_empty_pass_conf,
 				equalTo: error_confirm
 			}
-
 		},
 		
 		submitHandler: function() {

@@ -67,6 +67,7 @@ final class Locale {
 				"303"			=> 'HTTP/1.1 303 See Other',
 				"304"			=> 'HTTP/1.1 304 Not Modified',
 				"305"			=> 'HTTP/1.1 305 Use Proxy',
+				"306"			=> 'HTTP/1.1 306 Switch Proxy',
 				"307"			=> 'HTTP/1.1 307 Temporary Redirect',
 				"400"			=> 'HTTP/1.1 400 Bad Request',
 				"401"			=> 'HTTP/1.1 401 Unauthorized',

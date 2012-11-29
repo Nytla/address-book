@@ -19,13 +19,14 @@ DirectoryIndex index.php
 ##Lock file if in foler not index file
 Options -Indexes
 
-##Redirect when http error code
-##1xx
+##Redirect when http code
+
+##1xx: Informational
 ErrorDocument 100 /adminpanel/error.php?error=100
 ErrorDocument 101 /adminpanel/error.php?error=101
 ErrorDocument 102 /adminpanel/error.php?error=102
 
-##2xx
+##2xx: Success
 ErrorDocument 200 /adminpanel/error.php?error=200
 ErrorDocument 201 /adminpanel/error.php?error=201
 ErrorDocument 202 /adminpanel/error.php?error=202
@@ -35,7 +36,7 @@ ErrorDocument 205 /adminpanel/error.php?error=205
 ErrorDocument 206 /adminpanel/error.php?error=206
 ErrorDocument 207 /adminpanel/error.php?error=207
 
-##3xx
+##3xx: Redirection
 ErrorDocument 300 /adminpanel/error.php?error=300
 ErrorDocument 301 /adminpanel/error.php?error=301
 ErrorDocument 302 /adminpanel/error.php?error=302
@@ -45,7 +46,7 @@ ErrorDocument 305 /adminpanel/error.php?error=305
 ErrorDocument 306 /adminpanel/error.php?error=306
 ErrorDocument 307 /adminpanel/error.php?error=307
 
-##4xx
+##4xx: Client Error
 ErrorDocument 400 /adminpanel/error.php?error=400
 ErrorDocument 401 /adminpanel/error.php?error=401
 ErrorDocument 402 /adminpanel/error.php?error=402
@@ -70,7 +71,7 @@ ErrorDocument 424 /adminpanel/error.php?error=424
 ErrorDocument 425 /adminpanel/error.php?error=425
 ErrorDocument 426 /adminpanel/error.php?error=426
 
-##5xx
+##5xx: Server Error
 ErrorDocument 500 /adminpanel/error.php?error=500
 ErrorDocument 501 /adminpanel/error.php?error=501
 ErrorDocument 502 /adminpanel/error.php?error=502

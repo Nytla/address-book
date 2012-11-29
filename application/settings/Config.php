@@ -69,7 +69,7 @@ final class Config {
 				"host"		=> 'localhost',
 				'name'		=> 'address_book', 
 				"login"		=> 'root',
-				"password"	=> '551514',
+				"password"	=> '',
 				"charset"	=> 'UTF8'
 
 			),

@@ -169,7 +169,6 @@ $(document).ready(function() {
 
 			return false;
 		}
-
 	});
 
 	/**
@@ -191,7 +190,6 @@ $(document).ready(function() {
 
 		return false;
 	});
-
 });
 
 /**
@@ -233,7 +231,6 @@ $(document).ready(function() {
 					//Get cities from DB
 					$.ajaxes(object_options);
 				}
-
 			break;
 
 			case 'change_country':
@@ -257,7 +254,6 @@ $(document).ready(function() {
 					 */
 					$.ajaxes(object_options);
 				});
-
 			break;
 
 			case 'load_cities':
@@ -276,7 +272,6 @@ $(document).ready(function() {
 				 * Get cities from DB
 				 */
 				$.ajaxes(object_options);
-
 			break;
 		}
 
@@ -359,7 +354,6 @@ $(document).ready(function() {
 								});
 							});
 						}
-
 					break;
 
 					case 'cities_formed':
@@ -390,7 +384,6 @@ $(document).ready(function() {
 
 							$("#city").append(new Option(value, index, default_selected));
 						});
-
 					break;
 
 					case 'edit_record':
@@ -481,7 +474,6 @@ $(document).ready(function() {
 						$("#error_image_size")
 							.removeClass('hide')
 							.addClass('error');
-
 					break;
 
 					case 'expansion':
@@ -497,7 +489,6 @@ $(document).ready(function() {
 						$("#error_image_extension")
 							.removeClass('hide')
 							.addClass('error');
-
 					break;
 
 					default:
@@ -541,14 +532,12 @@ $(document).ready(function() {
 
 		if (img_path != "") {
 			$("#upload_photo").removeAttr("disabled");
-
 		}
 
 		$("#image_file").change(function(img_path) {
 
 			if (img_path != "") {
 				$("#upload_photo").removeAttr("disabled");
-
 			}
 		});
 	}

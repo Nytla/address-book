@@ -56,9 +56,7 @@ $(document).ready(function() {
 	 * Clear our forms
 	 */
 	$("#reset_forms").click(function() {
-
 		$("#InformationForm, #NotesForm").clearForm();
-
 	});
 
 	/**
@@ -193,7 +191,6 @@ $(document).ready(function() {
 
 			return false;
 		}
-
 	});
 
 	/**
@@ -214,7 +211,6 @@ $(document).ready(function() {
 		$("#InformationForm").submit();
 
 		return false;
-
 	});
 
 });
@@ -266,7 +262,6 @@ jQuery.validator.addMethod("lettersonly", function(value, element) {
 						$.each(object.cities, function(index, value) {
 							$("#city").append(new Option(value, index));
 						});
-
 					break;
 
 					case 'add_new_record':
@@ -287,7 +282,6 @@ jQuery.validator.addMethod("lettersonly", function(value, element) {
 						$('#add_good_message')
 							.removeClass("hide")
 							.addClass("success");
-
 					break;
 				}
 			}
@@ -328,7 +322,6 @@ jQuery.validator.addMethod("lettersonly", function(value, element) {
 				$("#error_image_extension").addClass('hide');
 
 				$("#error_image_resize").addClass('hide');
-
 			},
 			complete: function() {
 
@@ -359,7 +352,6 @@ jQuery.validator.addMethod("lettersonly", function(value, element) {
 						$("#error_image_size")
 							.removeClass('hide')
 							.addClass('error');
-
 					break;
 
 					case 'expansion':
@@ -375,7 +367,6 @@ jQuery.validator.addMethod("lettersonly", function(value, element) {
 						$("#error_image_extension")
 							.removeClass('hide')
 							.addClass('error');
-
 					break;
 
 					case 'resize':
@@ -391,7 +382,6 @@ jQuery.validator.addMethod("lettersonly", function(value, element) {
 						$("#error_image_resize")
 							.removeClass('hide')
 							.addClass('error');
-
 					break;
 
 					default:
