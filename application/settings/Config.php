@@ -49,7 +49,6 @@ final class Config {
 			"common"	=> array(
 
 				"charset"	=> 'utf-8'
-
 			),
 
 			"server"	=> array(
@@ -72,7 +71,6 @@ final class Config {
 				"login"		=> 'root',
 				"password"	=> '',
 				"charset"	=> 'utf8'
-
 			),
 
 			"table_name"	=> array(
@@ -83,7 +81,6 @@ final class Config {
 				"countries"	=> 'countries',
 				"cities"	=> 'cities',
 				"photos"	=> 'photos'
-
 			),
 
 			"paths"		=> array(
@@ -103,7 +100,6 @@ final class Config {
 				"javascripts"	=> 'javascripts/',
 				"styles"	=> 'styles/',
 				"uploads_client"=> 'uploads_client/'
-
 			),
 
 			"errors"	=> array(
@@ -113,14 +109,12 @@ final class Config {
 				"path_access"	=> $root_path . '/application/data/access.log',
 				"image"		=> '/public/images/',
 				"page_error"	=> 'error.php'
-				
 			),
 
 			"redirect_page"	=> array(
 
 				"layout"	=> './layout.php',
 				"index"		=> './index.php'
-
 			),
 
 			"css"		=> array(
@@ -129,7 +123,6 @@ final class Config {
 				"c_css"		=> 'site_jui_1.2.c.1.css',
 				"demo_table"	=> 'demo_table_jui.css',
 				"jquery_ui"	=> 'jquery-ui-1.7.2.custom.css'
-
 			),
 
 			"jquery_lib"	=> array(
@@ -139,7 +132,6 @@ final class Config {
 				"valid_plugin"	=> 'jQuery_validation_1.9.0.js',
 				"form_plugin"	=> 'jQuery_form_3.14.js',
 				"data_table"	=> 'jQuery_dataTables_1.9.3_min.js'
-
 			),
 
 			"javascript"	=> array(
@@ -151,7 +143,6 @@ final class Config {
 				"user_book_list"=> 'user_book_list.js',
 				"add_new_client"=> 'add_new_client.js',
 				"edit_client"	=> 'edit_client.js'
-
 			),
 
 			"image_settings"=> array(
@@ -161,7 +152,6 @@ final class Config {
 				"image_path"	=> '/public/images/uploads_client/',
 				"images_path"	=> '/public/images/',
 				"no_photo"	=> 'no_photo.gif'
-
 			),
 
 			"templates"	=> array(
@@ -180,7 +170,6 @@ final class Config {
 				"add_new_record"=> 'add_new_client.html',
 				"edit_client"	=> 'edit_client.html',
 				"user_book_list"=> 'user_book_list.html'
-
 			)
 		);
 

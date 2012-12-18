@@ -41,7 +41,6 @@ final class Locale {
 				"name"			=> 'Address Book',
 				"title"			=> 'Welcome to Address Book',
 				"year"			=> 2012
-
 			),
 
 			"http_status"	=> array(
@@ -103,19 +102,16 @@ final class Locale {
 				"508"			=> 'HTTP/1.1 508 Loop Detected',
 				"509"			=> 'HTTP/1.1 509 Bandwidth Limit Exceeded',
 				"510"			=> 'HTTP/1.1 510 Not Extended'
-
 			),
 
 			"script"	=> array(
 
 				"error"			=> 'CSS or JavaScript flag not found!'
-
 			),
 
 			"noscript"	=> array(
 
 				"message"		=> 'Your browser does not support JavaScript or JavaScript has been disabled!'
-
 			),
 
 			"authorization" => array(
@@ -128,7 +124,6 @@ final class Locale {
 				"error_incorect"	=> 'Login or password is incorrect.',
 				"error_empty"		=> 'Login or password is empty.',
 				"error_capcha"		=> 'You did not validate captcha.'
-
 			),
 
 			"layout"	=> array(
@@ -137,7 +132,6 @@ final class Locale {
 				"log_out"		=> 'Log Out',
 				"add_admin"		=> 'Add New Admin',
 				"content"		=> 'Page layout content.'
-
 			),
 
 			"add_admin"	=> array(
@@ -159,7 +153,6 @@ final class Locale {
 				"error_confirm"		=> 'Please enter the same password as above!',
 				"error_exists"		=> 'Adminitsrator with this login already exists!',
 				"add_good_message"	=> 'The new administrator has been added to the database.'
-
 			),
 
 			"book_list"	=> array(
@@ -179,13 +172,11 @@ final class Locale {
 				"client_delete"		=> 'Delete',
 				"no_photo"		=> 'No photo available.',
 				"no_notes"		=> 'No information available.'
-
 			),
 
 			"user_book_list"=> array(
 
 				"title"			=> 'Adress Book List',
-
 			),
 
 			"add_new_client"=> array(
@@ -224,7 +215,6 @@ final class Locale {
 				"error_image_resize"	=> 'Image resize error (maybe file is small).',
 				"mess_max_length_notes" => '(1500 characters max.)',
 				"add_good_message"	=> 'The new client has been added to the database.'
-
 			),
 
 			"edit_client"	=> array(
@@ -233,7 +223,6 @@ final class Locale {
 				"edit_good_message"	=> 'Client data successfully changed.',
 				"edit_bad_message"	=> 'Customer data were not recorded due to technical reasons.',
 				"edit_bad_client"	=> 'These clients can not be found.'
-
 			)
 		);
 
