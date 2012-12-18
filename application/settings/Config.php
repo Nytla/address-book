@@ -67,10 +67,11 @@ final class Config {
 				"adapter"	=> 'PDO',
 				"driver"	=> 'mysql',
 				"host"		=> 'localhost',
-				'name'		=> 'address_book', 
+				"port"		=> '3306',
+				"name"		=> 'address_book', 
 				"login"		=> 'root',
 				"password"	=> '',
-				"charset"	=> 'UTF8'
+				"charset"	=> 'utf8'
 
 			),
 

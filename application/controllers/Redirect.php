@@ -14,7 +14,7 @@
 /**
  * Redirect
  * 
- * This is administrator redirect class
+ * This is redirect class
  * 
  * @version 0.1
  */
@@ -29,11 +29,6 @@ final class Redirect {
 	 * @param string $url	This is url where script redirect our user
 	 */
 	static public function uriRedirect($code = 301, $url = 'error.php') {
-
-		/**
-		 * Formed http header
-		 */
-		$code_text = Locale::languageEng('http_status', $code);
 
 		/**
 		 * Formed url where make our redirect

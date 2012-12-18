@@ -7,6 +7,10 @@
 *.o
 *.so
 
+# Files with Bash Script #
+##########################
+*.sh
+
 # Packages #
 ############
 *.7z

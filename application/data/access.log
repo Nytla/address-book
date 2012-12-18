@@ -5,3 +5,10 @@
 		password: 7876543
 	</parameters>
 </error access>
+<error access>
+	<date>2012-12-06 13:12:36 (EET7200)</date>
+	<parameters>
+		login: nytla
+		password: 12321
+	</parameters>
+</error access>

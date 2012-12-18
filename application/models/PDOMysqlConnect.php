@@ -33,6 +33,13 @@ class PDOMysqlConnect extends Exceptionizer {
 	 * @var string	This is address of host our Database
 	 */
 	static private $_DB_host;
+	
+	/**
+	 * _DB_port
+	 * 
+	 * @var string	This is port of protocol our Database
+	 */
+	static private $_DB_port;
 
 	/**
 	 * _DB_name
@@ -84,6 +91,8 @@ class PDOMysqlConnect extends Exceptionizer {
 		self::$_DB_driver	= Config::dataArray('db', 'driver');
 
 		self::$_DB_host		= Config::dataArray('db', 'host');
+		
+		self::$_DB_port		= Config::dataArray('db', 'port');
 
 		self::$_DB_name		= Config::dataArray('db', 'name');
 
@@ -93,10 +102,10 @@ class PDOMysqlConnect extends Exceptionizer {
 
 		self::$_DB_encoding	= Config::dataArray('db', 'charset');
 
-		$connect = 
-			self::$_DB_driver . ':host=' . 
-			self::$_DB_host   . ';dbname=' . 
-			self::$_DB_name;
+		$connect = self::$_DB_driver 
+			. ':host=' . self::$_DB_host 
+			. ';port=' . self::$_DB_port 
+			. ';dbname=' . self::$_DB_name;
 
 		try {
 			
