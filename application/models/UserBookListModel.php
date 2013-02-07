@@ -62,18 +62,20 @@ final class UserBookListModel extends PDOMysqlConnect {
 	 *
 	 * @return array / boolean
 	 */
-	static public function getUserClientsDataFromDB() {
+	static public function getUserClientsDataFromDB($id) {
 
 		/**
-		 * Set variable
+		 * Set variable with names of table 
 		 */
 		self::$_DB_table_name_clients	= Config::dataArray('table_name', 'clients');
-
 		self::$_DB_table_name_countries = Config::dataArray('table_name', 'countries');
-
 		self::$_DB_table_name_cities	= Config::dataArray('table_name', 'cities');
-
 		self::$_DB_table_name_photos	= Config::dataArray('table_name', 'photos');
+		
+		/**
+		 * Delete all symbols, except a numbers
+		 */
+		$client_id = preg_replace("/([^\d])/", "", $id);
 
 		/**
 		 * Select clients in DB
@@ -98,9 +100,12 @@ final class UserBookListModel extends PDOMysqlConnect {
 				" . self::$_DB_table_name_photos . " 
 			WHERE 
 				" . self::$_DB_table_name_clients .".country = " . self::$_DB_table_name_countries . ".country_id
-				AND " . self::$_DB_table_name_clients .".city = " . self::$_DB_table_name_cities . ".city_id
+				AND 
+				" . self::$_DB_table_name_clients .".city = " . self::$_DB_table_name_cities . ".city_id
 				AND 
 					IF (" . self::$_DB_table_name_clients .".photo = '0', " . self::$_DB_table_name_photos . ".photo_id = '1', " . self::$_DB_table_name_clients .".photo = " . self::$_DB_table_name_photos . ".photo_id)
+				AND 
+				" . self::$_DB_table_name_clients .".id = " . mysql_escape_string($client_id) . "
 		");
 
 		/**
@@ -128,6 +133,111 @@ final class UserBookListModel extends PDOMysqlConnect {
 	}
 
 	/**
+	 * UserClientsDataFromDBPro
+	 * 
+	 * This fucntion get client's data from DB
+	 *
+	 * @param string $where
+	 * @param string $count_where
+	 * @param string $order
+	 * @param string $limit
+	 * 
+	 * @return array
+	 */
+	static public function UserClientsDataFromDB($where, $count_where, $order, $limit) {
+		
+		/**
+		 * Set variable with name of tables 
+		 */
+		self::$_DB_table_name_clients	= Config::dataArray('table_name', 'clients');
+		self::$_DB_table_name_countries = Config::dataArray('table_name', 'countries');
+		self::$_DB_table_name_cities	= Config::dataArray('table_name', 'cities');
+		self::$_DB_table_name_photos	= Config::dataArray('table_name', 'photos');
+
+		/**
+		 * Select clients in DB
+		 */
+		$select_clients = self::dbConnect() -> query("
+			SELECT SQL_CALC_FOUND_ROWS 
+				`id`,
+				`email`,
+				`notes`,
+				`countryname_en`,
+				`cityname_en`,
+				`photo_name`,
+				`photo_height`,
+				`photo_width`,
+				`photo_description`, 
+				CONCAT(`first_name`, ' ', `last_name`) AS `name`
+			FROM 
+				" . self::$_DB_table_name_clients . ",
+				" . self::$_DB_table_name_countries . ",
+				" . self::$_DB_table_name_cities . ",
+				" . self::$_DB_table_name_photos . " 
+			WHERE 
+				" . self::$_DB_table_name_clients .".country = " . self::$_DB_table_name_countries . ".country_id 
+				AND 
+				" . self::$_DB_table_name_clients .".city = " . self::$_DB_table_name_cities . ".city_id 
+				AND 
+				IF (" . self::$_DB_table_name_clients .".photo = '0', " . self::$_DB_table_name_photos . ".photo_id = '1', " . self::$_DB_table_name_clients .".photo = " . self::$_DB_table_name_photos . ".photo_id) 
+				$where 
+				$order 
+				$limit
+		");
+
+		/**
+		 * Create array in cycle
+		 */
+		$data_array = array();
+		
+		while ($row = $select_clients -> fetch(PDO::FETCH_ASSOC)) {
+	
+			$row['id'] = '<img width="20" height="20" alt="' . $row['id'] . '" src="/public/images/details_open.png">';
+			
+			/**
+			 * Set photo path
+			 */
+			$row['photo_name'] = Config::dataArray('image_settings', 'image_path') . $row['photo_name'];
+
+			/**
+			 * Set notes
+			 */
+			$row['notes'] = (!empty($row['notes'])) ? $row['notes'] : Locale::languageEng('book_list', 'no_notes');
+			
+			$data_array[] = $row;
+		}
+		
+		/**
+		 * This query for count our row(s)
+		 */
+		$count_clients = self::dbConnect() -> query("
+			SELECT 
+				`id`
+			FROM  
+				" . self::$_DB_table_name_clients . ",
+				" . self::$_DB_table_name_countries . ",
+				" . self::$_DB_table_name_cities . "
+			WHERE 
+				" . self::$_DB_table_name_clients .".country = " . self::$_DB_table_name_countries . ".country_id 
+				AND 
+				" . self::$_DB_table_name_clients .".city = " . self::$_DB_table_name_cities . ".city_id 
+				$where");
+		
+		/**
+		 * Count our row(s)
+		 */
+		$row_count = $count_clients -> rowCount();
+
+		/**
+		 * Return array with client's data
+		 */
+		return array(
+			'clients'	=> $data_array,
+			'count'		=> $row_count
+		);
+	}
+	
+	/**
 	 * getUserRandomPhraseFromDB
 	 *
 	 * This function get random phrase from Database
@@ -137,7 +247,7 @@ final class UserBookListModel extends PDOMysqlConnect {
 	static public function getUserRandomPhraseFromDB() {
 
 		/**
-		 * Set variable
+		 * Set variable with name of table
 		 */
 		self::$_DB_table_name_phrases = Config::dataArray('table_name', 'phrases');
 
@@ -156,6 +266,9 @@ final class UserBookListModel extends PDOMysqlConnect {
 		 */
 		$phrase_text = $select_chrase -> fetch(PDO::FETCH_ASSOC);
 
+		/**
+		 * Return data with phrase
+		 */
 		return (isset($phrase_text)) ? $phrase_text['phrase_text'] : false;
 	}
 }

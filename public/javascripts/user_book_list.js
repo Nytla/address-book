@@ -73,18 +73,15 @@ $(document).ready(function() {
 	});
 
 	/**
-	 * Set client data json
-	 */
-	$.ajaxes(img_details_open);
-
-	/**
 	 * Create Book list table
 	 */
 	var oTable = $('#example').dataTable({
 		"sDom": '<"top"if<"clear">>rt<"bottom"lp<"clear">>',
 		"bJQueryUI": true,
-		"sPaginationType": "full_numbers",              
-                "aaData": clients_data_array,
+		"sPaginationType": "full_numbers",
+		"bProcessing": true,
+        "bServerSide": true,
+        "sAjaxSource": "../application/ajax/user_clients_json.php",
 		"aaSorting": [[ 1, "asc" ]],
 		"aoColumnDefs": [
 			{ "bSortable": false, "aTargets": [ 0 ] },
@@ -95,6 +92,7 @@ $(document).ready(function() {
 	/**
 	 * Create Country and City container search
 	 */
+/*
 	$("#example_filter").append('<label id="Country"></label>');
 	
 	$("#example_filter").append('<label id="city"></label>');
@@ -102,10 +100,11 @@ $(document).ready(function() {
 	$("#example_filter label input").css("width", "140");
 
 	$("#example_filter label").css("float", "left");
-
+*/
 	/**
 	 * Create Country and City selected elements search
 	 */
+/*
 	$("#example_filter label").each(function (i) {
 
 		if (i == 0) {
@@ -123,8 +122,8 @@ $(document).ready(function() {
 		$("select").css("width", "130");
 
 	});
-
-	$.extend( $.fn.dataTableExt.oStdClasses, {
+*/
+	$.extend($.fn.dataTableExt.oStdClasses, {
 	    "sWrapper": "dataTables_wrapper form-inline"
 	});
 });
@@ -217,6 +216,7 @@ $(document).ready(function() {
  * @param {string} num		This is number of search element
  * @memberOf JavaScript function
  */
+/*
 function fnCreateSelect(aData, num) {
 
 	var option_name = (num == 2) ? 'Country' : 'City';
@@ -229,7 +229,7 @@ function fnCreateSelect(aData, num) {
 
 	return r+'</select>';
 }
-
+*/
 /**
  * fnFormatDetails This function formating function for row details
  *
@@ -242,9 +242,12 @@ function fnFormatDetails(oTable, nTr, view_id) {
 
 	var aData = oTable.fnGetData(nTr);
 
-	var sOut = window.clients_data_array[view_id][5];
-
-	return sOut;
+	/**
+	 * Set client data json
+	 */
+	$.ajaxes(view_id);
+	
+	return content;
 }
 
 /**
@@ -255,64 +258,36 @@ function fnFormatDetails(oTable, nTr, view_id) {
  * @memberOf jQuery.fn
  */
 (function($) {
-	$.ajaxes = function(img_details_open) {
+	$.ajaxes = function(id) {
 
 		$.ajax({  
 			type: "POST",
 			dataType: "json",
-			url: "/application/ajax/user_clients_json.php",
+			url: "/application/ajax/user_client_data.php",
 			cache: false,
 			async: false,
-			data: {},
-			beforeSend: function() {
-
-				/**
-				 * Show ajax preloader
-				 */
-				$("#preloader").removeClass('hide');
-
-				/**
-				 * Hide book list table
-				 */
-				$("#example").addClass('hide');
+			data: {
+				client_id: id
 			},
-			complete: function() {
-
-				/**
-				 * Hide ajax preloader
-				 */
-				$("#preloader").slideUp('slow');
-
-				/**
-				 * Show book list table
-				 */
-				$("#example").removeClass('hide');
-			},
+			beforeSend: function() {},
+			complete: function() {},
 			success: function(object) {
 
-				/**
-				 * Create array with client data
-				 */
-				window.clients_data_array = new Array();
+				var object = object[0];
+				
+				content = '<div id="view_content_' + object.id + '">';
 
-				$(object).each(function(i, v) {
+				content += '<div>';
 
-					var content = '<div id="view_content_' + v.id + '">';
+				content += '<img src="' + object.photo_name + '" height="' + object.photo_height + '" width="' + object.photo_width + '" alt="' + object.photo_description + '" class="left" style="padding: 10px;">';
 
-					content += '<div>';
+				content += '<p style="padding: 10px;">';
 
-					content += '<img src="' + v.photo_name + '" height="' + v.photo_height + '" width="' + v.photo_width + '" alt="' + v.photo_description + '" class="left" style="padding: 10px;">';
+				content += '<b>Email:</b> ' + object.email + '<br>';
 
-					content += '<p style="padding: 10px;">';
+				content += '<b>Notes:</b> ' + object.notes + '';
 
-					content += '<b>Email:</b> ' + v.email + '<br>';
-
-					content += '<b>Notes:</b> ' + v.notes + '';
-
-					content += '</p></div></div>';
-
-					window.clients_data_array[i] = [img_details_open.attr('alt', i).parent().html(), v.first_name + ' ' + v.last_name, v.countryname_en, v.cityname_en, v.id, content];
-				});
+				content += '</p></div></div>';
 			}
 		});
 	}

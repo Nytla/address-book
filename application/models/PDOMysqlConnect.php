@@ -86,22 +86,19 @@ class PDOMysqlConnect extends Exceptionizer {
 	static protected function dbConnect() {
 
 		/**
-		 * Set DB variables
+		 * Set variables for DB connection
 		 */
 		self::$_DB_driver	= Config::dataArray('db', 'driver');
-
 		self::$_DB_host		= Config::dataArray('db', 'host');
-		
 		self::$_DB_port		= Config::dataArray('db', 'port');
-
 		self::$_DB_name		= Config::dataArray('db', 'name');
-
 		self::$_DB_login	= Config::dataArray('db', 'login');
-
 		self::$_DB_password	= Config::dataArray('db', 'password');
-
 		self::$_DB_encoding	= Config::dataArray('db', 'charset');
-
+		
+		/**
+		 * Set variable with connection data
+		 */
 		$connect = self::$_DB_driver 
 			. ':host=' . self::$_DB_host 
 			. ';port=' . self::$_DB_port 

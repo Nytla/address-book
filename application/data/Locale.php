@@ -46,8 +46,8 @@ final class Locale {
 			"http_status"	=> array(
 
 				"title"			=> 'Address Book Error Page',
-				"page_error"		=> 'This is page error.',
-				"bad_connect"		=> 'Could connect to the Data Base.',
+				"page_error"	=> 'This is page error.',
+				"bad_connect"	=> 'Could not connect to the Database.',
 				"99"			=> 'Error occurred reasons unknown to us.',
 				"100"			=> 'HTTP/1.1 100 Continue',
 				"101"			=> 'HTTP/1.1 101 Switching Protocols',

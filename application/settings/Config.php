@@ -69,7 +69,7 @@ final class Config {
 				"port"		=> '3306',
 				"name"		=> 'address_book', 
 				"login"		=> 'root',
-				"password"	=> '',
+				"password"	=> '551514',
 				"charset"	=> 'utf8'
 			),
 
