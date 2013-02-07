@@ -135,7 +135,7 @@ final class UserBookList extends Templating {
 			
 			$slimit = "LIMIT " . intval($_GET['iDisplayStart'] ).", " . intval($_GET['iDisplayLength']);
 		}
-		
+
 		/*
 		 * Ordering
 		 */
