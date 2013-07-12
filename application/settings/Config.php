@@ -85,29 +85,29 @@ final class Config {
 
 			"paths"		=> array(
 
-				"root" 		=> $root_path,
+				"root" 			=> $root_path,
 				"adminpanel"	=> 'adminpanel/',	
 				"application"	=> 'application/',
-				"ajax"		=> 'ajax/',
+				"ajax"			=> 'ajax/',
 				"controllers"	=> 'controllers/',
-				"data"		=> 'data/',
-				"models"	=> 'models/',
-				"settings"	=> 'settings/',
-				"views"		=> 'views/',
+				"data"			=> 'data/',
+				"models"		=> 'models/',
+				"settings"		=> 'settings/',
+				"views"			=> 'views/',
 				"libraries" 	=> 'libraries/',
-				"public"	=> 'public/',
-				"images"	=> 'images/',
+				"public"		=> 'public/',
+				"images"		=> 'images/',
 				"javascripts"	=> 'javascripts/',
-				"styles"	=> 'styles/',
+				"styles"		=> 'styles/',
 				"uploads_client"=> 'uploads_client/'
 			),
 
 			"errors"	=> array(
 
-				"full_path"	=> 'http://address_book.loc/adminpanel/',
+				"full_path"		=> 'http://address_book.loc/adminpanel/',
 				"path_error"	=> $root_path . '/application/data/errors.log',
 				"path_access"	=> $root_path . '/application/data/access.log',
-				"image"		=> '/public/images/',
+				"image"			=> '/public/images/',
 				"page_error"	=> 'error.php'
 			),
 
@@ -119,9 +119,9 @@ final class Config {
 
 			"css"		=> array(
 				"path"		=> '/libraries/css/blueprint-v1.0.1/blueprint/',
-				"path_style"	=> '/public/styles/',
+				"path_style"=> '/public/styles/',
 				"c_css"		=> 'site_jui_1.2.c.1.css',
-				"demo_table"	=> 'demo_table_jui.css',
+				"demo_table"=> 'demo_table_jui.css',
 				"jquery_ui"	=> 'jquery-ui-1.7.2.custom.css'
 			),
 
@@ -136,10 +136,10 @@ final class Config {
 
 			"javascript"	=> array(
 
-				"path"		=> '/public/javascripts/',
+				"path"			=> '/public/javascripts/',
 				"authorization"	=> 'authorization.js',
-				"add_admin"	=> 'add_admin.js',
-				"book_list"	=> 'book_list.js',
+				"add_admin"		=> 'add_admin.js',
+				"book_list"		=> 'book_list.js',
 				"user_book_list"=> 'user_book_list.js',
 				"add_new_client"=> 'add_new_client.js',
 				"edit_client"	=> 'edit_client.js'
@@ -151,7 +151,7 @@ final class Config {
 				"upload_path"	=> './../../public/images/uploads_client/',
 				"image_path"	=> '/public/images/uploads_client/',
 				"images_path"	=> '/public/images/',
-				"no_photo"	=> 'no_photo.gif'
+				"no_photo"		=> 'no_photo.gif'
 			),
 
 			"templates"	=> array(
@@ -164,9 +164,9 @@ final class Config {
 				"footer"	=> 'footer.html',
 				"errors"	=> 'errors.html',
 				"authorization"	=> 'authorization.html',
-				"layout"	=> 'layout.html',
-				"add_admin"	=> 'add_admin.html',
-				"book_list"	=> 'book_list.html',
+				"layout"		=> 'layout.html',
+				"add_admin"		=> 'add_admin.html',
+				"book_list"		=> 'book_list.html',
 				"add_new_record"=> 'add_new_client.html',
 				"edit_client"	=> 'edit_client.html',
 				"user_book_list"=> 'user_book_list.html'

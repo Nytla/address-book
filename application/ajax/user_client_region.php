@@ -2,9 +2,9 @@
 /**
  * Adress Book Ajax
  * 
- * user_client_data.php
+ * user_client_region.php
  *
- * This is ajax file create client data (json) from DB
+ * This is ajax file create client countries and cities (json) from DB
  * 
  * @category	ajax
  * @copyright	2012
@@ -34,5 +34,5 @@ $UserBookList = new UserBookList();
 /**
  * Create client data json
  */
-print $UserBookList -> getClientData($_REQUEST['client_id']);
+print $UserBookList -> getClientRegions();
 ?>

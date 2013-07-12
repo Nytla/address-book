@@ -133,6 +133,53 @@ final class UserBookListModel extends PDOMysqlConnect {
 	}
 
 	/**
+	 * getUserClientsRegionFromDB
+	 *
+	 * This function get client regions from Database
+	 *
+	 * @return array / boolean
+	 */
+	static public function getUserClientsRegionFromDB() {
+
+		/**
+		 * Set variable with names of table 
+		 */
+		self::$_DB_table_name_clients	= Config::dataArray('table_name', 'clients');
+		self::$_DB_table_name_countries = Config::dataArray('table_name', 'countries');
+		self::$_DB_table_name_cities	= Config::dataArray('table_name', 'cities');
+		self::$_DB_table_name_photos	= Config::dataArray('table_name', 'photos');
+
+		/**
+		 * Select clients in DB
+		 */
+		$select_clients = self::dbConnect() -> query("
+			SELECT 
+				`countryname_en`,
+				`cityname_en`
+			FROM 
+				" . self::$_DB_table_name_clients . ", 
+				" . self::$_DB_table_name_countries . ", 
+				" . self::$_DB_table_name_cities . " 
+			WHERE 
+				" . self::$_DB_table_name_clients .".country = " . self::$_DB_table_name_countries . ".country_id
+				AND 
+				" . self::$_DB_table_name_clients .".city = " . self::$_DB_table_name_cities . ".city_id
+		");
+
+		/**
+		 * Create array in cycle
+		 */
+		while ($row = $select_clients -> fetch(PDO::FETCH_ASSOC)) {
+			$data_array[] = $row;
+		}
+
+		/**
+		 * Return array from DB
+		 */
+		return (isset($data_array)) ? $data_array : false;
+	}
+	
+	/**
 	 * UserClientsDataFromDBPro
 	 * 
 	 * This fucntion get client's data from DB

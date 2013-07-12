@@ -86,13 +86,12 @@ $(document).ready(function() {
 		"aoColumnDefs": [
 			{ "bSortable": false, "aTargets": [ 0 ] },
 		],
-		"aLengthMenu": [[10, 20, 50, -1], [10, 20, 50, "All"]],
+		"aLengthMenu": [[10, 20, 50, -1], [10, 20, 50, "All"]]
 	});
 
 	/**
 	 * Create Country and City container search
 	 */
-/*
 	$("#example_filter").append('<label id="Country"></label>');
 	
 	$("#example_filter").append('<label id="city"></label>');
@@ -100,11 +99,15 @@ $(document).ready(function() {
 	$("#example_filter label input").css("width", "140");
 
 	$("#example_filter label").css("float", "left");
-*/
+
+	/**
+	 * Load Country and city from ajax
+	 */
+	$.ajaxGetCountryAndCity();
+	
 	/**
 	 * Create Country and City selected elements search
 	 */
-/*
 	$("#example_filter label").each(function (i) {
 
 		if (i == 0) {
@@ -112,9 +115,13 @@ $(document).ready(function() {
 		}
 
 		i = (i == 2) ? 3 : 2;
-
-		this.innerHTML = fnCreateSelect( oTable.fnGetColumnData(i), i );
-
+		
+		if (i == 2) {
+			this.innerHTML = fnCreateSelect(clients_country_array, i);
+		} else if (i == 3) {
+			this.innerHTML = fnCreateSelect(clients_city_array, i);
+		}
+	
 		$('select', this).change( function () {
 			oTable.fnFilter($(this).val(), i);
 		} );
@@ -122,7 +129,7 @@ $(document).ready(function() {
 		$("select").css("width", "130");
 
 	});
-*/
+
 	$.extend($.fn.dataTableExt.oStdClasses, {
 	    "sWrapper": "dataTables_wrapper form-inline"
 	});
@@ -216,20 +223,20 @@ $(document).ready(function() {
  * @param {string} num		This is number of search element
  * @memberOf JavaScript function
  */
-/*
+
 function fnCreateSelect(aData, num) {
 
 	var option_name = (num == 2) ? 'Country' : 'City';
 
 	var r = '<select><option value="">'+option_name+'</option>', i, iLen=aData.length;
-	
+
 	for ( i = 0 ; i < iLen ; i++ ) {
 		r += '<option value="'+aData[i]+'">'+aData[i]+'</option>';
 	}
 
 	return r+'</select>';
 }
-*/
+
 /**
  * fnFormatDetails This function formating function for row details
  *
@@ -275,6 +282,8 @@ function fnFormatDetails(oTable, nTr, view_id) {
 
 				var object = object[0];
 				
+				console.log(object.city);
+				
 				content = '<div id="view_content_' + object.id + '">';
 
 				content += '<div>';
@@ -288,6 +297,57 @@ function fnFormatDetails(oTable, nTr, view_id) {
 				content += '<b>Notes:</b> ' + object.notes + '';
 
 				content += '</p></div></div>';
+			}
+		});
+	}
+})(jQuery);
+
+/**
+ * ajaxes This is awesome jQuery plugin.
+ *
+ * @class ajaxes
+ * @param {object} img_details_open This is image for table (information view)
+ * @memberOf jQuery.fn
+ */
+(function($) {
+	$.ajaxGetCountryAndCity = function() {
+
+		$.ajax({  
+			type: "POST",
+			dataType: "json",
+			url: "/application/ajax/user_client_region.php",
+			cache: false,
+			async: false,
+			data: {},
+			beforeSend: function() {},
+			complete: function() {},
+			success: function(object) {
+
+				/**
+				 * Create array with client data
+				 */
+				window.clients_country_array = new Array();
+				window.clients_city_array = new Array();
+				
+				/**
+				 * Loop object
+				 */
+				$(object).each(function(i, v) {
+					
+					/**
+					 * Did't write double country in array
+					 */
+					if ($.inArray(v.countryname_en, window.clients_country_array) === -1) {
+						window.clients_country_array.push(v.countryname_en);
+					}
+					
+					/**
+					 * Did't write double country in array
+					 */
+					if ($.inArray(v.cityname_en, window.clients_city_array) === -1) {
+						window.clients_city_array.push(v.cityname_en);
+					}
+				});
 			}
 		});
 	}

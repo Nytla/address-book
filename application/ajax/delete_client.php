@@ -8,7 +8,7 @@
  * 
  * @category	ajax
  * @copyright	2012
- * @author	Igor Zhabskiy <Zhabskiy.Igor@gmail.com>
+ * @author		Igor Zhabskiy <Zhabskiy.Igor@gmail.com>
  */
 
 /**

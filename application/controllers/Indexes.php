@@ -40,14 +40,14 @@ final class Indexes extends Templating {
 		 * Create array with variables for header tempalate
 		 */
 		$params = array(
-			"charset"		=> Config::dataArray('common', 'charset'),
-			"site_name"		=> Locale::languageEng('site', 'title'),
-			"title"			=> $title,
+			"charset"			=> Config::dataArray('common', 'charset'),
+			"site_name"			=> Locale::languageEng('site', 'title'),
+			"title"				=> $title,
 			"image_path"		=> Config::dataArray('image_settings', 'images_path'),
-			"screen"		=> Config::dataArray('css', 'path'),
-			"print"			=> Config::dataArray('css', 'path'),
-			"ie"			=> Config::dataArray('css', 'path'),
-			"jquery"		=> Config::dataArray('jquery_lib', 'path'),
+			"screen"			=> Config::dataArray('css', 'path'),
+			"print"				=> Config::dataArray('css', 'path'),
+			"ie"				=> Config::dataArray('css', 'path'),
+			"jquery"			=> Config::dataArray('jquery_lib', 'path'),
 			"flag_blue_print"	=> $flag_blue_print
 		);
 

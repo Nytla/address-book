@@ -93,7 +93,7 @@ $(document).ready(function() {
 
 					$('#error_incorect')
 						.removeClass()
-						.addClass("error");
+						.addClass("error");	
 				} else {
 
 					var url = object.redirect_file;

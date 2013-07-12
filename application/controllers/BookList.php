@@ -67,21 +67,21 @@ final class BookList extends Templating {
 		 * Create authorization content
 		 */
 		$params = array(
-			"site_name"		=> Locale::languageEng('site', 'name'),
-			"search_word"		=> Locale::languageEng('book_list', 'search_word'),
-			"keywords_word"		=> Locale::languageEng('book_list', 'keywords_word'),			
-			"country_word"		=> Locale::languageEng('book_list', 'country_word'),
-			"city_word"		=> Locale::languageEng('book_list', 'city_word'),
-			"empty_option"		=> Locale::languageEng('book_list', 'empty_option'),
-			"add_new_client"	=> Locale::languageEng('book_list', 'add_new_client'),
+			"site_name"				=> Locale::languageEng('site', 'name'),
+			"search_word"			=> Locale::languageEng('book_list', 'search_word'),
+			"keywords_word"			=> Locale::languageEng('book_list', 'keywords_word'),			
+			"country_word"			=> Locale::languageEng('book_list', 'country_word'),
+			"city_word"				=> Locale::languageEng('book_list', 'city_word'),
+			"empty_option"			=> Locale::languageEng('book_list', 'empty_option'),
+			"add_new_client"		=> Locale::languageEng('book_list', 'add_new_client'),
 			"back_to_page_layout"	=> Locale::languageEng('book_list', 'back_to_page_layout'),
-			"image_path"		=> Config::dataArray('errors', 'image'),
-			"details_open"		=> Locale::languageEng('book_list', 'details_open'),
-			"details_close"		=> Locale::languageEng('book_list', 'details_close'),
-			"client_edit"		=> Locale::languageEng('book_list', 'client_edit'),
-			"client_delete"		=> Locale::languageEng('book_list', 'client_delete'),
+			"image_path"			=> Config::dataArray('errors', 'image'),
+			"details_open"			=> Locale::languageEng('book_list', 'details_open'),
+			"details_close"			=> Locale::languageEng('book_list', 'details_close'),
+			"client_edit"			=> Locale::languageEng('book_list', 'client_edit'),
+			"client_delete"			=> Locale::languageEng('book_list', 'client_delete'),
 			"preloader_alt_text"	=> Locale::languageEng('book_list', 'preloader_alt_text'),
-			"phrase"		=> BookListModel::getRandomPhraseFromDB(),
+			"phrase"				=> BookListModel::getRandomPhraseFromDB(),
 		);
 
 		/**

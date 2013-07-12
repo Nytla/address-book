@@ -67,15 +67,15 @@ final class UserBookList extends Templating {
 		 * Create authorization content
 		 */
 		$params = array(
-			"site_name"		=> Locale::languageEng('site', 'name'),
+			"site_name"			=> Locale::languageEng('site', 'name'),
 			"search_word"		=> Locale::languageEng('book_list', 'search_word'),
 			"keywords_word"		=> Locale::languageEng('book_list', 'keywords_word'),			
 			"country_word"		=> Locale::languageEng('book_list', 'country_word'),
-			"city_word"		=> Locale::languageEng('book_list', 'city_word'),
+			"city_word"			=> Locale::languageEng('book_list', 'city_word'),
 			"empty_option"		=> Locale::languageEng('book_list', 'empty_option'),
-			"preloader_alt_text"	=> Locale::languageEng('book_list', 'preloader_alt_text'),
+			"preloader_alt_text"=> Locale::languageEng('book_list', 'preloader_alt_text'),
 			"image_path"		=> Config::dataArray('errors', 'image'),
-			"phrase"		=> UserBookListModel::getUserRandomPhraseFromDB()
+			"phrase"			=> UserBookListModel::getUserRandomPhraseFromDB()
 		);
 
 		/**
@@ -105,6 +105,17 @@ final class UserBookList extends Templating {
 	 */
 	public function getClientData($id) {
 		return json_encode(UserBookListModel::getUserClientsDataFromDB($id));
+	}
+	
+	/**
+	 * getClientRegions
+	 *
+	 * This function to set clients regions json
+	 *
+	 * @return json
+	 */	
+	public function getClientRegions() {
+		return json_encode(UserBookListModel::getUserClientsRegionFromDB());
 	}
 	
 	/**
@@ -193,16 +204,21 @@ final class UserBookList extends Templating {
 		for ($i = 0; $i < count($acolumns); $i++) {
 			
 			if (isset($_GET['bSearchable_'.$i]) && $_GET['bSearchable_'.$i] == "true" && $_GET['sSearch_'.$i] != '') {
-				
+			
 				if ($swhere == "") {
-					
+					/*
 					$swhere = "WHERE ";
 					$count_swhere = "WHERE ";
+					*/
+					
+					$swhere = " AND ";
+					$count_swhere = " AND ";
+					
 				} else {
 					$swhere .= " AND ";
 					$count_swhere .= " AND ";
 				}
-				
+
 				$swhere .= "`" . $acolumns[$i] . "` LIKE '%" . mysql_escape_string($_GET['sSearch_'.$i]) . "%' ";
 				$count_swhere .= "`".$acolumns[$i]."` LIKE '%" . mysql_escape_string($_GET['sSearch_'.$i]) . "%' ";
 			}

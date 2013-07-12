@@ -2,13 +2,13 @@
 /**
  * Adress Book Ajax
  * 
- * user_clients_object.php
+ * user_clients_json.php
  *
- * This is ajax file create clients object from DB
+ * This is ajax file create clients (json) from DB
  * 
  * @category	ajax
  * @copyright	2012
- * @author	Igor Zhabskiy <Zhabskiy.Igor@gmail.com>
+ * @author		Igor Zhabskiy <Zhabskiy.Igor@gmail.com>
  */
 
 /**

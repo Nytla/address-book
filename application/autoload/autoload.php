@@ -47,7 +47,6 @@ final class ClassAutoloader {
 		 * Create array with folder paths
 		 */
 		$paths = array(
-
 			$root . '/../../application/controllers/' . $class_name . '.php',
 			$root . '/../../application/models/' . $class_name . '.php',
 			$root . '/../../application/settings/' . $class_name . '.php',

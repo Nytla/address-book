@@ -80,10 +80,10 @@ final class Authorization extends Templating {
 			"auth"			=> Locale::languageEng('authorization', 'auth'),
 			'login'			=> Locale::languageEng('authorization', 'login'),			
 			'password'		=> Locale::languageEng('authorization', 'password'),			
-			'login_button'		=> Locale::languageEng('authorization', 'login_button'),
-			"error_incorect"	=> Locale::languageEng('authorization', 'error_incorect'),
-			"error_empty"		=> Locale::languageEng('authorization', 'error_empty'),
-			"error_capcha"		=> Locale::languageEng('authorization', 'error_capcha')
+			'login_button'	=> Locale::languageEng('authorization', 'login_button'),
+			"error_incorect"=> Locale::languageEng('authorization', 'error_incorect'),
+			"error_empty"	=> Locale::languageEng('authorization', 'error_empty'),
+			"error_capcha"	=> Locale::languageEng('authorization', 'error_capcha')
 		);
 
 		/**

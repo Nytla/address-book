@@ -65,11 +65,11 @@ final class Errors extends Templating {
 		 * Get error codes from locale
 		 */
 		$params = array(
-			"site_url"		=> Config::dataArray('server', 'slash') . Config::dataArray('paths', 'adminpanel'),
-			"site_name"		=> Locale::languageEng('site', 'name'),			
+			"site_url"			=> Config::dataArray('server', 'slash') . Config::dataArray('paths', 'adminpanel'),
+			"site_name"			=> Locale::languageEng('site', 'name'),			
 			"page_error"		=> Locale::languageEng('http_status', 'page_error'),
 			"error_description"	=> Locale::languageEng('http_status', $error),
-			"image"			=> Config::dataArray('errors', 'image')
+			"image"				=> Config::dataArray('errors', 'image')
 		);
 
 		$template .= Templating::renderingTemplate($template_name, $params);

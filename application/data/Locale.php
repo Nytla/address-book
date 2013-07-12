@@ -136,13 +136,13 @@ final class Locale {
 
 			"add_admin"	=> array(
 
-				"title"			=> 'Admin: Add New Administrator',
-				"layout"		=> 'Page Layout',
-				"content"		=> 'Add New Administrator',
-				"confirm_password"	=> 'Confirm password:',
-				"save"			=> 'Save',	
-				"error_empty_login"	=> 'Please enter a login!',
-				"error_empty_pass"	=> 'Please enter a password!',
+				"title"					=> 'Admin: Add New Administrator',
+				"layout"				=> 'Page Layout',
+				"content"				=> 'Add New Administrator',
+				"confirm_password"		=> 'Confirm password:',
+				"save"					=> 'Save',	
+				"error_empty_login"		=> 'Please enter a login!',
+				"error_empty_pass"		=> 'Please enter a password!',
 				"error_empty_pass_conf"	=> 'Please enter a confirm password!',
 				"error_incorect_login"	=> 'Login must consist of English letters!',
 				"error_incorect_pass"	=> 'Password must consist of English letters and digits!',
@@ -150,28 +150,28 @@ final class Locale {
 				"error_min_length_pass"	=> 'Your password must be at least 5 characters long!',
 				"error_max_length_login"=> 'Your login should contain no more than 16 characters!',
 				"error_max_length_pass"	=> 'Your password should contain no more than 16 characters!',
-				"error_confirm"		=> 'Please enter the same password as above!',
-				"error_exists"		=> 'Adminitsrator with this login already exists!',
-				"add_good_message"	=> 'The new administrator has been added to the database.'
+				"error_confirm"			=> 'Please enter the same password as above!',
+				"error_exists"			=> 'Adminitsrator with this login already exists!',
+				"add_good_message"		=> 'The new administrator has been added to the database.'
 			),
 
 			"book_list"	=> array(
 
-				"title"			=> 'Admin: Adress Book List',
-				"search_word"		=> 'Search',
-				"keywords_word"		=> "Keywords",
-				"country_word"		=> "Country",
-				"city_word"		=> "City",
-				"empty_option"		=> '::ALL::',
-				"add_new_client"	=> 'Add New Client',
+				"title"					=> 'Admin: Adress Book List',
+				"search_word"			=> 'Search',
+				"keywords_word"			=> "Keywords",
+				"country_word"			=> "Country",
+				"city_word"				=> "City",
+				"empty_option"			=> '::ALL::',
+				"add_new_client"		=> 'Add New Client',
 				"preloader_alt_text"	=> 'Loading...',
 				"back_to_page_layout"	=> 'Back to the Page Layout',
-				"details_open"		=> 'Details open',
-				"details_close"		=> 'Details close',
-				"client_edit"		=> 'Edit',
-				"client_delete"		=> 'Delete',
-				"no_photo"		=> 'No photo available.',
-				"no_notes"		=> 'No information available.'
+				"details_open"			=> 'Details open',
+				"details_close"			=> 'Details close',
+				"client_edit"			=> 'Edit',
+				"client_delete"			=> 'Delete',
+				"no_photo"				=> 'No photo available.',
+				"no_notes"				=> 'No information available.'
 			),
 
 			"user_book_list"=> array(
@@ -183,18 +183,18 @@ final class Locale {
 
 				"title"			=> 'Admin: Add New Client',
 				"page_name"		=> 'Add New Client',
-				"first_name"		=> 'First Name:',
+				"first_name"	=> 'First Name:',
 				"last_name"		=> 'Last Name:',
 				"email"			=> 'Email:',
 				"country"		=> 'Country:',
 				"city"			=> 'City:',
 				"photo"			=> 'Photo:',
 				"preloader_alt_text"	=> 'Loading...',
-				"thumbnail_photo"	=> 'Thumbnail photo',
-				"preview"		=> 'Preview',
-				"notes"			=> 'Notes:',
-				"reset"			=> 'Reset',
-				"back_to_book_list"	=> 'Back to the Address Book',
+				"thumbnail_photo"		=> 'Thumbnail photo',
+				"preview"				=> 'Preview',
+				"notes"					=> 'Notes:',
+				"reset"					=> 'Reset',
+				"back_to_book_list"		=> 'Back to the Address Book',
 				"error_required_f_n"	=> 'First Name is required!',
 				"error_min_length_f_n"	=> 'First Name must be at least 2 characters long!',
 				"error_max_length_f_n"	=> 'First Name should contain no more than 16 characters!',
@@ -208,18 +208,18 @@ final class Locale {
 				"error_max_length_email"=> 'Email address should contain no more than 16 characters!',
 				"error_incorect_email"	=> 'Please enter a valid email address!',
 				"error_empty_country"	=> 'Country is required!',
-				"error_empty_city"	=> 'City is required!',
+				"error_empty_city"		=> 'City is required!',
 				"error_upload_photo"	=> 'Please upload your photo!',
-				"error_image_size"	=> 'File is larger than 1 Mb!',
+				"error_image_size"		=> 'File is larger than 1 Mb!',
 				"error_image_extension"	=> 'The downloaded image is not supported!',
 				"error_image_resize"	=> 'Image resize error (maybe file is small).',
 				"mess_max_length_notes" => '(1500 characters max.)',
-				"add_good_message"	=> 'The new client has been added to the database.'
+				"add_good_message"		=> 'The new client has been added to the database.'
 			),
 
 			"edit_client"	=> array(
 
-				"title"			=> 'Admin: Edit Client',
+				"title"				=> 'Admin: Edit Client',
 				"edit_good_message"	=> 'Client data successfully changed.',
 				"edit_bad_message"	=> 'Customer data were not recorded due to technical reasons.',
 				"edit_bad_client"	=> 'These clients can not be found.'

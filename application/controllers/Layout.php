@@ -43,13 +43,13 @@ final class Layout extends Templating {
 		 * Create authorization content
 		 */
 		$params = array(
-			"ab"			=> Locale::languageEng('site', 'name'),
+			"ab"				=> Locale::languageEng('site', 'name'),
 			"address_book"		=> Locale::languageEng('authorization', 'auth'),
-			"log_out"		=> Locale::languageEng('layout', 'log_out'),	
-			"add_admin"		=> Locale::languageEng('layout', 'add_admin'),
-			"prepend"		=> AddAdminModel::adminPermission() ? 8 : 10,
+			"log_out"			=> Locale::languageEng('layout', 'log_out'),	
+			"add_admin"			=> Locale::languageEng('layout', 'add_admin'),
+			"prepend"			=> AddAdminModel::adminPermission() ? 8 : 10,
 			"admin_permission"	=> AddAdminModel::adminPermission(),
-			"content"		=> Locale::languageEng('layout', 'content'),
+			"content"			=> Locale::languageEng('layout', 'content'),
 		);
 
 		/**
