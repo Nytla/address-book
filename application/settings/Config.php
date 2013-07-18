@@ -69,18 +69,18 @@ final class Config {
 				"port"		=> '3306',
 				"name"		=> 'address_book', 
 				"login"		=> 'root',
-				"password"	=> '551514',
+				"password"	=> '',
 				"charset"	=> 'utf8'
 			),
 
 			"table_name"	=> array(
 
-				"clients"	=> 'clients',
+				"clients"		=> 'clients',
 				"administrators"=> 'administrators',
-				"phrases"	=> 'phrases',
-				"countries"	=> 'countries',
-				"cities"	=> 'cities',
-				"photos"	=> 'photos'
+				"phrases"		=> 'phrases',
+				"countries"		=> 'countries',
+				"cities"		=> 'cities',
+				"photos"		=> 'photos'
 			),
 
 			"paths"		=> array(
@@ -127,8 +127,8 @@ final class Config {
 
 			"jquery_lib"	=> array(
 
-				"path"		=> '/libraries/jquery/',
-				"jquery"	=> 'jQuery_v1.8.2.js',
+				"path"			=> '/libraries/jquery/',
+				"jquery"		=> 'jQuery_v1.8.2.js',
 				"valid_plugin"	=> 'jQuery_validation_1.9.0.js',
 				"form_plugin"	=> 'jQuery_form_3.14.js',
 				"data_table"	=> 'jQuery_dataTables_1.9.3_min.js'

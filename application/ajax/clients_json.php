@@ -2,9 +2,9 @@
 /**
  * Adress Book Ajax
  * 
- * clients_object.php
+ * clients_json.php
  *
- * This is ajax file create clients object from DB
+ * This is ajax file create clients (json) from DB
  * 
  * @category	ajax
  * @copyright	2012

@@ -120,10 +120,10 @@ final class Locale {
 				"auth"			=> 'Authorization',
 				"login"			=> 'Login:',
 				"password"		=> 'Password:',
-				"login_button"		=> 'Login',
-				"error_incorect"	=> 'Login or password is incorrect.',
-				"error_empty"		=> 'Login or password is empty.',
-				"error_capcha"		=> 'You did not validate captcha.'
+				"login_button"	=> 'Login',
+				"error_incorect"=> 'Login or password is incorrect.',
+				"error_empty"	=> 'Login or password is empty.',
+				"error_capcha"	=> 'You did not validate captcha.'
 			),
 
 			"layout"	=> array(
